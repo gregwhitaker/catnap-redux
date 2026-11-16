@@ -194,7 +194,7 @@ export async function buildSite(options = {}) {
     copyFile(path.join(websiteRoot, 'src/styles.css'), path.join(output, 'assets/styles.css')),
     copyFile(path.join(websiteRoot, 'src/app.js'), path.join(output, 'assets/app.js')),
     copyFile(path.join(websiteRoot, 'src/search.mjs'), path.join(output, 'assets/search.mjs')),
-    copyFile(path.join(repositoryRoot, 'docs/assets/colorways/catnap-slate-graphite.png'), path.join(output, 'assets/logo.png')),
+    copyFile(path.join(repositoryRoot, 'brand/logos/colorways/catnap-slate-graphite.png'), path.join(output, 'assets/logo.png')),
     writeFile(path.join(output, '.nojekyll'), ''),
   ]);
   for (const [index, page] of pages.entries()) {

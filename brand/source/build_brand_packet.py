@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Rebuild Catnap's brand guide and application artwork from the supplied logo.
 
-Install source/requirements.txt, then run this file from an unpacked packet.
-Use --packet PATH to select a packet folder. The source logo is never modified.
+Install brand/source/requirements.txt, then run this file from any directory.
+The default asset folder is brand/ beside this source directory. Use --packet
+PATH to select another asset folder. The source logo is never modified.
 """
 import argparse
 import json
@@ -487,20 +488,20 @@ def write_tokens(packet):
 
 def main():
     parser=argparse.ArgumentParser()
-    default=Path(__file__).resolve().parents[1] if Path(__file__).parent.name=='source' else Path.cwd()/'output/brand/catnap-brand-packet'
+    default=Path(__file__).resolve().parents[1]
     parser.add_argument('--packet',type=Path,default=default)
     parser.add_argument('--pdftoppm',default=shutil.which('pdftoppm'))
     args=parser.parse_args(); packet=args.packet.resolve()
-    for d in ('logos','fonts','graphics','tokens','copy','source'): (packet/d).mkdir(parents=True,exist_ok=True)
+    for d in ('logos','fonts','guides','graphics','tokens','copy','source'): (packet/d).mkdir(parents=True,exist_ok=True)
     global LOGO
     LOGO=packet/'logos/catnap-logo.png'
     with tempfile.TemporaryDirectory(prefix='catnap-brand-') as tmp:
         cache=Path(tmp)
         register_fonts(packet,cache)
         write_tokens(packet)
-        guide(packet/'Catnap-Brand-Guide.pdf')
-        reader=PdfReader(packet/'Catnap-Brand-Guide.pdf')
-        qc=canvas.Canvas(str(packet/'Catnap-Quick-Reference.pdf'),pagesize=(W,H))
+        guide(packet/'guides/Catnap-Brand-Guide.pdf')
+        reader=PdfReader(packet/'guides/Catnap-Brand-Guide.pdf')
+        qc=canvas.Canvas(str(packet/'guides/Catnap-Quick-Reference.pdf'),pagesize=(W,H))
         qc.setTitle('Catnap Quick Reference'); qc.setAuthor('Catnap')
         draw_quick_reference(Page(qc),standalone=True)
         qc.showPage(); qc.save()

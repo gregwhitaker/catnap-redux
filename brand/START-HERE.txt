@@ -2,13 +2,17 @@ CATNAP BRAND PACKET
 Identity system 1.0 / November 15, 2026
 
 START WITH THE GUIDE
-Catnap-Brand-Guide.pdf is the complete 12-page guide.
-Catnap-Quick-Reference.pdf is the one-page desk reference.
+guides/Catnap-Brand-Guide.pdf is the complete 12-page guide.
+guides/Catnap-Quick-Reference.pdf is the one-page desk reference.
+README.md indexes the organized assets and original delivery archives.
 
 WHAT IS INCLUDED
 logos/catnap-logo.png
   The original approved logo, byte-for-byte unchanged.
   Transparent RGBA PNG, 2172 x 724 pixels. No vector master is included.
+logos/colorways/
+  Blue, gray and white variants with their usage notes and generation prompts.
+  The guides and tokens retain the original green palette.
 
 graphics/catnap-social-1200x630.png
   General social/link preview artwork, 1200 x 630 pixels.
@@ -17,6 +21,8 @@ graphics/catnap-repository-banner-1600x400.png
 graphics/catnap-announcement-1080x1080.png
   Square brand announcement, 1080 x 1080 pixels.
   These are reusable graphics; they have not been posted anywhere.
+graphics/catnap-brand-preview.png
+  Overview of the original identity system.
 
 fonts/
   Manrope variable font, IBM Plex Mono regular and medium.
@@ -42,8 +48,11 @@ source/references.txt
   Project evidence and official font/accessibility references.
 source/logo-generation-prompt.txt
   Provenance for the original logo; generated with the built-in image tool.
-source/validation.json
-  File integrity, dimensions and document checks from this delivery.
+source/original-delivery-validation.json
+  Historical checks and hashes for archives/catnap-brand-packet.zip.
+  File paths refer to that archive's original layout, not the current folders.
+archives/
+  Original brand packet and colorway ZIP deliveries, preserved unchanged.
 
 QUICK RULES
 Use the logo on Paper, white or Sage. For dark layouts, place it on a
@@ -59,7 +68,7 @@ Use Manrope for prose and IBM Plex Mono for code and technical labels.
 The logo's lettering is fixed artwork; neither font replaces the wordmark.
 
 REBUILD
-In an unpacked packet, with Python 3 and Poppler installed:
+From this brand folder, with Python 3 and Poppler installed:
   python3 -m venv .venv
   .venv/bin/python -m pip install -r source/requirements.txt
   .venv/bin/python source/build_brand_packet.py --packet .
@@ -68,6 +77,7 @@ If pdftoppm is not on PATH, add --pdftoppm /absolute/path/to/pdftoppm.
 If no renderer is found, the script retains the application artwork as PDFs.
 The builder regenerates PDFs, tokens and graphics in place. Make a copy of
 the packet before changing the source if you want to keep this edition.
+It does not rebuild logos, the overview preview, archives or historical checks.
 Manrope static instances are temporary authoring files; the bundled font is
 the original variable distribution. The original logo is never redrawn.
 

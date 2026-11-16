@@ -11,10 +11,11 @@ docs/CORE_API.md
 Paths above are relative to the Catnap project repository.
 
 APPROVED LOGO
-docs/assets/catnap-logo.png
+brand/logos/catnap-logo.png
   Original approved artwork, copied without changing any bytes.
-source/logo-generation-prompt.txt
+brand/source/logo-generation-prompt.txt
   Original generation prompt and tool provenance.
+Paths above are relative to the Catnap project repository.
 
 TYPEFACES / OFFICIAL DISTRIBUTIONS
 Manrope

@@ -36,7 +36,7 @@ Open `http://127.0.0.1:4173/catnap/`. Build again without those variables to ret
 
 ## Deploy with GitHub Actions
 
-1. Commit and push the website, documentation, lockfile, and [Documentation workflow](../.github/workflows/docs.yml) to the repository's default branch.
+1. Commit and push the website, documentation, [brand assets](../brand/README.md), lockfile, and [Documentation workflow](../.github/workflows/docs.yml) to the repository's default branch.
 2. In the GitHub repository, open **Settings → Pages → Build and deployment**, and set **Source** to **GitHub Actions**. If the repository is private, its plan must support Pages. See [GitHub's publishing source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 3. Open **Actions → Documentation → Run workflow** on the default branch for the first deployment, or push a documentation change. The deployment's environment link is the live site URL.
 
@@ -51,7 +51,7 @@ For details on the deployment contract, see [GitHub's custom workflow guide](htt
 - Edit the existing Markdown guides in `docs/` and `examples/README.md`. The site reads them directly.
 - Add or reorder pages in `src/config.mjs`; each page has a stable URL, title, summary, and source file.
 - Keep relative Markdown links in the source. Links to site guides become local URLs and retain their anchors. Other repository links point to GitHub, and the build rejects missing local source targets.
-- Change branding and layout in `src/styles.css`. The logo is copied from `docs/assets/colorways/catnap-slate-graphite.png`.
+- Change branding and layout in `src/styles.css`. The logo is copied from `brand/logos/colorways/catnap-slate-graphite.png`; see the [brand asset index](../brand/README.md) for other variants and guides.
 - The version label comes from `gradle.properties`. Update release availability statements in the guides when a release actually ships.
 - `GITHUB_REPOSITORY` sets the GitHub source repository (default `gregwhitaker/catnap`). `DOCS_REF` sets the source branch (default `master`); Actions supplies the repository's default branch.
 

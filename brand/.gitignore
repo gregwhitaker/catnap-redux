@@ -1,0 +1,4 @@
+# Local Python authoring environment and bytecode
+.venv/
+__pycache__/
+*.pyc

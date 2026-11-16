@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/colorways/catnap-white-slate-on-navy.png">
-  <img src="docs/assets/catnap-logo.png" alt="Catnap" width="420">
+  <source media="(prefers-color-scheme: dark)" srcset="brand/logos/colorways/catnap-white-slate-on-navy.png">
+  <img src="brand/logos/catnap-logo.png" alt="Catnap" width="420">
 </picture>
 
 # Catnap
@@ -23,7 +23,7 @@ A Google-style selection of `name,price(amount)` returns:
 
 Catnap projects the JSON produced by your configured serializer, preserving naming rules, visibility, custom serializers, and numeric precision. Field selection does not fetch data or replace application authorization.
 
-[Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](docs/README.md) · [Migrating from Catnap 2](docs/MIGRATION.md)
+[Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](docs/README.md) · [Migrating from Catnap 2](docs/MIGRATION.md) · [Brand assets](brand/README.md)
 
 ## Documentation website
 

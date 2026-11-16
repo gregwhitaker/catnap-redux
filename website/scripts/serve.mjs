@@ -64,7 +64,7 @@ if (development) {
     } catch (error) { console.error(error.message); }
     finally { building = false; if (dirty) { dirty = false; rebuild(); } }
   }
-  for (const watched of [path.join(websiteRoot, 'src'), path.join(repositoryRoot, 'docs'), path.join(repositoryRoot, 'gradle.properties')]) {
+  for (const watched of [path.join(websiteRoot, 'src'), path.join(repositoryRoot, 'docs'), path.join(repositoryRoot, 'brand/logos'), path.join(repositoryRoot, 'gradle.properties')]) {
     watchers.push(watch(watched, { recursive: true }, (_event, filename) => {
       if (filename && !/\.(md|mjs|js|css|png|properties)$/.test(filename)) return;
       clearTimeout(timer); timer = setTimeout(rebuild, 150);
