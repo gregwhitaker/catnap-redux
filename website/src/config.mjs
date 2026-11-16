@@ -4,6 +4,7 @@ export const groups = [
     pages: [
       { slug: '', title: 'Introduction', icon: 'book', description: 'Select just the JSON fields you need, with your existing JVM stack.' },
       { slug: 'quickstart', title: 'Quickstart', source: 'docs/GETTING_STARTED.md', icon: 'terminal', description: 'Run your first JSON projection with Catnap.' },
+      { slug: 'examples', title: 'Runnable examples', source: 'examples/README.md', description: 'Try standalone projection or run any of the five framework applications.' },
     ],
   },
   {

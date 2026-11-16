@@ -25,6 +25,18 @@ Catnap projects the JSON produced by your configured serializer, preserving nami
 
 [Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](docs/README.md) · [Migrating from Catnap 2](docs/MIGRATION.md)
 
+## Documentation website
+
+The [documentation website](website/README.md) builds directly from the Markdown guides and includes a [quickstart](docs/GETTING_STARTED.md), local search, query examples, and framework guides. Preview it with Node 22 or newer:
+
+```bash
+cd website
+npm ci
+npm run dev
+```
+
+The [Documentation workflow](.github/workflows/docs.yml) validates pull requests and deploys default-branch documentation changes to GitHub Pages. Set **Settings → Pages → Source** to **GitHub Actions**, then run the workflow. See the [deployment instructions](website/README.md#deploy-with-github-actions).
+
 ## Project status
 
 This is the **3.0.0-SNAPSHOT** development version. The core, JSON bindings, framework integrations, and streaming helpers are implemented and verified locally. Public release publication and hosted CI execution are not part of the recorded verification. Use the source examples or locally built artifacts below to try this version.

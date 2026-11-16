@@ -15,7 +15,8 @@ export function normalizeBasePath(value = '/') {
   if (!/^\/?[a-zA-Z0-9_./-]+\/?$/.test(value) || value.split('/').some(segment => segment === '.' || segment === '..')) {
     throw new Error('BASE_PATH must be a URL path, for example /catnap/.');
   }
-  return `/${value.split('/').filter(Boolean).join('/')}/`;
+  const segments = value.split('/').filter(Boolean);
+  return segments.length ? `/${segments.join('/')}/` : '/';
 }
 
 export function headingSlug(text) {
@@ -103,7 +104,8 @@ export async function buildSite(options = {}) {
           toc.push({ title, id });
         }
       }
-      if (token.type === 'inline' || token.type === 'fence') sectionText.push(token.content);
+      if (token.type === 'inline') sectionText.push((token.children || []).map(child => child.type === 'softbreak' ? ' ' : child.content).join(''));
+      if (token.type === 'fence') sectionText.push(token.content);
       for (const child of token.children || []) {
         if (child.type === 'link_open') {
           const href = await resolveSourceLink(child.attrGet('href'), page.source);
@@ -139,6 +141,7 @@ export async function buildSite(options = {}) {
   <link rel="icon" href="${asset('logo.png')}" type="image/png"><link rel="stylesheet" href="${asset('styles.css')}">
   <script>try{const t=localStorage.getItem('catnap-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch{}</script>
   <script type="module" src="${asset('app.js')}"></script>
+  <noscript><style>.search-trigger,.theme-toggle,.menu-toggle,.copy-button,.copy-query,.demo-topbar{display:none!important}@media(max-width:720px){.sidebar{display:block;position:static;width:auto;margin-top:64px;padding:20px}.page-layout,.page-layout.home-layout{padding-top:32px}}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
