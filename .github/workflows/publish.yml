@@ -22,6 +22,8 @@ jobs:
   publish:
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     permissions:
       contents: read
       packages: write
@@ -89,3 +91,62 @@ jobs:
             **/build/publications/
             benchmarks/streaming-runner/build/results/smoke/
           if-no-files-found: ignore
+
+  verify-published:
+    name: Consume GitHub Packages (${{ matrix.metadata }})
+    needs: publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        metadata: [gradle, pom]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install compilation and test runtimes
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: |
+            17
+            21
+            25
+      - name: Configure Gradle without restoring cached artifacts
+        uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a # v4.4.3
+        with:
+          cache-disabled: true
+      - name: Prepare independent consumers
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+        run: >-
+          ./gradlew prepareGradleConsumers preparePomConsumers
+          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+          --no-daemon --console=plain
+      - name: Build and test consumers against GitHub Packages
+        env:
+          VERSION: ${{ needs.publish.outputs.version }}
+          METADATA_MODE: ${{ matrix.metadata }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+        run: >-
+          ./gradlew -p "build/publication-smoke/$METADATA_MODE"
+          build compatibilityTest verifyPublishedDependencies
+          -PcatnapVersion="$VERSION"
+          -PcatnapRepository="https://maven.pkg.github.com/${GITHUB_REPOSITORY,,}"
+          -PmetadataMode="$METADATA_MODE"
+          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+          --refresh-dependencies --no-build-cache --no-daemon --console=plain
+      - name: Preserve remote-consumption reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: github-packages-consumers-${{ matrix.metadata }}
+          path: |
+            build/publication-smoke/${{ matrix.metadata }}/**/build/reports/tests/
+            build/publication-smoke/${{ matrix.metadata }}/**/build/test-results/
+          if-no-files-found: warn

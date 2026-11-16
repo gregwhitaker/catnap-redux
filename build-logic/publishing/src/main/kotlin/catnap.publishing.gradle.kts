@@ -18,7 +18,7 @@ val githubRepository =
     providers
         .gradleProperty("githubRepository")
         .orElse(providers.environmentVariable("GITHUB_REPOSITORY"))
-        .orElse("gregwhitaker/catnap")
+        .orElse("gregwhitaker/catnap-redux")
         .map { it.lowercase(Locale.ROOT) }
 
 publishing {
@@ -30,7 +30,7 @@ publishing {
                 description =
                     if (platformPublication) "Version alignment for Catnap artifacts"
                     else "Catnap JSON partial response library: ${project.name}"
-                url = "https://github.com/gregwhitaker/catnap"
+                url = "https://github.com/gregwhitaker/catnap-redux"
                 licenses {
                     license {
                         name = "Apache License, Version 2.0"
@@ -44,8 +44,8 @@ publishing {
                     }
                 }
                 scm {
-                    url = "https://github.com/gregwhitaker/catnap"
-                    connection = "scm:git:https://github.com/gregwhitaker/catnap.git"
+                    url = "https://github.com/gregwhitaker/catnap-redux"
+                    connection = "scm:git:https://github.com/gregwhitaker/catnap-redux.git"
                 }
             }
         }
@@ -62,7 +62,7 @@ publishing {
                 repository.matches(Regex("[a-z0-9-]+/[a-z0-9_.-]+")) &&
                     repository.substringAfter('/') !in setOf(".", "..")
             ) {
-                "githubRepository must be a GitHub owner/repository, for example gregwhitaker/catnap"
+                "githubRepository must be a GitHub owner/repository, for example gregwhitaker/catnap-redux"
             }
             url = uri("https://maven.pkg.github.com/$repository")
             credentials {

@@ -53,7 +53,7 @@ For details on the deployment contract, see [GitHub's custom workflow guide](htt
 - Keep relative Markdown links in the source. Links to site guides become local URLs and retain their anchors. Other repository links point to GitHub, and the build rejects missing local source targets.
 - Change branding and layout in `src/styles.css`. The logo is copied from `brand/logos/colorways/catnap-slate-graphite.png`; see the [brand asset index](../brand/README.md) for other variants and guides.
 - The version label comes from `gradle.properties`. Update release availability statements in the guides when a release actually ships.
-- `GITHUB_REPOSITORY` sets the GitHub source repository (default `gregwhitaker/catnap`). `DOCS_REF` sets the source branch (default `master`); Actions supplies the repository's default branch.
+- `GITHUB_REPOSITORY` sets the GitHub source repository (default `gregwhitaker/catnap-redux`). `DOCS_REF` sets the source branch (default `main`); Actions supplies the repository's default branch.
 
 Search data, table-of-contents anchors, previous/next navigation, a 404 page, and `.nojekyll` are generated during the build. `SITE_URL` additionally enables canonical URLs, Open Graph URLs, a sitemap, and `robots.txt`. Generated output stays in ignored `dist/`; do not commit it. Relative documentation images deliberately require an explicit copy rule in the builder, so unhandled assets cannot silently ship as broken links.
 

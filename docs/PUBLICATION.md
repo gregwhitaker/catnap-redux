@@ -57,7 +57,7 @@ GitHub Packages publication is configured alongside the temporary local reposito
 
 ## Publish to GitHub Packages
 
-The shared publishing convention registers `GitHubPackages` at `https://maven.pkg.github.com/gregwhitaker/catnap`. The root `publishGitHubPackages` task publishes the same 16 libraries and BOM listed in the manifest, with Maven POMs, Gradle module metadata, binary jars, sources, and API documentation as applicable. Examples, benchmark projects, and build conventions are excluded.
+The shared publishing convention registers `GitHubPackages` at `https://maven.pkg.github.com/gregwhitaker/catnap-redux`. The root `publishGitHubPackages` task publishes the same 16 libraries and BOM listed in the manifest, with Maven POMs, Gradle module metadata, binary jars, sources, and API documentation as applicable. Examples, benchmark projects, and build conventions are excluded.
 
 The [Publish GitHub Packages workflow](../.github/workflows/publish.yml) supports two triggers:
 
@@ -65,6 +65,8 @@ The [Publish GitHub Packages workflow](../.github/workflows/publish.yml) support
 - **Manual run:** choose **Actions → Publish GitHub Packages → Run workflow**, select the branch/tag to build, and enter a Maven version such as `3.0.0-SNAPSHOT`. The workflow file must be present on the repository's default branch for manual dispatch to appear.
 
 Both paths run `build`, `compatibilityTest`, independent Gradle/POM consumers, and the five-framework streaming smoke suite at the exact publication version before uploading. The workflow serializes publication runs and uses the repository's automatic `GITHUB_TOKEN` with `contents: read` and `packages: write`. No PAT secret is needed to publish to the workflow repository. Checkout does not persist Git credentials. Verification reports and publication metadata are retained as workflow artifacts.
+
+After uploading, separate fresh runners build and test the independent consumers against GitHub Packages in both Gradle-metadata and POM-only modes. These jobs have `packages: read`, disable Gradle cache restoration and test-output caching, and resolve Catnap exclusively from the remote registry. They verify all libraries, BOM alignment, framework applications, and core compatibility on Java 17/21/25. A successful publish step alone is insufficient: both remote-consumption jobs must also pass.
 
 Commit and push the build configuration and workflow to the intended GitHub repository to activate them. This workspace's local checks do not deploy a workflow or publish packages. Existing packages must grant the workflow repository write access. See [GitHub's Gradle registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) and [GitHub Actions publication guidance](https://docs.github.com/en/actions/tutorials/publish-packages/publish-java-packages-with-gradle).
 
@@ -74,7 +76,7 @@ For local publication, supply a classic PAT with `write:packages` and access to 
 |---|---|---|
 | `gpr.user` | `GITHUB_ACTOR` | GitHub username |
 | `gpr.key` | `GITHUB_TOKEN` | PAT locally; automatic workflow token in Actions |
-| `githubRepository` | `GITHUB_REPOSITORY` | Destination `owner/repository`; defaults to `gregwhitaker/catnap` locally |
+| `githubRepository` | `GITHUB_REPOSITORY` | Destination `owner/repository`; defaults to `gregwhitaker/catnap-redux` locally |
 
 Once credentials are available:
 
@@ -97,7 +99,7 @@ repositories {
     mavenCentral()
     maven {
         name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/gregwhitaker/catnap")
+        url = uri("https://maven.pkg.github.com/gregwhitaker/catnap-redux")
         credentials {
             username = providers.gradleProperty("gpr.user")
                 .orElse(providers.environmentVariable("GITHUB_ACTOR")).orNull

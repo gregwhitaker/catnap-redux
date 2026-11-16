@@ -30,9 +30,9 @@ export async function buildSite(options = {}) {
   if (origin && (!/^https?:\/\/[^/]+\/?$/.test(origin) || new URL(origin).username || new URL(origin).password)) {
     throw new Error('SITE_URL must be an http(s) origin without a path or credentials; use BASE_PATH for the path.');
   }
-  const repository = process.env.GITHUB_REPOSITORY || 'gregwhitaker/catnap';
+  const repository = process.env.GITHUB_REPOSITORY || 'gregwhitaker/catnap-redux';
   if (!/^[\w.-]+\/[\w.-]+$/.test(repository)) throw new Error('Invalid GITHUB_REPOSITORY.');
-  const ref = process.env.DOCS_REF || 'master';
+  const ref = process.env.DOCS_REF || 'main';
   const github = `https://github.com/${repository}`;
   const sourceUrl = (source, mode = 'blob') => `${github}/${mode}/${encodeURIComponent(ref)}/${source.split('/').map(encodeURIComponent).join('/')}`;
   const url = slug => `${base}${slug ? `${slug}/` : ''}`;

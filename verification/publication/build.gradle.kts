@@ -33,6 +33,7 @@ subprojects {
     }
     tasks.withType<Test>().configureEach {
         inputs.property("publicationMetadataMode", providers.gradleProperty("metadataMode"))
+        inputs.property("publicationRepository", providers.gradleProperty("catnapRepository"))
         useJUnitPlatform()
         maxHeapSize = "768m"
         maxParallelForks = 1

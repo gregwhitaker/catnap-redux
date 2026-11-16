@@ -20,6 +20,20 @@ dependencyResolutionManagement {
                 maven {
                     name = "catnapVerification"
                     url = uri(verificationRepository)
+                    if (url.scheme == "https" && url.host == "maven.pkg.github.com") {
+                        credentials {
+                            username =
+                                providers
+                                    .gradleProperty("gpr.user")
+                                    .orElse(providers.environmentVariable("GITHUB_ACTOR"))
+                                    .orNull
+                            password =
+                                providers
+                                    .gradleProperty("gpr.key")
+                                    .orElse(providers.environmentVariable("GITHUB_TOKEN"))
+                                    .orNull
+                        }
+                    }
                     metadataSources {
                         if (metadataMode == "gradle") gradleMetadata()
                         else {
