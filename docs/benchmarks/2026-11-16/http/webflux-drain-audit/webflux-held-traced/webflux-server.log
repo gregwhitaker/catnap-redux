@@ -1,0 +1,2 @@
+2026-11-16T12:30:28.321-06:00  WARN 2896 --- [ctor-http-nio-3] reactor.netty.channel.FluxReceive        : [5db29c1a-1, L:/127.0.0.1:54068 - R:/127.0.0.1:54093] An exception has been observed post termination, use DEBUG level to see the full stack: java.net.SocketException: Connection reset
+2026-11-16T12:30:28.364-06:00  WARN 2896 --- [ctor-http-nio-2] reactor.netty.channel.FluxReceive        : [869d731f-3, L:/127.0.0.1:54068 - R:/127.0.0.1:54091] An exception has been observed post termination, use DEBUG level to see the full stack: java.net.SocketException: Connection reset

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "./gradlew",
+    ":benchmarks:streaming-runner:boundaryStress",
+    "-PstreamFrameworks=webflux",
+    "-PstreamStressCase=ndjson:sparse",
+    "-PstreamStressSeconds=2",
+    "-PstreamStressBoundaries=20",
+    "-PstreamStressReconnect=true",
+    "-PstreamStressTrace=true",
+    "-PstreamStressSynchronous=true",
+    "-PstreamStressResumeFirst=true",
+    "-PstreamStressUnpausedStart=true",
+    "--console=plain"
+  ],
+  "exitCode": 0
+}

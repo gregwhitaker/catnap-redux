@@ -1,0 +1,54 @@
+2026-11-16T18:37:02.934386Z mvc server ready on loopback port 55919
+2026-11-16T18:37:02.950766Z mvc ndjson: simultaneous queries on the same publisher
+2026-11-16T18:37:03.108488Z mvc ndjson native: throughput and first-item latency
+2026-11-16T18:37:11.047282Z mvc ndjson bypass: throughput and first-item latency
+2026-11-16T18:37:18.921064Z mvc ndjson all: throughput and first-item latency
+2026-11-16T18:37:26.821144Z mvc ndjson sparse: throughput and first-item latency
+2026-11-16T18:37:34.670390Z mvc ndjson native: retained memory with open connections
+2026-11-16T18:37:39.706596Z mvc ndjson native: 5.0s, 4468 records, post-GC heap 15400176
+2026-11-16T18:37:54.746005Z mvc ndjson native: 20.0s, 17712 records, post-GC heap 15400176
+2026-11-16T18:38:34.779504Z mvc ndjson native: 60.0s, 52421 records, post-GC heap 15400312
+2026-11-16T18:38:34.811564Z mvc ndjson all: retained memory with open connections
+2026-11-16T18:38:39.847937Z mvc ndjson all: 5.0s, 4317 records, post-GC heap 15401304
+2026-11-16T18:38:54.883298Z mvc ndjson all: 20.0s, 17403 records, post-GC heap 15401328
+2026-11-16T18:39:34.862919Z mvc ndjson all: 60.0s, 52191 records, post-GC heap 15401352
+2026-11-16T18:39:34.899145Z mvc sse: simultaneous queries on the same publisher
+2026-11-16T18:39:35.016860Z mvc sse native: throughput and first-item latency
+2026-11-16T18:39:42.931440Z mvc sse bypass: throughput and first-item latency
+2026-11-16T18:39:50.909984Z mvc sse all: throughput and first-item latency
+2026-11-16T18:39:58.852025Z mvc sse sparse: throughput and first-item latency
+2026-11-16T18:40:06.756350Z mvc sse native: retained memory with open connections
+2026-11-16T18:40:11.795670Z mvc sse native: 5.0s, 4321 records, post-GC heap 15434104
+2026-11-16T18:40:26.832326Z mvc sse native: 20.0s, 17438 records, post-GC heap 15434216
+2026-11-16T18:41:06.872337Z mvc sse native: 60.0s, 52203 records, post-GC heap 15434216
+2026-11-16T18:41:06.908142Z mvc sse all: retained memory with open connections
+2026-11-16T18:41:11.955581Z mvc sse all: 5.0s, 4417 records, post-GC heap 15435392
+2026-11-16T18:41:26.993129Z mvc sse all: 20.0s, 17450 records, post-GC heap 15435416
+2026-11-16T18:42:07.024323Z mvc sse all: 60.0s, 52272 records, post-GC heap 15435416
+2026-11-16T18:42:08.270938Z webflux server ready on loopback port 57088
+2026-11-16T18:42:08.286795Z webflux ndjson: simultaneous queries on the same publisher
+2026-11-16T18:42:08.448288Z webflux ndjson native: throughput and first-item latency
+2026-11-16T18:42:15.636606Z webflux ndjson bypass: throughput and first-item latency
+2026-11-16T18:42:22.804978Z webflux ndjson all: throughput and first-item latency
+2026-11-16T18:42:29.966316Z webflux ndjson sparse: throughput and first-item latency
+2026-11-16T18:42:37.077009Z webflux ndjson native: retained memory with open connections
+2026-11-16T18:42:42.113503Z webflux ndjson native: 5.0s, 5008 records, post-GC heap 15394776
+2026-11-16T18:42:57.146627Z webflux ndjson native: 20.0s, 20016 records, post-GC heap 15394840
+2026-11-16T18:43:37.187698Z webflux ndjson native: 60.0s, 60030 records, post-GC heap 15395096
+2026-11-16T18:43:37.193405Z webflux ndjson all: retained memory with open connections
+2026-11-16T18:43:42.254278Z webflux ndjson all: 5.0s, 5034 records, post-GC heap 15376744
+2026-11-16T18:43:57.285967Z webflux ndjson all: 20.0s, 20044 records, post-GC heap 15376768
+2026-11-16T18:44:37.324744Z webflux ndjson all: 60.0s, 60054 records, post-GC heap 15376792
+2026-11-16T18:44:37.330308Z webflux sse: simultaneous queries on the same publisher
+2026-11-16T18:44:37.422662Z webflux sse native: throughput and first-item latency
+2026-11-16T18:44:44.561308Z webflux sse bypass: throughput and first-item latency
+2026-11-16T18:44:51.693566Z webflux sse all: throughput and first-item latency
+2026-11-16T18:44:58.855606Z webflux sse sparse: throughput and first-item latency
+2026-11-16T18:45:05.954482Z webflux sse native: retained memory with open connections
+2026-11-16T18:45:10.984020Z webflux sse native: 5.0s, 5006 records, post-GC heap 15458720
+2026-11-16T18:45:26.016577Z webflux sse native: 20.0s, 20016 records, post-GC heap 15458720
+2026-11-16T18:46:06.051072Z webflux sse native: 60.0s, 60028 records, post-GC heap 16507296
+2026-11-16T18:46:06.055971Z webflux sse all: retained memory with open connections
+2026-11-16T18:46:11.100783Z webflux sse all: 5.0s, 5020 records, post-GC heap 16509832
+2026-11-16T18:46:26.129860Z webflux sse all: 20.0s, 20024 records, post-GC heap 16509856
+2026-11-16T18:47:06.163422Z webflux sse all: 60.0s, 60032 records, post-GC heap 15461280

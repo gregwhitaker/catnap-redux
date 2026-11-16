@@ -1,0 +1,77 @@
+[versions]
+kotlin = "2.4.21"
+spring-boot = "4.1.2"
+micronaut = "5.2.6"
+micronaut-plugin = "5.0.2"
+quarkus = "3.40.1.2"
+ktor = "3.6.1"
+junit = "6.1.3"
+spotless = "8.9.0"
+google-java-format = "1.33.0"
+ktfmt = "0.60"
+kotlinx-serialization = "1.11.0"
+jackson3 = "3.1.7"
+jackson2 = "2.21.8"
+dokka = "2.3.0"
+jmh = "1.37"
+coroutines = "1.11.0"
+
+[libraries]
+reactor-core = { module = "io.projectreactor:reactor-core" }
+coroutines-jdk9 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk9", version.ref = "coroutines" }
+jmh-core = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh" }
+jmh-generator = { module = "org.openjdk.jmh:jmh-generator-annprocess", version.ref = "jmh" }
+jackson2 = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson2" }
+fixture-json = { module = "tools.jackson.core:jackson-databind", version.ref = "jackson3" }
+kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+spotless-gradle = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
+dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+spring-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-framework-webmvc = { module = "org.springframework:spring-webmvc" }
+spring-framework-webflux = { module = "org.springframework:spring-webflux" }
+spring-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+servlet-api = { module = "jakarta.servlet:jakarta.servlet-api" }
+reactive-streams = { module = "org.reactivestreams:reactive-streams" }
+spring-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc" }
+spring-webflux = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+jackson3 = { module = "tools.jackson.core:jackson-databind", version.ref = "jackson3" }
+micronaut-bom = { module = "io.micronaut.platform:micronaut-platform", version.ref = "micronaut" }
+micronaut-inject = { module = "io.micronaut:micronaut-inject-java" }
+micronaut-serde-processor = { module = "io.micronaut.serde:micronaut-serde-processor" }
+micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-jackson" }
+micronaut-http = { module = "io.micronaut:micronaut-http-server-netty" }
+micronaut-server = { module = "io.micronaut:micronaut-http-server" }
+micronaut-json = { module = "io.micronaut:micronaut-json-core" }
+micronaut-jackson-core = { module = "io.micronaut:micronaut-jackson-core" }
+micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor" }
+logback-classic = { module = "ch.qos.logback:logback-classic" }
+micronaut-test = { module = "io.micronaut.test:micronaut-test-junit5" }
+quarkus-bom = { module = "io.quarkus.platform:quarkus-bom", version.ref = "quarkus" }
+quarkus-rest = { module = "io.quarkus:quarkus-rest-jackson" }
+quarkus-rest-deployment = { module = "io.quarkus:quarkus-rest-jackson-deployment" }
+quarkus-test = { module = "io.quarkus:quarkus-junit" }
+asm = { module = "org.ow2.asm:asm" }
+rest-assured = { module = "io.rest-assured:rest-assured" }
+ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
+ktor-server-core = { module = "io.ktor:ktor-server-core" }
+ktor-server-cio = { module = "io.ktor:ktor-server-cio" }
+ktor-server-negotiation = { module = "io.ktor:ktor-server-content-negotiation" }
+ktor-server-sse = { module = "io.ktor:ktor-server-sse" }
+ktor-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json" }
+ktor-test = { module = "io.ktor:ktor-server-test-host" }
+kotlinx-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+[plugins]
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+micronaut-application = { id = "io.micronaut.application", version.ref = "micronaut-plugin" }
+quarkus = { id = "io.quarkus", version.ref = "quarkus" }
+quarkus-extension = { id = "io.quarkus.extension", version.ref = "quarkus" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+

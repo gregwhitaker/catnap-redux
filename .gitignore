@@ -1,0 +1,35 @@
+# Gradle and Kotlin generated state
+.gradle/
+.kotlin/
+**/build/
+out/
+
+# Local toolchains and dependency caches
+.gradle-user-home/
+.local/
+
+# IDE and editor project state
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+
+# Local environment and credentials; keep shareable templates
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Runtime diagnostics (archived reports under docs/ remain trackable)
+/*.log
+*.hprof
+hs_err_pid*
+replay_pid*
+
+# Operating system metadata
+.DS_Store
+Thumbs.db

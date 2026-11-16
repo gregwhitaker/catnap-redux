@@ -1,0 +1,16 @@
+catnap-core
+catnap-http
+catnap-streams
+catnap-jackson2
+catnap-jackson3
+catnap-kotlinx-json
+catnap-spring-webmvc
+catnap-spring-webflux
+catnap-spring-boot-autoconfigure
+catnap-spring-boot-starter
+catnap-spring-boot-starter-webflux
+catnap-micronaut
+catnap-quarkus
+catnap-quarkus-deployment
+catnap-ktor
+catnap-testkit

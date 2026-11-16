@@ -1,0 +1,3 @@
+com.github.gregwhitaker.catnap.spring.boot.CatnapAutoConfiguration
+com.github.gregwhitaker.catnap.spring.boot.CatnapMvcAutoConfiguration
+com.github.gregwhitaker.catnap.spring.boot.CatnapWebFluxAutoConfiguration

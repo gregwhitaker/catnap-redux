@@ -1,0 +1,45 @@
+CATNAP / SOURCE REFERENCES
+Prepared November 15, 2026
+
+PROJECT FACTS
+README.md
+  Project category, scope and current implementation status.
+docs/QUERY_SPECIFICATION.md
+  Google-style name,price(amount) selection and projection behavior.
+docs/CORE_API.md
+  Reusable compiled selections, materialized JSON and adapter boundaries.
+Paths above are relative to the Catnap project repository.
+
+APPROVED LOGO
+docs/assets/catnap-logo.png
+  Original approved artwork, copied without changing any bytes.
+source/logo-generation-prompt.txt
+  Original generation prompt and tool provenance.
+
+TYPEFACES / OFFICIAL DISTRIBUTIONS
+Manrope
+https://github.com/google/fonts/tree/main/ofl/manrope
+https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf
+https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt
+
+IBM Plex Mono
+https://github.com/google/fonts/tree/main/ofl/ibmplexmono
+https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/IBMPlexMono-Regular.ttf
+https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/IBMPlexMono-Medium.ttf
+https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexmono/OFL.txt
+
+Font files are copied from the official Google Fonts repository with their
+SIL Open Font License notices. The wordmark is the original supplied artwork;
+the text families were selected to complement it, not to recreate it.
+
+COLOR CONTRAST
+W3C: Understanding WCAG 2.2 Success Criterion 1.4.3, Contrast (Minimum)
+https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+Normal text: minimum 4.5:1. Large text: minimum 3:1.
+The four recommended text pairs in the guide meet at least 4.5:1.
+Ratios are calculated from the packet's sRGB values, not sampled from images.
+This is a text-pair check, not a claim that an entire implementation meets WCAG.
+
+PALETTE AND COPY
+The palette, type hierarchy, tagline, voice guidance and layouts are original
+proposed brand decisions created for this Catnap packet.

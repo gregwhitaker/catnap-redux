@@ -1,0 +1,78 @@
+CATNAP BRAND PACKET
+Identity system 1.0 / November 15, 2026
+
+START WITH THE GUIDE
+Catnap-Brand-Guide.pdf is the complete 12-page guide.
+Catnap-Quick-Reference.pdf is the one-page desk reference.
+
+WHAT IS INCLUDED
+logos/catnap-logo.png
+  The original approved logo, byte-for-byte unchanged.
+  Transparent RGBA PNG, 2172 x 724 pixels. No vector master is included.
+
+graphics/catnap-social-1200x630.png
+  General social/link preview artwork, 1200 x 630 pixels.
+graphics/catnap-repository-banner-1600x400.png
+  Wide documentation or repository header, 1600 x 400 pixels.
+graphics/catnap-announcement-1080x1080.png
+  Square brand announcement, 1080 x 1080 pixels.
+  These are reusable graphics; they have not been posted anywhere.
+
+fonts/
+  Manrope variable font, IBM Plex Mono regular and medium.
+  Original SIL Open Font License files accompany both families.
+  Keep those notices with redistributed font files.
+
+tokens/catnap.css
+  Local @font-face declarations and CSS custom properties.
+  Retain the fonts/ and tokens/ folder relationship or adjust the URLs.
+  CSS sizes use rem units; the 16 px root size matches the guide's scale.
+tokens/catnap.json
+  sRGB colors, RGB values, type scale, spacing, logo rules and contrast ratios.
+tokens/catnap.gpl
+  Importable GIMP palette with the same six sRGB colors.
+
+copy/brand-copy.txt
+  Reusable descriptions, tagline, voice rules and example messaging.
+source/build_brand_packet.py
+  Editable source for the guide, quick reference, tokens and graphics.
+source/requirements.txt
+  Python authoring dependencies. Poppler's pdftoppm renders the graphics.
+source/references.txt
+  Project evidence and official font/accessibility references.
+source/logo-generation-prompt.txt
+  Provenance for the original logo; generated with the built-in image tool.
+source/validation.json
+  File integrity, dimensions and document checks from this delivery.
+
+QUICK RULES
+Use the logo on Paper, white or Sage. For dark layouts, place it on a
+Paper panel. Scale proportionally. Keep all original letterforms and spacing.
+Clear space is one quarter of the visible logo height on every side.
+Minimum full-image width: 180 px for screen or 40 mm for print.
+At 300 ppi, the native full image is approximately 184 mm wide.
+Larger print production needs a vector master. Do not treat the PNG as vector.
+
+Write Catnap in prose and catnap in code/package names.
+The primary tagline is: Just the JSON you need.
+Use Manrope for prose and IBM Plex Mono for code and technical labels.
+The logo's lettering is fixed artwork; neither font replaces the wordmark.
+
+REBUILD
+In an unpacked packet, with Python 3 and Poppler installed:
+  python3 -m venv .venv
+  .venv/bin/python -m pip install -r source/requirements.txt
+  .venv/bin/python source/build_brand_packet.py --packet .
+
+If pdftoppm is not on PATH, add --pdftoppm /absolute/path/to/pdftoppm.
+If no renderer is found, the script retains the application artwork as PDFs.
+The builder regenerates PDFs, tokens and graphics in place. Make a copy of
+the packet before changing the source if you want to keep this edition.
+Manrope static instances are temporary authoring files; the bundled font is
+the original variable distribution. The original logo is never redrawn.
+
+SCOPE
+Brand guidance and copy are based on the supplied Catnap project snapshot.
+Check release status before claiming support for a framework or transport.
+The font licenses are separate from the project's software license.
+Color values are sRGB; a print provider should apply an appropriate profile.

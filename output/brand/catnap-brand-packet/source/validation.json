@@ -1,0 +1,135 @@
+{
+  "brand": "Catnap",
+  "version": "1.0",
+  "date": "2026-11-15",
+  "guidePages": 12,
+  "quickReferencePages": 1,
+  "originalLogoSha256": "f70df2644d59e6f1d28ce95919b2f53b5572887a03bb9e8aa30acd43fca1f733",
+  "packagedLogoSha256": "f70df2644d59e6f1d28ce95919b2f53b5572887a03bb9e8aa30acd43fca1f733",
+  "originalLogoPreserved": true,
+  "logoDimensions": [
+    2172,
+    724
+  ],
+  "logoAlphaRange": [
+    0,
+    255
+  ],
+  "graphicDimensions": {
+    "catnap-social-1200x630.png": [
+      1200,
+      630
+    ],
+    "catnap-repository-banner-1600x400.png": [
+      1600,
+      400
+    ],
+    "catnap-announcement-1080x1080.png": [
+      1080,
+      1080
+    ]
+  },
+  "normalTextContrastPairs": {
+    "InkOnPaper": 15.215,
+    "MossOnPaper": 7.246,
+    "PaperOnMoss": 7.246,
+    "StoneOnPaper": 4.944
+  },
+  "visualReview": "All 12 guide pages, the standalone quick reference and all 3 graphics reviewed after final rendering; no clipping or overlap found.",
+  "textChecks": [
+    {
+      "page": 1,
+      "words": 48,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 2,
+      "words": 109,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 3,
+      "words": 75,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 4,
+      "words": 115,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 5,
+      "words": 95,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 6,
+      "words": 100,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 7,
+      "words": 127,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 8,
+      "words": 124,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 9,
+      "words": 81,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 10,
+      "words": 114,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 11,
+      "words": 85,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    },
+    {
+      "page": 12,
+      "words": 129,
+      "textWithinPageBounds": true,
+      "renderMatchesReviewedPage": true
+    }
+  ],
+  "files": {
+    "Catnap-Brand-Guide.pdf": "fcaca134d93d359a421ae0bdcc4a65b3e0b68e4376988302a57073d488dbc0fc",
+    "Catnap-Quick-Reference.pdf": "9955fd2d19f20da21637ad09519067c3607db5f4b9bf038952d7ba5678adfdbb",
+    "START-HERE.txt": "04e3b22e4f1f298186bcda88ace144353f0d9cc0d0ab3ec10a8cff5a6e02483e",
+    "copy/brand-copy.txt": "2c956feca237680e4660a38e7a96e918e3f0d5e2ecc2c93e88720b2b42da2e64",
+    "fonts/IBMPlexMono-Medium.ttf": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+    "fonts/IBMPlexMono-OFL.txt": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+    "fonts/IBMPlexMono-Regular.ttf": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+    "fonts/Manrope-OFL.txt": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+    "fonts/Manrope-Variable.ttf": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+    "graphics/catnap-announcement-1080x1080.png": "a28929da4e52a57652b041052e144f8ac3ec5be79ec85dfb663fdb85c400ad50",
+    "graphics/catnap-repository-banner-1600x400.png": "107570b6542b43814c16f0da9e44c36e2c61abf840961b01f773b39ee24a2c66",
+    "graphics/catnap-social-1200x630.png": "d73eb64cd918b6064cf2ea4307d84c5e83a6187cf738b4f191dd669113af883a",
+    "logos/catnap-logo.png": "f70df2644d59e6f1d28ce95919b2f53b5572887a03bb9e8aa30acd43fca1f733",
+    "source/build_brand_packet.py": "1ac2274d1d21c54d6b74165583d3e72b39486cf8b8d6ddd40aa2263a80aaa8ed",
+    "source/logo-generation-prompt.txt": "2aa618a6506752e62b11075d0dc037dec9e9fd791105eb87e69341f849593b65",
+    "source/references.txt": "4463ca1ba605a90eb7e67961198eb5f280124228cf1972b58951e5871822cf2f",
+    "source/requirements.txt": "3f52cc7b4b2cf22b2fcf1bcecc088c82da5d7605d0d8126155aeb55ae5faff83",
+    "tokens/catnap.css": "d481bfc77ae64661552693a08cbe6a20a008b81d55d2f28d05f9b5ee9b4c52f3",
+    "tokens/catnap.gpl": "40e0fdb92759eef6340f8b7efce834f146bdddc7a6e95ad3a1fa1ea6579555f4",
+    "tokens/catnap.json": "50102dc4bf8e6535506fb3ac2e1fdacc53b6ef7283a14b10937439d7e27a41ac"
+  }
+}

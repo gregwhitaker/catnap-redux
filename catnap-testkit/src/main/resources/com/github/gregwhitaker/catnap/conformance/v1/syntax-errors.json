@@ -1,0 +1,950 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "google-empty",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": ""
+      },
+      "input": {},
+      "error": {
+        "code": "EMPTY_QUERY",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-blank",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": " \t\r\n"
+      },
+      "input": {},
+      "error": {
+        "code": "EMPTY_QUERY",
+        "offset": 4,
+        "line": 2,
+        "column": 1,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-leading-comma",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": ",a"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": ","
+      }
+    },
+    {
+      "id": "google-trailing-comma",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a,"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-double-comma",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a,,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": ","
+      }
+    },
+    {
+      "id": "google-extra-close",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": ")"
+      }
+    },
+    {
+      "id": "google-wrapper",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "(a)"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "("
+      }
+    },
+    {
+      "id": "google-two-names",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a b"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "b"
+      }
+    },
+    {
+      "id": "google-bracket",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a[0]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "["
+      }
+    },
+    {
+      "id": "google-predicate",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a[x=1]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "["
+      }
+    },
+    {
+      "id": "google-decoration",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a~(b)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "~"
+      }
+    },
+    {
+      "id": "google-unclosed-name",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"abc"
+      },
+      "input": {},
+      "error": {
+        "code": "UNTERMINATED_NAME",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "\""
+      }
+    },
+    {
+      "id": "google-bad-escape",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"a\\q\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "google-bad-hex",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"\\u00xz\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "google-short-escape",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"a\\"
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "google-raw-control",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"a\nb\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\n"
+      }
+    },
+    {
+      "id": "google-unpaired-high",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"\\uD800\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "google-unpaired-low",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"\\uDC00\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "google-nbsp",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": " a"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": " "
+      }
+    },
+    {
+      "id": "google-nbsp-between",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a b"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": " "
+      }
+    },
+    {
+      "id": "google-multiline",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a,\r\n  ,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 6,
+        "line": 2,
+        "column": 3,
+        "at": ","
+      }
+    },
+    {
+      "id": "google-unicode-offset",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "\"😀\",,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": ","
+      }
+    },
+    {
+      "id": "linkedin-empty",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": ""
+      },
+      "input": {},
+      "error": {
+        "code": "EMPTY_QUERY",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-blank",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": " \t\r\n"
+      },
+      "input": {},
+      "error": {
+        "code": "EMPTY_QUERY",
+        "offset": 4,
+        "line": 2,
+        "column": 1,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-leading-comma",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": ",a"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": ","
+      }
+    },
+    {
+      "id": "linkedin-trailing-comma",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a,"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-double-comma",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a,,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": ","
+      }
+    },
+    {
+      "id": "linkedin-extra-close",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": ")"
+      }
+    },
+    {
+      "id": "linkedin-wrapper",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "(a)"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "("
+      }
+    },
+    {
+      "id": "linkedin-two-names",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a b"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "b"
+      }
+    },
+    {
+      "id": "linkedin-bracket",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a[0]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "["
+      }
+    },
+    {
+      "id": "linkedin-predicate",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a[x=1]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "["
+      }
+    },
+    {
+      "id": "linkedin-decoration",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a~(b)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "~"
+      }
+    },
+    {
+      "id": "linkedin-unclosed-name",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"abc"
+      },
+      "input": {},
+      "error": {
+        "code": "UNTERMINATED_NAME",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "\""
+      }
+    },
+    {
+      "id": "linkedin-bad-escape",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"a\\q\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "linkedin-bad-hex",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"\\u00xz\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "linkedin-short-escape",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"a\\"
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_ESCAPE",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "linkedin-raw-control",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"a\nb\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "\n"
+      }
+    },
+    {
+      "id": "linkedin-unpaired-high",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"\\uD800\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "linkedin-unpaired-low",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"\\uDC00\""
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_NAME",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "\\"
+      }
+    },
+    {
+      "id": "linkedin-nbsp",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": " a"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": " "
+      }
+    },
+    {
+      "id": "linkedin-nbsp-between",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a b"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": " "
+      }
+    },
+    {
+      "id": "linkedin-multiline",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a,\r\n  ,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 6,
+        "line": 2,
+        "column": 3,
+        "at": ","
+      }
+    },
+    {
+      "id": "linkedin-unicode-offset",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "\"😀\",,b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": ","
+      }
+    },
+    {
+      "id": "google-empty-children",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a()"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": ")"
+      }
+    },
+    {
+      "id": "google-missing-close",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a(b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_CLOSE_PAREN",
+        "offset": 3,
+        "line": 1,
+        "column": 4,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-child-trailing",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a(b,"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 4,
+        "line": 1,
+        "column": 5,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-missing-path",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a/"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "google-double-slash",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a//b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "/"
+      }
+    },
+    {
+      "id": "google-path-after-group",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a(b)/c"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 4,
+        "line": 1,
+        "column": 5,
+        "at": "/"
+      }
+    },
+    {
+      "id": "google-wrong-colon",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a:(b)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": ":"
+      }
+    },
+    {
+      "id": "google-wrong-wildcard",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "$*"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "$"
+      }
+    },
+    {
+      "id": "google-star-suffix",
+      "query": {
+        "dialect": "GOOGLE",
+        "expression": "a*"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "*"
+      }
+    },
+    {
+      "id": "linkedin-empty-children",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a:()"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 3,
+        "line": 1,
+        "column": 4,
+        "at": ")"
+      }
+    },
+    {
+      "id": "linkedin-missing-close",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a:(b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_CLOSE_PAREN",
+        "offset": 4,
+        "line": 1,
+        "column": 5,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-child-trailing",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a:(b,"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-missing-open",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a:b"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPEN_PAREN",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "b"
+      }
+    },
+    {
+      "id": "linkedin-colon-eof",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a:"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPEN_PAREN",
+        "offset": 2,
+        "line": 1,
+        "column": 3,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "linkedin-wrong-group",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a(b)"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "("
+      }
+    },
+    {
+      "id": "linkedin-wrong-path",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "a/b"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 1,
+        "line": 1,
+        "column": 2,
+        "at": "/"
+      }
+    },
+    {
+      "id": "linkedin-wrong-wildcard",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "*"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "*"
+      }
+    },
+    {
+      "id": "linkedin-split-wildcard",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "$ *"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_SELECTOR",
+        "offset": 0,
+        "line": 1,
+        "column": 1,
+        "at": "$"
+      }
+    },
+    {
+      "id": "linkedin-map-missing-open",
+      "query": {
+        "dialect": "LINKEDIN",
+        "expression": "$*:x"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPEN_PAREN",
+        "offset": 3,
+        "line": 1,
+        "column": 4,
+        "at": "x"
+      }
+    }
+  ]
+}

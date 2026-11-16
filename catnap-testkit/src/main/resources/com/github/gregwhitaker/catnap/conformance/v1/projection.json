@@ -1,0 +1,1202 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "flat",
+      "reason": "Select two serialized field names.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name,price"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name,price"
+        }
+      ],
+      "input": {
+        "name": "ACME",
+        "price": 12.5,
+        "hidden": true
+      },
+      "expected": {
+        "name": "ACME",
+        "price": 12.5
+      }
+    },
+    {
+      "id": "children",
+      "reason": "Select fields inside a nested object.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "price(amount,currency)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "price:(amount,currency)"
+        }
+      ],
+      "input": {
+        "price": {
+          "amount": 12.5,
+          "currency": "USD",
+          "tax": 3
+        },
+        "name": "ACME"
+      },
+      "expected": {
+        "price": {
+          "amount": 12.5,
+          "currency": "USD"
+        }
+      }
+    },
+    {
+      "id": "path",
+      "reason": "Slash paths desugar to nested selectors.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a/b/c"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b:(c))"
+        },
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b(c))"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2
+          },
+          "e": 3
+        }
+      },
+      "expected": {
+        "a": {
+          "b": {
+            "c": 1
+          }
+        }
+      }
+    },
+    {
+      "id": "path-children",
+      "reason": "Children attach to the final path segment.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a/b(c,d)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b:(c,d))"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2,
+            "e": 3
+          }
+        }
+      },
+      "expected": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "whitespace",
+      "reason": "ASCII whitespace is ignored between tokens.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": " \t a / b ( c , d ) \r\n"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": " \t a : ( b : ( c , d ) ) \r\n"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2,
+            "e": 3
+          }
+        }
+      },
+      "expected": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "merge",
+      "reason": "Repeated child selections form a union.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b),a(c),a(b)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b),a:(c),a:(b)"
+        },
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(c,b)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(c,b)"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": 1,
+          "c": 2,
+          "d": 3
+        }
+      },
+      "expected": {
+        "a": {
+          "b": 1,
+          "c": 2
+        }
+      }
+    },
+    {
+      "id": "whole-dominates",
+      "reason": "A parent selection includes the whole subtree in either order.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b),a"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b),a"
+        },
+        {
+          "dialect": "GOOGLE",
+          "expression": "a,a(b)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a,a:(b)"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": 1,
+          "c": [
+            {
+              "d": 2
+            }
+          ]
+        }
+      },
+      "expected": {
+        "a": {
+          "b": 1,
+          "c": [
+            {
+              "d": 2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "whole-deep",
+      "reason": "Whole-value dominance applies recursively.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b(c)),a(b)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b:(c)),a:(b)"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2
+          },
+          "e": 3
+        }
+      },
+      "expected": {
+        "a": {
+          "b": {
+            "c": 1,
+            "d": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "wildcard-root",
+      "reason": "Terminal wildcard copies every immediate member and its subtree.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "*"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "$*"
+        }
+      ],
+      "input": {
+        "a": {
+          "id": 1,
+          "secret": 2
+        },
+        "b": [
+          1,
+          null
+        ]
+      },
+      "expected": {
+        "a": {
+          "id": 1,
+          "secret": 2
+        },
+        "b": [
+          1,
+          null
+        ]
+      }
+    },
+    {
+      "id": "wildcard-map",
+      "reason": "Wildcard children project every map value.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "byId/*/id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "byId:($*:(id))"
+        },
+        {
+          "dialect": "GOOGLE",
+          "expression": "byId(*(id))"
+        }
+      ],
+      "input": {
+        "byId": {
+          "1": {
+            "id": 1,
+            "other": 2
+          },
+          "2": {
+            "id": 2
+          },
+          "3": {
+            "other": 3
+          }
+        }
+      },
+      "expected": {
+        "byId": {
+          "1": {
+            "id": 1
+          },
+          "2": {
+            "id": 2
+          },
+          "3": {}
+        }
+      }
+    },
+    {
+      "id": "wildcard-merge",
+      "reason": "A matching literal unions with the wildcard child selection.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "*(id),special(name)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "$*:(id),special:(name)"
+        },
+        {
+          "dialect": "GOOGLE",
+          "expression": "special(name),*(id)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "special:(name),$*:(id)"
+        }
+      ],
+      "input": {
+        "special": {
+          "id": 1,
+          "name": "A",
+          "hidden": 3
+        },
+        "other": {
+          "id": 2,
+          "name": "B"
+        }
+      },
+      "expected": {
+        "special": {
+          "id": 1,
+          "name": "A"
+        },
+        "other": {
+          "id": 2
+        }
+      }
+    },
+    {
+      "id": "wildcard-whole",
+      "reason": "Terminal wildcard dominates all matching child selections.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "*,a(id)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "$*,a:(id)"
+        }
+      ],
+      "input": {
+        "a": {
+          "id": 1,
+          "other": 2
+        }
+      },
+      "expected": {
+        "a": {
+          "id": 1,
+          "other": 2
+        }
+      }
+    },
+    {
+      "id": "literal-whole-wildcard",
+      "reason": "Whole literal selection dominates only its matching wildcard branch.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "*(id),special"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "$*:(id),special"
+        }
+      ],
+      "input": {
+        "special": {
+          "id": 1,
+          "name": "A"
+        },
+        "other": {
+          "id": 2,
+          "name": "B"
+        }
+      },
+      "expected": {
+        "special": {
+          "id": 1,
+          "name": "A"
+        },
+        "other": {
+          "id": 2
+        }
+      }
+    },
+    {
+      "id": "wildcard-level",
+      "reason": "Wildcard children are not recursive descent.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "*(id)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "$*:(id)"
+        }
+      ],
+      "input": {
+        "a": {
+          "deep": {
+            "id": 9
+          },
+          "id": 1
+        },
+        "b": {
+          "deep": {
+            "id": 2
+          }
+        }
+      },
+      "expected": {
+        "a": {
+          "id": 1
+        },
+        "b": {}
+      }
+    },
+    {
+      "id": "wildcard-scalars",
+      "reason": "Wildcard selection leaves scalar map values intact.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "map/*/id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "map:($*:(id))"
+        }
+      ],
+      "input": {
+        "map": {
+          "x": 7,
+          "y": null,
+          "z": [
+            {
+              "id": 1,
+              "v": 2
+            },
+            false
+          ]
+        }
+      },
+      "expected": {
+        "map": {
+          "x": 7,
+          "y": null,
+          "z": [
+            {
+              "id": 1
+            },
+            false
+          ]
+        }
+      }
+    },
+    {
+      "id": "missing",
+      "reason": "Missing fields are omitted.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "absent"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "absent"
+        }
+      ],
+      "input": {
+        "present": 1
+      },
+      "expected": {}
+    },
+    {
+      "id": "missing-child",
+      "reason": "A selected parent survives when all children are missing.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(missing)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(missing)"
+        }
+      ],
+      "input": {
+        "a": {
+          "b": 1
+        }
+      },
+      "expected": {
+        "a": {}
+      }
+    },
+    {
+      "id": "missing-parent",
+      "reason": "No parent is created.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b)"
+        }
+      ],
+      "input": {
+        "c": 1
+      },
+      "expected": {}
+    },
+    {
+      "id": "null",
+      "reason": "Selected null remains a member.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b),b"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b),b"
+        }
+      ],
+      "input": {
+        "a": null,
+        "b": null,
+        "c": 1
+      },
+      "expected": {
+        "a": null,
+        "b": null
+      }
+    },
+    {
+      "id": "empty-containers",
+      "reason": "Empty objects and arrays retain their types.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(x),b(x)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(x),b:(x)"
+        }
+      ],
+      "input": {
+        "a": {},
+        "b": []
+      },
+      "expected": {
+        "a": {},
+        "b": []
+      }
+    },
+    {
+      "id": "scalar-child",
+      "reason": "Child selectors do not rewrite primitive leaves.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(b),c(d),e(f)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(b),c:(d),e:(f)"
+        }
+      ],
+      "input": {
+        "a": 7,
+        "c": "text",
+        "e": false
+      },
+      "expected": {
+        "a": 7,
+        "c": "text",
+        "e": false
+      }
+    },
+    {
+      "id": "root-number",
+      "reason": "Root number passes through.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": 42,
+      "expected": 42
+    },
+    {
+      "id": "root-null",
+      "reason": "Root null passes through.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": null,
+      "expected": null
+    },
+    {
+      "id": "root-string",
+      "reason": "Root string passes through.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": " a\n b ",
+      "expected": " a\n b "
+    },
+    {
+      "id": "root-boolean",
+      "reason": "Root boolean passes through.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": false,
+      "expected": false
+    },
+    {
+      "id": "root-empty-object",
+      "reason": "An empty root object remains empty.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": {},
+      "expected": {}
+    },
+    {
+      "id": "root-empty-array",
+      "reason": "An empty root array remains empty.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "name"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "name"
+        }
+      ],
+      "input": [],
+      "expected": []
+    },
+    {
+      "id": "array-objects",
+      "reason": "Array element order and count are preserved.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "items(id)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "items:(id)"
+        }
+      ],
+      "input": {
+        "items": [
+          {
+            "id": 2,
+            "v": 7
+          },
+          {
+            "v": 8
+          },
+          {
+            "id": 1
+          },
+          {}
+        ]
+      },
+      "expected": {
+        "items": [
+          {
+            "id": 2
+          },
+          {},
+          {
+            "id": 1
+          },
+          {}
+        ]
+      }
+    },
+    {
+      "id": "root-array",
+      "reason": "Selection is relative to each root-array element.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        {
+          "id": 2,
+          "v": 1
+        },
+        {
+          "v": 2
+        },
+        {
+          "id": 1
+        }
+      ],
+      "expected": [
+        {
+          "id": 2
+        },
+        {},
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": "heterogeneous-array",
+      "reason": "Objects are projected; scalar and null array members survive.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "items(id)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "items:(id)"
+        }
+      ],
+      "input": {
+        "items": [
+          {
+            "id": 1,
+            "v": 2
+          },
+          7,
+          null,
+          "text",
+          false,
+          {}
+        ]
+      },
+      "expected": {
+        "items": [
+          {
+            "id": 1
+          },
+          7,
+          null,
+          "text",
+          false,
+          {}
+        ]
+      }
+    },
+    {
+      "id": "nested-arrays",
+      "reason": "Arrays transparently propagate the same selection.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        [
+          {
+            "id": 1,
+            "v": 2
+          },
+          [
+            {
+              "v": 3
+            }
+          ]
+        ],
+        [],
+        null
+      ],
+      "expected": [
+        [
+          {
+            "id": 1
+          },
+          [
+            {}
+          ]
+        ],
+        [],
+        null
+      ]
+    },
+    {
+      "id": "array-wildcard",
+      "reason": "A wildcard matches fields inside each object, not array indexes.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "items/*/id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "items:($*:(id))"
+        }
+      ],
+      "input": {
+        "items": [
+          {
+            "x": {
+              "id": 1,
+              "v": 2
+            },
+            "y": {
+              "id": 2
+            }
+          }
+        ]
+      },
+      "expected": {
+        "items": [
+          {
+            "x": {
+              "id": 1
+            },
+            "y": {
+              "id": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "numeric-key",
+      "reason": "Numeric names are map fields, not array indexes.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "0"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "0"
+        }
+      ],
+      "input": {
+        "0": "zero",
+        "1": "one"
+      },
+      "expected": {
+        "0": "zero"
+      }
+    },
+    {
+      "id": "numeric-array",
+      "reason": "A numeric selector still selects object fields across an array.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "0"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "0"
+        }
+      ],
+      "input": [
+        {
+          "0": "zero",
+          "1": "one"
+        },
+        99
+      ],
+      "expected": [
+        {
+          "0": "zero"
+        },
+        99
+      ]
+    },
+    {
+      "id": "literal-punctuation",
+      "reason": "Dashes and dots belong to bare field names.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "display_name,x-y,a.b"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "display_name,x-y,a.b"
+        }
+      ],
+      "input": {
+        "display_name": "A",
+        "x-y": 1,
+        "a.b": 2,
+        "a": {
+          "b": 3
+        }
+      },
+      "expected": {
+        "display_name": "A",
+        "x-y": 1,
+        "a.b": 2
+      }
+    },
+    {
+      "id": "unicode",
+      "reason": "Unicode names are exact and case-sensitive.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "café,東京,😀"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "café,東京,😀"
+        }
+      ],
+      "input": {
+        "café": 1,
+        "東京": 2,
+        "😀": 3,
+        "CAFÉ": 4
+      },
+      "expected": {
+        "café": 1,
+        "東京": 2,
+        "😀": 3
+      }
+    },
+    {
+      "id": "normalization",
+      "reason": "No implicit Unicode normalization.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "é"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "é"
+        }
+      ],
+      "input": {
+        "é": 1,
+        "é": 2
+      },
+      "expected": {
+        "é": 1
+      }
+    },
+    {
+      "id": "quoted-reserved",
+      "reason": "Quoted names expose arbitrary JSON field names.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "\"a/b\",\"x,y\",\"a:b\",\"*\",\"$*\",\"\""
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "\"a/b\",\"x,y\",\"a:b\",\"*\",\"$*\",\"\""
+        }
+      ],
+      "input": {
+        "a/b": 1,
+        "x,y": 2,
+        "a:b": 3,
+        "*": 4,
+        "$*": 5,
+        "": 6,
+        "other": 7
+      },
+      "expected": {
+        "a/b": 1,
+        "x,y": 2,
+        "a:b": 3,
+        "*": 4,
+        "$*": 5,
+        "": 6
+      }
+    },
+    {
+      "id": "quoted-escapes",
+      "reason": "JSON name escapes decode before matching.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "\"line\\nkey\",\"a\\\"b\",\"a\\\\b\",\"\\uD83D\\uDE00\""
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "\"line\\nkey\",\"a\\\"b\",\"a\\\\b\",\"\\uD83D\\uDE00\""
+        }
+      ],
+      "input": {
+        "line\nkey": 1,
+        "a\"b": 2,
+        "a\\b": 3,
+        "😀": 4
+      },
+      "expected": {
+        "line\nkey": 1,
+        "a\"b": 2,
+        "a\\b": 3,
+        "😀": 4
+      }
+    },
+    {
+      "id": "escaped-equivalence",
+      "reason": "Escaped, quoted, and bare names merge by decoded value.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "a(x),\"\\u0061\"(y)"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "a:(x),\"\\u0061\":(y)"
+        }
+      ],
+      "input": {
+        "a": {
+          "x": 1,
+          "y": 2,
+          "z": 3
+        }
+      },
+      "expected": {
+        "a": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    },
+    {
+      "id": "quoted-whitespace",
+      "reason": "Whitespace inside quoted names is significant.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "\" a \",\" \""
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "\" a \",\" \""
+        }
+      ],
+      "input": {
+        " a ": 1,
+        "a": 2,
+        " ": 3
+      },
+      "expected": {
+        " a ": 1,
+        " ": 3
+      }
+    },
+    {
+      "id": "precision",
+      "reason": "Large integers and precise decimal values must not round.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "large,decimal"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "large,decimal"
+        }
+      ],
+      "input": {
+        "large": 123456789012345678901234567890,
+        "decimal": 0.123456789012345678901234567890123456789,
+        "skip": 1
+      },
+      "expected": {
+        "large": 123456789012345678901234567890,
+        "decimal": 0.123456789012345678901234567890123456789
+      }
+    },
+    {
+      "id": "query-order",
+      "reason": "Results follow source field iteration order, not selection order.",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "z,a"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "z,a"
+        }
+      ],
+      "input": {
+        "a": 1,
+        "m": 2,
+        "z": 3
+      },
+      "expected": {
+        "a": 1,
+        "z": 3
+      }
+    }
+  ]
+}

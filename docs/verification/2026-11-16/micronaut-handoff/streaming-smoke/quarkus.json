@@ -1,0 +1,655 @@
+{
+  "framework" : "quarkus",
+  "kind" : "smoke",
+  "cases" : [ {
+    "protocol" : "ndjson",
+    "mode" : "native",
+    "kind" : "throughput",
+    "seconds" : 0.305802417,
+    "clientCpuSeconds" : 0.490179,
+    "records" : 11453,
+    "bodyBytes" : 11739325,
+    "recordsPerSecond" : 37452.28737024665,
+    "bodyBytesPerSecond" : 3.838859455450282E7,
+    "allocatedBytes" : 109298864,
+    "allocatedBytesPerRecord" : 9543.251899065746,
+    "before" : {
+      "heapBytes" : 7332248,
+      "collections" : 5,
+      "active" : 2,
+      "emitted" : 2538,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 85103032,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 589856,
+      "nettyPooledDirectBytes" : 589824,
+      "nettyDirectBytes" : 589824,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 117432728,
+      "collections" : 5,
+      "active" : 2,
+      "emitted" : 13991,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 194401896,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 720928,
+      "nettyPooledDirectBytes" : 720896,
+      "nettyDirectBytes" : 720896,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.883,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 1.31575,
+      "medianMs" : 1.31575,
+      "p95Ms" : 1.31575,
+      "samplesMs" : [ 1.31575, 0.883 ]
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "bypass",
+    "kind" : "throughput",
+    "seconds" : 0.307985208,
+    "clientCpuSeconds" : 0.562223,
+    "records" : 13481,
+    "bodyBytes" : 13818025,
+    "recordsPerSecond" : 43771.58269237398,
+    "bodyBytesPerSecond" : 4.4865872259683326E7,
+    "allocatedBytes" : 249730760,
+    "allocatedBytesPerRecord" : 18524.646539574216,
+    "before" : {
+      "heapBytes" : 7360608,
+      "collections" : 7,
+      "active" : 2,
+      "emitted" : 19199,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 291466048,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 852000,
+      "nettyPooledDirectBytes" : 851968,
+      "nettyDirectBytes" : 851968,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 106174864,
+      "collections" : 8,
+      "active" : 2,
+      "emitted" : 32680,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 541196808,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 852000,
+      "nettyPooledDirectBytes" : 851968,
+      "nettyDirectBytes" : 851968,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.767625,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 0.895584,
+      "medianMs" : 0.895584,
+      "p95Ms" : 0.895584,
+      "samplesMs" : [ 0.895584, 0.767625 ]
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "all",
+    "kind" : "throughput",
+    "seconds" : 0.312816625,
+    "clientCpuSeconds" : 0.61609,
+    "records" : 14985,
+    "bodyBytes" : 15359625,
+    "recordsPerSecond" : 47903.46421006236,
+    "bodyBytesPerSecond" : 4.910105081531392E7,
+    "allocatedBytes" : 497526584,
+    "allocatedBytesPerRecord" : 33201.64057390724,
+    "before" : {
+      "heapBytes" : 7409840,
+      "collections" : 10,
+      "active" : 2,
+      "emitted" : 38673,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 743599480,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 983072,
+      "nettyPooledDirectBytes" : 983040,
+      "nettyDirectBytes" : 983040,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 30607464,
+      "collections" : 13,
+      "active" : 2,
+      "emitted" : 53658,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 1241126064,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1048608,
+      "nettyPooledDirectBytes" : 1048576,
+      "nettyDirectBytes" : 1048576,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.821417,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 1.189458,
+      "medianMs" : 1.189458,
+      "p95Ms" : 1.189458,
+      "samplesMs" : [ 1.189458, 0.821417 ]
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "sparse",
+    "kind" : "throughput",
+    "seconds" : 0.307626916,
+    "clientCpuSeconds" : 0.491948,
+    "records" : 15707,
+    "bodyBytes" : 706815,
+    "recordsPerSecond" : 51058.601127087335,
+    "bodyBytesPerSecond" : 2297637.05071893,
+    "allocatedBytes" : 411716520,
+    "allocatedBytesPerRecord" : 26212.295155026422,
+    "before" : {
+      "heapBytes" : 7475544,
+      "collections" : 15,
+      "active" : 2,
+      "emitted" : 60639,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 1424856640,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1048608,
+      "nettyPooledDirectBytes" : 1048576,
+      "nettyDirectBytes" : 1048576,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 102910408,
+      "collections" : 17,
+      "active" : 2,
+      "emitted" : 76346,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 1836573160,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1048608,
+      "nettyPooledDirectBytes" : 1048576,
+      "nettyDirectBytes" : 1048576,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.84275,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 1.098458,
+      "medianMs" : 1.098458,
+      "p95Ms" : 1.098458,
+      "samplesMs" : [ 1.098458, 0.84275 ]
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "native",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "activeSecondsTarget" : 0.25,
+      "records" : 265,
+      "metrics" : {
+        "heapBytes" : 7477208,
+        "collections" : 18,
+        "active" : 2,
+        "emitted" : 76613,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1839344416,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1114144,
+        "nettyPooledDirectBytes" : 1114112,
+        "nettyDirectBytes" : 1114112,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.277118833
+    }, {
+      "activeSecondsTarget" : 0.5,
+      "records" : 521,
+      "metrics" : {
+        "heapBytes" : 7477544,
+        "collections" : 19,
+        "active" : 2,
+        "emitted" : 76869,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1841802016,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1114144,
+        "nettyPooledDirectBytes" : 1114112,
+        "nettyDirectBytes" : 1114112,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.544709708
+    }, {
+      "activeSecondsTarget" : 1.0,
+      "records" : 1031,
+      "metrics" : {
+        "heapBytes" : 7477920,
+        "collections" : 20,
+        "active" : 2,
+        "emitted" : 77379,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1846622376,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1114144,
+        "nettyPooledDirectBytes" : 1114112,
+        "nettyDirectBytes" : 1114112,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 1.076540042
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 712,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "all",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "activeSecondsTarget" : 0.25,
+      "records" : 245,
+      "metrics" : {
+        "heapBytes" : 7483992,
+        "collections" : 21,
+        "active" : 2,
+        "emitted" : 77626,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1854955240,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1245216,
+        "nettyPooledDirectBytes" : 1245184,
+        "nettyDirectBytes" : 1245184,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.277439916
+    }, {
+      "activeSecondsTarget" : 0.5,
+      "records" : 498,
+      "metrics" : {
+        "heapBytes" : 7484096,
+        "collections" : 22,
+        "active" : 2,
+        "emitted" : 77879,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1863414352,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1245216,
+        "nettyPooledDirectBytes" : 1245184,
+        "nettyDirectBytes" : 1245184,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.547004875
+    }, {
+      "activeSecondsTarget" : 1.0,
+      "records" : 969,
+      "metrics" : {
+        "heapBytes" : 7484448,
+        "collections" : 23,
+        "active" : 2,
+        "emitted" : 78350,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 1879095904,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1245216,
+        "nettyPooledDirectBytes" : 1245184,
+        "nettyDirectBytes" : 1245184,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 1.071838625
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 456,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "sse",
+    "mode" : "native",
+    "kind" : "throughput",
+    "seconds" : 0.313468875,
+    "clientCpuSeconds" : 0.493398,
+    "records" : 13527,
+    "bodyBytes" : 14893227,
+    "recordsPerSecond" : 43152.609649044105,
+    "bodyBytesPerSecond" : 4.7511023223597564E7,
+    "allocatedBytes" : 191045360,
+    "allocatedBytesPerRecord" : 14123.261624898352,
+    "before" : {
+      "heapBytes" : 7678112,
+      "collections" : 24,
+      "active" : 2,
+      "emitted" : 83008,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 1948067744,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 39145712,
+      "collections" : 25,
+      "active" : 2,
+      "emitted" : 96535,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 2139113104,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.773917,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 0.82775,
+      "medianMs" : 0.82775,
+      "p95Ms" : 0.82775,
+      "samplesMs" : [ 0.773917, 0.82775 ]
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "bypass",
+    "kind" : "throughput",
+    "seconds" : 0.311496917,
+    "clientCpuSeconds" : 0.505797,
+    "records" : 13736,
+    "bodyBytes" : 14711256,
+    "recordsPerSecond" : 44096.74462363941,
+    "bodyBytesPerSecond" : 4.7227613491917804E7,
+    "allocatedBytes" : 306859392,
+    "allocatedBytesPerRecord" : 22339.792661619103,
+    "before" : {
+      "heapBytes" : 7678912,
+      "collections" : 27,
+      "active" : 2,
+      "emitted" : 102334,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 2268961096,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 157637664,
+      "collections" : 28,
+      "active" : 2,
+      "emitted" : 116070,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 2575820488,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.68575,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 0.870417,
+      "medianMs" : 0.870417,
+      "p95Ms" : 0.870417,
+      "samplesMs" : [ 0.870417, 0.68575 ]
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "all",
+    "kind" : "throughput",
+    "seconds" : 0.304343833,
+    "clientCpuSeconds" : 0.421191,
+    "records" : 10721,
+    "bodyBytes" : 11482191,
+    "recordsPerSecond" : 35226.60503523329,
+    "bodyBytesPerSecond" : 3.772769399273486E7,
+    "allocatedBytes" : 397416544,
+    "allocatedBytesPerRecord" : 37068.98087864938,
+    "before" : {
+      "heapBytes" : 7679000,
+      "collections" : 31,
+      "active" : 2,
+      "emitted" : 122852,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 2827435688,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 88427608,
+      "collections" : 33,
+      "active" : 2,
+      "emitted" : 133573,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 3224852232,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1310752,
+      "nettyPooledDirectBytes" : 1310720,
+      "nettyDirectBytes" : 1310720,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.797917,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 0.938125,
+      "medianMs" : 0.938125,
+      "p95Ms" : 0.938125,
+      "samplesMs" : [ 0.797917, 0.938125 ]
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "sparse",
+    "kind" : "throughput",
+    "seconds" : 0.307135625,
+    "clientCpuSeconds" : 0.397447,
+    "records" : 14015,
+    "bodyBytes" : 1275365,
+    "recordsPerSecond" : 45631.30701624079,
+    "bodyBytesPerSecond" : 4152448.9384779115,
+    "allocatedBytes" : 391912472,
+    "allocatedBytesPerRecord" : 27963.786799857295,
+    "before" : {
+      "heapBytes" : 7683328,
+      "collections" : 35,
+      "active" : 2,
+      "emitted" : 141271,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 3440357328,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1441824,
+      "nettyPooledDirectBytes" : 1441792,
+      "nettyDirectBytes" : 1441792,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "after" : {
+      "heapBytes" : 77946176,
+      "collections" : 37,
+      "active" : 2,
+      "emitted" : 155286,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 3832269800,
+      "liveThreads" : 16,
+      "jvmDirectBytes" : 1507360,
+      "nettyPooledDirectBytes" : 1507328,
+      "nettyDirectBytes" : 1507328,
+      "nettyDirectCounter" : "pooled-fallback"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.762333,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event.",
+      "maxMs" : 0.820542,
+      "medianMs" : 0.820542,
+      "p95Ms" : 0.820542,
+      "samplesMs" : [ 0.762333, 0.820542 ]
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "native",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "activeSecondsTarget" : 0.25,
+      "records" : 252,
+      "metrics" : {
+        "heapBytes" : 8733648,
+        "collections" : 38,
+        "active" : 2,
+        "emitted" : 155540,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3836097216,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1507360,
+        "nettyPooledDirectBytes" : 1507328,
+        "nettyDirectBytes" : 1507328,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.264577375
+    }, {
+      "activeSecondsTarget" : 0.5,
+      "records" : 514,
+      "metrics" : {
+        "heapBytes" : 8733712,
+        "collections" : 39,
+        "active" : 2,
+        "emitted" : 155802,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3839832616,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1507360,
+        "nettyPooledDirectBytes" : 1507328,
+        "nettyDirectBytes" : 1507328,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.544891
+    }, {
+      "activeSecondsTarget" : 1.0,
+      "records" : 992,
+      "metrics" : {
+        "heapBytes" : 8734008,
+        "collections" : 40,
+        "active" : 2,
+        "emitted" : 156280,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3846586320,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1507360,
+        "nettyPooledDirectBytes" : 1507328,
+        "nettyDirectBytes" : 1507328,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 1.071617
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 360,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "sse",
+    "mode" : "all",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "activeSecondsTarget" : 0.25,
+      "records" : 238,
+      "metrics" : {
+        "heapBytes" : 8737968,
+        "collections" : 41,
+        "active" : 2,
+        "emitted" : 156518,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3855580440,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1572896,
+        "nettyPooledDirectBytes" : 1572864,
+        "nettyDirectBytes" : 1572864,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.266399125
+    }, {
+      "activeSecondsTarget" : 0.5,
+      "records" : 477,
+      "metrics" : {
+        "heapBytes" : 8737968,
+        "collections" : 42,
+        "active" : 2,
+        "emitted" : 156757,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3864494632,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1572896,
+        "nettyPooledDirectBytes" : 1572864,
+        "nettyDirectBytes" : 1572864,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 0.535333791
+    }, {
+      "activeSecondsTarget" : 1.0,
+      "records" : 946,
+      "metrics" : {
+        "heapBytes" : 8737968,
+        "collections" : 43,
+        "active" : 2,
+        "emitted" : 157226,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 3881914280,
+        "liveThreads" : 16,
+        "jvmDirectBytes" : 1572896,
+        "nettyPooledDirectBytes" : 1572864,
+        "nettyDirectBytes" : 1572864,
+        "nettyDirectCounter" : "pooled-fallback"
+      },
+      "wallSeconds" : 1.053386166
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 0,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  } ],
+  "started" : "2026-11-16T18:16:25.523854Z",
+  "serverCommand" : [ "/Users/gwhitake/workspace/catnap/.local/jdk25/amazon-corretto-25.jdk/Contents/Home/bin/java", "-Xms256m", "-Xmx512m", "-Dbenchmark.port=62706", "-Dserver.port=62706", "-Dserver.address=127.0.0.1", "-Dspring.main.banner-mode=off", "-Dlogging.level.root=WARN", "-Dmicronaut.server.port=62706", "-Dmicronaut.server.host=127.0.0.1", "-Dmicronaut.server.netty.worker.threads=4", "-Dquarkus.http.port=62706", "-Dquarkus.http.host=127.0.0.1", "-Dquarkus.log.level=WARN", "-Dquarkus.vertx.event-loops-pool-size=4", "-Dquarkus.thread-pool.max-threads=8", "-Dreactor.netty.ioWorkerCount=4", "-Dio.netty.eventLoopThreads=4", "-jar", "/Users/gwhitake/workspace/catnap/benchmarks/server-quarkus/build/quarkus-app/quarkus-run.jar" ],
+  "initialMetrics" : {
+    "heapBytes" : 6550376,
+    "collections" : 4,
+    "active" : 0,
+    "emitted" : 0,
+    "javaVersion" : "25.0.5+10-LTS",
+    "allocatedBytes" : 50906800,
+    "liveThreads" : 14,
+    "jvmDirectBytes" : 131104,
+    "nettyPooledDirectBytes" : 131072,
+    "nettyDirectBytes" : 131072,
+    "nettyDirectCounter" : "pooled-fallback"
+  },
+  "sameSourceQueryIsolation" : "passed for every selected protocol",
+  "finalMetrics" : {
+    "heapBytes" : 7671440,
+    "collections" : 44,
+    "active" : 0,
+    "emitted" : 157226,
+    "javaVersion" : "25.0.5+10-LTS",
+    "allocatedBytes" : 3881990168,
+    "liveThreads" : 16,
+    "jvmDirectBytes" : 1572896,
+    "nettyPooledDirectBytes" : 1572864,
+    "nettyDirectBytes" : 1572864,
+    "nettyDirectCounter" : "pooled-fallback"
+  },
+  "completed" : "2026-11-16T18:16:34.891093Z"
+}

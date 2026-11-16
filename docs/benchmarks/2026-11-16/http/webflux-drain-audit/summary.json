@@ -1,0 +1,34 @@
+{
+  "classification": "Historical drain timeout; cause undetermined, no reproduced count mismatch. The original received count was not recorded.",
+  "replayAndStressResults": [
+    {
+      "case": "webflux-held-traced",
+      "completedFrameworks": [
+        "webflux"
+      ],
+      "completed": "2026-11-16T18:31:11.930692Z"
+    },
+    {
+      "case": "webflux-held-untraced",
+      "completedFrameworks": [
+        "webflux"
+      ],
+      "completed": "2026-11-16T18:32:33.792364Z"
+    },
+    {
+      "case": "webflux-synchronous-traced",
+      "completedFrameworks": [
+        "webflux"
+      ],
+      "completed": "2026-11-16T18:33:21.340805Z"
+    },
+    {
+      "case": "webflux-original-replay",
+      "completedFrameworks": [
+        "mvc",
+        "webflux"
+      ],
+      "completed": "2026-11-16T18:47:08.279419Z"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+name: Publish GitHub Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Maven version to publish (for example 3.0.0-SNAPSHOT or 3.0.0)
+        required: true
+        default: 3.0.0-SNAPSHOT
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-packages-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Resolve publication version
+        id: version
+        shell: bash
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == "release" ]]; then
+            version="${RELEASE_TAG#v}"
+          else
+            version="$REQUESTED_VERSION"
+          fi
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z][0-9A-Za-z.-]*)?$ ]]; then
+            echo "Expected a Maven version such as 3.0.0, 3.0.0-rc.1, or 3.0.0-SNAPSHOT." >&2
+            exit 1
+          fi
+          if [[ "$GITHUB_EVENT_NAME" == "release" && "$version" == *-SNAPSHOT ]]; then
+            echo "GitHub Releases must use a non-SNAPSHOT version; use a manual run for snapshots." >&2
+            exit 1
+          fi
+          printf 'version=%s\n' "$version" >> "$GITHUB_OUTPUT"
+      - name: Install compilation and test runtimes
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: |
+            17
+            21
+            25
+      - name: Configure Gradle and validate the wrapper
+        uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a # v4.4.3
+      - name: Verify the version being published
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+        run: >-
+          ./gradlew build compatibilityTest publicationSmokeTest :benchmarks:streaming-runner:smoke
+          -Pversion="$VERSION"
+          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+          --no-daemon --console=plain
+      - name: Publish all libraries and BOM
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
+        run: >-
+          ./gradlew publishGitHubPackages -Pversion="$VERSION"
+          -Dorg.gradle.java.installations.fromEnv=JAVA_HOME_17_X64,JAVA_HOME_21_X64,JAVA_HOME_25_X64
+          --no-daemon --console=plain
+      - name: Preserve verification reports and publication metadata
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: github-packages-verification
+          path: |
+            **/build/reports/tests/
+            **/build/test-results/
+            **/build/publications/
+            benchmarks/streaming-runner/build/results/smoke/
+          if-no-files-found: ignore

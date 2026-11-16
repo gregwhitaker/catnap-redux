@@ -1,0 +1,1652 @@
+> Task :build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:jvm-conventions:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:jvm-conventions:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:jvm-conventions:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileKotlin UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileJava NO-SOURCE
+> Task :build-logic:testing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:testing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:pluginDescriptors UP-TO-DATE
+> Task :build-logic:jvm-conventions:processResources UP-TO-DATE
+> Task :build-logic:jvm-conventions:classes UP-TO-DATE
+> Task :build-logic:jvm-conventions:jar UP-TO-DATE
+> Task :build-logic:testing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:testing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:testing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:testing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:testing:compileKotlin UP-TO-DATE
+> Task :build-logic:testing:compileJava NO-SOURCE
+> Task :build-logic:testing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:testing:processResources UP-TO-DATE
+> Task :build-logic:testing:classes UP-TO-DATE
+> Task :build-logic:testing:jar UP-TO-DATE
+> Task :build-logic:java-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:java-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:java-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:java-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:java-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:java-library:compileKotlin UP-TO-DATE
+> Task :build-logic:java-library:compileJava NO-SOURCE
+> Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:publishing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:java-library:processResources UP-TO-DATE
+> Task :build-logic:java-library:classes UP-TO-DATE
+> Task :build-logic:java-library:jar UP-TO-DATE
+> Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:publishing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:publishing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:publishing:compileKotlin UP-TO-DATE
+> Task :build-logic:publishing:compileJava NO-SOURCE
+> Task :build-logic:publishing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:publishing:processResources UP-TO-DATE
+> Task :build-logic:publishing:classes UP-TO-DATE
+> Task :build-logic:publishing:jar UP-TO-DATE
+> Task :build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:kotlin-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:kotlin-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:kotlin-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:kotlin-library:compileKotlin UP-TO-DATE
+> Task :build-logic:kotlin-library:compileJava NO-SOURCE
+> Task :build-logic:kotlin-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:kotlin-library:processResources UP-TO-DATE
+> Task :build-logic:kotlin-library:classes UP-TO-DATE
+> Task :build-logic:kotlin-library:jar UP-TO-DATE
+> Task :build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:benchmark-server:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:benchmark-server:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:benchmark-server:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:benchmark-server:compileKotlin UP-TO-DATE
+> Task :build-logic:benchmark-server:compileJava NO-SOURCE
+> Task :build-logic:benchmark-server:pluginDescriptors UP-TO-DATE
+> Task :build-logic:benchmark-server:processResources UP-TO-DATE
+> Task :build-logic:benchmark-server:classes UP-TO-DATE
+> Task :build-logic:benchmark-server:jar UP-TO-DATE
+> Task :build-logic:benchmark-server:compileTestKotlin NO-SOURCE
+> Task :build-logic:benchmark-server:compileTestJava NO-SOURCE
+> Task :build-logic:benchmark-server:pluginUnderTestMetadata UP-TO-DATE
+> Task :build-logic:benchmark-server:processTestResources NO-SOURCE
+> Task :build-logic:benchmark-server:testClasses UP-TO-DATE
+> Task :build-logic:benchmark-server:test NO-SOURCE
+> Task :build-logic:benchmark-server:validatePlugins UP-TO-DATE
+> Task :build-logic:benchmark-server:check UP-TO-DATE
+> Task :build-logic:java-library:compileTestKotlin NO-SOURCE
+> Task :build-logic:java-library:compileTestJava NO-SOURCE
+> Task :build-logic:java-library:pluginUnderTestMetadata UP-TO-DATE
+> Task :build-logic:java-library:processTestResources NO-SOURCE
+> Task :build-logic:java-library:testClasses UP-TO-DATE
+> Task :build-logic:java-library:test NO-SOURCE
+> Task :build-logic:java-library:validatePlugins UP-TO-DATE
+> Task :build-logic:java-library:check UP-TO-DATE
+> Task :spotlessJava UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileTestKotlin NO-SOURCE
+> Task :build-logic:jvm-conventions:compileTestJava NO-SOURCE
+> Task :spotlessJavaCheck UP-TO-DATE
+> Task :build-logic:jvm-conventions:pluginUnderTestMetadata UP-TO-DATE
+> Task :build-logic:jvm-conventions:processTestResources NO-SOURCE
+> Task :build-logic:jvm-conventions:testClasses UP-TO-DATE
+> Task :build-logic:jvm-conventions:test NO-SOURCE
+> Task :build-logic:jvm-conventions:validatePlugins UP-TO-DATE
+> Task :build-logic:jvm-conventions:check UP-TO-DATE
+> Task :build-logic:kotlin-library:compileTestKotlin NO-SOURCE
+> Task :build-logic:kotlin-library:compileTestJava NO-SOURCE
+> Task :build-logic:kotlin-library:pluginUnderTestMetadata UP-TO-DATE
+> Task :build-logic:kotlin-library:processTestResources NO-SOURCE
+> Task :build-logic:kotlin-library:testClasses UP-TO-DATE
+> Task :build-logic:kotlin-library:test NO-SOURCE
+> Task :build-logic:kotlin-library:validatePlugins UP-TO-DATE
+> Task :build-logic:kotlin-library:check UP-TO-DATE
+> Task :build-logic:publishing:compileTestKotlin NO-SOURCE
+> Task :build-logic:publishing:compileTestJava NO-SOURCE
+> Task :build-logic:publishing:pluginUnderTestMetadata UP-TO-DATE
+> Task :spotlessKotlin UP-TO-DATE
+> Task :build-logic:publishing:processTestResources NO-SOURCE
+> Task :build-logic:publishing:testClasses UP-TO-DATE
+> Task :spotlessKotlinCheck UP-TO-DATE
+> Task :build-logic:publishing:test NO-SOURCE
+> Task :build-logic:publishing:validatePlugins UP-TO-DATE
+> Task :build-logic:publishing:check UP-TO-DATE
+> Task :build-logic:testing:compileTestKotlin NO-SOURCE
+> Task :build-logic:testing:compileTestJava NO-SOURCE
+> Task :build-logic:testing:pluginUnderTestMetadata UP-TO-DATE
+> Task :build-logic:testing:processTestResources NO-SOURCE
+> Task :build-logic:testing:testClasses UP-TO-DATE
+> Task :build-logic:testing:test NO-SOURCE
+> Task :build-logic:testing:validatePlugins UP-TO-DATE
+> Task :build-logic:testing:check UP-TO-DATE
+> Task :build-logic:check UP-TO-DATE
+> Task :spotlessKotlinGradle UP-TO-DATE
+> Task :spotlessKotlinGradleCheck UP-TO-DATE
+> Task :spotlessCheck UP-TO-DATE
+> Task :benchmarks:spotlessJava UP-TO-DATE
+> Task :benchmarks:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:spotlessCheck UP-TO-DATE
+> Task :catnap-core:spotlessJava UP-TO-DATE
+> Task :catnap-core:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-core:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-core:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-core:spotlessCheck UP-TO-DATE
+> Task :catnap-http:spotlessJava UP-TO-DATE
+> Task :catnap-http:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-http:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-http:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-http:spotlessCheck UP-TO-DATE
+> Task :catnap-jackson2:spotlessJava UP-TO-DATE
+> Task :catnap-jackson2:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-jackson2:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-jackson2:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-jackson2:spotlessCheck UP-TO-DATE
+> Task :catnap-jackson3:spotlessJava UP-TO-DATE
+> Task :catnap-jackson3:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-jackson3:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-jackson3:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-jackson3:spotlessCheck UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessJava UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessKotlin UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessKotlinCheck UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-kotlinx-json:spotlessCheck UP-TO-DATE
+> Task :catnap-ktor:spotlessJava UP-TO-DATE
+> Task :catnap-ktor:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-ktor:spotlessKotlin UP-TO-DATE
+> Task :catnap-ktor:spotlessKotlinCheck UP-TO-DATE
+> Task :catnap-ktor:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-ktor:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-ktor:spotlessCheck UP-TO-DATE
+> Task :catnap-micronaut:spotlessJava
+> Task :catnap-micronaut:spotlessJavaCheck
+> Task :catnap-micronaut:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-micronaut:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-micronaut:spotlessCheck
+> Task :catnap-quarkus:spotlessJava UP-TO-DATE
+> Task :catnap-quarkus:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-quarkus:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-quarkus:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-quarkus:spotlessCheck UP-TO-DATE
+> Task :catnap-quarkus-deployment:spotlessJava UP-TO-DATE
+> Task :catnap-quarkus-deployment:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-quarkus-deployment:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-quarkus-deployment:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-quarkus-deployment:spotlessCheck UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:spotlessJava UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:spotlessCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter:spotlessJava UP-TO-DATE
+> Task :catnap-spring-boot-starter:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-spring-boot-starter:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter:spotlessCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:spotlessJava UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:spotlessCheck UP-TO-DATE
+> Task :catnap-spring-webflux:spotlessJava UP-TO-DATE
+> Task :catnap-spring-webflux:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-spring-webflux:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-spring-webflux:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-spring-webflux:spotlessCheck UP-TO-DATE
+> Task :catnap-spring-webmvc:spotlessJava UP-TO-DATE
+> Task :catnap-spring-webmvc:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-spring-webmvc:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-spring-webmvc:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-spring-webmvc:spotlessCheck UP-TO-DATE
+> Task :catnap-streams:spotlessJava UP-TO-DATE
+> Task :catnap-streams:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-streams:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-streams:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-streams:spotlessCheck UP-TO-DATE
+> Task :catnap-testkit:spotlessJava UP-TO-DATE
+> Task :catnap-testkit:spotlessJavaCheck UP-TO-DATE
+> Task :catnap-testkit:spotlessKotlinGradle UP-TO-DATE
+> Task :catnap-testkit:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :catnap-testkit:spotlessCheck UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessJava UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessKotlin UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessKotlinCheck UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:server-ktor:spotlessCheck UP-TO-DATE
+> Task :benchmarks:server-micronaut:spotlessJava UP-TO-DATE
+> Task :benchmarks:server-micronaut:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:server-micronaut:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:server-micronaut:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:server-micronaut:spotlessCheck UP-TO-DATE
+> Task :benchmarks:server-mvc:spotlessJava UP-TO-DATE
+> Task :benchmarks:server-mvc:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:server-mvc:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:server-mvc:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:server-mvc:spotlessCheck UP-TO-DATE
+> Task :benchmarks:server-quarkus:spotlessJava UP-TO-DATE
+> Task :benchmarks:server-quarkus:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:server-quarkus:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:server-quarkus:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:server-quarkus:spotlessCheck UP-TO-DATE
+> Task :benchmarks:server-webflux:spotlessJava UP-TO-DATE
+> Task :benchmarks:server-webflux:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:server-webflux:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:server-webflux:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:server-webflux:spotlessCheck UP-TO-DATE
+> Task :benchmarks:streaming-fixture:spotlessJava UP-TO-DATE
+> Task :benchmarks:streaming-fixture:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:streaming-fixture:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:streaming-fixture:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:streaming-fixture:spotlessCheck UP-TO-DATE
+> Task :benchmarks:streaming-runner:spotlessJava UP-TO-DATE
+> Task :benchmarks:streaming-runner:spotlessJavaCheck UP-TO-DATE
+> Task :benchmarks:streaming-runner:spotlessKotlinGradle UP-TO-DATE
+> Task :benchmarks:streaming-runner:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :benchmarks:streaming-runner:spotlessCheck UP-TO-DATE
+> Task :examples:jackson3-probe:spotlessJava UP-TO-DATE
+> Task :examples:jackson3-probe:spotlessJavaCheck UP-TO-DATE
+> Task :examples:jackson3-probe:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:jackson3-probe:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:jackson3-probe:spotlessCheck UP-TO-DATE
+> Task :examples:ktor:spotlessJava UP-TO-DATE
+> Task :examples:ktor:spotlessJavaCheck UP-TO-DATE
+> Task :examples:ktor:spotlessKotlin UP-TO-DATE
+> Task :examples:ktor:spotlessKotlinCheck UP-TO-DATE
+> Task :examples:ktor:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:ktor:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:ktor:spotlessCheck UP-TO-DATE
+> Task :examples:micronaut:spotlessJava UP-TO-DATE
+> Task :examples:micronaut:spotlessJavaCheck UP-TO-DATE
+> Task :examples:micronaut:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:micronaut:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:micronaut:spotlessCheck UP-TO-DATE
+> Task :examples:quarkus:spotlessJava UP-TO-DATE
+> Task :examples:quarkus:spotlessJavaCheck UP-TO-DATE
+> Task :examples:quarkus:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:quarkus:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:quarkus:spotlessCheck UP-TO-DATE
+> Task :examples:spring-boot-mvc:spotlessJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:spotlessJavaCheck UP-TO-DATE
+> Task :examples:spring-boot-mvc:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:spring-boot-mvc:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:spring-boot-mvc:spotlessCheck UP-TO-DATE
+> Task :examples:spring-boot-webflux:spotlessJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:spotlessJavaCheck UP-TO-DATE
+> Task :examples:spring-boot-webflux:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:spring-boot-webflux:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:spring-boot-webflux:spotlessCheck UP-TO-DATE
+> Task :examples:standalone:spotlessJava UP-TO-DATE
+> Task :examples:standalone:spotlessJavaCheck UP-TO-DATE
+> Task :examples:standalone:spotlessKotlinGradle UP-TO-DATE
+> Task :examples:standalone:spotlessKotlinGradleCheck UP-TO-DATE
+> Task :examples:standalone:spotlessCheck UP-TO-DATE
+> Task :catnap-core:compileJava UP-TO-DATE
+> Task :catnap-http:compileJava UP-TO-DATE
+> Task :catnap-jackson3:compileJava UP-TO-DATE
+> Task :benchmarks:compileJava UP-TO-DATE
+> Task :benchmarks:processResources NO-SOURCE
+> Task :benchmarks:classes UP-TO-DATE
+> Task :benchmarks:jar UP-TO-DATE
+> Task :benchmarks:assemble UP-TO-DATE
+> Task :catnap-bom:assemble UP-TO-DATE
+> Task :catnap-core:processResources NO-SOURCE
+> Task :catnap-core:classes UP-TO-DATE
+> Task :catnap-core:jar UP-TO-DATE
+> Task :catnap-core:javadoc UP-TO-DATE
+> Task :catnap-core:javadocJar UP-TO-DATE
+> Task :catnap-core:sourcesJar UP-TO-DATE
+> Task :catnap-core:assemble UP-TO-DATE
+> Task :catnap-http:processResources NO-SOURCE
+> Task :catnap-http:classes UP-TO-DATE
+> Task :catnap-http:jar UP-TO-DATE
+> Task :catnap-http:javadoc UP-TO-DATE
+> Task :catnap-http:javadocJar UP-TO-DATE
+> Task :catnap-http:sourcesJar UP-TO-DATE
+> Task :catnap-http:assemble UP-TO-DATE
+> Task :catnap-jackson2:compileJava UP-TO-DATE
+> Task :catnap-jackson2:processResources NO-SOURCE
+> Task :catnap-jackson2:classes UP-TO-DATE
+> Task :catnap-jackson2:jar UP-TO-DATE
+> Task :catnap-jackson2:javadoc UP-TO-DATE
+> Task :catnap-jackson2:javadocJar UP-TO-DATE
+> Task :catnap-jackson2:sourcesJar UP-TO-DATE
+> Task :catnap-jackson2:assemble UP-TO-DATE
+> Task :catnap-jackson3:processResources NO-SOURCE
+> Task :catnap-jackson3:classes UP-TO-DATE
+> Task :catnap-jackson3:jar UP-TO-DATE
+> Task :catnap-jackson3:javadoc UP-TO-DATE
+> Task :catnap-jackson3:javadocJar UP-TO-DATE
+> Task :catnap-jackson3:sourcesJar UP-TO-DATE
+> Task :catnap-jackson3:assemble UP-TO-DATE
+> Task :catnap-kotlinx-json:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :catnap-kotlinx-json:compileKotlin UP-TO-DATE
+> Task :catnap-kotlinx-json:compileJava NO-SOURCE
+> Task :catnap-kotlinx-json:processResources NO-SOURCE
+> Task :catnap-kotlinx-json:classes UP-TO-DATE
+> Task :catnap-kotlinx-json:jar UP-TO-DATE
+> Task :catnap-kotlinx-json:dokkaGeneratePublicationHtml UP-TO-DATE
+
+> Task :catnap-kotlinx-json:logLinkDokkaGeneratePublicationHtml
+Generated Dokka HTML publication: http://localhost:63342/catnap/catnap-kotlinx-json/build/dokka/html/index.html
+
+> Task :catnap-kotlinx-json:javadoc NO-SOURCE
+> Task :catnap-kotlinx-json:javadocJar UP-TO-DATE
+> Task :catnap-kotlinx-json:sourcesJar
+> Task :catnap-kotlinx-json:assemble
+> Task :catnap-ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :catnap-streams:compileJava UP-TO-DATE
+> Task :catnap-ktor:compileKotlin UP-TO-DATE
+> Task :catnap-ktor:compileJava NO-SOURCE
+> Task :catnap-ktor:processResources NO-SOURCE
+> Task :catnap-ktor:classes UP-TO-DATE
+> Task :catnap-ktor:jar UP-TO-DATE
+> Task :catnap-ktor:dokkaGeneratePublicationHtml UP-TO-DATE
+
+> Task :catnap-ktor:logLinkDokkaGeneratePublicationHtml
+Generated Dokka HTML publication: http://localhost:63342/catnap/catnap-ktor/build/dokka/html/index.html
+
+> Task :catnap-ktor:javadoc NO-SOURCE
+> Task :catnap-ktor:javadocJar UP-TO-DATE
+> Task :catnap-ktor:sourcesJar
+> Task :catnap-ktor:assemble
+> Task :catnap-micronaut:compileJava UP-TO-DATE
+> Task :catnap-micronaut:processResources NO-SOURCE
+> Task :catnap-micronaut:classes UP-TO-DATE
+> Task :catnap-micronaut:jar UP-TO-DATE
+
+> Task :catnap-micronaut:javadoc
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for enabled
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for parameter
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for dialect
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxQueryLength
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxQueryDepth
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxSelectors
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxJsonDepth
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxWork
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for cacheCapacity
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:13: warning: no @param for maxPayloadBytes
+public record CatnapConfiguration(
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:25: warning: no comment
+  public CatnapConfiguration {}
+         ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapConfiguration.java:27: warning: no comment
+  public ProjectionSettings settings() {
+                            ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapFactory.java:10: warning: use of default constructor, which does not provide a comment
+public class CatnapFactory {
+       ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapFilter.java:52: warning: no comment
+  public CatnapFilter(
+         ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapFilter.java:72: warning: no comment
+  public HttpResponse<?> bind(HttpRequest<?> request, RouteInfo<?> route) {
+                         ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapFilter.java:97: warning: no comment
+  public Mono<MutableHttpResponse<Object>> project(
+                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapFilter.java:66: warning: no comment
+  public static ProjectionRequest projection(HttpRequest<?> request) {
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:49: warning: no @param for <T>
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:49: warning: no @param for request
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:49: warning: no @param for mapper
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:49: warning: no @param for type
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:49: warning: no @return
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:55: warning: no @param for <T>
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:55: warning: no @param for request
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:55: warning: no @param for serializer
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:55: warning: no @return
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:82: warning: no @param for <T>
+  public <T> MutableHttpResponse<Publisher<byte[]>> encodedNdjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:82: warning: no @param for request
+  public <T> MutableHttpResponse<Publisher<byte[]>> encodedNdjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:82: warning: no @param for source
+  public <T> MutableHttpResponse<Publisher<byte[]>> encodedNdjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:82: warning: no @param for encoder
+  public <T> MutableHttpResponse<Publisher<byte[]>> encodedNdjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:82: warning: no @return
+  public <T> MutableHttpResponse<Publisher<byte[]>> encodedNdjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:143: warning: no @param for <T>
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:143: warning: no @param for request
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:143: warning: no @param for source
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:143: warning: no @param for encoder
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:143: warning: no @return
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @param for <T>
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @param for request
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @param for source
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @param for encoder
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @param for onError
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:151: warning: no @return
+  public <T> MutableHttpResponse<Publisher<Event<String>>> sse(
+                                                           ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:41: warning: no comment
+  public CatnapMicronautStreams(ProjectionService service) {
+         ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/CatnapMicronautStreams.java:65: warning: no comment
+  public <T> MutableHttpResponse<Publisher<byte[]>> ndjson(
+                                                    ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautJson.java:28: warning: no comment
+  public MicronautJson(int maxDepth) {
+         ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautJson.java:42: warning: no comment
+  public JsonNode parse(byte[] bytes) throws IOException {
+                  ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautJson.java:61: warning: no comment
+  public byte[] project(byte[] bytes, ProjectionRequest request, Charset charset)
+                ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautJson.java:38: warning: no comment
+  public <T> JsonNode toTree(JsonMapper mapper, Argument<T> type, T value) throws IOException {
+                      ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautJson.java:51: warning: no comment
+  public byte[] write(JsonNode node, Charset charset, int maxBytes) throws IOException {
+                ^
+/Users/gwhitake/workspace/catnap/catnap-micronaut/src/main/java/com/github/gregwhitaker/catnap/micronaut/MicronautTreeAdapter.java:15: warning: no comment
+  public static final MicronautTreeAdapter INSTANCE = new MicronautTreeAdapter();
+                                           ^
+50 warnings
+
+> Task :catnap-micronaut:javadocJar UP-TO-DATE
+> Task :catnap-micronaut:sourcesJar
+> Task :catnap-micronaut:assemble
+> Task :catnap-quarkus:processResources
+> Task :catnap-quarkus:validateExtension
+> Task :catnap-streams:processResources NO-SOURCE
+> Task :catnap-streams:classes UP-TO-DATE
+> Task :catnap-streams:jar UP-TO-DATE
+> Task :catnap-quarkus:extensionDescriptor
+> Task :catnap-quarkus:compileJava UP-TO-DATE
+> Task :catnap-quarkus:classes
+> Task :catnap-quarkus:jar
+
+> Task :catnap-quarkus:javadoc
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:15: warning: no @return
+  boolean enabled();
+          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:19: warning: no @return
+  String parameter();
+         ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:23: warning: no @return
+  QueryDialect dialect();
+               ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:27: warning: no @return
+  int maxQueryLength();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:31: warning: no @return
+  int maxQueryDepth();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:35: warning: no @return
+  int maxSelectors();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:39: warning: no @return
+  int maxJsonDepth();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:43: warning: no @return
+  long maxWork();
+       ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:47: warning: no @return
+  int cacheCapacity();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapConfig.java:51: warning: no @return
+  int maxPayloadBytes();
+      ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:61: warning: no @param for <T>
+  public <T> Uni<Response> jsonArray(
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:61: warning: no @param for request
+  public <T> Uni<Response> jsonArray(
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:61: warning: no @param for source
+  public <T> Uni<Response> jsonArray(
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:61: warning: no @param for serializer
+  public <T> Uni<Response> jsonArray(
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:61: warning: no @return
+  public <T> Uni<Response> jsonArray(
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:112: warning: no @param for <T>
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:112: warning: no @param for request
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:112: warning: no @param for serializer
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:112: warning: no @return
+  public <T> JsonStreamEncoder<T> encoder(
+                                  ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @param for <T>
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @param for request
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @param for source
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @param for encoder
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @param for onError
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:223: warning: no @return
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:43: warning: no comment
+  public CatnapQuarkusResponses(ProjectionService service) {
+         ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:147: warning: no comment
+  public <T> CatnapStream encodedNdjson(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:127: warning: no comment
+  public <T> CatnapStream ndjson(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapQuarkusResponses.java:215: warning: no comment
+  public <T> CatnapStream sse(
+                          ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapServices.java:19: warning: no comment
+  public ProjectionService projectionService(CatnapConfig config) {
+                           ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapStream.java:41: warning: no @param for name
+  public synchronized CatnapStream header(String name, String value) {
+                                   ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapStream.java:41: warning: no @param for value
+  public synchronized CatnapStream header(String name, String value) {
+                                   ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapStream.java:41: warning: no @return
+  public synchronized CatnapStream header(String name, String value) {
+                                   ^
+/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/src/main/java/com/github/gregwhitaker/catnap/quarkus/CatnapStream.java:47: warning: no comment
+  public synchronized CatnapStream status(int code) {
+                                   ^
+34 warnings
+
+> Task :catnap-quarkus:javadocJar UP-TO-DATE
+> Task :catnap-quarkus:sourcesJar UP-TO-DATE
+> Task :catnap-quarkus:assemble
+> Task :catnap-quarkus-deployment:compileJava UP-TO-DATE
+> Task :catnap-quarkus-deployment:processResources NO-SOURCE
+> Task :catnap-quarkus-deployment:classes UP-TO-DATE
+> Task :catnap-quarkus-deployment:jar UP-TO-DATE
+> Task :catnap-quarkus-deployment:javadoc UP-TO-DATE
+> Task :catnap-quarkus-deployment:javadocJar UP-TO-DATE
+> Task :catnap-quarkus-deployment:sourcesJar UP-TO-DATE
+> Task :catnap-quarkus-deployment:assemble UP-TO-DATE
+> Task :catnap-spring-webflux:compileJava UP-TO-DATE
+> Task :catnap-spring-webmvc:compileJava UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:compileJava UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:processResources UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:classes UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:jar UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:javadoc UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:javadocJar UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:sourcesJar UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:assemble UP-TO-DATE
+> Task :catnap-spring-boot-starter:compileJava NO-SOURCE
+> Task :catnap-spring-boot-starter:processResources NO-SOURCE
+> Task :catnap-spring-boot-starter:classes UP-TO-DATE
+> Task :catnap-spring-boot-starter:jar UP-TO-DATE
+> Task :catnap-spring-boot-starter:javadoc NO-SOURCE
+> Task :catnap-spring-boot-starter:javadocJar UP-TO-DATE
+> Task :catnap-spring-boot-starter:sourcesJar UP-TO-DATE
+> Task :catnap-spring-boot-starter:assemble UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:compileJava NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:processResources NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:classes UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:jar UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:javadoc NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:javadocJar UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:sourcesJar UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:assemble UP-TO-DATE
+> Task :catnap-spring-webflux:processResources NO-SOURCE
+> Task :catnap-spring-webflux:classes UP-TO-DATE
+> Task :catnap-spring-webflux:jar UP-TO-DATE
+> Task :catnap-spring-webflux:javadoc UP-TO-DATE
+> Task :catnap-spring-webflux:javadocJar UP-TO-DATE
+> Task :catnap-spring-webflux:sourcesJar UP-TO-DATE
+> Task :catnap-spring-webflux:assemble UP-TO-DATE
+> Task :catnap-spring-webmvc:processResources NO-SOURCE
+> Task :catnap-spring-webmvc:classes UP-TO-DATE
+> Task :catnap-spring-webmvc:jar UP-TO-DATE
+> Task :catnap-spring-webmvc:javadoc UP-TO-DATE
+> Task :catnap-spring-webmvc:javadocJar UP-TO-DATE
+> Task :catnap-spring-webmvc:sourcesJar UP-TO-DATE
+> Task :catnap-spring-webmvc:assemble UP-TO-DATE
+> Task :catnap-streams:javadoc UP-TO-DATE
+> Task :catnap-streams:javadocJar UP-TO-DATE
+> Task :catnap-streams:sourcesJar UP-TO-DATE
+> Task :catnap-streams:assemble UP-TO-DATE
+> Task :catnap-testkit:compileJava UP-TO-DATE
+> Task :catnap-testkit:processResources UP-TO-DATE
+> Task :catnap-testkit:classes UP-TO-DATE
+> Task :catnap-testkit:jar UP-TO-DATE
+> Task :catnap-testkit:javadoc UP-TO-DATE
+> Task :catnap-testkit:javadocJar UP-TO-DATE
+> Task :catnap-testkit:sourcesJar UP-TO-DATE
+> Task :catnap-testkit:assemble UP-TO-DATE
+> Task :benchmarks:server-ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :benchmarks:streaming-fixture:compileJava UP-TO-DATE
+> Task :benchmarks:server-ktor:processResources NO-SOURCE
+> Task :benchmarks:streaming-fixture:processResources NO-SOURCE
+> Task :benchmarks:streaming-fixture:classes UP-TO-DATE
+> Task :benchmarks:streaming-fixture:jar UP-TO-DATE
+> Task :benchmarks:server-ktor:compileKotlin
+> Task :benchmarks:server-ktor:compileJava NO-SOURCE
+> Task :benchmarks:server-ktor:classes UP-TO-DATE
+> Task :benchmarks:server-ktor:jar UP-TO-DATE
+> Task :benchmarks:server-ktor:startScripts
+> Task :benchmarks:server-ktor:distTar
+> Task :benchmarks:server-ktor:distZip
+> Task :benchmarks:server-ktor:javadoc NO-SOURCE
+> Task :benchmarks:server-ktor:sourcesJar UP-TO-DATE
+> Task :benchmarks:server-micronaut:compileJava UP-TO-DATE
+> Task :benchmarks:server-micronaut:processResources UP-TO-DATE
+> Task :benchmarks:server-micronaut:classes UP-TO-DATE
+> Task :benchmarks:server-micronaut:jar UP-TO-DATE
+> Task :benchmarks:server-micronaut:startScripts
+> Task :benchmarks:server-micronaut:distTar
+> Task :benchmarks:server-micronaut:distZip
+> Task :benchmarks:server-micronaut:assemble
+> Task :benchmarks:server-mvc:compileJava
+> Task :benchmarks:server-mvc:processResources NO-SOURCE
+> Task :benchmarks:server-mvc:classes
+> Task :benchmarks:server-mvc:jar UP-TO-DATE
+> Task :benchmarks:server-mvc:startScripts
+> Task :benchmarks:server-mvc:distTar
+> Task :benchmarks:server-mvc:distZip
+> Task :benchmarks:server-mvc:assemble
+> Task :benchmarks:server-quarkus:processResources NO-SOURCE
+> Task :benchmarks:server-quarkus:quarkusGenerateAppModel
+> Task :benchmarks:server-quarkus:quarkusGenerateCode
+> Task :benchmarks:server-ktor:dokkaGeneratePublicationHtml
+> Task :benchmarks:server-quarkus:compileJava
+
+> Task :benchmarks:server-ktor:logLinkDokkaGeneratePublicationHtml
+Generated Dokka HTML publication: http://localhost:63342/catnap/benchmarks/server-ktor/build/dokka/html/index.html
+
+> Task :benchmarks:server-ktor:javadocJar UP-TO-DATE
+> Task :benchmarks:server-ktor:assemble
+> Task :benchmarks:server-quarkus:classes
+> Task :benchmarks:server-quarkus:jar UP-TO-DATE
+> Task :benchmarks:server-quarkus:compileQuarkusTestGeneratedSourcesJava NO-SOURCE
+> Task :benchmarks:server-quarkus:quarkusGenerateTestAppModel
+> Task :benchmarks:server-quarkus:quarkusGenerateCodeTests
+> Task :benchmarks:server-quarkus:compileTestJava NO-SOURCE
+> Task :benchmarks:server-quarkus:processTestResources NO-SOURCE
+> Task :benchmarks:server-quarkus:testClasses UP-TO-DATE
+> Task :benchmarks:server-quarkus:test NO-SOURCE
+> Task :benchmarks:server-quarkus:quarkusBuildAppModel
+> Task :benchmarks:server-quarkus:quarkusAppPartsBuild
+> Task :benchmarks:server-quarkus:quarkusDependenciesBuild
+> Task :benchmarks:server-quarkus:quarkusBuild
+> Task :benchmarks:server-quarkus:assemble
+> Task :benchmarks:server-webflux:compileJava
+> Task :benchmarks:server-webflux:processResources NO-SOURCE
+> Task :benchmarks:server-webflux:classes
+> Task :benchmarks:server-webflux:jar UP-TO-DATE
+> Task :benchmarks:server-webflux:startScripts
+> Task :benchmarks:server-webflux:distTar
+> Task :benchmarks:server-webflux:distZip
+> Task :benchmarks:server-webflux:assemble
+
+> Task :benchmarks:streaming-fixture:javadoc
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkControl.java:24: warning: no @param for rate
+  public static BenchmarkSource<Map<String, Object>> source(int rate) {
+                                                     ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkControl.java:24: warning: no @return
+  public static BenchmarkSource<Map<String, Object>> source(int rate) {
+                                                     ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkControl.java:52: warning: no comment
+  public static Map<String, Object> metrics(boolean collect) {
+                                    ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkControl.java:42: warning: no comment
+  public static Map<String, Object> pause(boolean paused) {
+                                    ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkControl.java:32: warning: no comment
+  public static Map<String, Object> payload() {
+                                    ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:38: warning: no @param for value
+  public BenchmarkSource(T value, int perSecond, boolean synchronousRequests) {
+         ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:38: warning: no @param for perSecond
+  public BenchmarkSource(T value, int perSecond, boolean synchronousRequests) {
+         ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:38: warning: no @param for synchronousRequests
+  public BenchmarkSource(T value, int perSecond, boolean synchronousRequests) {
+         ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:72: warning: no @param for paused
+  public static void pause(boolean paused) {
+                     ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:33: warning: no comment
+  public BenchmarkSource(T value, int perSecond) {
+         ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:59: warning: no comment
+  public static int activeSubscriptions() {
+                    ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:67: warning: no comment
+  public static long emitted() {
+                     ^
+/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/src/main/java/com/github/gregwhitaker/catnap/benchmarks/stream/BenchmarkSource.java:63: warning: no comment
+  public static int emitting() {
+                    ^
+13 warnings
+
+> Task :benchmarks:streaming-fixture:javadocJar
+> Task :benchmarks:streaming-fixture:sourcesJar
+> Task :benchmarks:streaming-fixture:assemble
+> Task :benchmarks:streaming-runner:compileJava UP-TO-DATE
+> Task :benchmarks:streaming-runner:processResources NO-SOURCE
+> Task :benchmarks:streaming-runner:classes UP-TO-DATE
+> Task :benchmarks:streaming-runner:jar
+> Task :benchmarks:streaming-runner:assemble
+> Task :examples:jackson3-probe:compileJava UP-TO-DATE
+> Task :examples:jackson3-probe:processResources NO-SOURCE
+> Task :examples:jackson3-probe:classes UP-TO-DATE
+> Task :examples:jackson3-probe:jar UP-TO-DATE
+> Task :examples:jackson3-probe:javadoc UP-TO-DATE
+> Task :examples:jackson3-probe:javadocJar UP-TO-DATE
+> Task :examples:jackson3-probe:sourcesJar UP-TO-DATE
+> Task :examples:jackson3-probe:assemble UP-TO-DATE
+> Task :examples:ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :examples:ktor:compileKotlin UP-TO-DATE
+> Task :examples:ktor:compileJava NO-SOURCE
+> Task :examples:ktor:processResources NO-SOURCE
+> Task :examples:ktor:classes UP-TO-DATE
+> Task :examples:ktor:jar UP-TO-DATE
+> Task :examples:ktor:startScripts UP-TO-DATE
+> Task :examples:ktor:distTar UP-TO-DATE
+> Task :examples:ktor:distZip UP-TO-DATE
+> Task :examples:ktor:dokkaGeneratePublicationHtml UP-TO-DATE
+
+> Task :examples:ktor:logLinkDokkaGeneratePublicationHtml
+Generated Dokka HTML publication: http://localhost:63342/catnap/examples/ktor/build/dokka/html/index.html
+
+> Task :examples:ktor:javadoc NO-SOURCE
+> Task :examples:ktor:javadocJar UP-TO-DATE
+> Task :examples:ktor:sourcesJar UP-TO-DATE
+> Task :examples:ktor:assemble UP-TO-DATE
+> Task :examples:micronaut:compileJava UP-TO-DATE
+> Task :examples:micronaut:processResources UP-TO-DATE
+> Task :examples:micronaut:classes UP-TO-DATE
+> Task :examples:micronaut:runnerJar UP-TO-DATE
+> Task :examples:micronaut:buildLayers
+> Task :examples:micronaut:jar UP-TO-DATE
+> Task :examples:micronaut:startScripts
+> Task :examples:micronaut:distTar
+> Task :examples:micronaut:distZip
+> Task :examples:micronaut:assemble
+> Task :examples:quarkus:processResources UP-TO-DATE
+> Task :examples:quarkus:quarkusGenerateAppModel
+> Task :examples:quarkus:quarkusGenerateCode UP-TO-DATE
+> Task :examples:quarkus:compileJava UP-TO-DATE
+> Task :examples:quarkus:classes UP-TO-DATE
+> Task :examples:quarkus:jar UP-TO-DATE
+> Task :examples:quarkus:compileQuarkusTestGeneratedSourcesJava NO-SOURCE
+> Task :examples:quarkus:quarkusGenerateTestAppModel
+> Task :examples:quarkus:quarkusGenerateCodeTests UP-TO-DATE
+> Task :examples:quarkus:compileTestJava UP-TO-DATE
+> Task :examples:quarkus:processTestResources NO-SOURCE
+> Task :examples:quarkus:testClasses UP-TO-DATE
+> Task :examples:quarkus:test
+> Task :examples:quarkus:quarkusBuildAppModel
+> Task :examples:quarkus:quarkusAppPartsBuild
+> Task :examples:quarkus:quarkusDependenciesBuild
+> Task :examples:quarkus:quarkusBuild
+> Task :examples:quarkus:assemble
+> Task :examples:spring-boot-mvc:compileJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processResources NO-SOURCE
+> Task :examples:spring-boot-mvc:classes UP-TO-DATE
+> Task :examples:spring-boot-mvc:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-mvc:bootJar UP-TO-DATE
+> Task :examples:spring-boot-mvc:jar UP-TO-DATE
+> Task :examples:spring-boot-mvc:assemble UP-TO-DATE
+> Task :examples:spring-boot-webflux:compileJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processResources NO-SOURCE
+> Task :examples:spring-boot-webflux:classes UP-TO-DATE
+> Task :examples:spring-boot-webflux:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-webflux:bootJar UP-TO-DATE
+> Task :examples:spring-boot-webflux:jar UP-TO-DATE
+> Task :examples:spring-boot-webflux:assemble UP-TO-DATE
+> Task :examples:standalone:compileJava UP-TO-DATE
+> Task :examples:standalone:processResources NO-SOURCE
+> Task :examples:standalone:classes UP-TO-DATE
+> Task :examples:standalone:jar UP-TO-DATE
+> Task :examples:standalone:startScripts UP-TO-DATE
+> Task :examples:standalone:distTar UP-TO-DATE
+> Task :examples:standalone:distZip UP-TO-DATE
+> Task :examples:standalone:assemble UP-TO-DATE
+> Task :assemble
+> Task :benchmarks:compileTestJava UP-TO-DATE
+> Task :benchmarks:processTestResources NO-SOURCE
+> Task :benchmarks:testClasses UP-TO-DATE
+> Task :benchmarks:test UP-TO-DATE
+> Task :benchmarks:verifyBytecode
+> Task :benchmarks:check
+> Task :catnap-bom:check UP-TO-DATE
+> Task :catnap-core:compileTestJava UP-TO-DATE
+> Task :catnap-core:processTestResources NO-SOURCE
+> Task :catnap-core:testClasses UP-TO-DATE
+> Task :catnap-core:test UP-TO-DATE
+> Task :catnap-core:verifyBytecode
+> Task :catnap-core:verifyCoreDependencies
+> Task :catnap-core:check
+> Task :catnap-http:compileTestJava UP-TO-DATE
+> Task :catnap-http:processTestResources NO-SOURCE
+> Task :catnap-http:testClasses UP-TO-DATE
+> Task :catnap-http:test UP-TO-DATE
+> Task :catnap-http:verifyBytecode
+> Task :catnap-http:check
+> Task :catnap-jackson2:compileTestJava UP-TO-DATE
+> Task :catnap-jackson2:processTestResources NO-SOURCE
+> Task :catnap-jackson2:testClasses UP-TO-DATE
+> Task :catnap-jackson2:test UP-TO-DATE
+> Task :catnap-jackson2:verifyBytecode
+> Task :catnap-jackson2:check
+> Task :catnap-jackson3:compileTestJava UP-TO-DATE
+> Task :catnap-jackson3:processTestResources NO-SOURCE
+> Task :catnap-jackson3:testClasses UP-TO-DATE
+> Task :catnap-jackson3:test UP-TO-DATE
+> Task :catnap-jackson3:verifyBytecode
+> Task :catnap-jackson3:check
+> Task :catnap-kotlinx-json:compileTestKotlin UP-TO-DATE
+> Task :catnap-kotlinx-json:compileTestJava NO-SOURCE
+> Task :catnap-kotlinx-json:processTestResources NO-SOURCE
+> Task :catnap-kotlinx-json:testClasses UP-TO-DATE
+> Task :catnap-kotlinx-json:test UP-TO-DATE
+> Task :catnap-kotlinx-json:verifyBytecode
+> Task :catnap-kotlinx-json:check
+> Task :catnap-ktor:compileTestKotlin UP-TO-DATE
+> Task :catnap-ktor:compileTestJava NO-SOURCE
+> Task :catnap-ktor:processTestResources NO-SOURCE
+> Task :catnap-ktor:testClasses UP-TO-DATE
+> Task :catnap-ktor:test UP-TO-DATE
+> Task :catnap-ktor:verifyAdapterDependencies
+> Task :catnap-ktor:verifyBytecode
+> Task :catnap-ktor:check
+> Task :catnap-micronaut:compileTestJava UP-TO-DATE
+> Task :catnap-micronaut:processTestResources NO-SOURCE
+> Task :catnap-micronaut:testClasses UP-TO-DATE
+> Task :catnap-micronaut:test UP-TO-DATE
+> Task :catnap-micronaut:verifyAdapterDependencies
+> Task :catnap-micronaut:verifyBytecode
+> Task :catnap-micronaut:check
+> Task :catnap-quarkus:compileTestJava UP-TO-DATE
+> Task :catnap-quarkus:processTestResources NO-SOURCE
+> Task :catnap-quarkus:testClasses UP-TO-DATE
+> Task :catnap-quarkus:test
+> Task :catnap-quarkus:verifyAdapterDependencies
+> Task :catnap-quarkus:verifyBytecode
+> Task :catnap-quarkus:check
+> Task :catnap-quarkus-deployment:compileTestJava NO-SOURCE
+> Task :catnap-quarkus-deployment:processTestResources NO-SOURCE
+> Task :catnap-quarkus-deployment:testClasses UP-TO-DATE
+> Task :catnap-quarkus-deployment:test NO-SOURCE
+> Task :catnap-quarkus-deployment:verifyBytecode
+> Task :catnap-quarkus-deployment:check
+> Task :catnap-spring-boot-autoconfigure:compileTestJava UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:processTestResources NO-SOURCE
+> Task :catnap-spring-boot-autoconfigure:testClasses UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:test UP-TO-DATE
+> Task :catnap-spring-boot-autoconfigure:verifyBytecode
+> Task :catnap-spring-boot-autoconfigure:check
+> Task :catnap-spring-boot-starter:compileTestJava NO-SOURCE
+> Task :catnap-spring-boot-starter:processTestResources NO-SOURCE
+> Task :catnap-spring-boot-starter:testClasses UP-TO-DATE
+> Task :catnap-spring-boot-starter:test NO-SOURCE
+> Task :catnap-spring-boot-starter:verifyBytecode
+> Task :catnap-spring-boot-starter:check
+> Task :catnap-spring-boot-starter-webflux:compileTestJava NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:processTestResources NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:testClasses UP-TO-DATE
+> Task :catnap-spring-boot-starter-webflux:test NO-SOURCE
+> Task :catnap-spring-boot-starter-webflux:verifyBytecode
+> Task :catnap-spring-boot-starter-webflux:check
+> Task :catnap-spring-webflux:compileTestJava UP-TO-DATE
+> Task :catnap-spring-webflux:processTestResources NO-SOURCE
+> Task :catnap-spring-webflux:testClasses UP-TO-DATE
+> Task :catnap-spring-webflux:test UP-TO-DATE
+> Task :catnap-spring-webflux:verifyAdapterDependencies
+> Task :catnap-spring-webflux:verifyBytecode
+> Task :catnap-spring-webflux:check
+> Task :catnap-spring-webmvc:compileTestJava UP-TO-DATE
+> Task :catnap-spring-webmvc:processTestResources NO-SOURCE
+> Task :catnap-spring-webmvc:testClasses UP-TO-DATE
+> Task :catnap-spring-webmvc:test UP-TO-DATE
+> Task :catnap-spring-webmvc:verifyAdapterDependencies
+> Task :catnap-spring-webmvc:verifyBytecode
+> Task :catnap-spring-webmvc:check
+> Task :catnap-streams:compileTestJava UP-TO-DATE
+> Task :catnap-streams:processTestResources NO-SOURCE
+> Task :catnap-streams:testClasses UP-TO-DATE
+> Task :catnap-streams:test UP-TO-DATE
+> Task :catnap-streams:verifyBytecode
+> Task :catnap-streams:check
+> Task :catnap-testkit:compileTestJava UP-TO-DATE
+> Task :catnap-testkit:processTestResources NO-SOURCE
+> Task :catnap-testkit:testClasses UP-TO-DATE
+> Task :catnap-testkit:test UP-TO-DATE
+> Task :catnap-testkit:verifyBytecode
+> Task :catnap-testkit:check
+> Task :benchmarks:server-ktor:compileTestKotlin NO-SOURCE
+> Task :benchmarks:server-ktor:compileTestJava NO-SOURCE
+> Task :benchmarks:server-ktor:processTestResources NO-SOURCE
+> Task :benchmarks:server-ktor:testClasses UP-TO-DATE
+> Task :benchmarks:server-ktor:test NO-SOURCE
+> Task :benchmarks:server-ktor:verifyBytecode
+> Task :benchmarks:server-ktor:check
+> Task :benchmarks:server-micronaut:compileTestJava NO-SOURCE
+> Task :benchmarks:server-micronaut:processTestResources NO-SOURCE
+> Task :benchmarks:server-micronaut:testClasses UP-TO-DATE
+> Task :benchmarks:server-micronaut:test NO-SOURCE
+> Task :benchmarks:server-micronaut:verifyBytecode
+> Task :benchmarks:server-micronaut:check
+> Task :benchmarks:server-mvc:compileTestJava NO-SOURCE
+> Task :benchmarks:server-mvc:processTestResources NO-SOURCE
+> Task :benchmarks:server-mvc:testClasses UP-TO-DATE
+> Task :benchmarks:server-mvc:test NO-SOURCE
+> Task :benchmarks:server-mvc:verifyBytecode
+> Task :benchmarks:server-mvc:check
+> Task :benchmarks:server-quarkus:verifyBytecode
+> Task :benchmarks:server-quarkus:check
+> Task :benchmarks:server-webflux:compileTestJava NO-SOURCE
+> Task :benchmarks:server-webflux:processTestResources NO-SOURCE
+> Task :benchmarks:server-webflux:testClasses UP-TO-DATE
+> Task :benchmarks:server-webflux:test NO-SOURCE
+> Task :benchmarks:server-webflux:verifyBytecode
+> Task :benchmarks:server-webflux:check
+> Task :benchmarks:streaming-fixture:compileTestJava UP-TO-DATE
+> Task :benchmarks:streaming-fixture:processTestResources NO-SOURCE
+> Task :benchmarks:streaming-fixture:testClasses UP-TO-DATE
+> Task :benchmarks:streaming-fixture:test UP-TO-DATE
+> Task :benchmarks:streaming-fixture:verifyBytecode
+> Task :benchmarks:streaming-fixture:check
+> Task :benchmarks:streaming-runner:compileTestJava UP-TO-DATE
+> Task :benchmarks:streaming-runner:processTestResources NO-SOURCE
+> Task :benchmarks:streaming-runner:testClasses UP-TO-DATE
+> Task :benchmarks:streaming-runner:test UP-TO-DATE
+> Task :benchmarks:streaming-runner:verifyBytecode
+> Task :benchmarks:streaming-runner:check
+> Task :examples:jackson3-probe:compileTestJava NO-SOURCE
+> Task :examples:jackson3-probe:processTestResources NO-SOURCE
+> Task :examples:jackson3-probe:testClasses UP-TO-DATE
+> Task :examples:jackson3-probe:test NO-SOURCE
+> Task :examples:jackson3-probe:verifyBytecode
+> Task :examples:jackson3-probe:check
+> Task :examples:ktor:compileTestKotlin UP-TO-DATE
+> Task :examples:ktor:compileTestJava NO-SOURCE
+> Task :examples:ktor:processTestResources NO-SOURCE
+> Task :examples:ktor:testClasses UP-TO-DATE
+> Task :examples:ktor:test UP-TO-DATE
+> Task :examples:ktor:verifyBytecode
+> Task :examples:ktor:check
+> Task :examples:micronaut:compileTestJava UP-TO-DATE
+> Task :examples:micronaut:inspectRuntimeClasspath UP-TO-DATE
+> Task :examples:micronaut:processTestResources NO-SOURCE
+> Task :examples:micronaut:testClasses UP-TO-DATE
+> Task :examples:micronaut:test UP-TO-DATE
+> Task :examples:micronaut:verifyBytecode
+> Task :examples:micronaut:check
+> Task :examples:quarkus:verifyBytecode
+> Task :examples:quarkus:check
+> Task :examples:spring-boot-mvc:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processTestResources NO-SOURCE
+> Task :examples:spring-boot-mvc:testClasses UP-TO-DATE
+> Task :examples:spring-boot-mvc:test UP-TO-DATE
+> Task :examples:spring-boot-mvc:verifyBytecode
+> Task :examples:spring-boot-mvc:check
+> Task :examples:spring-boot-webflux:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processTestResources NO-SOURCE
+> Task :examples:spring-boot-webflux:testClasses UP-TO-DATE
+> Task :examples:spring-boot-webflux:test UP-TO-DATE
+> Task :examples:spring-boot-webflux:verifyBytecode
+> Task :examples:spring-boot-webflux:check
+> Task :examples:standalone:compileTestJava UP-TO-DATE
+> Task :examples:standalone:processTestResources NO-SOURCE
+> Task :examples:standalone:testClasses UP-TO-DATE
+> Task :examples:standalone:test UP-TO-DATE
+> Task :examples:standalone:verifyBytecode
+> Task :examples:standalone:check
+> Task :check
+> Task :build
+> Task :benchmarks:build
+> Task :catnap-bom:build UP-TO-DATE
+> Task :catnap-core:build
+> Task :catnap-http:build
+> Task :catnap-jackson2:build
+> Task :catnap-jackson3:build
+> Task :catnap-kotlinx-json:build
+> Task :catnap-ktor:build
+> Task :catnap-micronaut:build
+> Task :catnap-quarkus:build
+> Task :catnap-quarkus-deployment:build
+> Task :catnap-spring-boot-autoconfigure:build
+> Task :catnap-spring-boot-starter:build
+> Task :catnap-spring-boot-starter-webflux:build
+> Task :catnap-spring-webflux:build
+> Task :catnap-spring-webmvc:build
+> Task :catnap-streams:build
+> Task :catnap-testkit:build
+> Task :benchmarks:server-ktor:build
+> Task :benchmarks:server-micronaut:build
+> Task :benchmarks:server-mvc:build
+> Task :benchmarks:server-quarkus:build
+> Task :benchmarks:server-webflux:build
+> Task :benchmarks:streaming-fixture:build
+> Task :benchmarks:streaming-runner:build
+> Task :examples:jackson3-probe:build
+> Task :examples:ktor:build
+> Task :examples:micronaut:build
+> Task :examples:quarkus:build
+> Task :examples:spring-boot-mvc:build
+> Task :examples:spring-boot-webflux:build
+> Task :examples:standalone:build
+> Task :catnap-core:testJava17 UP-TO-DATE
+> Task :catnap-core:testJava21 UP-TO-DATE
+> Task :catnap-core:testJava25 UP-TO-DATE
+> Task :compatibilityTest UP-TO-DATE
+> Task :prepareGradleConsumers UP-TO-DATE
+> Task :preparePublicationRepository
+> Task :catnap-bom:generateMetadataFileForMavenJavaPublication
+> Task :catnap-bom:generatePomFileForMavenJavaPublication
+> Task :catnap-bom:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-core:generateMetadataFileForMavenJavaPublication
+> Task :catnap-core:generatePomFileForMavenJavaPublication
+> Task :catnap-core:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-http:generateMetadataFileForMavenJavaPublication
+> Task :catnap-http:generatePomFileForMavenJavaPublication
+> Task :catnap-http:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-jackson2:generateMetadataFileForMavenJavaPublication
+> Task :catnap-jackson2:generatePomFileForMavenJavaPublication
+> Task :catnap-jackson2:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-jackson3:generateMetadataFileForMavenJavaPublication
+> Task :catnap-jackson3:generatePomFileForMavenJavaPublication
+> Task :catnap-jackson3:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-kotlinx-json:kotlinSourcesJar
+> Task :catnap-kotlinx-json:generateMetadataFileForMavenJavaPublication
+> Task :catnap-kotlinx-json:generatePomFileForMavenJavaPublication
+> Task :catnap-kotlinx-json:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-ktor:kotlinSourcesJar
+> Task :catnap-ktor:generateMetadataFileForMavenJavaPublication
+> Task :catnap-ktor:generatePomFileForMavenJavaPublication
+> Task :catnap-ktor:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-micronaut:generateMetadataFileForMavenJavaPublication
+> Task :catnap-micronaut:generatePomFileForMavenJavaPublication
+> Task :catnap-micronaut:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-quarkus:generateMetadataFileForMavenJavaPublication
+> Task :catnap-quarkus:generatePomFileForMavenJavaPublication
+> Task :catnap-quarkus:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-quarkus-deployment:generateMetadataFileForMavenJavaPublication
+> Task :catnap-quarkus-deployment:generatePomFileForMavenJavaPublication
+> Task :catnap-quarkus-deployment:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-spring-boot-autoconfigure:generateMetadataFileForMavenJavaPublication
+> Task :catnap-spring-boot-autoconfigure:generatePomFileForMavenJavaPublication
+> Task :catnap-spring-boot-autoconfigure:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-spring-boot-starter:generateMetadataFileForMavenJavaPublication
+> Task :catnap-spring-boot-starter:generatePomFileForMavenJavaPublication
+> Task :catnap-spring-boot-starter:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-spring-boot-starter-webflux:generateMetadataFileForMavenJavaPublication
+> Task :catnap-spring-boot-starter-webflux:generatePomFileForMavenJavaPublication
+> Task :catnap-spring-boot-starter-webflux:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-spring-webflux:generateMetadataFileForMavenJavaPublication
+> Task :catnap-spring-webflux:generatePomFileForMavenJavaPublication
+> Task :catnap-spring-webflux:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-spring-webmvc:generateMetadataFileForMavenJavaPublication
+> Task :catnap-spring-webmvc:generatePomFileForMavenJavaPublication
+> Task :catnap-spring-webmvc:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-streams:generateMetadataFileForMavenJavaPublication
+> Task :catnap-streams:generatePomFileForMavenJavaPublication
+> Task :catnap-streams:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :catnap-testkit:generateMetadataFileForMavenJavaPublication
+> Task :catnap-testkit:generatePomFileForMavenJavaPublication
+> Task :catnap-testkit:publishMavenJavaPublicationToLocalVerificationRepository
+> Task :publishVerificationArtifacts
+
+> Task :publicationGradleSmokeTest
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :bindings:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :bindings:compileKotlin NO-SOURCE
+> Task :bindings:compileJava NO-SOURCE
+> Task :bindings:processResources NO-SOURCE
+> Task :bindings:classes UP-TO-DATE
+> Task :bindings:jar UP-TO-DATE
+> Task :bindings:assemble UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar UP-TO-DATE
+> Task :core:assemble UP-TO-DATE
+> Task :examples:jackson3-probe:compileJava UP-TO-DATE
+> Task :examples:jackson3-probe:processResources NO-SOURCE
+> Task :examples:jackson3-probe:classes UP-TO-DATE
+> Task :examples:jackson3-probe:jar UP-TO-DATE
+> Task :examples:jackson3-probe:assemble UP-TO-DATE
+> Task :examples:ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :examples:ktor:compileKotlin UP-TO-DATE
+> Task :examples:ktor:compileJava NO-SOURCE
+> Task :examples:ktor:processResources NO-SOURCE
+> Task :examples:ktor:classes UP-TO-DATE
+> Task :examples:ktor:jar UP-TO-DATE
+> Task :examples:ktor:startScripts UP-TO-DATE
+> Task :examples:ktor:distTar UP-TO-DATE
+> Task :examples:ktor:distZip UP-TO-DATE
+> Task :examples:ktor:assemble UP-TO-DATE
+> Task :examples:micronaut:compileJava UP-TO-DATE
+> Task :examples:micronaut:processResources UP-TO-DATE
+> Task :examples:micronaut:classes UP-TO-DATE
+> Task :examples:micronaut:runnerJar UP-TO-DATE
+> Task :examples:micronaut:buildLayers
+> Task :examples:micronaut:jar UP-TO-DATE
+> Task :examples:micronaut:startScripts
+> Task :examples:micronaut:distTar
+> Task :examples:micronaut:distZip
+> Task :examples:micronaut:assemble
+> Task :examples:quarkus:processResources UP-TO-DATE
+> Task :examples:quarkus:quarkusGenerateAppModel
+> Task :examples:quarkus:quarkusGenerateCode
+> Task :examples:quarkus:compileJava UP-TO-DATE
+> Task :examples:quarkus:classes UP-TO-DATE
+> Task :examples:quarkus:jar UP-TO-DATE
+> Task :examples:quarkus:compileQuarkusTestGeneratedSourcesJava NO-SOURCE
+> Task :examples:quarkus:quarkusGenerateTestAppModel
+> Task :examples:quarkus:quarkusGenerateCodeTests
+> Task :examples:quarkus:compileTestJava UP-TO-DATE
+> Task :examples:quarkus:processTestResources NO-SOURCE
+> Task :examples:quarkus:testClasses UP-TO-DATE
+> Task :examples:quarkus:test
+> Task :examples:quarkus:quarkusBuildAppModel
+> Task :examples:quarkus:quarkusAppPartsBuild
+> Task :examples:quarkus:quarkusDependenciesBuild
+> Task :examples:quarkus:quarkusBuild
+> Task :examples:quarkus:assemble
+> Task :examples:spring-boot-mvc:compileJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processResources NO-SOURCE
+> Task :examples:spring-boot-mvc:classes UP-TO-DATE
+> Task :examples:spring-boot-mvc:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-mvc:bootJar
+> Task :examples:spring-boot-mvc:jar UP-TO-DATE
+> Task :examples:spring-boot-mvc:assemble
+> Task :examples:spring-boot-webflux:compileJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processResources NO-SOURCE
+> Task :examples:spring-boot-webflux:classes UP-TO-DATE
+> Task :examples:spring-boot-webflux:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-webflux:bootJar
+> Task :examples:spring-boot-webflux:jar UP-TO-DATE
+> Task :examples:spring-boot-webflux:assemble
+> Task :examples:standalone:compileJava UP-TO-DATE
+> Task :examples:standalone:processResources NO-SOURCE
+> Task :examples:standalone:classes UP-TO-DATE
+> Task :examples:standalone:jar UP-TO-DATE
+> Task :examples:standalone:startScripts UP-TO-DATE
+> Task :examples:standalone:distTar UP-TO-DATE
+> Task :examples:standalone:distZip UP-TO-DATE
+> Task :examples:standalone:assemble UP-TO-DATE
+> Task :assemble
+> Task :bindings:compileTestKotlin UP-TO-DATE
+> Task :bindings:compileTestJava NO-SOURCE
+> Task :bindings:processTestResources NO-SOURCE
+> Task :bindings:testClasses UP-TO-DATE
+> Task :bindings:test UP-TO-DATE
+> Task :bindings:check UP-TO-DATE
+> Task :core:compileTestJava UP-TO-DATE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :core:test UP-TO-DATE
+> Task :core:check UP-TO-DATE
+> Task :examples:jackson3-probe:compileTestJava NO-SOURCE
+> Task :examples:jackson3-probe:processTestResources NO-SOURCE
+> Task :examples:jackson3-probe:testClasses UP-TO-DATE
+> Task :examples:jackson3-probe:test NO-SOURCE
+> Task :examples:jackson3-probe:check UP-TO-DATE
+> Task :examples:ktor:compileTestKotlin UP-TO-DATE
+> Task :examples:ktor:compileTestJava NO-SOURCE
+> Task :examples:ktor:processTestResources NO-SOURCE
+> Task :examples:ktor:testClasses UP-TO-DATE
+> Task :examples:ktor:test UP-TO-DATE
+> Task :examples:ktor:check UP-TO-DATE
+> Task :examples:micronaut:compileTestJava UP-TO-DATE
+> Task :examples:micronaut:inspectRuntimeClasspath UP-TO-DATE
+> Task :examples:micronaut:processTestResources NO-SOURCE
+> Task :examples:micronaut:testClasses UP-TO-DATE
+> Task :examples:micronaut:test
+> Task :examples:micronaut:check
+> Task :examples:quarkus:check
+> Task :examples:spring-boot-mvc:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processTestResources NO-SOURCE
+> Task :examples:spring-boot-mvc:testClasses UP-TO-DATE
+> Task :examples:spring-boot-mvc:test UP-TO-DATE
+> Task :examples:spring-boot-mvc:check UP-TO-DATE
+> Task :examples:spring-boot-webflux:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processTestResources NO-SOURCE
+> Task :examples:spring-boot-webflux:testClasses UP-TO-DATE
+> Task :examples:spring-boot-webflux:test UP-TO-DATE
+> Task :examples:spring-boot-webflux:check UP-TO-DATE
+> Task :examples:standalone:compileTestJava UP-TO-DATE
+> Task :examples:standalone:processTestResources NO-SOURCE
+> Task :examples:standalone:testClasses UP-TO-DATE
+> Task :examples:standalone:test UP-TO-DATE
+> Task :examples:standalone:check UP-TO-DATE
+> Task :check
+> Task :build
+> Task :bindings:build UP-TO-DATE
+> Task :core:build UP-TO-DATE
+> Task :examples:jackson3-probe:build UP-TO-DATE
+> Task :examples:ktor:build UP-TO-DATE
+> Task :examples:micronaut:build
+> Task :examples:quarkus:build
+> Task :examples:spring-boot-mvc:build
+> Task :examples:spring-boot-webflux:build
+> Task :examples:standalone:build UP-TO-DATE
+
+> Task :verifyPublicationMetadata
+Verified 16 libraries and BOM: POM/Gradle metadata, Java baselines, sources, API documentation, and extension descriptors.
+
+> Task :verifyPublishedDependencies
+Verified independent artifact resolution, BOM alignment, and runtime dependency boundaries (gradle).
+
+> Task :core:testJava17 UP-TO-DATE
+> Task :core:testJava21 UP-TO-DATE
+> Task :core:testJava25 UP-TO-DATE
+> Task :compatibilityTest UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/publication-smoke/gradle/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 24s
+63 actionable tasks: 18 executed, 45 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html
+
+> Task :preparePomConsumers UP-TO-DATE
+
+> Task :publicationPomSmokeTest
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :bindings:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :bindings:compileKotlin NO-SOURCE
+> Task :bindings:compileJava NO-SOURCE
+> Task :bindings:processResources NO-SOURCE
+> Task :bindings:classes UP-TO-DATE
+> Task :bindings:jar UP-TO-DATE
+> Task :bindings:assemble UP-TO-DATE
+> Task :core:compileJava NO-SOURCE
+> Task :core:processResources NO-SOURCE
+> Task :core:classes UP-TO-DATE
+> Task :core:jar UP-TO-DATE
+> Task :core:assemble UP-TO-DATE
+> Task :examples:jackson3-probe:compileJava UP-TO-DATE
+> Task :examples:jackson3-probe:processResources NO-SOURCE
+> Task :examples:jackson3-probe:classes UP-TO-DATE
+> Task :examples:jackson3-probe:jar UP-TO-DATE
+> Task :examples:jackson3-probe:assemble UP-TO-DATE
+> Task :examples:ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :examples:ktor:compileKotlin UP-TO-DATE
+> Task :examples:ktor:compileJava NO-SOURCE
+> Task :examples:ktor:processResources NO-SOURCE
+> Task :examples:ktor:classes UP-TO-DATE
+> Task :examples:ktor:jar UP-TO-DATE
+> Task :examples:ktor:startScripts
+> Task :examples:ktor:distTar
+> Task :examples:ktor:distZip
+> Task :examples:ktor:assemble
+> Task :examples:micronaut:compileJava UP-TO-DATE
+> Task :examples:micronaut:processResources UP-TO-DATE
+> Task :examples:micronaut:classes UP-TO-DATE
+> Task :examples:micronaut:runnerJar
+> Task :examples:micronaut:buildLayers
+> Task :examples:micronaut:jar UP-TO-DATE
+> Task :examples:micronaut:startScripts
+> Task :examples:micronaut:distTar
+> Task :examples:micronaut:distZip
+> Task :examples:micronaut:assemble
+> Task :examples:quarkus:processResources UP-TO-DATE
+> Task :examples:quarkus:quarkusGenerateAppModel
+> Task :examples:quarkus:quarkusGenerateCode
+> Task :examples:quarkus:compileJava UP-TO-DATE
+> Task :examples:quarkus:classes UP-TO-DATE
+> Task :examples:quarkus:jar UP-TO-DATE
+> Task :examples:quarkus:compileQuarkusTestGeneratedSourcesJava NO-SOURCE
+> Task :examples:quarkus:quarkusGenerateTestAppModel
+> Task :examples:quarkus:quarkusGenerateCodeTests
+> Task :examples:quarkus:compileTestJava UP-TO-DATE
+> Task :examples:quarkus:processTestResources NO-SOURCE
+> Task :examples:quarkus:testClasses UP-TO-DATE
+> Task :examples:quarkus:test
+> Task :examples:quarkus:quarkusBuildAppModel
+> Task :examples:quarkus:quarkusAppPartsBuild
+> Task :examples:quarkus:quarkusDependenciesBuild
+> Task :examples:quarkus:quarkusBuild
+> Task :examples:quarkus:assemble
+> Task :examples:spring-boot-mvc:compileJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processResources NO-SOURCE
+> Task :examples:spring-boot-mvc:classes UP-TO-DATE
+> Task :examples:spring-boot-mvc:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-mvc:bootJar
+> Task :examples:spring-boot-mvc:jar UP-TO-DATE
+> Task :examples:spring-boot-mvc:assemble
+> Task :examples:spring-boot-webflux:compileJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processResources NO-SOURCE
+> Task :examples:spring-boot-webflux:classes UP-TO-DATE
+> Task :examples:spring-boot-webflux:resolveMainClassName UP-TO-DATE
+> Task :examples:spring-boot-webflux:bootJar
+> Task :examples:spring-boot-webflux:jar UP-TO-DATE
+> Task :examples:spring-boot-webflux:assemble
+> Task :examples:standalone:compileJava UP-TO-DATE
+> Task :examples:standalone:processResources NO-SOURCE
+> Task :examples:standalone:classes UP-TO-DATE
+> Task :examples:standalone:jar UP-TO-DATE
+> Task :examples:standalone:startScripts
+> Task :examples:standalone:distTar
+> Task :examples:standalone:distZip
+> Task :examples:standalone:assemble
+> Task :assemble
+> Task :bindings:compileTestKotlin UP-TO-DATE
+> Task :bindings:compileTestJava NO-SOURCE
+> Task :bindings:processTestResources NO-SOURCE
+> Task :bindings:testClasses UP-TO-DATE
+> Task :bindings:test UP-TO-DATE
+> Task :bindings:check UP-TO-DATE
+> Task :core:compileTestJava UP-TO-DATE
+> Task :core:processTestResources NO-SOURCE
+> Task :core:testClasses UP-TO-DATE
+> Task :core:test UP-TO-DATE
+> Task :core:check UP-TO-DATE
+> Task :examples:jackson3-probe:compileTestJava NO-SOURCE
+> Task :examples:jackson3-probe:processTestResources NO-SOURCE
+> Task :examples:jackson3-probe:testClasses UP-TO-DATE
+> Task :examples:jackson3-probe:test NO-SOURCE
+> Task :examples:jackson3-probe:check UP-TO-DATE
+> Task :examples:ktor:compileTestKotlin UP-TO-DATE
+> Task :examples:ktor:compileTestJava NO-SOURCE
+> Task :examples:ktor:processTestResources NO-SOURCE
+> Task :examples:ktor:testClasses UP-TO-DATE
+> Task :examples:ktor:test UP-TO-DATE
+> Task :examples:ktor:check UP-TO-DATE
+> Task :examples:micronaut:compileTestJava UP-TO-DATE
+> Task :examples:micronaut:inspectRuntimeClasspath
+> Task :examples:micronaut:processTestResources NO-SOURCE
+> Task :examples:micronaut:testClasses UP-TO-DATE
+> Task :examples:micronaut:test
+> Task :examples:micronaut:check
+> Task :examples:quarkus:check
+> Task :examples:spring-boot-mvc:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-mvc:processTestResources NO-SOURCE
+> Task :examples:spring-boot-mvc:testClasses UP-TO-DATE
+> Task :examples:spring-boot-mvc:test UP-TO-DATE
+> Task :examples:spring-boot-mvc:check UP-TO-DATE
+> Task :examples:spring-boot-webflux:compileTestJava UP-TO-DATE
+> Task :examples:spring-boot-webflux:processTestResources NO-SOURCE
+> Task :examples:spring-boot-webflux:testClasses UP-TO-DATE
+> Task :examples:spring-boot-webflux:test UP-TO-DATE
+> Task :examples:spring-boot-webflux:check UP-TO-DATE
+> Task :examples:standalone:compileTestJava UP-TO-DATE
+> Task :examples:standalone:processTestResources NO-SOURCE
+> Task :examples:standalone:testClasses UP-TO-DATE
+> Task :examples:standalone:test UP-TO-DATE
+> Task :examples:standalone:check UP-TO-DATE
+> Task :check
+> Task :build
+> Task :bindings:build UP-TO-DATE
+> Task :core:build UP-TO-DATE
+> Task :examples:jackson3-probe:build UP-TO-DATE
+> Task :examples:ktor:build
+> Task :examples:micronaut:build
+> Task :examples:quarkus:build
+> Task :examples:spring-boot-mvc:build
+> Task :examples:spring-boot-webflux:build
+> Task :examples:standalone:build
+
+> Task :verifyPublicationMetadata
+Verified 16 libraries and BOM: POM/Gradle metadata, Java baselines, sources, API documentation, and extension descriptors.
+
+> Task :verifyPublishedDependencies
+Verified independent artifact resolution, BOM alignment, and runtime dependency boundaries (pom).
+
+> Task :core:testJava17 UP-TO-DATE
+> Task :core:testJava21 UP-TO-DATE
+> Task :core:testJava25 UP-TO-DATE
+> Task :compatibilityTest UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/publication-smoke/pom/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 25s
+63 actionable tasks: 26 executed, 37 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html
+
+> Task :publicationSmokeTest
+> Task :benchmarks:server-ktor:benchmarkLaunchSpec
+> Task :benchmarks:server-micronaut:benchmarkLaunchSpec UP-TO-DATE
+> Task :benchmarks:server-mvc:benchmarkLaunchSpec
+> Task :benchmarks:server-quarkus:benchmarkLaunchSpec
+> Task :benchmarks:server-webflux:benchmarkLaunchSpec
+
+> Task :benchmarks:streaming-runner:smoke
+2026-11-16T18:15:54.073186Z mvc server ready on loopback port 62323
+2026-11-16T18:15:54.090309Z mvc ndjson: simultaneous queries on the same publisher
+2026-11-16T18:15:54.252525Z mvc ndjson native: throughput and first-item latency
+2026-11-16T18:15:54.867295Z mvc ndjson bypass: throughput and first-item latency
+2026-11-16T18:15:55.434837Z mvc ndjson all: throughput and first-item latency
+2026-11-16T18:15:55.994638Z mvc ndjson sparse: throughput and first-item latency
+2026-11-16T18:15:56.549810Z mvc ndjson native: retained memory with open connections
+2026-11-16T18:15:56.835929Z mvc ndjson native: 0.25s, 260 records, post-GC heap 15376472
+2026-11-16T18:15:57.108460Z mvc ndjson native: 0.5s, 516 records, post-GC heap 15376520
+2026-11-16T18:15:57.643456Z mvc ndjson native: 1.0s, 1019 records, post-GC heap 15376520
+2026-11-16T18:15:57.676424Z mvc ndjson all: retained memory with open connections
+2026-11-16T18:15:57.963064Z mvc ndjson all: 0.25s, 262 records, post-GC heap 15377888
+2026-11-16T18:15:58.239823Z mvc ndjson all: 0.5s, 520 records, post-GC heap 15377984
+2026-11-16T18:15:58.765342Z mvc ndjson all: 1.0s, 1020 records, post-GC heap 15377984
+2026-11-16T18:15:58.797582Z mvc sse: simultaneous queries on the same publisher
+2026-11-16T18:15:58.918955Z mvc sse native: throughput and first-item latency
+2026-11-16T18:15:59.474094Z mvc sse bypass: throughput and first-item latency
+2026-11-16T18:16:00.036861Z mvc sse all: throughput and first-item latency
+2026-11-16T18:16:00.590037Z mvc sse sparse: throughput and first-item latency
+2026-11-16T18:16:01.173024Z mvc sse native: retained memory with open connections
+2026-11-16T18:16:01.456216Z mvc sse native: 0.25s, 258 records, post-GC heap 15410160
+2026-11-16T18:16:01.737777Z mvc sse native: 0.5s, 520 records, post-GC heap 15410160
+2026-11-16T18:16:02.269760Z mvc sse native: 1.0s, 989 records, post-GC heap 15410312
+2026-11-16T18:16:02.304617Z mvc sse all: retained memory with open connections
+2026-11-16T18:16:02.581104Z mvc sse all: 0.25s, 256 records, post-GC heap 15411712
+2026-11-16T18:16:02.854584Z mvc sse all: 0.5s, 512 records, post-GC heap 15411832
+2026-11-16T18:16:03.382307Z mvc sse all: 1.0s, 1018 records, post-GC heap 15412568
+2026-11-16T18:16:04.722869Z webflux server ready on loopback port 62428
+2026-11-16T18:16:04.739353Z webflux ndjson: simultaneous queries on the same publisher
+2026-11-16T18:16:04.872311Z webflux ndjson native: throughput and first-item latency
+2026-11-16T18:16:05.406105Z webflux ndjson bypass: throughput and first-item latency
+2026-11-16T18:16:05.941162Z webflux ndjson all: throughput and first-item latency
+2026-11-16T18:16:06.483428Z webflux ndjson sparse: throughput and first-item latency
+2026-11-16T18:16:06.992978Z webflux ndjson native: retained memory with open connections
+2026-11-16T18:16:07.279513Z webflux ndjson native: 0.25s, 260 records, post-GC heap 15346384
+2026-11-16T18:16:07.553652Z webflux ndjson native: 0.5s, 516 records, post-GC heap 15346384
+2026-11-16T18:16:08.080075Z webflux ndjson native: 1.0s, 1026 records, post-GC heap 15346384
+2026-11-16T18:16:08.085585Z webflux ndjson all: retained memory with open connections
+2026-11-16T18:16:08.371780Z webflux ndjson all: 0.25s, 264 records, post-GC heap 15328552
+2026-11-16T18:16:08.652527Z webflux ndjson all: 0.5s, 528 records, post-GC heap 15328552
+2026-11-16T18:16:09.180749Z webflux ndjson all: 1.0s, 1034 records, post-GC heap 15328528
+2026-11-16T18:16:09.187366Z webflux sse: simultaneous queries on the same publisher
+2026-11-16T18:16:09.283501Z webflux sse native: throughput and first-item latency
+2026-11-16T18:16:09.788774Z webflux sse bypass: throughput and first-item latency
+2026-11-16T18:16:10.334793Z webflux sse all: throughput and first-item latency
+2026-11-16T18:16:10.869083Z webflux sse sparse: throughput and first-item latency
+2026-11-16T18:16:11.382309Z webflux sse native: retained memory with open connections
+2026-11-16T18:16:11.659051Z webflux sse native: 0.25s, 256 records, post-GC heap 15467952
+2026-11-16T18:16:11.937520Z webflux sse native: 0.5s, 518 records, post-GC heap 16516584
+2026-11-16T18:16:12.469069Z webflux sse native: 1.0s, 1028 records, post-GC heap 15468592
+2026-11-16T18:16:12.501921Z webflux sse all: retained memory with open connections
+2026-11-16T18:16:12.792524Z webflux sse all: 0.25s, 267 records, post-GC heap 15479488
+2026-11-16T18:16:13.073085Z webflux sse all: 0.5s, 529 records, post-GC heap 15479464
+2026-11-16T18:16:13.597779Z webflux sse all: 1.0s, 1037 records, post-GC heap 15479696
+2026-11-16T18:16:16.843665Z micronaut server ready on loopback port 62572
+2026-11-16T18:16:16.856341Z micronaut ndjson: simultaneous queries on the same publisher
+2026-11-16T18:16:17.009519Z micronaut ndjson native: throughput and first-item latency
+2026-11-16T18:16:17.521561Z micronaut ndjson bypass: throughput and first-item latency
+2026-11-16T18:16:18.021674Z micronaut ndjson all: throughput and first-item latency
+2026-11-16T18:16:18.526420Z micronaut ndjson sparse: throughput and first-item latency
+2026-11-16T18:16:19.026008Z micronaut ndjson native: retained memory with open connections
+2026-11-16T18:16:19.371415Z micronaut ndjson native: 0.25s, 286 records, post-GC heap 10741432
+2026-11-16T18:16:19.640011Z micronaut ndjson native: 0.5s, 542 records, post-GC heap 10741432
+2026-11-16T18:16:20.163623Z micronaut ndjson native: 1.0s, 1053 records, post-GC heap 10741504
+2026-11-16T18:16:20.167410Z micronaut ndjson all: retained memory with open connections
+2026-11-16T18:16:20.441500Z micronaut ndjson all: 0.25s, 242 records, post-GC heap 11791936
+2026-11-16T18:16:20.715185Z micronaut ndjson all: 0.5s, 476 records, post-GC heap 10743360
+2026-11-16T18:16:21.235197Z micronaut ndjson all: 1.0s, 924 records, post-GC heap 11792136
+2026-11-16T18:16:21.239260Z micronaut sse: simultaneous queries on the same publisher
+2026-11-16T18:16:21.331162Z micronaut sse native: throughput and first-item latency
+2026-11-16T18:16:21.854037Z micronaut sse bypass: throughput and first-item latency
+2026-11-16T18:16:22.340226Z micronaut sse all: throughput and first-item latency
+2026-11-16T18:16:22.835235Z micronaut sse sparse: throughput and first-item latency
+2026-11-16T18:16:23.327321Z micronaut sse native: retained memory with open connections
+2026-11-16T18:16:23.607752Z micronaut sse native: 0.25s, 264 records, post-GC heap 10962176
+2026-11-16T18:16:23.885858Z micronaut sse native: 0.5s, 520 records, post-GC heap 10962176
+2026-11-16T18:16:24.413512Z micronaut sse native: 1.0s, 1030 records, post-GC heap 12010824
+2026-11-16T18:16:24.416705Z micronaut sse all: retained memory with open connections
+2026-11-16T18:16:24.685516Z micronaut sse all: 0.25s, 237 records, post-GC heap 10963952
+2026-11-16T18:16:24.958621Z micronaut sse all: 0.5s, 499 records, post-GC heap 10963976
+2026-11-16T18:16:25.481589Z micronaut sse all: 1.0s, 974 records, post-GC heap 12012624
+2026-11-16T18:16:26.387096Z quarkus server ready on loopback port 62706
+2026-11-16T18:16:26.397157Z quarkus ndjson: simultaneous queries on the same publisher
+2026-11-16T18:16:26.539176Z quarkus ndjson native: throughput and first-item latency
+2026-11-16T18:16:27.032779Z quarkus ndjson bypass: throughput and first-item latency
+2026-11-16T18:16:27.518298Z quarkus ndjson all: throughput and first-item latency
+2026-11-16T18:16:28.018443Z quarkus ndjson sparse: throughput and first-item latency
+2026-11-16T18:16:28.503657Z quarkus ndjson native: retained memory with open connections
+2026-11-16T18:16:28.787617Z quarkus ndjson native: 0.25s, 265 records, post-GC heap 7477208
+2026-11-16T18:16:29.055209Z quarkus ndjson native: 0.5s, 521 records, post-GC heap 7477544
+2026-11-16T18:16:29.587041Z quarkus ndjson native: 1.0s, 1031 records, post-GC heap 7477920
+2026-11-16T18:16:29.591127Z quarkus ndjson all: retained memory with open connections
+2026-11-16T18:16:29.874953Z quarkus ndjson all: 0.25s, 245 records, post-GC heap 7483992
+2026-11-16T18:16:30.144519Z quarkus ndjson all: 0.5s, 498 records, post-GC heap 7484096
+2026-11-16T18:16:30.669347Z quarkus ndjson all: 1.0s, 969 records, post-GC heap 7484448
+2026-11-16T18:16:30.674733Z quarkus sse: simultaneous queries on the same publisher
+2026-11-16T18:16:30.769805Z quarkus sse native: throughput and first-item latency
+2026-11-16T18:16:31.273277Z quarkus sse bypass: throughput and first-item latency
+2026-11-16T18:16:31.767451Z quarkus sse all: throughput and first-item latency
+2026-11-16T18:16:32.250254Z quarkus sse sparse: throughput and first-item latency
+2026-11-16T18:16:32.736720Z quarkus sse native: retained memory with open connections
+2026-11-16T18:16:33.006214Z quarkus sse native: 0.25s, 252 records, post-GC heap 8733648
+2026-11-16T18:16:33.286541Z quarkus sse native: 0.5s, 514 records, post-GC heap 8733712
+2026-11-16T18:16:33.813273Z quarkus sse native: 1.0s, 992 records, post-GC heap 8734008
+2026-11-16T18:16:33.817646Z quarkus sse all: retained memory with open connections
+2026-11-16T18:16:34.091110Z quarkus sse all: 0.25s, 238 records, post-GC heap 8737968
+2026-11-16T18:16:34.360052Z quarkus sse all: 0.5s, 477 records, post-GC heap 8737968
+2026-11-16T18:16:34.878089Z quarkus sse all: 1.0s, 946 records, post-GC heap 8737968
+2026-11-16T18:16:35.534090Z ktor server ready on loopback port 62814
+2026-11-16T18:16:35.541687Z ktor ndjson: simultaneous queries on the same publisher
+2026-11-16T18:16:35.679669Z ktor ndjson native: throughput and first-item latency
+2026-11-16T18:16:36.222310Z ktor ndjson bypass: throughput and first-item latency
+2026-11-16T18:16:36.767050Z ktor ndjson all: throughput and first-item latency
+2026-11-16T18:16:37.320477Z ktor ndjson sparse: throughput and first-item latency
+2026-11-16T18:16:37.866378Z ktor ndjson native: retained memory with open connections
+2026-11-16T18:16:38.138376Z ktor ndjson native: 0.25s, 258 records, post-GC heap 8163952
+2026-11-16T18:16:38.403070Z ktor ndjson native: 0.5s, 490 records, post-GC heap 8163808
+2026-11-16T18:16:38.929711Z ktor ndjson native: 1.0s, 938 records, post-GC heap 8163712
+2026-11-16T18:16:38.957353Z ktor ndjson all: retained memory with open connections
+2026-11-16T18:16:39.226042Z ktor ndjson all: 0.25s, 241 records, post-GC heap 8115408
+2026-11-16T18:16:39.496963Z ktor ndjson all: 0.5s, 470 records, post-GC heap 8115736
+2026-11-16T18:16:40.023203Z ktor ndjson all: 1.0s, 921 records, post-GC heap 8115736
+2026-11-16T18:16:40.050670Z ktor sse: simultaneous queries on the same publisher
+2026-11-16T18:16:40.172907Z ktor sse native: throughput and first-item latency
+2026-11-16T18:16:40.712239Z ktor sse bypass: throughput and first-item latency
+2026-11-16T18:16:41.250136Z ktor sse all: throughput and first-item latency
+2026-11-16T18:16:41.779302Z ktor sse sparse: throughput and first-item latency
+2026-11-16T18:16:42.315845Z ktor sse native: retained memory with open connections
+2026-11-16T18:16:42.598731Z ktor sse native: 0.25s, 265 records, post-GC heap 8235584
+2026-11-16T18:16:42.879632Z ktor sse native: 0.5s, 509 records, post-GC heap 8236040
+2026-11-16T18:16:43.401503Z ktor sse native: 1.0s, 991 records, post-GC heap 8235712
+2026-11-16T18:16:43.433211Z ktor sse all: retained memory with open connections
+2026-11-16T18:16:43.708109Z ktor sse all: 0.25s, 258 records, post-GC heap 8193232
+2026-11-16T18:16:43.980123Z ktor sse all: 0.5s, 511 records, post-GC heap 8194048
+2026-11-16T18:16:44.496242Z ktor sse all: 1.0s, 945 records, post-GC heap 8201640
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 11s
+526 actionable tasks: 154 executed, 372 up-to-date

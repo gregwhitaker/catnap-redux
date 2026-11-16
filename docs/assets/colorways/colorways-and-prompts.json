@@ -1,0 +1,52 @@
+{
+  "brand": "Catnap",
+  "tool": "Built-in image_gen",
+  "original": "../catnap-logo.png",
+  "note": "Blue, gray and white color explorations. The original master is unchanged.",
+  "variants": [
+    {
+      "slug": "slate-graphite",
+      "label": "Slate blue + graphite",
+      "cat": "#557C9A",
+      "wordmark": "#3D4855",
+      "background": "#FFFFFF",
+      "use": "Light backgrounds",
+      "prompt": "Use case: precise-object-edit (logo-brand recolor)\nAsset type: transparent color variant of the approved Catnap logo.\nInput image: the supplied original logo is the EDIT TARGET.\nPrimary request: recolor ONLY the two parts of this exact existing logo into the \"Slate blue + graphite\" colorway.\nExact color mapping: all existing filled pixels of the curled sleeping cat symbol become solid #557C9A. All existing filled pixels of the lowercase \"catnap\" wordmark become solid #3D4855.\nInvariants: preserve the original logo's exact silhouette and geometry, cat ears, closed eye, nose, curl, tail, transparent cutouts, all six letter shapes, kerning, proportions, relative sizes, and horizontal composition. Do not redesign or reinterpret. Change colors only.\nText verbatim: \"catnap\", using the existing original lettering, not retyped lettering.\nBackground: genuine transparent alpha, with every original negative-space cutout still transparent. No white fill in the eye, face or tail cutouts. Preserve the transparent canvas.\nRendering: clean flat solid colors with crisp edges. No gradients, shading, shadows, texture, outlines, background rectangle, mockup, labels, extra text, or added decoration. One logo only.\nIntended use: light backgrounds. ",
+      "file": "catnap-slate-graphite.png",
+      "transparent": true
+    },
+    {
+      "slug": "navy-steel",
+      "label": "Navy + steel gray",
+      "cat": "#244B6B",
+      "wordmark": "#788A9B",
+      "background": "#FFFFFF",
+      "use": "Light backgrounds",
+      "prompt": "Use case: precise-object-edit (logo-brand recolor)\nAsset type: transparent color variant of the approved Catnap logo.\nInput image: the supplied original logo is the EDIT TARGET.\nPrimary request: recolor ONLY the two parts of this exact existing logo into the \"Navy + steel gray\" colorway.\nExact color mapping: all existing filled pixels of the curled sleeping cat symbol become solid #244B6B. All existing filled pixels of the lowercase \"catnap\" wordmark become solid #788A9B.\nInvariants: preserve the original logo's exact silhouette and geometry, cat ears, closed eye, nose, curl, tail, transparent cutouts, all six letter shapes, kerning, proportions, relative sizes, and horizontal composition. Do not redesign or reinterpret. Change colors only.\nText verbatim: \"catnap\", using the existing original lettering, not retyped lettering.\nBackground: genuine transparent alpha, with every original negative-space cutout still transparent. No white fill in the eye, face or tail cutouts. Preserve the transparent canvas.\nRendering: clean flat solid colors with crisp edges. No gradients, shading, shadows, texture, outlines, background rectangle, mockup, labels, extra text, or added decoration. One logo only.\nIntended use: light backgrounds. ",
+      "file": "catnap-navy-steel.png",
+      "transparent": true
+    },
+    {
+      "slug": "ice-white",
+      "label": "Ice blue + white",
+      "cat": "#9AC7E2",
+      "wordmark": "#FFFFFF",
+      "background": "#172B40",
+      "use": "Dark backgrounds",
+      "prompt": "Use case: precise-object-edit (logo-brand recolor)\nAsset type: clean Catnap logo colorway for dark backgrounds.\nThe supplied original black transparent logo is the edit target. Preserve its exact cat silhouette, curled tail, ears, closed eye and nose, all six lowercase letter shapes and spacing, and the horizontal composition.\nChange ONLY color and backdrop: place the original shape on a perfectly flat solid deep navy background #172B40. Recolor only the cat silhouette to #9AC7E2; recolor only the \"catnap\" lettering to #FFFFFF.\nCRITICAL: Every negative-space cutout in the original cat and letters must be entirely navy, the exact same #172B40 as the background. Preserve clean, open cutouts for the closed-eye stroke, nose, space between the cat's body and curled tail, and the centers of the letters a and p. Keep all spaces between letters navy. The negative space is NOT white.\nThis is finished precision logo artwork: flat uniform colors, perfectly crisp smooth antialiased vector-like edges, no fuzzy halos, no speckles, no rough paint, no texture, no gradients, no shadows, no thin outlines, no extra marks.\nBackground is fully opaque, one perfectly uniform flat #172B40. There is NO transparency in this version. Single logo, exact original horizontal layout, generous outer padding. No labels or extra words.",
+      "transparent": false,
+      "file": "catnap-ice-white-on-navy.png"
+    },
+    {
+      "slug": "white-slate",
+      "label": "White + blue gray",
+      "cat": "#FFFFFF",
+      "wordmark": "#A6B9CB",
+      "background": "#172B40",
+      "use": "Dark backgrounds",
+      "prompt": "Use case: precise-object-edit (logo-brand recolor)\nAsset type: clean Catnap logo colorway for dark backgrounds.\nThe supplied original black transparent logo is the edit target. Preserve its exact cat silhouette, curled tail, ears, closed eye and nose, all six lowercase letter shapes and spacing, and the horizontal composition.\nChange ONLY color and backdrop: place the original shape on a perfectly flat solid deep navy background #172B40. Recolor only the cat silhouette to #FFFFFF; recolor only the \"catnap\" lettering to #A6B9CB.\nCRITICAL: Every negative-space cutout in the original cat and letters must be entirely navy, the exact same #172B40 as the background. Preserve clean, open cutouts for the closed-eye stroke, nose, space between the cat's body and curled tail, and the centers of the letters a and p. Keep all spaces between letters navy. The negative space is NOT white.\nThis is finished precision logo artwork: flat uniform colors, perfectly crisp smooth antialiased vector-like edges, no fuzzy halos, no speckles, no rough paint, no texture, no gradients, no shadows, no thin outlines, no extra marks.\nBackground is fully opaque, one perfectly uniform flat #172B40. There is NO transparency in this version. Single logo, exact original horizontal layout, generous outer padding. No labels or extra words.",
+      "transparent": false,
+      "file": "catnap-white-slate-on-navy.png"
+    }
+  ]
+}

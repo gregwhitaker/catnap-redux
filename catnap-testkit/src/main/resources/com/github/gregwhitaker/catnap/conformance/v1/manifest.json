@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "resource": "projection.json"
+    },
+    {
+      "resource": "syntax-errors.json"
+    },
+    {
+      "resource": "http-binding.json"
+    },
+    {
+      "resource": "streams.json"
+    }
+  ]
+}

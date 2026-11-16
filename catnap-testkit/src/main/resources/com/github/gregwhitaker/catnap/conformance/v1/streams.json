@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "records-root",
+      "reason": "Each record has its own root, including empty projections.",
+      "format": "NDJSON",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        {
+          "id": 2,
+          "v": 1
+        },
+        {
+          "v": 2
+        },
+        {
+          "id": 1
+        }
+      ],
+      "expected": [
+        {
+          "id": 2
+        },
+        {},
+        {
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": "records-shapes",
+      "reason": "Array records, scalars, null, and empty containers remain records.",
+      "format": "NDJSON",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        [
+          {
+            "id": 1,
+            "v": 2
+          },
+          {
+            "v": 3
+          }
+        ],
+        7,
+        null,
+        {},
+        [],
+        false
+      ],
+      "expected": [
+        [
+          {
+            "id": 1
+          },
+          {}
+        ],
+        7,
+        null,
+        {},
+        [],
+        false
+      ]
+    },
+    {
+      "id": "records-data-is-literal",
+      "reason": "No synthetic data envelope is added to records.",
+      "format": "NDJSON",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "data/id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "data:(id)"
+        }
+      ],
+      "input": [
+        {
+          "data": {
+            "id": 1,
+            "v": 2
+          }
+        },
+        {
+          "id": 2
+        }
+      ],
+      "expected": [
+        {
+          "data": {
+            "id": 1
+          }
+        },
+        {}
+      ]
+    },
+    {
+      "id": "empty-record-stream",
+      "reason": "Empty streams emit no records.",
+      "format": "NDJSON",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [],
+      "expected": []
+    },
+    {
+      "id": "events-envelope",
+      "reason": "Project JSON data only; preserve metadata, empty IDs, text, heartbeat, and null data.",
+      "format": "SSE",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        {
+          "kind": "json",
+          "id": "42",
+          "event": "quote",
+          "retry": 1500,
+          "comments": [
+            "heartbeat"
+          ],
+          "data": {
+            "id": 1,
+            "v": 2
+          }
+        },
+        {
+          "kind": "json",
+          "id": "",
+          "event": "quote",
+          "data": {
+            "v": 3
+          }
+        },
+        {
+          "kind": "control",
+          "comments": [
+            "keepalive"
+          ]
+        },
+        {
+          "kind": "text",
+          "id": "43",
+          "data": "{\"id\":9,\"text\":\"unchanged\"}"
+        },
+        {
+          "kind": "json",
+          "id": "44",
+          "data": null
+        }
+      ],
+      "expected": [
+        {
+          "kind": "json",
+          "id": "42",
+          "event": "quote",
+          "retry": 1500,
+          "comments": [
+            "heartbeat"
+          ],
+          "data": {
+            "id": 1
+          }
+        },
+        {
+          "kind": "json",
+          "id": "",
+          "event": "quote",
+          "data": {}
+        },
+        {
+          "kind": "control",
+          "comments": [
+            "keepalive"
+          ]
+        },
+        {
+          "kind": "text",
+          "id": "43",
+          "data": "{\"id\":9,\"text\":\"unchanged\"}"
+        },
+        {
+          "kind": "json",
+          "id": "44",
+          "data": null
+        }
+      ]
+    },
+    {
+      "id": "events-relative-root",
+      "reason": "The transport data wrapper is outside query scope.",
+      "format": "SSE",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "data/id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "data:(id)"
+        }
+      ],
+      "input": [
+        {
+          "kind": "json",
+          "data": {
+            "id": 1
+          }
+        },
+        {
+          "kind": "json",
+          "data": {
+            "data": {
+              "id": 2,
+              "v": 3
+            }
+          }
+        }
+      ],
+      "expected": [
+        {
+          "kind": "json",
+          "data": {}
+        },
+        {
+          "kind": "json",
+          "data": {
+            "data": {
+              "id": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "events-array",
+      "reason": "Array event payloads preserve shape and element count.",
+      "format": "SSE",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [
+        {
+          "kind": "json",
+          "data": [
+            {
+              "id": 1,
+              "v": 2
+            },
+            {
+              "v": 3
+            },
+            7,
+            null
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "kind": "json",
+          "data": [
+            {
+              "id": 1
+            },
+            {},
+            7,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "id": "empty-event-stream",
+      "reason": "Empty streams emit no events.",
+      "format": "SSE",
+      "queries": [
+        {
+          "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "LINKEDIN",
+          "expression": "id"
+        }
+      ],
+      "input": [],
+      "expected": []
+    }
+  ]
+}

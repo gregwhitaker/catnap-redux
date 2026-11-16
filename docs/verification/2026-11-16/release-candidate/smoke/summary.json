@@ -1,0 +1,13 @@
+{
+  "started" : "2026-11-16T18:49:09.952444Z",
+  "kind" : "smoke",
+  "os" : "Mac OS X 15.7.4",
+  "architecture" : "aarch64",
+  "processors" : 10,
+  "clientJava" : "25.0.5+10-LTS",
+  "concurrency" : 2,
+  "payloadBytes" : 1024,
+  "completedFrameworks" : [ "mvc", "webflux", "micronaut", "quarkus", "ktor" ],
+  "methodology" : "HTTP/1.1 loopback, separate server JVMs, sequential cases; body bytes include protocol framing but exclude HTTP headers/chunk framing. Allocation is server-wide including control requests. Retained snapshots use observed GC with sources paused and readers drained. Direct-memory counters may overlap; do not sum them. Smoke durations are functional checks, not performance evidence.",
+  "completed" : "2026-11-16T18:50:02.042747Z"
+}

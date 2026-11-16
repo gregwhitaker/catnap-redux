@@ -1,0 +1,10 @@
+name: Catnap JSON Projection
+description: Google and LinkedIn style partial responses for Quarkus REST JSON endpoints.
+metadata:
+  keywords:
+    - json
+    - partial-response
+    - catnap
+  categories:
+    - web
+  status: experimental

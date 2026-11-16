@@ -1,0 +1,240 @@
+> Task :build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:jvm-conventions:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:jvm-conventions:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:jvm-conventions:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileKotlin UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileJava NO-SOURCE
+> Task :build-logic:testing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:testing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:pluginDescriptors UP-TO-DATE
+> Task :build-logic:jvm-conventions:processResources UP-TO-DATE
+> Task :build-logic:jvm-conventions:classes UP-TO-DATE
+> Task :build-logic:jvm-conventions:jar UP-TO-DATE
+> Task :build-logic:testing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:testing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:testing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:testing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:testing:compileKotlin UP-TO-DATE
+> Task :build-logic:testing:compileJava NO-SOURCE
+> Task :build-logic:testing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:testing:processResources UP-TO-DATE
+> Task :build-logic:testing:classes UP-TO-DATE
+> Task :build-logic:testing:jar UP-TO-DATE
+> Task :build-logic:java-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:java-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:java-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:java-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:java-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:java-library:compileKotlin UP-TO-DATE
+> Task :build-logic:java-library:compileJava NO-SOURCE
+> Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:publishing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:java-library:processResources UP-TO-DATE
+> Task :build-logic:java-library:classes UP-TO-DATE
+> Task :build-logic:java-library:jar UP-TO-DATE
+> Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:publishing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:publishing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:publishing:compileKotlin UP-TO-DATE
+> Task :build-logic:publishing:compileJava NO-SOURCE
+> Task :build-logic:publishing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:publishing:processResources UP-TO-DATE
+> Task :build-logic:publishing:classes UP-TO-DATE
+> Task :build-logic:publishing:jar UP-TO-DATE
+> Task :build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:kotlin-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:kotlin-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:kotlin-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:kotlin-library:compileKotlin UP-TO-DATE
+> Task :build-logic:kotlin-library:compileJava NO-SOURCE
+> Task :build-logic:kotlin-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:kotlin-library:processResources UP-TO-DATE
+> Task :build-logic:kotlin-library:classes UP-TO-DATE
+> Task :build-logic:kotlin-library:jar UP-TO-DATE
+> Task :build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:benchmark-server:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:benchmark-server:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:benchmark-server:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:benchmark-server:compileKotlin UP-TO-DATE
+> Task :build-logic:benchmark-server:compileJava NO-SOURCE
+> Task :build-logic:benchmark-server:pluginDescriptors UP-TO-DATE
+> Task :build-logic:benchmark-server:processResources UP-TO-DATE
+> Task :build-logic:benchmark-server:classes UP-TO-DATE
+> Task :build-logic:benchmark-server:jar UP-TO-DATE
+> Task :catnap-core:compileJava UP-TO-DATE
+> Task :catnap-core:processResources NO-SOURCE
+> Task :catnap-core:classes UP-TO-DATE
+> Task :catnap-core:jar UP-TO-DATE
+> Task :catnap-http:compileJava UP-TO-DATE
+> Task :catnap-http:processResources NO-SOURCE
+> Task :catnap-http:classes UP-TO-DATE
+> Task :catnap-http:jar UP-TO-DATE
+> Task :catnap-kotlinx-json:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :catnap-kotlinx-json:compileKotlin UP-TO-DATE
+> Task :catnap-kotlinx-json:compileJava NO-SOURCE
+> Task :catnap-kotlinx-json:processResources NO-SOURCE
+> Task :catnap-kotlinx-json:classes UP-TO-DATE
+> Task :catnap-kotlinx-json:jar UP-TO-DATE
+> Task :catnap-ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :catnap-streams:compileJava UP-TO-DATE
+> Task :catnap-ktor:compileKotlin UP-TO-DATE
+> Task :catnap-ktor:compileJava NO-SOURCE
+> Task :catnap-ktor:processResources NO-SOURCE
+> Task :catnap-ktor:classes UP-TO-DATE
+> Task :catnap-ktor:jar UP-TO-DATE
+> Task :catnap-streams:processResources NO-SOURCE
+> Task :catnap-streams:classes UP-TO-DATE
+> Task :catnap-streams:jar UP-TO-DATE
+> Task :benchmarks:server-ktor:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :benchmarks:streaming-fixture:compileJava UP-TO-DATE
+> Task :benchmarks:server-ktor:compileKotlin UP-TO-DATE
+> Task :benchmarks:server-ktor:compileJava NO-SOURCE
+> Task :benchmarks:server-ktor:processResources NO-SOURCE
+> Task :benchmarks:server-ktor:classes UP-TO-DATE
+> Task :benchmarks:streaming-fixture:processResources NO-SOURCE
+> Task :benchmarks:streaming-fixture:classes UP-TO-DATE
+> Task :benchmarks:streaming-fixture:jar UP-TO-DATE
+> Task :benchmarks:server-ktor:benchmarkLaunchSpec UP-TO-DATE
+> Task :catnap-micronaut:compileJava UP-TO-DATE
+> Task :catnap-micronaut:processResources NO-SOURCE
+> Task :catnap-micronaut:classes UP-TO-DATE
+> Task :catnap-micronaut:jar UP-TO-DATE
+> Task :benchmarks:server-micronaut:compileJava UP-TO-DATE
+> Task :benchmarks:server-micronaut:processResources UP-TO-DATE
+> Task :benchmarks:server-micronaut:classes UP-TO-DATE
+> Task :benchmarks:server-micronaut:benchmarkLaunchSpec UP-TO-DATE
+> Task :catnap-jackson2:compileJava UP-TO-DATE
+> Task :catnap-jackson2:processResources NO-SOURCE
+> Task :catnap-jackson2:classes UP-TO-DATE
+> Task :catnap-jackson2:jar UP-TO-DATE
+> Task :catnap-quarkus:processResources
+> Task :catnap-quarkus:validateExtension
+> Task :catnap-quarkus:extensionDescriptor
+> Task :catnap-quarkus:compileJava UP-TO-DATE
+> Task :catnap-quarkus:classes
+> Task :catnap-quarkus:jar
+> Task :catnap-quarkus-deployment:compileJava UP-TO-DATE
+> Task :catnap-quarkus-deployment:processResources NO-SOURCE
+> Task :catnap-quarkus-deployment:classes UP-TO-DATE
+> Task :catnap-quarkus-deployment:jar UP-TO-DATE
+> Task :benchmarks:server-quarkus:processResources NO-SOURCE
+> Task :benchmarks:server-quarkus:quarkusGenerateAppModel
+> Task :benchmarks:server-quarkus:quarkusGenerateCode UP-TO-DATE
+> Task :benchmarks:server-quarkus:compileJava UP-TO-DATE
+> Task :benchmarks:server-quarkus:classes UP-TO-DATE
+> Task :benchmarks:server-quarkus:jar UP-TO-DATE
+> Task :benchmarks:server-quarkus:quarkusBuildAppModel
+> Task :benchmarks:server-quarkus:quarkusAppPartsBuild
+> Task :benchmarks:server-quarkus:quarkusDependenciesBuild
+> Task :benchmarks:server-quarkus:quarkusBuild
+> Task :benchmarks:server-quarkus:benchmarkLaunchSpec
+> Task :benchmarks:streaming-runner:compileJava UP-TO-DATE
+> Task :benchmarks:streaming-runner:processResources NO-SOURCE
+> Task :benchmarks:streaming-runner:classes UP-TO-DATE
+> Task :benchmarks:streaming-runner:compileTestJava UP-TO-DATE
+> Task :benchmarks:streaming-runner:processTestResources NO-SOURCE
+> Task :benchmarks:streaming-runner:testClasses UP-TO-DATE
+> Task :benchmarks:streaming-runner:test UP-TO-DATE
+
+> Task :benchmarks:streaming-runner:measure
+2026-11-16T17:31:21.794641Z micronaut server ready on loopback port 57353
+2026-11-16T17:31:21.806803Z micronaut ndjson: simultaneous queries on the same publisher
+2026-11-16T17:31:21.934576Z micronaut ndjson native: throughput and first-item latency
+2026-11-16T17:31:29.140878Z micronaut ndjson bypass: throughput and first-item latency
+2026-11-16T17:31:36.301377Z micronaut ndjson all: throughput and first-item latency
+2026-11-16T17:31:43.417364Z micronaut ndjson sparse: throughput and first-item latency
+2026-11-16T17:31:50.522783Z micronaut ndjson native: retained memory with open connections
+2026-11-16T17:31:55.543315Z micronaut ndjson native: 5.0s, 5004 records, post-GC heap 10925296
+2026-11-16T17:32:10.574235Z micronaut ndjson native: 20.0s, 20010 records, post-GC heap 11973928
+2026-11-16T17:32:50.601694Z micronaut ndjson native: 60.0s, 59989 records, post-GC heap 10925744
+2026-11-16T17:32:50.608702Z micronaut ndjson all: retained memory with open connections
+2026-11-16T17:32:55.631153Z micronaut ndjson all: 5.0s, 4997 records, post-GC heap 11975920
+2026-11-16T17:33:10.660072Z micronaut ndjson all: 20.0s, 20007 records, post-GC heap 11975920
+2026-11-16T17:33:50.683158Z micronaut ndjson all: 60.0s, 60008 records, post-GC heap 10927320
+2026-11-16T17:33:50.687926Z micronaut sse: simultaneous queries on the same publisher
+2026-11-16T17:33:50.779860Z micronaut sse native: throughput and first-item latency
+2026-11-16T17:33:57.921569Z micronaut sse bypass: throughput and first-item latency
+2026-11-16T17:34:05.038919Z micronaut sse all: throughput and first-item latency
+2026-11-16T17:34:12.133891Z micronaut sse sparse: throughput and first-item latency
+2026-11-16T17:34:19.204799Z micronaut sse native: retained memory with open connections
+2026-11-16T17:34:24.232632Z micronaut sse native: 5.0s, 5008 records, post-GC heap 11064312
+2026-11-16T17:34:39.259040Z micronaut sse native: 20.0s, 20017 records, post-GC heap 11064312
+2026-11-16T17:35:19.283364Z micronaut sse native: 60.0s, 60020 records, post-GC heap 11064312
+2026-11-16T17:35:19.286885Z micronaut sse all: retained memory with open connections
+2026-11-16T17:35:24.314622Z micronaut sse all: 5.0s, 5010 records, post-GC heap 12114336
+2026-11-16T17:35:39.332700Z micronaut sse all: 20.0s, 20016 records, post-GC heap 12114336
+2026-11-16T17:36:19.371686Z micronaut sse all: 60.0s, 60024 records, post-GC heap 11065760
+2026-11-16T17:36:20.048601Z quarkus server ready on loopback port 58493
+2026-11-16T17:36:20.057258Z quarkus ndjson: simultaneous queries on the same publisher
+2026-11-16T17:36:20.190415Z quarkus ndjson native: throughput and first-item latency
+2026-11-16T17:36:27.304877Z quarkus ndjson bypass: throughput and first-item latency
+2026-11-16T17:36:34.397942Z quarkus ndjson all: throughput and first-item latency
+2026-11-16T17:36:41.500414Z quarkus ndjson sparse: throughput and first-item latency
+2026-11-16T17:36:48.579104Z quarkus ndjson native: retained memory with open connections
+2026-11-16T17:36:53.605032Z quarkus ndjson native: 5.0s, 4708 records, post-GC heap 8537776
+2026-11-16T17:37:08.625368Z quarkus ndjson native: 20.0s, 18817 records, post-GC heap 7489264
+2026-11-16T17:37:48.648914Z quarkus ndjson native: 60.0s, 57245 records, post-GC heap 8539584
+2026-11-16T17:37:48.652149Z quarkus ndjson all: retained memory with open connections
+2026-11-16T17:37:53.685076Z quarkus ndjson all: 5.0s, 4791 records, post-GC heap 8547832
+2026-11-16T17:38:08.702110Z quarkus ndjson all: 20.0s, 19133 records, post-GC heap 8547176
+2026-11-16T17:38:48.729666Z quarkus ndjson all: 60.0s, 57112 records, post-GC heap 8547512
+2026-11-16T17:38:48.732755Z quarkus sse: simultaneous queries on the same publisher
+2026-11-16T17:38:48.824293Z quarkus sse native: throughput and first-item latency
+2026-11-16T17:38:55.914393Z quarkus sse bypass: throughput and first-item latency
+2026-11-16T17:39:02.993194Z quarkus sse all: throughput and first-item latency
+2026-11-16T17:39:10.058952Z quarkus sse sparse: throughput and first-item latency
+2026-11-16T17:39:17.134201Z quarkus sse native: retained memory with open connections
+2026-11-16T17:39:22.161644Z quarkus sse native: 5.0s, 4760 records, post-GC heap 8502808
+2026-11-16T17:39:37.189391Z quarkus sse native: 20.0s, 18861 records, post-GC heap 8502616
+2026-11-16T17:40:17.214617Z quarkus sse native: 60.0s, 56897 records, post-GC heap 7454424
+2026-11-16T17:40:17.218389Z quarkus sse all: retained memory with open connections
+2026-11-16T17:40:22.250026Z quarkus sse all: 5.0s, 4940 records, post-GC heap 8506792
+2026-11-16T17:40:37.280502Z quarkus sse all: 20.0s, 19536 records, post-GC heap 8505672
+2026-11-16T17:41:17.304635Z quarkus sse all: 60.0s, 58463 records, post-GC heap 8505824
+2026-11-16T17:41:17.852300Z ktor server ready on loopback port 59662
+2026-11-16T17:41:17.860295Z ktor ndjson: simultaneous queries on the same publisher
+2026-11-16T17:41:17.995938Z ktor ndjson native: throughput and first-item latency
+2026-11-16T17:41:25.870271Z ktor ndjson bypass: throughput and first-item latency
+2026-11-16T17:41:33.712514Z ktor ndjson all: throughput and first-item latency
+2026-11-16T17:41:41.575957Z ktor ndjson sparse: throughput and first-item latency
+2026-11-16T17:41:49.408586Z ktor ndjson native: retained memory with open connections
+2026-11-16T17:41:54.430783Z ktor ndjson native: 5.0s, 4782 records, post-GC heap 8218856
+2026-11-16T17:42:09.465285Z ktor ndjson native: 20.0s, 19457 records, post-GC heap 8342560
+2026-11-16T17:42:49.489490Z ktor ndjson native: 60.0s, 58721 records, post-GC heap 8342560
+2026-11-16T17:42:49.518513Z ktor ndjson all: retained memory with open connections
+2026-11-16T17:42:54.554904Z ktor ndjson all: 5.0s, 4937 records, post-GC heap 8277344
+2026-11-16T17:43:09.585730Z ktor ndjson all: 20.0s, 19730 records, post-GC heap 8285592
+2026-11-16T17:43:49.611131Z ktor ndjson all: 60.0s, 59069 records, post-GC heap 8326848
+2026-11-16T17:43:49.640738Z ktor sse: simultaneous queries on the same publisher
+2026-11-16T17:43:49.767540Z ktor sse native: throughput and first-item latency
+2026-11-16T17:43:57.590476Z ktor sse bypass: throughput and first-item latency
+2026-11-16T17:44:05.438065Z ktor sse all: throughput and first-item latency
+2026-11-16T17:44:13.239497Z ktor sse sparse: throughput and first-item latency
+2026-11-16T17:44:21.118175Z ktor sse native: retained memory with open connections
+2026-11-16T17:44:26.143980Z ktor sse native: 5.0s, 4901 records, post-GC heap 8168520
+2026-11-16T17:44:41.165043Z ktor sse native: 20.0s, 19421 records, post-GC heap 8341728
+2026-11-16T17:45:21.197560Z ktor sse native: 60.0s, 58426 records, post-GC heap 8415960
+2026-11-16T17:45:21.226124Z ktor sse all: retained memory with open connections
+2026-11-16T17:45:26.255213Z ktor sse all: 5.0s, 4820 records, post-GC heap 8373288
+2026-11-16T17:45:41.248397Z ktor sse all: 20.0s, 19298 records, post-GC heap 8414544
+2026-11-16T17:46:21.259209Z ktor sse all: 60.0s, 58289 records, post-GC heap 8415184
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 15m 5s
+95 actionable tasks: 11 executed, 84 up-to-date

@@ -1,0 +1,51 @@
+/* Catnap identity system 1.0. Font licenses are in ../fonts/. */
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/IBMPlexMono-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+:root {
+  --catnap-ink: #1D1D1C;
+  --catnap-paper: #F6F3EB;
+  --catnap-moss: #34574C;
+  --catnap-sage: #DDE7DE;
+  --catnap-lilac: #DCD8EE;
+  --catnap-stone: #686A63;
+  --catnap-font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --catnap-font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --catnap-space-1: 0.5rem;
+  --catnap-space-2: 1rem;
+  --catnap-space-3: 1.5rem;
+  --catnap-space-4: 2rem;
+  --catnap-space-6: 3rem;
+  --catnap-space-8: 4rem;
+  --catnap-radius-code: 1rem;
+  --catnap-radius-panel: 1.5rem;
+  --catnap-background: var(--catnap-paper);
+  --catnap-text: var(--catnap-ink);
+  --catnap-text-muted: var(--catnap-stone);
+  --catnap-action: var(--catnap-moss);
+  --catnap-action-text: var(--catnap-paper);
+  --catnap-display: 700 4rem/1.09375 var(--catnap-font-sans);
+  --catnap-heading-1: 600 2.5rem/1.2 var(--catnap-font-sans);
+  --catnap-heading-2: 600 1.75rem/1.2857 var(--catnap-font-sans);
+  --catnap-body: 400 1rem/1.5625 var(--catnap-font-sans);
+  --catnap-code: 400 0.875rem/1.5714 var(--catnap-font-mono);
+  --catnap-caption: 500 0.75rem/1.5 var(--catnap-font-sans);
+}

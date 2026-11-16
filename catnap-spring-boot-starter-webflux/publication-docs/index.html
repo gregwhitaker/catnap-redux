@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Catnap Spring WebFlux starter</title></head>
+<body><h1>Catnap Spring WebFlux starter</h1>
+<p>This dependency-only artifact brings in the WebFlux adapter and Boot auto-configuration. It has no Java API of its own.</p>
+<pre>implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+implementation("com.github.gregwhitaker:catnap-spring-boot-starter-webflux")</pre>
+<p>Use <code>?fields=name,price(amount)</code> to select response fields. Configure <code>catnap.dialect=LINKEDIN</code> to use <code>name,price:(amount)</code>.</p>
+<p>The implementation API documentation is in the <code>catnap-spring-webflux</code> and <code>catnap-spring-boot-autoconfigure</code> documentation artifacts.</p>
+<p><a href="SPRING_INTEGRATION.md">Included integration guide</a>: configuration, finite JSON, NDJSON, SSE, bounds, and failure behavior.</p>
+</body></html>

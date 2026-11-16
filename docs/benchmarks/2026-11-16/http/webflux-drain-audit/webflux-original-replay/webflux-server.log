@@ -1,0 +1,1 @@
+2026-11-16T12:42:08.421-06:00  WARN 8102 --- [ctor-http-nio-3] reactor.netty.channel.FluxReceive        : [f1b21535-1, L:/127.0.0.1:57088 - R:/127.0.0.1:57114] An exception has been observed post termination, use DEBUG level to see the full stack: java.net.SocketException: Connection reset

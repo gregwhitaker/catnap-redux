@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "absent",
+      "parameters": [],
+      "expected": {
+        "action": "BYPASS"
+      }
+    },
+    {
+      "id": "empty",
+      "parameters": [
+        ""
+      ],
+      "expected": {
+        "action": "BYPASS"
+      }
+    },
+    {
+      "id": "blank",
+      "parameters": [
+        " \t\r\n"
+      ],
+      "expected": {
+        "action": "BYPASS"
+      }
+    },
+    {
+      "id": "compile",
+      "parameters": [
+        "id"
+      ],
+      "expected": {
+        "action": "COMPILE",
+        "expression": "id"
+      }
+    },
+    {
+      "id": "retain-whitespace",
+      "parameters": [
+        " id "
+      ],
+      "expected": {
+        "action": "COMPILE",
+        "expression": " id "
+      }
+    },
+    {
+      "id": "non-ascii-blank",
+      "parameters": [
+        " "
+      ],
+      "expected": {
+        "action": "COMPILE",
+        "expression": " "
+      }
+    },
+    {
+      "id": "duplicate",
+      "parameters": [
+        "id",
+        "id"
+      ],
+      "expected": {
+        "action": "REJECT",
+        "code": "MULTIPLE_QUERY_PARAMETERS"
+      }
+    },
+    {
+      "id": "duplicate-blank",
+      "parameters": [
+        "",
+        ""
+      ],
+      "expected": {
+        "action": "REJECT",
+        "code": "MULTIPLE_QUERY_PARAMETERS"
+      }
+    },
+    {
+      "id": "duplicate-different",
+      "parameters": [
+        "id",
+        "name"
+      ],
+      "expected": {
+        "action": "REJECT",
+        "code": "MULTIPLE_QUERY_PARAMETERS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "case": "micronaut-sync-resume-first-ndjson-all",
+    "exitCode": 1,
+    "command": [
+      "./gradlew",
+      ":benchmarks:streaming-runner:boundaryStress",
+      "-PstreamFrameworks=micronaut",
+      "-PstreamStressCase=ndjson:all",
+      "-PstreamStressSeconds=0.3",
+      "-PstreamStressBoundaries=20",
+      "-PstreamStressReconnect=true",
+      "-PstreamStressUnpausedStart=true",
+      "-PstreamStressSynchronous=true",
+      "-PstreamStressResumeFirst=true",
+      "--console=plain"
+    ]
+  },
+  {
+    "case": "micronaut-sync-resume-first-sse-native",
+    "exitCode": 1,
+    "command": [
+      "./gradlew",
+      ":benchmarks:streaming-runner:boundaryStress",
+      "-PstreamFrameworks=micronaut",
+      "-PstreamStressCase=sse:native",
+      "-PstreamStressSeconds=0.3",
+      "-PstreamStressBoundaries=20",
+      "-PstreamStressReconnect=true",
+      "-PstreamStressUnpausedStart=true",
+      "-PstreamStressSynchronous=true",
+      "-PstreamStressResumeFirst=true",
+      "--console=plain"
+    ]
+  },
+  {
+    "case": "micronaut-sync-resume-first-sse-all",
+    "exitCode": 1,
+    "command": [
+      "./gradlew",
+      ":benchmarks:streaming-runner:boundaryStress",
+      "-PstreamFrameworks=micronaut",
+      "-PstreamStressCase=sse:all",
+      "-PstreamStressSeconds=0.3",
+      "-PstreamStressBoundaries=20",
+      "-PstreamStressReconnect=true",
+      "-PstreamStressUnpausedStart=true",
+      "-PstreamStressSynchronous=true",
+      "-PstreamStressResumeFirst=true",
+      "--console=plain"
+    ]
+  }
+]

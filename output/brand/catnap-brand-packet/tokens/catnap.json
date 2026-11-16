@@ -1,0 +1,138 @@
+{
+  "brand": "Catnap",
+  "version": "1.0",
+  "colorSpace": "sRGB",
+  "colors": {
+    "ink": {
+      "hex": "#1D1D1C",
+      "rgb": [
+        29,
+        29,
+        28
+      ]
+    },
+    "paper": {
+      "hex": "#F6F3EB",
+      "rgb": [
+        246,
+        243,
+        235
+      ]
+    },
+    "moss": {
+      "hex": "#34574C",
+      "rgb": [
+        52,
+        87,
+        76
+      ]
+    },
+    "sage": {
+      "hex": "#DDE7DE",
+      "rgb": [
+        221,
+        231,
+        222
+      ]
+    },
+    "lilac": {
+      "hex": "#DCD8EE",
+      "rgb": [
+        220,
+        216,
+        238
+      ]
+    },
+    "stone": {
+      "hex": "#686A63",
+      "rgb": [
+        104,
+        106,
+        99
+      ]
+    }
+  },
+  "fonts": {
+    "sans": "Manrope",
+    "mono": "IBM Plex Mono"
+  },
+  "spacingPx": [
+    8,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96
+  ],
+  "cornerRadiusPx": {
+    "code": 16,
+    "panel": 24
+  },
+  "typeScalePx": {
+    "display": [
+      64,
+      70
+    ],
+    "h1": [
+      40,
+      48
+    ],
+    "h2": [
+      28,
+      36
+    ],
+    "body": [
+      16,
+      25
+    ],
+    "code": [
+      14,
+      22
+    ],
+    "caption": [
+      12,
+      18
+    ]
+  },
+  "logo": {
+    "file": "logos/catnap-logo.png",
+    "width": 2172,
+    "height": 724,
+    "minimumWidthPx": 180,
+    "minimumWidthMm": 40,
+    "clearSpace": "one quarter of visible artwork height on every side"
+  },
+  "contrastRatios": {
+    "InkOnPaper": 15.215,
+    "InkOnMoss": 2.1,
+    "InkOnSage": 13.303,
+    "InkOnLilac": 12.131,
+    "InkOnStone": 3.077,
+    "PaperOnInk": 15.215,
+    "PaperOnMoss": 7.246,
+    "PaperOnSage": 1.144,
+    "PaperOnLilac": 1.254,
+    "PaperOnStone": 4.944,
+    "MossOnInk": 2.1,
+    "MossOnPaper": 7.246,
+    "MossOnSage": 6.336,
+    "MossOnLilac": 5.777,
+    "MossOnStone": 1.466,
+    "SageOnInk": 13.303,
+    "SageOnPaper": 1.144,
+    "SageOnMoss": 6.336,
+    "SageOnLilac": 1.097,
+    "SageOnStone": 4.323,
+    "LilacOnInk": 12.131,
+    "LilacOnPaper": 1.254,
+    "LilacOnMoss": 5.777,
+    "LilacOnSage": 1.097,
+    "LilacOnStone": 3.942,
+    "StoneOnInk": 3.077,
+    "StoneOnPaper": 4.944,
+    "StoneOnMoss": 1.466,
+    "StoneOnSage": 4.323,
+    "StoneOnLilac": 3.942
+  }
+}

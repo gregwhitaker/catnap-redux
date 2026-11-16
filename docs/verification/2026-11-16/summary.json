@@ -1,0 +1,420 @@
+{
+  "command": "./gradlew spotlessApply build compatibilityTest publicationSmokeTest :benchmarks:streaming-runner:smoke --console=plain",
+  "result": "BUILD SUCCESSFUL",
+  "duration": "3m 34s",
+  "tasks": {
+    "executed": 164,
+    "upToDate": 431,
+    "total": 595
+  },
+  "publicationConsumers": {
+    "gradle": {
+      "tests": 275,
+      "failures": 0,
+      "skipped": 0,
+      "suites": [
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.BindingsConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.LinkedInResponseTest",
+          "tests": 12,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.StreamingResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.DisabledProjectionTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.DisabledProjectionTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.LinkedInResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.StreamingResponseTest",
+          "tests": 21,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherTest",
+          "tests": 4,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.FiniteResponseTest",
+          "tests": 15,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.DisabledProjectionTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.StreamingResponseTest",
+          "tests": 20,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.LinkedInResponseTest",
+          "tests": 12,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.StreamingTimeoutTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.standalone.StandaloneTest",
+          "tests": 3,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.DisabledProjectionTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.FinitePublisherTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest",
+          "tests": 18,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.StreamingResponseTest",
+          "tests": 27,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.FiniteResponseTest",
+          "tests": 28,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    "pom": {
+      "tests": 275,
+      "failures": 0,
+      "skipped": 0,
+      "suites": [
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.CoreConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "consumer.BindingsConsumerTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.LinkedInResponseTest",
+          "tests": 12,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.StreamingResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.webflux.DisabledProjectionTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.DisabledProjectionTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.LinkedInResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.StreamingResponseTest",
+          "tests": 21,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherTest",
+          "tests": 4,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.quarkus.FiniteResponseTest",
+          "tests": 15,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.DisabledProjectionTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.StreamingResponseTest",
+          "tests": 20,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.LinkedInResponseTest",
+          "tests": 12,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.mvc.StreamingTimeoutTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.standalone.StandaloneTest",
+          "tests": 3,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.DisabledProjectionTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest",
+          "tests": 13,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.FinitePublisherTest",
+          "tests": 2,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest",
+          "tests": 19,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest",
+          "tests": 18,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.StreamingResponseTest",
+          "tests": 27,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.FiniteResponseTest",
+          "tests": 28,
+          "failures": 0,
+          "skipped": 0
+        },
+        {
+          "suite": "com.github.gregwhitaker.catnap.examples.ktor.SerializationHookTest",
+          "tests": 1,
+          "failures": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  },
+  "streamingSmoke": {
+    "completedFrameworks": [
+      "mvc",
+      "webflux",
+      "micronaut",
+      "quarkus",
+      "ktor"
+    ],
+    "completed": "2026-11-16T18:00:44.155969Z"
+  }
+}

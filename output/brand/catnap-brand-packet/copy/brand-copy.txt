@@ -1,0 +1,76 @@
+CATNAP / REUSABLE BRAND COPY
+Version 1.0
+
+NAME
+Catnap in prose. catnap in package names, code and the supplied wordmark.
+Do not write CatNap or CATNAP in normal body copy. All-caps labels may be used
+sparingly in small metadata headings.
+
+PRIMARY TAGLINE
+Just the JSON you need.
+
+DESCRIPTOR
+JSON projection for the JVM.
+
+SHORT DESCRIPTION
+Catnap is a JVM JSON projection library for selecting fields from JSON.
+A focused core and separate integrations help developers keep responses
+clear and intentional.
+
+LONG DESCRIPTION
+Catnap is a JVM JSON projection library that selects fields from materialized
+JSON using explicit query expressions. Its core compiles selections into
+reusable plans and evaluates them through a JSON-tree adapter. Separate
+bindings support native JSON representations, keeping projection focused on
+the data already produced by an application's serializer. Use Catnap to
+express which fields belong in a response while preserving selected values.
+
+DOCUMENTATION INTRODUCTION
+Select the fields you need from JSON.
+Start with a query, inspect its result, then connect the JSON integration
+that fits your application.
+
+REPOSITORY DESCRIPTION
+JVM JSON projection library with a focused core and separate JSON integrations.
+
+SOCIAL BIO
+JSON projection for the JVM. Just the JSON you need.
+
+GENERAL ANNOUNCEMENT
+Meet Catnap: JSON projection for the JVM. Select the fields your response
+needs with clear query expressions and a focused projection core.
+
+EXAMPLE CAPTION
+name,price(amount) keeps name and the nested price amount. The projected
+JSON omits the other object members and preserves the selected values.
+
+VOICE
+Calm: use measured language and short, readable sentences.
+Precise: describe the actual behavior; show an input, query and output.
+Helpful: give the reader a concrete next step.
+
+CTA LABELS
+Read the guide
+Try the query
+View the example
+Explore the core API
+
+WRITING RULES
+Use sentence case. Prefer select, project, query, field, response and JSON.
+Keep cat and sleep metaphors occasional and visual. Do not use them to imply
+runtime laziness, speed, reliability or automatic performance improvements.
+Avoid unsupported superlatives and promises such as fastest, zero overhead,
+production-ready everywhere, or support for every JVM framework.
+Explain the scope of a compatibility or performance claim and link evidence.
+
+PRODUCT ACCURACY
+Projection selects existing JSON fields; it does not fetch missing data.
+The core is separate from HTTP transport integrations.
+Do not imply that projection is an authorization mechanism.
+For this project snapshot, framework HTTP and streaming integration remain
+work in progress. Check the current README before release announcements.
+
+EXAMPLE / GOOGLE DIALECT
+Query: name,price(amount)
+Source: {"name":"Field notebook","price":{"amount":12,"currency":"USD"},"stock":24}
+Result: {"name":"Field notebook","price":{"amount":12}}

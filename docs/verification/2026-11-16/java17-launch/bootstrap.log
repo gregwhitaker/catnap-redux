@@ -1,0 +1,871 @@
+Initialized native services in: /Users/gwhitake/workspace/catnap/.gradle-user-home/native
+Initialized jansi services in: /Users/gwhitake/workspace/catnap/.gradle-user-home/native
+The current JVM process isn't compatible with build requirement. The maximum heap size is insufficient.
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Starting process 'command '/usr/libexec/java_home''. Working directory: /Users/gwhitake/workspace/catnap Command: /usr/libexec/java_home -V
+Successfully started process 'command '/usr/libexec/java_home''
+Java Toolchain auto-detection failed to find local MacOS system JVMs
+Received JVM installation metadata from '/Users/gwhitake/.sdkman/candidates/java/17.0.9-amzn': {JAVA_HOME=/Users/gwhitake/.sdkman/candidates/java/17.0.9-amzn, JAVA_VERSION=17.0.9, JAVA_VENDOR=Amazon.com Inc., RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.9+8-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.9+8-LTS, VM_VENDOR=Amazon.com Inc., OS_ARCH=aarch64}
+Starting process 'command '/Users/gwhitake/.sdkman/candidates/java/11.0.16-amzn/bin/java''. Working directory: /Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/tmp-jvm9213581342556596205probe Command: /Users/gwhitake/.sdkman/candidates/java/11.0.16-amzn/bin/java -Xmx32m -Xms32m -cp . JavaProbe
+Successfully started process 'command '/Users/gwhitake/.sdkman/candidates/java/11.0.16-amzn/bin/java''
+Received JVM installation metadata from '/Users/gwhitake/.sdkman/candidates/java/11.0.16-amzn': {JAVA_HOME=/Users/gwhitake/.sdkman/candidates/java/11.0.16-amzn, JAVA_VERSION=11.0.16, JAVA_VENDOR=Amazon.com Inc., RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.16+8-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.16+8-LTS, VM_VENDOR=Amazon.com Inc., OS_ARCH=aarch64}
+Starting process 'command '/Users/gwhitake/.sdkman/candidates/java/11.0.22-amzn/bin/java''. Working directory: /Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/tmp-jvm15385200810361139354probe Command: /Users/gwhitake/.sdkman/candidates/java/11.0.22-amzn/bin/java -Xmx32m -Xms32m -cp . JavaProbe
+Successfully started process 'command '/Users/gwhitake/.sdkman/candidates/java/11.0.22-amzn/bin/java''
+Received JVM installation metadata from '/Users/gwhitake/.sdkman/candidates/java/11.0.22-amzn': {JAVA_HOME=/Users/gwhitake/.sdkman/candidates/java/11.0.22-amzn, JAVA_VERSION=11.0.22, JAVA_VENDOR=Amazon.com Inc., RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.22+7-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.22+7-LTS, VM_VENDOR=Amazon.com Inc., OS_ARCH=aarch64}
+Downloading https://api.foojay.io/disco/v3.0/ids/f186cb82baef4a2e7b41b5590f9304fa/redirect to /Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-25.0.5_8.tar.gz
+Starting process 'command '/Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-258100042428958461704.tmp/jdk-25.0.5+8/Contents/Home/bin/java''. Working directory: /Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/tmp-jvm15755415465785801730probe Command: /Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-258100042428958461704.tmp/jdk-25.0.5+8/Contents/Home/bin/java -Xmx32m -Xms32m -cp . JavaProbe
+Successfully started process 'command '/Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-258100042428958461704.tmp/jdk-25.0.5+8/Contents/Home/bin/java''
+Received JVM installation metadata from '/Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-258100042428958461704.tmp/jdk-25.0.5+8/Contents/Home': {JAVA_HOME=/Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/jdks/OpenJDK25U-jdk_aarch64_mac_hotspot_25-any-vendor-258100042428958461704.tmp/jdk-25.0.5+8/Contents/Home, JAVA_VERSION=25.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=25.0.5+8-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=25.0.5+8-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+Starting process 'command '/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home/bin/java''. Working directory: /Users/gwhitake/workspace/catnap/.gradle-user-home/.tmp/tmp-jvm5519958329073024936probe Command: /Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home/bin/java -Xmx32m -Xms32m -cp . JavaProbe
+Successfully started process 'command '/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home/bin/java''
+Received JVM installation metadata from '/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home': {JAVA_HOME=/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home, JAVA_VERSION=25.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=25.0.5+8-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=25.0.5+8-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+Starting process 'Gradle build daemon'. Working directory: /Users/gwhitake/workspace/catnap/.gradle-user-home/daemon/9.7.0 Command: /Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home/bin/java --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED --add-opens=java.xml/javax.xml.namespace=ALL-UNNAMED --add-opens=java.base/java.time=ALL-UNNAMED --enable-native-access=ALL-UNNAMED -Xmx2g -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /Users/gwhitake/workspace/catnap/.gradle-user-home/wrapper/dists/gradle-9.7.0-bin/d4tj7w02tcgubx9zk9hbippn6/gradle-9.7.0/lib/gradle-daemon-server-9.7.0.jar -javaagent:/Users/gwhitake/workspace/catnap/.gradle-user-home/wrapper/dists/gradle-9.7.0-bin/d4tj7w02tcgubx9zk9hbippn6/gradle-9.7.0/lib/agents/gradle-instrumentation-agent-9.7.0.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 9.7.0
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 0.608 secs.
+The client will now receive all logging from the daemon (pid: 44302). The daemon log file: /Users/gwhitake/workspace/catnap/.gradle-user-home/daemon/9.7.0/daemon-44302.out.log
+Daemon will be stopped at the end of the build 
+Using 4 worker leases.
+Operational build model parameters: {cachingModelBuilding=false, configurationCache=false, configurationCacheDisabledReason=null, configurationCacheParallelLoad=false, configurationCacheParallelStore=false, configureOnDemand=false, invalidateCoupledProjects=false, isolatedProjects=false, isolatedProjectsDiagnostics=false, isolatedProjectsDangerouslyIgnoreProblems=false, modelAsProjectDependency=false, modelBuilding=false, parallelModelBuilding=false, parallelProjectConfiguration=false, parallelProjectExecution=false, vintage=true}
+Received JVM installation metadata from '/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home': {JAVA_HOME=/Users/gwhitake/workspace/catnap/.gradle-user-home/jdks/eclipse_adoptium-25-aarch64-os_x.2/jdk-25.0.5+8/Contents/Home, JAVA_VERSION=25.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=25.0.5+8-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=25.0.5+8-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+Watching the file system is configured to be disabled
+File system watching is inactive
+Starting Build
+Using local directory build cache for build ':build-logic' (location = /Users/gwhitake/workspace/catnap/.gradle-user-home/caches/build-cache-1, remove unused entries = after 7 days).
+Loaded state for lock with ID 'incomingCatalogForLibs0'
+Loaded state for lock with ID 'incomingCatalogForLibs0'
+
+> Configure project :build-logic
+Evaluating project ':build-logic' using build file '/Users/gwhitake/workspace/catnap/build-logic/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.base']
+
+> Configure project :build-logic:benchmark-server
+Evaluating project ':build-logic:benchmark-server' using build file '/Users/gwhitake/workspace/catnap/build-logic/benchmark-server/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Build ed21f13a-9caf-4698-9c28-d5b057fba6a9 is started
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/benchmark-server/src/main/java', not found
+
+> Configure project :build-logic:java-library
+Evaluating project ':build-logic:java-library' using build file '/Users/gwhitake/workspace/catnap/build-logic/java-library/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/java-library/src/main/java', not found
+
+> Configure project :build-logic:jvm-conventions
+Evaluating project ':build-logic:jvm-conventions' using build file '/Users/gwhitake/workspace/catnap/build-logic/jvm-conventions/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/jvm-conventions/src/main/java', not found
+
+> Configure project :build-logic:kotlin-library
+Evaluating project ':build-logic:kotlin-library' using build file '/Users/gwhitake/workspace/catnap/build-logic/kotlin-library/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/kotlin-library/src/main/java', not found
+
+> Configure project :build-logic:publishing
+Evaluating project ':build-logic:publishing' using build file '/Users/gwhitake/workspace/catnap/build-logic/publishing/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/publishing/src/main/java', not found
+
+> Configure project :build-logic:testing
+Evaluating project ':build-logic:testing' using build file '/Users/gwhitake/workspace/catnap/build-logic/testing/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.7.3']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/Users/gwhitake/workspace/catnap/build-logic/testing/src/main/java', not found
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '1.0.0']
+Settings evaluated using settings file '/Users/gwhitake/workspace/catnap/settings.gradle.kts'.
+Using local directory build cache for the root build (location = /Users/gwhitake/workspace/catnap/.gradle-user-home/caches/build-cache-1, remove unused entries = after 7 days).
+Loaded state for lock with ID 'incomingCatalogForLibs0'
+Loaded state for lock with ID 'incomingCatalogForLibs0'
+Projects loaded. Root project using build file '/Users/gwhitake/workspace/catnap/build.gradle.kts'.
+Included projects: [root project 'catnap', project ':benchmarks', project ':catnap-bom', project ':catnap-core', project ':catnap-http', project ':catnap-jackson2', project ':catnap-jackson3', project ':catnap-kotlinx-json', project ':catnap-ktor', project ':catnap-micronaut', project ':catnap-quarkus', project ':catnap-quarkus-deployment', project ':catnap-spring-boot-autoconfigure', project ':catnap-spring-boot-starter', project ':catnap-spring-boot-starter-webflux', project ':catnap-spring-webflux', project ':catnap-spring-webmvc', project ':catnap-streams', project ':catnap-testkit', project ':examples', project ':benchmarks:server-ktor', project ':benchmarks:server-micronaut', project ':benchmarks:server-mvc', project ':benchmarks:server-quarkus', project ':benchmarks:server-webflux', project ':benchmarks:streaming-fixture', project ':benchmarks:streaming-runner', project ':examples:jackson3-probe', project ':examples:ktor', project ':examples:micronaut', project ':examples:quarkus', project ':examples:spring-boot-mvc', project ':examples:spring-boot-webflux', project ':examples:standalone']
+
+> Configure project :
+Evaluating root project 'catnap' using build file '/Users/gwhitake/workspace/catnap/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.base']
+Resolved plugin [id: 'com.diffplug.spotless', version: '8.9.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.4.21', apply: false]
+Resolve mutations for :build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+
+> Task :build-logic:jvm-conventions:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:jvm-conventions:generateExternalPluginSpecBuilders' is e2d9b3a2975f9e7139f10e4ed05744ac
+Skipping task ':build-logic:jvm-conventions:generateExternalPluginSpecBuilders' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins' is c3dd17159f008d29c8a8049a7ebd6586
+Skipping task ':build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:jvm-conventions:compilePluginsBlocks'.
+Build cache key for task ':build-logic:jvm-conventions:compilePluginsBlocks' is 4854e7ce5af0d5e70dc6e0877e0f51da
+Skipping task ':build-logic:jvm-conventions:compilePluginsBlocks' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors' is aa236e7ed560e73066ae733095b75f2a
+Skipping task ':build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:jvm-conventions:generateScriptPluginAdapters' is 2f9b86e91d364d95f9e5f3368397f01b
+Skipping task ':build-logic:jvm-conventions:generateScriptPluginAdapters' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:jvm-conventions:compileKotlin'.
+Build cache key for task ':build-logic:jvm-conventions:compileKotlin' is c63c61c5d57217f966570ce96e00c15e
+Skipping task ':build-logic:jvm-conventions:compileKotlin' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:compileJava NO-SOURCE
+Skipping task ':build-logic:jvm-conventions:compileJava' as it has no source files and no previous output files.
+
+> Task :build-logic:testing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:testing:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+
+> Task :build-logic:testing:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:testing:generateExternalPluginSpecBuilders' is 054fb24e7294188b5eeb89cad3136829
+Skipping task ':build-logic:testing:generateExternalPluginSpecBuilders' as it is up-to-date.
+
+> Task :build-logic:jvm-conventions:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:jvm-conventions:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:jvm-conventions:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :build-logic:jvm-conventions:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:jvm-conventions:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:jvm-conventions:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:jvm-conventions:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:jvm-conventions:processResources' as it is up-to-date.
+Resolve mutations for :build-logic:jvm-conventions:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:jvm-conventions:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:jvm-conventions:classes UP-TO-DATE
+Skipping task ':build-logic:jvm-conventions:classes' as it has no actions.
+Resolve mutations for :build-logic:jvm-conventions:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:jvm-conventions:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:jvm-conventions:jar UP-TO-DATE
+Caching disabled for task ':build-logic:jvm-conventions:jar' because:
+  Not worth caching
+Skipping task ':build-logic:jvm-conventions:jar' as it is up-to-date.
+work action resolve jvm-conventions.jar (project ':build-logic:jvm-conventions') (Thread[#69,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :build-logic:testing:extractPrecompiledScriptPluginPlugins (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:extractPrecompiledScriptPluginPlugins (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:testing:extractPrecompiledScriptPluginPlugins' is aaf285745ab9e76687399ad8ed9c4a18
+Skipping task ':build-logic:testing:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+Resolve mutations for :build-logic:testing:compilePluginsBlocks (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:compilePluginsBlocks (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:testing:compilePluginsBlocks'.
+Build cache key for task ':build-logic:testing:compilePluginsBlocks' is 82f0354f96dadbd8efb8088034dd91a8
+Skipping task ':build-logic:testing:compilePluginsBlocks' as it is up-to-date.
+Resolve mutations for :build-logic:testing:generatePrecompiledScriptPluginAccessors (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:generatePrecompiledScriptPluginAccessors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:testing:generatePrecompiledScriptPluginAccessors' is f96bff82105bfac806af126f9da60acb
+Skipping task ':build-logic:testing:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+Resolve mutations for :build-logic:testing:generateScriptPluginAdapters (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:generateScriptPluginAdapters (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:testing:generateScriptPluginAdapters' is 6eafb15307e2b3e7d7a573f5c5ba56bb
+Skipping task ':build-logic:testing:generateScriptPluginAdapters' as it is up-to-date.
+Resolve mutations for :build-logic:testing:compileKotlin (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:compileKotlin (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:testing:compileKotlin'.
+Build cache key for task ':build-logic:testing:compileKotlin' is 14cb4cad1d45a4dbe08db6213d35e4cb
+Skipping task ':build-logic:testing:compileKotlin' as it is up-to-date.
+Resolve mutations for :build-logic:testing:compileJava (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:compileJava (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:compileJava NO-SOURCE
+Skipping task ':build-logic:testing:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :build-logic:testing:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:testing:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:testing:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :build-logic:testing:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:testing:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:testing:processResources' as it is up-to-date.
+Resolve mutations for :build-logic:testing:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:classes UP-TO-DATE
+Skipping task ':build-logic:testing:classes' as it has no actions.
+Resolve mutations for :build-logic:testing:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:testing:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:testing:jar UP-TO-DATE
+Caching disabled for task ':build-logic:testing:jar' because:
+  Not worth caching
+Skipping task ':build-logic:testing:jar' as it is up-to-date.
+
+> Configure project :benchmarks
+Evaluating project ':benchmarks' using build file '/Users/gwhitake/workspace/catnap/benchmarks/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'catnap.testing']
+:build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:compilePluginsBlocks (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:compilePluginsBlocks (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:generateScriptPluginAdapters (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:generateScriptPluginAdapters (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:compileKotlin (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:compileKotlin (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:compileJava (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:compileJava (Thread[#66,included builds,5,main]) started.
+work action resolve main (project ':build-logic:jvm-conventions') (Thread[#66,included builds,5,main]) started.
+work action resolve main (project ':build-logic:jvm-conventions') (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:testing:checkKotlinGradlePluginConfigurationErrors (Thread[#66,included builds,5,main]) started.
+:build-logic:testing:checkKotlinGradlePluginConfigurationErrors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:testing:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+:build-logic:testing:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:jvm-conventions:pluginDescriptors (Thread[#66,included builds,5,main]) started.
+:build-logic:jvm-conventions:pluginDescriptors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:java-library:checkKotlinGradlePluginConfigurationErrors (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:checkKotlinGradlePluginConfigurationErrors (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:java-library:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :build-logic:java-library:generateExternalPluginSpecBuilders (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:generateExternalPluginSpecBuilders (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:java-library:generateExternalPluginSpecBuilders' is 054fb24e7294188b5eeb89cad3136829
+Skipping task ':build-logic:java-library:generateExternalPluginSpecBuilders' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:extractPrecompiledScriptPluginPlugins (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:extractPrecompiledScriptPluginPlugins (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:java-library:extractPrecompiledScriptPluginPlugins' is dc548c74ca8ea645a1746f6ccacda4c2
+Skipping task ':build-logic:java-library:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:compilePluginsBlocks (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:compilePluginsBlocks (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:java-library:compilePluginsBlocks'.
+Build cache key for task ':build-logic:java-library:compilePluginsBlocks' is d9f9133b806af86599802b3a4de25c84
+Skipping task ':build-logic:java-library:compilePluginsBlocks' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:generatePrecompiledScriptPluginAccessors (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:generatePrecompiledScriptPluginAccessors (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:java-library:generatePrecompiledScriptPluginAccessors' is 9648e37e7f223f6aafd978ee4796cd7b
+Skipping task ':build-logic:java-library:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:generateScriptPluginAdapters (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:generateScriptPluginAdapters (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:java-library:generateScriptPluginAdapters' is 87fbb3de6ec87142cf0a324b2b66f380
+Skipping task ':build-logic:java-library:generateScriptPluginAdapters' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:compileKotlin (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:compileKotlin (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:java-library:compileKotlin'.
+Build cache key for task ':build-logic:java-library:compileKotlin' is b0875a81203cda497134298a92f0927d
+Skipping task ':build-logic:java-library:compileKotlin' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:compileJava (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:compileJava (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:compileJava NO-SOURCE
+Skipping task ':build-logic:java-library:compileJava' as it has no source files and no previous output files.
+work action resolve main (project ':build-logic:java-library') (Thread[#68,Execution worker Thread 2,5,main]) started.
+work action resolve main (project ':build-logic:java-library') (Thread[#68,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:checkKotlinGradlePluginConfigurationErrors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:publishing:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :build-logic:publishing:generateExternalPluginSpecBuilders (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:generateExternalPluginSpecBuilders (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:publishing:generateExternalPluginSpecBuilders' is 054fb24e7294188b5eeb89cad3136829
+Skipping task ':build-logic:publishing:generateExternalPluginSpecBuilders' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:pluginDescriptors (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:pluginDescriptors (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:java-library:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:java-library:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:processResources (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:processResources (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:java-library:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:java-library:processResources' as it is up-to-date.
+Resolve mutations for :build-logic:java-library:classes (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:classes (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:classes UP-TO-DATE
+Skipping task ':build-logic:java-library:classes' as it has no actions.
+Resolve mutations for :build-logic:java-library:jar (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:java-library:jar (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:java-library:jar UP-TO-DATE
+Caching disabled for task ':build-logic:java-library:jar' because:
+  Not worth caching
+Skipping task ':build-logic:java-library:jar' as it is up-to-date.
+work action resolve java-library.jar (project ':build-logic:java-library') (Thread[#68,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :build-logic:publishing:extractPrecompiledScriptPluginPlugins (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:publishing:extractPrecompiledScriptPluginPlugins (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:publishing:extractPrecompiledScriptPluginPlugins' is 40b54d22ba43544f49760b0722db18a0
+Skipping task ':build-logic:publishing:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:compilePluginsBlocks (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:publishing:compilePluginsBlocks (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:publishing:compilePluginsBlocks'.
+Build cache key for task ':build-logic:publishing:compilePluginsBlocks' is 6dae1b6305c729c9f7fb94293a2d7fe6
+Skipping task ':build-logic:publishing:compilePluginsBlocks' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:generatePrecompiledScriptPluginAccessors (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:publishing:generatePrecompiledScriptPluginAccessors (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:publishing:generatePrecompiledScriptPluginAccessors' is 0086906cc67abff599741d98711fb267
+Skipping task ':build-logic:publishing:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:generateScriptPluginAdapters (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:publishing:generateScriptPluginAdapters (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:publishing:generateScriptPluginAdapters' is 883bd7ab1504e6a874bc542c1341239e
+Skipping task ':build-logic:publishing:generateScriptPluginAdapters' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:compileKotlin (Thread[#68,Execution worker Thread 2,5,main]) started.
+:build-logic:publishing:compileKotlin (Thread[#68,Execution worker Thread 2,5,main]) started.
+
+> Task :build-logic:publishing:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:publishing:compileKotlin'.
+Build cache key for task ':build-logic:publishing:compileKotlin' is 196f3274b125c018fb7cf817a28536f0
+Skipping task ':build-logic:publishing:compileKotlin' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:compileJava (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:compileJava (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:compileJava NO-SOURCE
+Skipping task ':build-logic:publishing:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :build-logic:publishing:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:publishing:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:publishing:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:publishing:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:publishing:processResources' as it is up-to-date.
+Resolve mutations for :build-logic:publishing:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:classes UP-TO-DATE
+Skipping task ':build-logic:publishing:classes' as it has no actions.
+Resolve mutations for :build-logic:publishing:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:publishing:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:publishing:jar UP-TO-DATE
+Caching disabled for task ':build-logic:publishing:jar' because:
+  Not worth caching
+Skipping task ':build-logic:publishing:jar' as it is up-to-date.
+
+> Configure project :catnap-bom
+Evaluating project ':catnap-bom' using build file '/Users/gwhitake/workspace/catnap/catnap-bom/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.java-platform']
+Resolved plugin [id: 'catnap.publishing']
+Ignoring listeners of task graph ready event, as this build (:build-logic) has already executed work.
+
+> Configure project :catnap-core
+Evaluating project ':catnap-core' using build file '/Users/gwhitake/workspace/catnap/catnap-core/build.gradle.kts'.
+Resolved plugin [id: 'catnap.java-library']
+Resolved plugin [id: 'catnap.testing']
+Resolved plugin [id: 'catnap.publishing']
+
+> Configure project :catnap-http
+Evaluating project ':catnap-http' using build file '/Users/gwhitake/workspace/catnap/catnap-http/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-jackson2
+Evaluating project ':catnap-jackson2' using build file '/Users/gwhitake/workspace/catnap/catnap-jackson2/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-jackson3
+Evaluating project ':catnap-jackson3' using build file '/Users/gwhitake/workspace/catnap/catnap-jackson3/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Task :build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+
+> Task :build-logic:kotlin-library:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:kotlin-library:generateExternalPluginSpecBuilders' is 8f0ece72043d31b1b09fcc95b7bab299
+Skipping task ':build-logic:kotlin-library:generateExternalPluginSpecBuilders' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins' is f53b97a63d8c0cfb66e80eec46e1f2b7
+Skipping task ':build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:kotlin-library:compilePluginsBlocks'.
+Build cache key for task ':build-logic:kotlin-library:compilePluginsBlocks' is de6ab34cc55d067b6fc783f3d613bb20
+Skipping task ':build-logic:kotlin-library:compilePluginsBlocks' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors' is 6c4f0d0670f583f7d62ff02a43e05558
+Skipping task ':build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:kotlin-library:generateScriptPluginAdapters' is e91f8de07b69cf4b94ad03d1cc09603a
+Skipping task ':build-logic:kotlin-library:generateScriptPluginAdapters' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:kotlin-library:compileKotlin'.
+Build cache key for task ':build-logic:kotlin-library:compileKotlin' is af087996b334d4eb71fa8b1a1642a500
+Skipping task ':build-logic:kotlin-library:compileKotlin' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:compileJava NO-SOURCE
+Skipping task ':build-logic:kotlin-library:compileJava' as it has no source files and no previous output files.
+
+> Task :build-logic:kotlin-library:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:kotlin-library:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:kotlin-library:pluginDescriptors' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:kotlin-library:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:kotlin-library:processResources' as it is up-to-date.
+
+> Task :build-logic:kotlin-library:classes UP-TO-DATE
+Skipping task ':build-logic:kotlin-library:classes' as it has no actions.
+:build-logic:kotlin-library:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:kotlin-library:jar UP-TO-DATE
+Caching disabled for task ':build-logic:kotlin-library:jar' because:
+  Not worth caching
+Skipping task ':build-logic:kotlin-library:jar' as it is up-to-date.
+
+> Configure project :catnap-kotlinx-json
+Evaluating project ':catnap-kotlinx-json' using build file '/Users/gwhitake/workspace/catnap/catnap-kotlinx-json/build.gradle.kts'.
+Resolved plugin [id: 'catnap.kotlin-library']
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.4.21']
+Ignoring listeners of task graph ready event, as this build (:build-logic) has already executed work.
+Resolve mutations for :build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:generateExternalPluginSpecBuilders (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:compilePluginsBlocks (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:compilePluginsBlocks (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:generateScriptPluginAdapters (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:generateScriptPluginAdapters (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:compileKotlin (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:compileKotlin (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:compileJava (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:compileJava (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:pluginDescriptors (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:pluginDescriptors (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:processResources (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:processResources (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:classes (Thread[#66,included builds,5,main]) started.
+:build-logic:kotlin-library:classes (Thread[#66,included builds,5,main]) started.
+Resolve mutations for :build-logic:kotlin-library:jar (Thread[#66,included builds,5,main]) started.
+Build 3761283e-5d1f-45bb-84d2-4de10ea143d7 is started
+Using Kotlin Gradle Plugin gradle96 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Dokka Gradle Plugin detected PluginMode:V2EnabledWithHelpers (from:V2EnabledWithHelpers) in project ':catnap-kotlinx-json' /Users/gwhitake/workspace/catnap/catnap-kotlinx-json
+Applying KotlinAdapter to :catnap-kotlinx-json
+Configuring KotlinAdapter in Gradle Kotlin Project :catnap-kotlinx-json
+applied DokkaJavaAdapter to :catnap-kotlinx-json
+
+> Configure project :catnap-ktor
+Evaluating project ':catnap-ktor' using build file '/Users/gwhitake/workspace/catnap/catnap-ktor/build.gradle.kts'.
+Resolved plugin [id: 'catnap.kotlin-library']
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+Using Kotlin Gradle Plugin gradle96 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Dokka Gradle Plugin detected PluginMode:V2EnabledWithHelpers (from:V2EnabledWithHelpers) in project ':catnap-ktor' /Users/gwhitake/workspace/catnap/catnap-ktor
+Applying KotlinAdapter to :catnap-ktor
+Configuring KotlinAdapter in Gradle Kotlin Project :catnap-ktor
+applied DokkaJavaAdapter to :catnap-ktor
+
+> Configure project :catnap-micronaut
+Evaluating project ':catnap-micronaut' using build file '/Users/gwhitake/workspace/catnap/catnap-micronaut/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-quarkus
+Evaluating project ':catnap-quarkus' using build file '/Users/gwhitake/workspace/catnap/catnap-quarkus/runtime/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+Resolved plugin [id: 'io.quarkus.extension', version: '3.40.1.2']
+
+> Configure project :catnap-quarkus-deployment
+Evaluating project ':catnap-quarkus-deployment' using build file '/Users/gwhitake/workspace/catnap/catnap-quarkus/deployment/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-spring-boot-autoconfigure
+Evaluating project ':catnap-spring-boot-autoconfigure' using build file '/Users/gwhitake/workspace/catnap/catnap-spring-boot-autoconfigure/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-spring-boot-starter
+Evaluating project ':catnap-spring-boot-starter' using build file '/Users/gwhitake/workspace/catnap/catnap-spring-boot-starter/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+
+> Configure project :catnap-spring-boot-starter-webflux
+Evaluating project ':catnap-spring-boot-starter-webflux' using build file '/Users/gwhitake/workspace/catnap/catnap-spring-boot-starter-webflux/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+
+> Configure project :catnap-spring-webflux
+Evaluating project ':catnap-spring-webflux' using build file '/Users/gwhitake/workspace/catnap/catnap-spring-webflux/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-spring-webmvc
+Evaluating project ':catnap-spring-webmvc' using build file '/Users/gwhitake/workspace/catnap/catnap-spring-webmvc/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-streams
+Evaluating project ':catnap-streams' using build file '/Users/gwhitake/workspace/catnap/catnap-streams/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :catnap-testkit
+Evaluating project ':catnap-testkit' using build file '/Users/gwhitake/workspace/catnap/catnap-testkit/build.gradle.kts'.
+Resolved plugin [id: 'catnap.publishing']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :examples
+Evaluating project ':examples' using build file '/Users/gwhitake/workspace/catnap/examples/build.gradle'.
+Resolve mutations for :build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :build-logic:benchmark-server:generateExternalPluginSpecBuilders (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:generateExternalPluginSpecBuilders (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:generateExternalPluginSpecBuilders UP-TO-DATE
+Loaded state for lock with ID 'compileClasspath'
+Loaded state for lock with ID 'compileClasspath'
+Build cache key for task ':build-logic:benchmark-server:generateExternalPluginSpecBuilders' is 054fb24e7294188b5eeb89cad3136829
+Skipping task ':build-logic:benchmark-server:generateExternalPluginSpecBuilders' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Build cache key for task ':build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins' is 95208e2c9ef0dd1de333dca7cf351ebb
+Skipping task ':build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:compilePluginsBlocks (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:compilePluginsBlocks (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:compilePluginsBlocks UP-TO-DATE
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'kotlinBuildToolsApiClasspath'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Loaded state for lock with ID 'compilePluginsBlocksPluginClasspathElements'
+Custom actions are attached to task ':build-logic:benchmark-server:compilePluginsBlocks'.
+Build cache key for task ':build-logic:benchmark-server:compilePluginsBlocks' is 8c32439c7b8ec17f5da186defd082ba1
+Skipping task ':build-logic:benchmark-server:compilePluginsBlocks' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Loaded state for lock with ID 'precompiledScriptPluginAccessorsGenerationClasspath'
+Build cache key for task ':build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors' is d30699b34df0cc293a4767e08452391c
+Skipping task ':build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:generateScriptPluginAdapters (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:generateScriptPluginAdapters (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:generateScriptPluginAdapters UP-TO-DATE
+Build cache key for task ':build-logic:benchmark-server:generateScriptPluginAdapters' is 78c2ba08516637001a2d749581ff06c7
+Skipping task ':build-logic:benchmark-server:generateScriptPluginAdapters' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:compileKotlin (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:compileKotlin (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:compileKotlin UP-TO-DATE
+Loaded state for lock with ID 'kotlinScriptDefExtensions'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Loaded state for lock with ID 'kotlinCompilerPluginClasspathMain'
+Custom actions are attached to task ':build-logic:benchmark-server:compileKotlin'.
+Build cache key for task ':build-logic:benchmark-server:compileKotlin' is 73033966f981034a2d1b3bdb19760adc
+Skipping task ':build-logic:benchmark-server:compileKotlin' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:compileJava (Thread[#67,Execution worker,5,main]) started.
+:build-logic:benchmark-server:compileJava (Thread[#67,Execution worker,5,main]) started.
+
+> Task :build-logic:benchmark-server:compileJava NO-SOURCE
+Skipping task ':build-logic:benchmark-server:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :build-logic:benchmark-server:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:benchmark-server:pluginDescriptors (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:benchmark-server:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':build-logic:benchmark-server:pluginDescriptors' because:
+  Not worth caching
+Skipping task ':build-logic:benchmark-server:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:benchmark-server:processResources (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:benchmark-server:processResources UP-TO-DATE
+Caching disabled for task ':build-logic:benchmark-server:processResources' because:
+  Not worth caching
+Skipping task ':build-logic:benchmark-server:processResources' as it is up-to-date.
+Resolve mutations for :build-logic:benchmark-server:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:benchmark-server:classes (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:benchmark-server:classes UP-TO-DATE
+Skipping task ':build-logic:benchmark-server:classes' as it has no actions.
+Resolve mutations for :build-logic:benchmark-server:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+:build-logic:benchmark-server:jar (Thread[#69,Execution worker Thread 3,5,main]) started.
+
+> Task :build-logic:benchmark-server:jar UP-TO-DATE
+Caching disabled for task ':build-logic:benchmark-server:jar' because:
+  Not worth caching
+Skipping task ':build-logic:benchmark-server:jar' as it is up-to-date.
+
+> Configure project :benchmarks:server-ktor
+Evaluating project ':benchmarks:server-ktor' using build file '/Users/gwhitake/workspace/catnap/benchmarks/server-ktor/build.gradle.kts'.
+Resolved plugin [id: 'catnap.kotlin-library']
+Resolved plugin [id: 'org.gradle.application']
+Resolved plugin [id: 'catnap.benchmark-server']
+Ignoring listeners of task graph ready event, as this build (:build-logic) has already executed work.
+Using Kotlin Gradle Plugin gradle96 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Dokka Gradle Plugin detected PluginMode:V2EnabledWithHelpers (from:V2EnabledWithHelpers) in project ':benchmarks:server-ktor' /Users/gwhitake/workspace/catnap/benchmarks/server-ktor
+Applying KotlinAdapter to :benchmarks:server-ktor
+Configuring KotlinAdapter in Gradle Kotlin Project :benchmarks:server-ktor
+applied DokkaJavaAdapter to :benchmarks:server-ktor
+
+> Configure project :benchmarks:server-micronaut
+Evaluating project ':benchmarks:server-micronaut' using build file '/Users/gwhitake/workspace/catnap/benchmarks/server-micronaut/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'org.gradle.application']
+Resolved plugin [id: 'catnap.benchmark-server']
+
+> Configure project :benchmarks:server-mvc
+Evaluating project ':benchmarks:server-mvc' using build file '/Users/gwhitake/workspace/catnap/benchmarks/server-mvc/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'org.gradle.application']
+Resolved plugin [id: 'catnap.benchmark-server']
+
+> Configure project :benchmarks:server-quarkus
+Evaluating project ':benchmarks:server-quarkus' using build file '/Users/gwhitake/workspace/catnap/benchmarks/server-quarkus/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'io.quarkus', version: '3.40.1.2']
+Resolved plugin [id: 'catnap.benchmark-server']
+
+> Configure project :benchmarks:server-webflux
+Evaluating project ':benchmarks:server-webflux' using build file '/Users/gwhitake/workspace/catnap/benchmarks/server-webflux/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'org.gradle.application']
+Resolved plugin [id: 'catnap.benchmark-server']
+
+> Configure project :benchmarks:streaming-fixture
+Evaluating project ':benchmarks:streaming-fixture' using build file '/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/build.gradle.kts'.
+Resolved plugin [id: 'catnap.java-library']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :benchmarks:streaming-runner
+Evaluating project ':benchmarks:streaming-runner' using build file '/Users/gwhitake/workspace/catnap/benchmarks/streaming-runner/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'catnap.testing']
+
+> Configure project :examples:jackson3-probe
+Evaluating project ':examples:jackson3-probe' using build file '/Users/gwhitake/workspace/catnap/examples/jackson3-probe/build.gradle.kts'.
+Resolved plugin [id: 'catnap.java-library']
+
+> Configure project :examples:ktor
+Evaluating project ':examples:ktor' using build file '/Users/gwhitake/workspace/catnap/examples/ktor/build.gradle.kts'.
+Resolved plugin [id: 'catnap.kotlin-library']
+Resolved plugin [id: 'catnap.testing']
+Resolved plugin [id: 'org.gradle.application']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.4.21']
+Using Kotlin Gradle Plugin gradle96 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Dokka Gradle Plugin detected PluginMode:V2EnabledWithHelpers (from:V2EnabledWithHelpers) in project ':examples:ktor' /Users/gwhitake/workspace/catnap/examples/ktor
+Applying KotlinAdapter to :examples:ktor
+Configuring KotlinAdapter in Gradle Kotlin Project :examples:ktor
+applied DokkaJavaAdapter to :examples:ktor
+
+> Configure project :examples:micronaut
+Evaluating project ':examples:micronaut' using build file '/Users/gwhitake/workspace/catnap/examples/micronaut/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'io.micronaut.application', version: '5.0.2']
+Creating docker tasks for image main
+[native-image-plugin] ====================
+[native-image-plugin] Initializing project: micronaut
+[native-image-plugin] ====================
+[native-image-plugin] Not instrumenting task with native-image-agent: compileJava. Reason: Task does not match user predicate
+[native-image-plugin] Not instrumenting task with native-image-agent: compileTestJava. Reason: Task does not match user predicate
+
+> Configure project :examples:quarkus
+Evaluating project ':examples:quarkus' using build file '/Users/gwhitake/workspace/catnap/examples/quarkus/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'io.quarkus', version: '3.40.1.2']
+
+> Configure project :examples:spring-boot-mvc
+Evaluating project ':examples:spring-boot-mvc' using build file '/Users/gwhitake/workspace/catnap/examples/spring-boot-mvc/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'org.springframework.boot', version: '4.1.2']
+
+> Configure project :examples:spring-boot-webflux
+Evaluating project ':examples:spring-boot-webflux' using build file '/Users/gwhitake/workspace/catnap/examples/spring-boot-webflux/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'org.springframework.boot', version: '4.1.2']
+
+> Configure project :examples:standalone
+Evaluating project ':examples:standalone' using build file '/Users/gwhitake/workspace/catnap/examples/standalone/build.gradle.kts'.
+Resolved plugin [id: 'catnap.jvm-conventions']
+Resolved plugin [id: 'catnap.testing']
+Resolved plugin [id: 'org.gradle.application']
+All projects evaluated.
+Task name matched 'help'
+Selected primary task 'help' from project :
+Tasks to be executed: [task ':help']
+Tasks that were excluded: []
+[native-image-plugin] Not instrumenting task with native-image-agent: clean. Reason: Task does not match user predicate
+Resolve mutations for :help (Thread[#66,included builds,5,main]) started.
+:help (Thread[#66,included builds,5,main]) started.
+
+> Task :help
+Caching disabled for task ':help' because:
+  Produces only non-cacheable console output
+Task ':help' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+
+Welcome to Gradle 9.7.0.
+
+To run a build, run gradlew <task> ...
+
+To see a list of available tasks, run gradlew tasks
+
+To see more detail about a task, run gradlew help --task <task>
+
+To see a list of command-line options, run gradlew --help
+
+For more detail on using Gradle, see https://docs.gradle.org/9.7.0/userguide/command_line_interface.html
+
+For troubleshooting, visit https://help.gradle.org
+Build ed21f13a-9caf-4698-9c28-d5b057fba6a9 is closed
+Build 3761283e-5d1f-45bb-84d2-4de10ea143d7 is closed
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 19s
+55 actionable tasks: 1 executed, 54 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html

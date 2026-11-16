@@ -1,0 +1,655 @@
+{
+  "framework" : "micronaut",
+  "kind" : "measure",
+  "cases" : [ {
+    "protocol" : "ndjson",
+    "mode" : "native",
+    "kind" : "throughput",
+    "seconds" : 5.0312285,
+    "clientCpuSeconds" : 11.248835,
+    "records" : 1017469,
+    "bodyBytes" : 1042905725,
+    "recordsPerSecond" : 202230.72754497235,
+    "bodyBytesPerSecond" : 2.0728649573359668E8,
+    "allocatedBytes" : 6834524024,
+    "allocatedBytesPerRecord" : 6717.18157899651,
+    "before" : {
+      "heapBytes" : 10793024,
+      "collections" : 19,
+      "active" : 2,
+      "emitted" : 319473,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 2256757640,
+      "liveThreads" : 25,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 1703936,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 31000976,
+      "collections" : 62,
+      "active" : 2,
+      "emitted" : 1336942,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 9091281664,
+      "liveThreads" : 25,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 1.046958,
+      "samplesMs" : [ 2.17975, 1.417708, 1.442542, 1.413583, 1.491417, 1.492875, 1.2575, 1.255292, 1.199833, 1.120042, 1.210709, 1.26875, 1.111459, 1.244375, 1.354834, 1.27225, 1.18825, 1.108459, 1.155125, 1.185333, 1.212542, 1.389958, 1.170708, 1.050375, 1.048375, 1.085666, 1.046958, 1.30175, 1.125375, 1.314916 ],
+      "p95Ms" : 1.492875,
+      "medianMs" : 1.244375,
+      "maxMs" : 2.17975,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "bypass",
+    "kind" : "throughput",
+    "seconds" : 5.012717083,
+    "clientCpuSeconds" : 11.452947,
+    "records" : 292834,
+    "bodyBytes" : 300154850,
+    "recordsPerSecond" : 58418.218134254916,
+    "bodyBytesPerSecond" : 5.987867358761129E7,
+    "allocatedBytes" : 4952106328,
+    "allocatedBytesPerRecord" : 16910.96774281675,
+    "before" : {
+      "heapBytes" : 11133976,
+      "collections" : 74,
+      "active" : 2,
+      "emitted" : 1447314,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 10955793688,
+      "liveThreads" : 32,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 75113624,
+      "collections" : 105,
+      "active" : 2,
+      "emitted" : 1740148,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 15907900016,
+      "liveThreads" : 32,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.808291,
+      "samplesMs" : [ 1.457875, 1.159208, 1.091, 0.828042, 1.054417, 1.126625, 0.952125, 0.976958, 0.858292, 0.97925, 0.93775, 0.9655, 0.921708, 0.85675, 1.066375, 0.960584, 1.072083, 1.01775, 0.816416, 1.051917, 0.82, 1.136542, 0.840292, 1.161333, 0.808291, 1.132208, 0.822208, 0.925, 0.906417, 0.955917 ],
+      "p95Ms" : 1.161333,
+      "medianMs" : 0.9655,
+      "maxMs" : 1.457875,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "all",
+    "kind" : "throughput",
+    "seconds" : 5.014097083,
+    "clientCpuSeconds" : 10.894059,
+    "records" : 263398,
+    "bodyBytes" : 269982950,
+    "recordsPerSecond" : 52531.49183988386,
+    "bodyBytesPerSecond" : 5.384477913588096E7,
+    "allocatedBytes" : 9248334680,
+    "allocatedBytesPerRecord" : 35111.63592737986,
+    "before" : {
+      "heapBytes" : 11177072,
+      "collections" : 129,
+      "active" : 2,
+      "emitted" : 1842006,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 19488953400,
+      "liveThreads" : 38,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 103470336,
+      "collections" : 187,
+      "active" : 2,
+      "emitted" : 2105404,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 28737288080,
+      "liveThreads" : 38,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.690833,
+      "samplesMs" : [ 1.084292, 0.962459, 0.982541, 0.958334, 1.041209, 1.056708, 1.034167, 0.979958, 0.808708, 1.173042, 1.053167, 0.8485, 0.811625, 1.164, 0.918709, 1.226083, 0.812208, 1.234125, 0.901125, 1.231667, 0.817, 0.690833, 1.004459, 1.004708, 1.1465, 0.733708, 1.151916, 0.81425, 1.193458, 0.993584 ],
+      "p95Ms" : 1.231667,
+      "medianMs" : 1.004459,
+      "maxMs" : 1.234125,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "sparse",
+    "kind" : "throughput",
+    "seconds" : 5.004881125,
+    "clientCpuSeconds" : 8.352429,
+    "records" : 281065,
+    "bodyBytes" : 12647925,
+    "recordsPerSecond" : 56158.176983674115,
+    "bodyBytesPerSecond" : 2527117.9642653354,
+    "allocatedBytes" : 7896776920,
+    "allocatedBytesPerRecord" : 28095.909914076816,
+    "before" : {
+      "heapBytes" : 11179328,
+      "collections" : 208,
+      "active" : 2,
+      "emitted" : 2217686,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 31894453384,
+      "liveThreads" : 38,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 19586512,
+      "collections" : 258,
+      "active" : 2,
+      "emitted" : 2498751,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 39791230304,
+      "liveThreads" : 38,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.553917,
+      "samplesMs" : [ 0.937292, 1.113708, 0.80125, 1.136291, 0.754208, 1.0295, 0.946167, 0.729333, 0.588625, 0.697375, 0.553917, 0.802458, 0.785708, 0.967625, 1.033458, 0.922292, 1.1245, 0.826125, 1.042, 1.118333, 0.762083, 0.716125, 1.12, 0.741583, 0.654958, 0.6535, 0.686542, 1.263083, 0.741083, 0.670208 ],
+      "p95Ms" : 1.136291,
+      "medianMs" : 0.802458,
+      "maxMs" : 1.263083,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "native",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "wallSeconds" : 5.022046208,
+      "metrics" : {
+        "heapBytes" : 12232496,
+        "collections" : 259,
+        "active" : 2,
+        "emitted" : 2503787,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 39827914656,
+        "liveThreads" : 38,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 5006,
+      "activeSecondsTarget" : 5.0
+    }, {
+      "wallSeconds" : 20.052908417,
+      "metrics" : {
+        "heapBytes" : 12232496,
+        "collections" : 260,
+        "active" : 2,
+        "emitted" : 2518795,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 39930694440,
+        "liveThreads" : 38,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 20014,
+      "activeSecondsTarget" : 20.0
+    }, {
+      "wallSeconds" : 60.080187417,
+      "metrics" : {
+        "heapBytes" : 11128392,
+        "collections" : 262,
+        "active" : 2,
+        "emitted" : 2558784,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 40204413608,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 60003,
+      "activeSecondsTarget" : 60.0
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 1104104,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "ndjson",
+    "mode" : "all",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "wallSeconds" : 5.032016541,
+      "metrics" : {
+        "heapBytes" : 12185952,
+        "collections" : 264,
+        "active" : 2,
+        "emitted" : 2563628,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 40375642040,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 4842,
+      "activeSecondsTarget" : 5.0
+    }, {
+      "wallSeconds" : 20.053165,
+      "metrics" : {
+        "heapBytes" : 12185976,
+        "collections" : 268,
+        "active" : 2,
+        "emitted" : 2578344,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 40895467312,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 19558,
+      "activeSecondsTarget" : 20.0
+    }, {
+      "wallSeconds" : 60.073057958,
+      "metrics" : {
+        "heapBytes" : 11137400,
+        "collections" : 277,
+        "active" : 2,
+        "emitted" : 2618116,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 42300147680,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 59330,
+      "activeSecondsTarget" : 60.0
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 1048576,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "sse",
+    "mode" : "native",
+    "kind" : "throughput",
+    "seconds" : 5.029237209,
+    "clientCpuSeconds" : 10.867639,
+    "records" : 919387,
+    "bodyBytes" : 989260412,
+    "recordsPerSecond" : 182808.43829651226,
+    "bodyBytesPerSecond" : 1.967018796070472E8,
+    "allocatedBytes" : 6337470000,
+    "allocatedBytesPerRecord" : 6893.147281830176,
+    "before" : {
+      "heapBytes" : 11202944,
+      "collections" : 293,
+      "active" : 2,
+      "emitted" : 2974261,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 44764531216,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 167582080,
+      "collections" : 332,
+      "active" : 2,
+      "emitted" : 3893648,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 51102001216,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.581791,
+      "samplesMs" : [ 1.421042, 1.132625, 1.193041, 0.819625, 1.49125, 0.836792, 0.66525, 1.495875, 0.778417, 1.787375, 0.800459, 1.563667, 0.765167, 0.704417, 1.184542, 1.271583, 0.831459, 0.747833, 1.497417, 0.7815, 0.610375, 0.86525, 0.686417, 0.669625, 0.613542, 0.581791, 1.285125, 0.965458, 1.343167, 0.956916 ],
+      "p95Ms" : 1.563667,
+      "medianMs" : 0.86525,
+      "maxMs" : 1.787375,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "bypass",
+    "kind" : "throughput",
+    "seconds" : 5.016492667,
+    "clientCpuSeconds" : 11.35377,
+    "records" : 273696,
+    "bodyBytes" : 294496896,
+    "recordsPerSecond" : 54559.23454258286,
+    "bodyBytesPerSecond" : 5.870573636781916E7,
+    "allocatedBytes" : 4799260824,
+    "allocatedBytesPerRecord" : 17535.005349000352,
+    "before" : {
+      "heapBytes" : 11261944,
+      "collections" : 346,
+      "active" : 2,
+      "emitted" : 4004804,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 53052510856,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 95174808,
+      "collections" : 376,
+      "active" : 2,
+      "emitted" : 4278500,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 57851771680,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.471458,
+      "samplesMs" : [ 0.846209, 1.7095, 0.599292, 0.594666, 0.586666, 0.567333, 0.518792, 0.596375, 0.7145, 0.618125, 0.731291, 0.881083, 0.561084, 0.578291, 0.550208, 0.503833, 0.5015, 0.605084, 0.750667, 1.508541, 0.671917, 0.523833, 0.734459, 0.669042, 0.563708, 0.516292, 0.605584, 0.471458, 0.473334, 0.498458 ],
+      "p95Ms" : 1.508541,
+      "medianMs" : 0.596375,
+      "maxMs" : 1.7095,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "all",
+    "kind" : "throughput",
+    "seconds" : 5.01387525,
+    "clientCpuSeconds" : 10.929216,
+    "records" : 249044,
+    "bodyBytes" : 267971344,
+    "recordsPerSecond" : 49670.96060078479,
+    "bodyBytesPerSecond" : 5.344595360644444E7,
+    "allocatedBytes" : 8969659176,
+    "allocatedBytesPerRecord" : 36016.363277171906,
+    "before" : {
+      "heapBytes" : 11262640,
+      "collections" : 400,
+      "active" : 2,
+      "emitted" : 4380392,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 61522335968,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 54274896,
+      "collections" : 457,
+      "active" : 2,
+      "emitted" : 4629436,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 70491995144,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.514334,
+      "samplesMs" : [ 1.055417, 1.394292, 1.031833, 0.996, 1.428375, 0.961834, 0.752167, 0.636083, 0.718333, 0.639292, 0.670834, 0.684417, 1.376333, 1.068292, 1.442875, 0.7615, 1.821375, 0.6135, 0.514334, 0.705709, 0.764917, 1.745792, 1.20875, 0.993, 1.454792, 1.153375, 1.185875, 0.807584, 1.657209, 0.740583 ],
+      "p95Ms" : 1.745792,
+      "medianMs" : 0.996,
+      "maxMs" : 1.821375,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "sparse",
+    "kind" : "throughput",
+    "seconds" : 5.007133209,
+    "clientCpuSeconds" : 8.17548,
+    "records" : 266196,
+    "bodyBytes" : 25554816,
+    "recordsPerSecond" : 53163.354935620606,
+    "bodyBytesPerSecond" : 5103682.073819579,
+    "allocatedBytes" : 7900269848,
+    "allocatedBytesPerRecord" : 29678.39429593232,
+    "before" : {
+      "heapBytes" : 11264408,
+      "collections" : 478,
+      "active" : 2,
+      "emitted" : 4737546,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 73702101976,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "after" : {
+      "heapBytes" : 45894200,
+      "collections" : 528,
+      "active" : 2,
+      "emitted" : 5003742,
+      "javaVersion" : "25.0.5+10-LTS",
+      "allocatedBytes" : 81602371824,
+      "liveThreads" : 29,
+      "jvmDirectBytes" : 8,
+      "nettyPooledDirectBytes" : 0,
+      "nettyDirectBytes" : 3145728,
+      "nettyDirectCounter" : "global"
+    },
+    "firstItemLatency" : {
+      "minMs" : 0.497875,
+      "samplesMs" : [ 0.772, 0.522917, 0.587167, 0.512291, 0.595667, 0.622416, 0.558583, 0.608791, 0.497875, 0.6775, 0.697333, 0.564417, 0.691167, 0.66475, 0.531042, 0.742667, 0.635667, 0.626667, 0.734, 1.46375, 0.808708, 0.707458, 0.728958, 0.694375, 0.619834, 0.762209, 0.725042, 0.63025, 0.5235, 0.516833 ],
+      "p95Ms" : 0.808708,
+      "medianMs" : 0.635667,
+      "maxMs" : 1.46375,
+      "description" : "Warm server, fresh streaming HTTP requests; from client send to first complete validated record/event."
+    }
+  }, {
+    "protocol" : "sse",
+    "mode" : "native",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "wallSeconds" : 5.026879875,
+      "metrics" : {
+        "heapBytes" : 12312360,
+        "collections" : 529,
+        "active" : 2,
+        "emitted" : 5008787,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 81639391776,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 5015,
+      "activeSecondsTarget" : 5.0
+    }, {
+      "wallSeconds" : 20.054722708,
+      "metrics" : {
+        "heapBytes" : 12312360,
+        "collections" : 530,
+        "active" : 2,
+        "emitted" : 5023795,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 81743379656,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 20023,
+      "activeSecondsTarget" : 20.0
+    }, {
+      "wallSeconds" : 60.068565083,
+      "metrics" : {
+        "heapBytes" : 11263784,
+        "collections" : 532,
+        "active" : 2,
+        "emitted" : 5063780,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 82020299344,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 60008,
+      "activeSecondsTarget" : 60.0
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 1048576,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  }, {
+    "protocol" : "sse",
+    "mode" : "all",
+    "kind" : "retention",
+    "recordsPerSecondPerConnection" : 500,
+    "snapshots" : [ {
+      "wallSeconds" : 5.023604791,
+      "metrics" : {
+        "heapBytes" : 12314304,
+        "collections" : 534,
+        "active" : 2,
+        "emitted" : 5068754,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 82199073792,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 4972,
+      "activeSecondsTarget" : 5.0
+    }, {
+      "wallSeconds" : 20.059330333,
+      "metrics" : {
+        "heapBytes" : 11265728,
+        "collections" : 538,
+        "active" : 2,
+        "emitted" : 5083532,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 82729837256,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 19750,
+      "activeSecondsTarget" : 20.0
+    }, {
+      "wallSeconds" : 60.089650208,
+      "metrics" : {
+        "heapBytes" : 11265704,
+        "collections" : 547,
+        "active" : 2,
+        "emitted" : 5122294,
+        "javaVersion" : "25.0.5+10-LTS",
+        "allocatedBytes" : 84121921736,
+        "liveThreads" : 29,
+        "jvmDirectBytes" : 8,
+        "nettyPooledDirectBytes" : 0,
+        "nettyDirectBytes" : 3145728,
+        "nettyDirectCounter" : "global"
+      },
+      "records" : 58512,
+      "activeSecondsTarget" : 60.0
+    } ],
+    "retainedRangesBytes" : {
+      "heapBytes" : 1048600,
+      "jvmDirectBytes" : 0,
+      "nettyDirectBytes" : 0
+    },
+    "gate" : "Range across observed-GC samples <= max(16 MiB, 10% of minimum). Empirical duration/concurrency check, not a proof for every application."
+  } ],
+  "started" : "2026-11-16T18:20:11.087409Z",
+  "serverCommand" : [ "/Users/gwhitake/workspace/catnap/.local/jdk25/amazon-corretto-25.jdk/Contents/Home/bin/java", "-Xms256m", "-Xmx512m", "-Dbenchmark.port=63774", "-Dserver.port=63774", "-Dserver.address=127.0.0.1", "-Dspring.main.banner-mode=off", "-Dlogging.level.root=WARN", "-Dmicronaut.server.port=63774", "-Dmicronaut.server.host=127.0.0.1", "-Dmicronaut.server.netty.worker.threads=4", "-Dquarkus.http.port=63774", "-Dquarkus.http.host=127.0.0.1", "-Dquarkus.log.level=WARN", "-Dquarkus.vertx.event-loops-pool-size=4", "-Dquarkus.thread-pool.max-threads=8", "-Dreactor.netty.ioWorkerCount=4", "-Dio.netty.eventLoopThreads=4", "-cp", "/Users/gwhitake/workspace/catnap/benchmarks/server-micronaut/build/classes/java/main:/Users/gwhitake/workspace/catnap/benchmarks/server-micronaut/build/resources/main:/Users/gwhitake/workspace/catnap/benchmarks/streaming-fixture/build/libs/streaming-fixture-3.0.0-SNAPSHOT.jar:/Users/gwhitake/workspace/catnap/catnap-micronaut/build/libs/catnap-micronaut-3.0.0-SNAPSHOT.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut.serde/micronaut-serde-jackson/3.2.6/7208617b220b26e3e77970d84e68d5708a254d3/micronaut-serde-jackson-3.2.6.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut.reactor/micronaut-reactor/4.3.0/b9efe588913d2151eff2bf3fbc58f33ae7df56b7/micronaut-reactor-4.3.0.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut.serde/micronaut-serde-support/3.2.6/48ff3d2736254fb8d9ff2c1d3a795fed2ab40768/micronaut-serde-support-3.2.6.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut.serde/micronaut-serde-api/3.2.6/4b71c604911aec5922a8080fb9d7f1392528deb3/micronaut-serde-api-3.2.6.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut.sourcegen/micronaut-sourcegen-annotations/2.2.4/2aa4456492794d8798840a22dac2eab2f262d09a/micronaut-sourcegen-annotations-2.2.4.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-http-server-netty/5.2.23/62fd122b1d25f7cfce969b840a9eaa473cd5f281/micronaut-http-server-netty-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.5.37/7c95bc3f7a4d9ad53bf632272818a923c85b9ad3/logback-classic-1.5.37.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-http-netty/5.2.23/71f6b3486b87868a35bace03618e26497ab918a3/micronaut-http-netty-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.2.20.Final/1f4843426ecea666d875d64f37af8456566d2d9a/netty-codec-http2-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-jackson-core/5.2.23/e2e0518c950dff1701ce32185010a3f0bfbd92e/micronaut-jackson-core-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/tools.jackson.core/jackson-core/3.2.3/94d7dab7ac8e336a4c7a5ce36b8ca206bfde18c5/jackson-core-3.2.3.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.22/15c67f9498d6934cff9510fc70c5a12e52290457/jackson-annotations-2.22.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-json-core/5.2.23/3c46b99e094e85557d238e1e83d3fa173fd4292/micronaut-json-core-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-http-server/5.2.23/8007f8d2f05e04f2180044a3c3cc00de93cdb439/micronaut-http-server-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-router/5.2.23/12eb9fbfcddec3f2487e778cb7ca899df04aff58/micronaut-router-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-http/5.2.23/32b73000f64d0c959799e6816d95ac9967d56875/micronaut-http-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-context-propagation/5.2.23/3ef9dc4091722aded9e8cf6c7e9f84af1f54a26/micronaut-context-propagation-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-context/5.2.23/46fa555eefe05dd4f5057b7e5416110f058f7797/micronaut-context-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-buffer-netty/5.2.23/61a32b1911d9304b7ec45bf191a1350662a363b7/micronaut-buffer-netty-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-aop/5.2.23/2479ac7881547a6de11273a86d4d63ebdb8249e1/micronaut-aop-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-inject/5.2.23/cf95dfeb82f29f3fc94ae13671f6cf2309477141/micronaut-inject-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/jakarta.annotation/jakarta.annotation-api/2.1.1/48b9bda22b091b1f48b13af03fe36db3be6e1ae3/jakarta.annotation-api-2.1.1.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty.contrib/netty-codec-multipart-core/1.0.0.Final/1f817d149ac55f703474156c60d5c07cbcc921e2/netty-codec-multipart-core-1.0.0.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.2.20.Final/2d7b07f88c991d0bd30755afe367fe1bd8610b7d/netty-codec-http-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec/4.2.20.Final/7bb1ce986ff3af7137eb9b25cb41833e71bfffff/netty-codec-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-handler/4.2.20.Final/937cf68d314ea0edbf077643a3db42988e872f87/netty-handler-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-compression/4.2.20.Final/921bf1c5e238dbfd54d19d344a3ef253080d2a66/netty-codec-compression-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-protobuf/4.2.20.Final/6716d45a54d3bdd0d630b0ea39144dd5c9a34f76/netty-codec-protobuf-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-marshalling/4.2.20.Final/7c866330222c773d2ffd8d042d7c2a1578aabfbd/netty-codec-marshalling-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-codec-base/4.2.20.Final/2a1724e0645dc4a99e7d9dfc989d596b93d2492b/netty-codec-base-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.2.20.Final/34e59d72bab77ba8fc1ff899a267d52ccb4e3312/netty-transport-native-unix-common-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-transport/4.2.20.Final/f4e01e4208b3799ef7f83c826c15fb9b3648c589/netty-transport-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/ch.qos.logback/logback-core/1.5.37/41df60907428d396d02134253eee8bd385a31601/logback-core-1.5.37.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-buffer/4.2.20.Final/12d223b605fe08ec593750fd25115297c4f3418a/netty-buffer-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-resolver/4.2.20.Final/c4305893023f9705eb85db85be3c65149666c004/netty-resolver-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.netty/netty-common/4.2.20.Final/e87b2bbdc7b7ebcb59ab5c29576e40a423e0661b/netty-common-4.2.20.Final.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.projectreactor/reactor-core/3.8.7/cf54bb43d59d6bb9b3ba5c160c975d4a18f351ab/reactor-core-3.8.7.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-core-reactive/5.2.23/97e003c57ccb2812e40b5a784beea3766f36628a/micronaut-core-reactive-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/io.micronaut/micronaut-core/5.2.23/2be62ffe34af1b73ad0e6d20de8b702ea25b2bbb/micronaut-core-5.2.23.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/jakarta.inject/jakarta.inject-api/2.0.1/4c28afe1991a941d7702fe1362c365f0a8641d1e/jakarta.inject-api-2.0.1.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.18/78a9e7a37cd6360e0b818e86341b24123d28d4df/slf4j-api-2.0.18.jar:/Users/gwhitake/workspace/catnap/.gradle-user-home/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.4/3864a1320d97d7b045f729a326e1e077661f31b7/reactive-streams-1.0.4.jar:/Users/gwhitake/workspace/catnap/catnap-http/build/libs/catnap-http-3.0.0-SNAPSHOT.jar:/Users/gwhitake/workspace/catnap/catnap-streams/build/libs/catnap-streams-3.0.0-SNAPSHOT.jar:/Users/gwhitake/workspace/catnap/catnap-core/build/libs/catnap-core-3.0.0-SNAPSHOT.jar", "com.github.gregwhitaker.catnap.benchmarks.micronaut.Server" ],
+  "initialMetrics" : {
+    "heapBytes" : 10131624,
+    "collections" : 5,
+    "active" : 0,
+    "emitted" : 0,
+    "javaVersion" : "25.0.5+10-LTS",
+    "allocatedBytes" : 91277080,
+    "liveThreads" : 17,
+    "jvmDirectBytes" : 8,
+    "nettyPooledDirectBytes" : 0,
+    "nettyDirectBytes" : 524288,
+    "nettyDirectCounter" : "global"
+  },
+  "sameSourceQueryIsolation" : "passed for every selected protocol",
+  "finalMetrics" : {
+    "heapBytes" : 11248176,
+    "collections" : 548,
+    "active" : 0,
+    "emitted" : 5122294,
+    "javaVersion" : "25.0.5+10-LTS",
+    "allocatedBytes" : 84122005992,
+    "liveThreads" : 29,
+    "jvmDirectBytes" : 8,
+    "nettyPooledDirectBytes" : 0,
+    "nettyDirectBytes" : 3145728,
+    "nettyDirectCounter" : "global"
+  },
+  "completed" : "2026-11-16T18:25:09.457624Z"
+}
