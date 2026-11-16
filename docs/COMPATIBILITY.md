@@ -1,6 +1,6 @@
 # Compatibility and verification scope
 
-The current development version is `3.0.0-SNAPSHOT`. It is a new major JVM API, with a version 1 query contract. The [implementation plan](../IMPLEMENTATION_PLAN.md) and [requirement audit](RELEASE_AUDIT.md) record completed local implementation verification, measured operating bounds, and the unexplained historical WebFlux drain timeout. Public release publication and hosted CI have not been run.
+The current development version is `3.0.0-SNAPSHOT`. It is a new major JVM API, with a version 1 query contract. The [implementation plan](../IMPLEMENTATION_PLAN.md) and [requirement audit](RELEASE_AUDIT.md) record completed local implementation verification, measured operating bounds, and the unexplained historical WebFlux drain timeout. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github), and hosted build verification has passed.
 
 ## Java and build tooling
 
@@ -57,4 +57,4 @@ The shared wire/lifecycle suites cover early delivery, both query dialects, conf
 
 The [native-image checks](NATIVE_IMAGES.md) pass for Quarkus and Micronaut on macOS 15.7.4/aarch64 with Oracle GraalVM 25.0.4+7.1: 62 Quarkus HTTP tests against an external native server and 55 Micronaut tests compiled with the application into a native executable. [Reports, compiler details, executable hashes, and source identity](native/2026-11-16/README.md) accompany the results. Application DTOs and custom serializers still need their framework's reachability metadata. These checks do not establish native-image execution for Spring MVC, WebFlux, Ktor, or untested operating systems.
 
-The checked-in GitHub Actions workflow describes verification and optional performance jobs. Its YAML has been validated locally, but this workspace has not produced a hosted Actions run. Local command results and archived benchmark evidence are the current authoritative execution record.
+The [hosted Build run](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980077837) passed on Ubuntu 24.04 at commit `853ef009e0389585eaa5303ed854094c6b1ca66d`, including the full build, core compatibility matrix, independent publication consumers, and five-framework streaming smoke suite. The [hosted snapshot verification](PUBLICATION.md#hosted-snapshot-verification) additionally records successful GitHub Packages upload and 275 passing remote-consumer tests in each metadata mode. Timed benchmarks and native-image execution remain separate evidence with the scope described above.

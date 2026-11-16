@@ -41,7 +41,7 @@ The [Documentation workflow](.github/workflows/docs.yml) validates pull requests
 
 ## Project status
 
-This is the **3.0.0-SNAPSHOT** development version. The core, JSON bindings, framework integrations, and streaming helpers are implemented and verified locally. Public release publication and hosted CI execution are not part of the recorded verification. Use the source examples or locally built artifacts below to try this version.
+This is the **3.0.0-SNAPSHOT** development version, available from [GitHub Packages](docs/PUBLICATION.md#consume-packages-from-github). The core, JSON bindings, framework integrations, and streaming helpers pass local and hosted build verification. Use the published snapshot, source examples, or locally built artifacts below to try this version.
 
 The [compatibility matrix](docs/COMPATIBILITY.md) lists tested versions and runtime requirements. The [release audit](docs/RELEASE_AUDIT.md) records verification scope and known limitations, including a historical WebFlux drain timeout whose cause remains unknown. Catnap 3 introduces a new API; see the [migration guide](docs/MIGRATION.md) for differences from Catnap 2.
 
@@ -85,7 +85,9 @@ The currency string comes from the example's custom serializer. Omit `fields` to
 
 All artifacts use the `com.github.gregwhitaker` group. Import `catnap-bom` to align Catnap versions, then choose the module for your application.
 
-For this development checkout, first build a local Maven repository:
+To consume the published snapshot, configure the authenticated [GitHub Packages repository](docs/PUBLICATION.md#consume-packages-from-github), then import the BOM and select a module as shown below.
+
+To use locally built artifacts instead, first build a local Maven repository:
 
 ```bash
 ./gradlew publishVerificationArtifacts

@@ -10,7 +10,7 @@ Inside this repository:
 implementation(project(":catnap-micronaut"))
 ```
 
-Its publication coordinate is `com.github.gregwhitaker:catnap-micronaut:3.0.0-SNAPSHOT`. [Publication verification](PUBLICATION.md) builds independent consumers through Gradle metadata and Maven POMs; this does not imply a public repository release.
+Its publication coordinate is `com.github.gregwhitaker:catnap-micronaut:3.0.0-SNAPSHOT`. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github). [Publication verification](PUBLICATION.md) builds independent consumers through Gradle metadata and Maven POMs.
 
 Micronaut discovers the adapter's compiled bean and filter metadata. Finite responses need no controller wrapper or manual evaluator call. Streaming responses use the explicit helpers below. Start the example:
 

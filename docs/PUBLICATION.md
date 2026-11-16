@@ -90,6 +90,19 @@ Keep credentials in your private `~/.gradle/gradle.properties` or a secret-manag
 
 Use a new non-SNAPSHOT version for each release. Maven uploads happen per artifact, so a failed run can leave a partially published set; inspect the failed step and package versions before retrying. Snapshots can be published repeatedly. Timed benchmarks and native-image checks remain separately recorded release evidence rather than work repeated by every snapshot deployment.
 
+## Hosted snapshot verification
+
+On November 16, 2026, [publication run 43980107514](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514) published `3.0.0-SNAPSHOT` from commit `853ef009e0389585eaa5303ed854094c6b1ca66d` to `https://maven.pkg.github.com/gregwhitaker/catnap-redux`. All 16 library publications and the BOM uploaded successfully after the full build, compatibility matrix, local publication consumers, and streaming smoke suite passed.
+
+Fresh Ubuntu 24.04 runners then consumed the snapshot exclusively from GitHub Packages, with artifact-cache restoration and test-output caching disabled. Both modes passed all framework consumer builds, BOM alignment and dependency-boundary checks, and core tests on Java 17/21/25:
+
+| Remote consumer mode | Tests | Failures / errors / skips |
+|---|---|---|
+| [Gradle module metadata](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514/job/133700781345) | 275 | 0 / 0 / 0 |
+| [Maven POM only](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514/job/133700781362) | 275 | 0 / 0 / 0 |
+
+The workflow's `github-packages-consumers-gradle` and `github-packages-consumers-pom` artifacts contain the JUnit XML and HTML reports for these 550 remote-consumer test executions. This evidence covers the published development snapshot; signing and native-image verification retain their separately documented scope.
+
 ## Consume packages from GitHub
 
 GitHub's Maven registry requires authentication even for public packages. Consumers outside the publishing workflow normally use a classic PAT with `read:packages` and access to the repository. Add the registry to the consuming application's repositories, alongside Maven Central:

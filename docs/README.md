@@ -29,7 +29,7 @@ Guides for using, configuring, extending, and verifying Catnap. New to the proje
 
 ## Performance and verification
 
-The current version is `3.0.0-SNAPSHOT`. The records below describe local verification of particular source snapshots, environments, and workloads. They do not establish a public release or a hosted CI result.
+The current version is `3.0.0-SNAPSHOT`, available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github). The dated local records below preserve particular source snapshots, environments, and workloads. The separate hosted snapshot record establishes package upload and remote consumption.
 
 | Guide or record | What it establishes |
 |---|---|
@@ -37,6 +37,7 @@ The current version is `3.0.0-SNAPSHOT`. The records below describe local verifi
 | [Benchmark instructions](../benchmarks/README.md) | Reproduce JMH and real HTTP measurements |
 | [Native-image verification](NATIVE_IMAGES.md) | Run Quarkus and Micronaut native checks |
 | [Release audit](RELEASE_AUDIT.md) | Requirement coverage, recorded results, and known limitations |
+| [Hosted snapshot verification](PUBLICATION.md#hosted-snapshot-verification) | GitHub Packages upload, hosted build gates, and fresh remote consumers in both metadata modes |
 | [Final local verification](verification/2026-11-16/release-candidate/README.md) | Build, compatibility, publication consumer, and streaming smoke results |
 | [Java 17 wrapper launch](verification/2026-11-16/java17-launch/README.md) | Java 25 daemon selection from a Java 17 launcher |
 | [JMH baseline](benchmarks/2026-11-16/README.md) | Raw CPU/allocation measurements and environment |

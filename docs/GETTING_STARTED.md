@@ -2,7 +2,7 @@
 
 Catnap selects fields from the JSON your application already produces. Start with a working example, then choose a JSON binding or framework adapter for your application.
 
-> **Development version:** This documentation describes `3.0.0-SNAPSHOT`. No public release has been uploaded. The commands below run directly from a source checkout; dependency coordinates alone do not imply availability from a public registry.
+> **Development version:** This documentation describes `3.0.0-SNAPSHOT`, available from [GitHub Packages with authentication](PUBLICATION.md#consume-packages-from-github). The commands below run directly from a source checkout. The published snapshot is a development build.
 
 ## Run your first projection
 
