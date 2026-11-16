@@ -5,6 +5,8 @@
 
 # Catnap
 
+[![Build](https://github.com/gregwhitaker/catnap-redux/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gregwhitaker/catnap-redux/actions/workflows/ci.yml)
+
 **JSON partial responses for Java and Kotlin.**
 
 Catnap lets API clients request the JSON fields they need. Add a `fields` query parameter to select nested properties, apply selections to arrays, and project individual NDJSON records or JSON payloads in server-sent events. Use it directly with a JSON tree or through an adapter for Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor.
