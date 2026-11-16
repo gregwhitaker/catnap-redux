@@ -25,11 +25,11 @@ A Google-style selection of `name,price(amount)` returns:
 
 Catnap projects the JSON produced by your configured serializer, preserving naming rules, visibility, custom serializers, and numeric precision. Field selection does not fetch data or replace application authorization.
 
-[Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](docs/README.md) · [Migrating from Catnap 2](docs/MIGRATION.md) · [Brand assets](brand/README.md)
+[Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/) · [Migrating from Catnap 2](docs/MIGRATION.md) · [Brand assets](brand/README.md)
 
 ## Documentation website
 
-The [documentation website](website/README.md) builds directly from the Markdown guides and includes a [quickstart](docs/GETTING_STARTED.md), local search, query examples, and framework guides. Preview it with Node 22 or newer:
+The [documentation website](https://gregwhitaker.github.io/catnap-redux/) builds directly from the Markdown guides and includes a [quickstart](docs/GETTING_STARTED.md), local search, query examples, and framework guides. Preview it with Node 22 or newer:
 
 ```bash
 cd website
