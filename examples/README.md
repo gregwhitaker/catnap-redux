@@ -112,4 +112,4 @@ The [testkit](../catnap-testkit/README.md) supplies shared finite-response, wire
 
 ## Historical serialization probes
 
-The `/probe/json`, `/probe/ndjson`, and `/probe/sse` endpoints, plus the `jackson3-probe` application, preserve the original serialization experiments. Those HTTP probes accept only `payload(display_name)`, `payload(amount)`, and `payload(internal)` and do not use the general query engine. Start with `/catnap/*` for current integration examples. The [feasibility report](../docs/PHASE_1.md) explains the earlier experiments.
+The `/probe/json`, `/probe/ndjson`, and `/probe/sse` endpoints, plus the `jackson3-probe` application, preserve the original serialization experiments. Those HTTP probes accept only `payload(display_name)`, `payload(amount)`, and `payload(internal)` and do not use the general query engine. Start with `/catnap/*` for current integration examples.
