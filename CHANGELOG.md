@@ -1,0 +1,56 @@
+# Changelog
+
+Notable changes to Catnap are recorded here, newest first. This history starts with
+the Catnap 3 rewrite.
+
+## Unreleased
+
+Development version: `3.0.0-SNAPSHOT`.
+
+### Added
+
+- Dependency-free query core with Google and LinkedIn field-selection dialects,
+  immutable compiled queries, configurable compilation and evaluation limits, and
+  an optional bounded query cache.
+- Native JSON bindings for Jackson 2, Jackson 3, and Kotlin serialization.
+- HTTP integrations for Spring MVC, Spring WebFlux, Micronaut, Quarkus, and Ktor,
+  including separate Spring Boot starters for MVC and WebFlux.
+- Bounded NDJSON and JSON-bearing SSE helpers across all five frameworks, with
+  per-payload projection, SSE metadata preservation, and cancellation handling.
+- Standalone bounded NDJSON readers and writers in `catnap-streams`.
+- `catnap-bom` for Catnap dependency alignment and `catnap-testkit` for shared query
+  conformance and HTTP/streaming contracts.
+- Runnable examples, Java 17/21/25 core compatibility checks, independent Gradle
+  metadata and Maven POM consumer verification, JMH benchmarks, and HTTP streaming
+  measurement tools.
+- Documentation website with local search, query examples, themes, and framework
+  guides, plus GitHub Actions workflows for documentation deployment, verification,
+  and GitHub Packages publication and consumption checks.
+
+### Changed
+
+- Replaced the Catnap 2 API with a modular API that projects the application's
+  configured serialized JSON. Legacy jars, configuration classes, and annotations
+  are not binary-compatible with Catnap 3.
+- Set Java 17 as the core and general-purpose library baseline. The Micronaut
+  integration requires Java 25; the Gradle build daemon also uses Java 25.
+- Updated Spring integrations to Spring Boot 4 and Spring Framework 7 with Jackson
+  3. Legacy Spring versions and generic JAX-RS adapters have no compatibility layer.
+- Defined explicit query and HTTP contracts: missing fields are omitted, arrays
+  retain their order and cardinality, absent or ASCII-blank query parameters bypass
+  projection, and repeated parameters or invalid queries return HTTP 400.
+- Legacy value predicates and JSONP callback wrapping are outside the Catnap 3
+  API. Streaming endpoints use explicit NDJSON/SSE helpers.
+
+### Fixed
+
+- Micronaut streaming direct-memory failures from synchronous sources through a
+  bounded asynchronous handoff.
+- Gradle startup from Java 17 launchers by selecting a Java 25 build daemon,
+  independently of library runtime requirements.
+- Documentation navigation at desktop breakpoints.
+- Publication and documentation source URLs to target `gregwhitaker/catnap-redux`.
+
+See the [migration guide](docs/MIGRATION.md) for upgrade steps, the
+[compatibility matrix](docs/COMPATIBILITY.md) for tested combinations, and the
+[release audit](docs/RELEASE_AUDIT.md) for verification scope and known limitations.
