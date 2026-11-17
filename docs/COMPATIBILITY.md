@@ -1,6 +1,6 @@
 # Compatibility and verification scope
 
-The current development version is `3.0.0-SNAPSHOT`. It is a new major JVM API, with a version 1 query contract. The [implementation plan](../IMPLEMENTATION_PLAN.md) and [requirement audit](RELEASE_AUDIT.md) record completed local implementation verification, measured operating bounds, and the unexplained historical WebFlux drain timeout. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github), and hosted build verification has passed.
+The current development version is `3.0.0-SNAPSHOT`. It is a new major JVM API, with a version 1 query contract. The [requirement audit](RELEASE_AUDIT.md) records completed local implementation verification, measured operating bounds, and the unexplained historical WebFlux drain timeout. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github), and hosted build verification has passed.
 
 ## Java and build tooling
 

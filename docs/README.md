@@ -48,4 +48,4 @@ The [WebFlux drain investigation](benchmarks/2026-11-16/http/webflux-drain-audit
 
 ## Design history
 
-The [implementation plan](../IMPLEMENTATION_PLAN.md) and [serialization feasibility report](PHASE_1.md) explain how the project reached its current architecture. For current APIs and supported behavior, use the guides above. Dated benchmark and verification directories preserve the context of their original runs.
+The [serialization feasibility report](PHASE_1.md) records the original framework probes, and the [requirement audit](RELEASE_AUDIT.md) maps completed requirements to verification evidence. For current APIs and supported behavior, use the guides above. Dated benchmark and verification directories preserve the context of their original runs.

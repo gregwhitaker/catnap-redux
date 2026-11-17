@@ -1,6 +1,6 @@
 # First-release requirement audit
 
-Audited against [the accepted implementation plan](../IMPLEMENTATION_PLAN.md), November 16, 2026. All seven implementation phases meet their local exit criteria. The final build, compatibility matrix, independent publication consumers, streaming smoke suites, and claimed native-image checks pass; benchmarks and compatibility documentation accompany the candidate. The historical WebFlux drain timeout is preserved below with an unknown cause. Verification applies to the stated framework/runtime/operating-system combinations.
+Audited the accepted first-release requirements on November 16, 2026. All seven implementation phases meet their local exit criteria. The final build, compatibility matrix, independent publication consumers, streaming smoke suites, and claimed native-image checks pass; benchmarks and compatibility documentation accompany the candidate. The historical WebFlux drain timeout is preserved below with an unknown cause. Verification applies to the stated framework/runtime/operating-system combinations.
 
 ## Requirement coverage
 

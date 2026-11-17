@@ -1,8 +1,8 @@
 # Phase 1: build foundation and serialization feasibility
 
-This is a historical Phase 1 report. For the implemented adapters and current verification status, see [the README](../README.md) and [implementation plan](../IMPLEMENTATION_PLAN.md).
+This is a historical Phase 1 report. For the implemented adapters and current verification status, see [the README](../README.md) and [requirement audit](RELEASE_AUDIT.md).
 
-The first release includes finite JSON, NDJSON, and JSON-bearing SSE. Phase 1 establishes the build and proves an explicit path to project complete payloads before each framework encodes them. The production compiler, evaluator, automatic adapter registration, and streaming lifecycle guarantees remain in the later phases of [IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md).
+The first release includes finite JSON, NDJSON, and JSON-bearing SSE. Phase 1 establishes the build and proves an explicit path to project complete payloads before each framework encodes them. At this phase, the production compiler, evaluator, automatic adapter registration, and streaming lifecycle guarantees were deferred to later implementation phases; their completed verification is recorded in the [requirement audit](RELEASE_AUDIT.md).
 
 ## Pinned build matrix
 
