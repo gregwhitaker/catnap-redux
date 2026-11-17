@@ -1,6 +1,6 @@
 # First-release requirement audit
 
-Audited the accepted first-release requirements on November 16, 2026. All seven implementation phases meet their local exit criteria. The final build, compatibility matrix, independent publication consumers, streaming smoke suites, and claimed native-image checks pass; benchmarks and compatibility documentation accompany the candidate. The historical WebFlux drain timeout is preserved below with an unknown cause. Verification applies to the stated framework/runtime/operating-system combinations.
+Audited the accepted first-release requirements on November 16, 2026. The accepted local implementation criteria are satisfied. The final build, compatibility matrix, independent publication consumers, streaming smoke suites, and claimed native-image checks pass; benchmarks and compatibility documentation accompany the candidate. The historical WebFlux drain timeout is preserved below with an unknown cause. Verification applies to the stated framework/runtime/operating-system combinations.
 
 ## Requirement coverage
 
@@ -39,7 +39,7 @@ The [WebFlux drain investigation](benchmarks/2026-11-16/http/webflux-drain-audit
 
 Follow-up runs pass exact global and per-connection count/byte assertions: repeated boundaries and reconnects, paused readers with backlogs exceeding 200,000 records, and synchronous sources. A replay compiled from the original archived runner, source, reader, and servers passes all 24 MVC/WebFlux measurement cases, with only failure-reporting instrumentation added. No WebFlux production fix is claimed, and a passing replay does not prove the timeout cannot recur. The original failed attempt and all diagnostics remain archived.
 
-The local Phase 7 criteria are satisfied by the current passing test, publication, native, and measurement evidence. No required case, exact-count assertion, deadline, or retention threshold was removed or relaxed. The historical timeout is retained as an unexplained observation rather than a claimed fixed defect or confirmed data-loss finding. This assessment completes local implementation verification; it does not certify every deployment or authorize public publication.
+The local release verification criteria are satisfied by the current passing test, publication, native, and measurement evidence. No required case, exact-count assertion, deadline, or retention threshold was removed or relaxed. The historical timeout is retained as an unexplained observation rather than a claimed fixed defect or confirmed data-loss finding. This assessment completes local implementation verification; it does not certify every deployment or authorize public publication.
 
 Micronaut's direct-memory failure has a repeatable source/cleanup matrix and a production mitigation verified on all six Catnap stream modes. The [updated performance run](benchmarks/2026-11-16/http/attempt-4-micronaut/summary.json) passes all 12 cases and accompanies the full-build and native-image reruns; the throughput cost is explicitly recorded.
 

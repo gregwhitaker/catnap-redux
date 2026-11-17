@@ -41,6 +41,6 @@ The replay classpath puts those isolated classes before the pinned runtime depen
 
 ## Release evidence assessment
 
-The accepted Phase 7 criteria require passing current tests, independent publication consumers, claimed native-image checks, recorded benchmarks, and compatibility documentation. Those checks now pass; the [requirement audit](../../../../RELEASE_AUDIT.md) links their evidence. No count assertion, timeout, retention threshold, or required framework case was relaxed to obtain those results.
+The accepted release verification criteria require passing current tests, independent publication consumers, claimed native-image checks, recorded benchmarks, and compatibility documentation. Those checks now pass; the [requirement audit](../../../../RELEASE_AUDIT.md) links their evidence. No count assertion, timeout, retention threshold, or required framework case was relaxed to obtain those results.
 
 The historical timeout remains a known observation with an unknown cause, rather than a claimed fixed defect or confirmed data-loss finding. Further investigation is warranted if it recurs; the added diagnostics preserve the information missing from the original attempt. Completing local implementation and verification does not imply public publication, hosted CI execution, or hard real-time delivery guarantees.

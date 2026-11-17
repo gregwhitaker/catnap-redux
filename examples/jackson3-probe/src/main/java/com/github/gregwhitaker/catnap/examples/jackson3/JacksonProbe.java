@@ -61,8 +61,7 @@ public final class JacksonProbe {
                 new Money(new BigDecimal("12.50")),
                 "internal-only",
                 "never-serialize"));
-    // Using a configured writer preserves generic type and active view. Phase 4 can use a token
-    // buffer.
+    // The configured writer preserves the declared generic type and active view.
     JsonNode full = mapper.readTree(writer.writeValueAsBytes(input));
     JsonNode payload = full.get("payload");
     Set<String> names = new HashSet<>();

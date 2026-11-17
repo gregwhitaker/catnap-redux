@@ -2,7 +2,7 @@ package com.github.gregwhitaker.catnap.testkit.probe;
 
 import java.util.Set;
 
-/** Immutable request context for Phase 1 probes. This is deliberately not a Catnap query parser. */
+/** Immutable request context for serialization probes with three supported field selections. */
 public record ProbeRequest(String field, String requestId, boolean internalView) {
   public static ProbeRequest from(String fields, String requestId, String view) {
     String field =
@@ -12,7 +12,7 @@ public record ProbeRequest(String field, String requestId, boolean internalView)
           case "payload(internal)" -> "internal";
           default ->
               throw new IllegalArgumentException(
-                  "Phase 1 accepts only its three documented probe selections");
+                  "Serialization probes accept only the three documented selections");
         };
     return new ProbeRequest(
         field, requestId == null ? "probe" : requestId, "internal".equals(view));
