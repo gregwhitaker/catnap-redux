@@ -1,10 +1,22 @@
 package com.github.gregwhitaker.catnap.examples.ktor
 
 import com.github.gregwhitaker.catnap.core.QueryDialect
+import com.github.gregwhitaker.catnap.ktor.Catnap
 import com.github.gregwhitaker.catnap.testkit.probe.FiniteResponseContract
 import com.github.gregwhitaker.catnap.testkit.probe.FiniteResponseContract.*
+import io.ktor.http.ContentType
+import io.ktor.http.content.OutgoingContent
+import io.ktor.serialization.ContentConverter
+import io.ktor.serialization.kotlinx.KotlinxSerializationConverter
+import io.ktor.server.application.install
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.embeddedServer
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.routing.routing
+import io.ktor.util.reflect.TypeInfo
+import java.nio.charset.Charset
+import java.util.concurrent.ConcurrentLinkedQueue
+import kotlin.reflect.typeOf
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.*
@@ -63,6 +75,71 @@ class FiniteResponseTest {
                 }
             }
         }
+
+    @Test
+    fun declaredGenericTypesReachTheConfiguredSerializer() = runBlocking {
+        for (dialect in QueryDialect.values()) {
+            val receivedTypes = ConcurrentLinkedQueue<TypeInfo>()
+            val nativeConverter = KotlinxSerializationConverter(projectionJson)
+            val recordingConverter =
+                object : ContentConverter by nativeConverter {
+                    override suspend fun serialize(
+                        contentType: ContentType,
+                        charset: Charset,
+                        typeInfo: TypeInfo,
+                        value: Any?,
+                    ): OutgoingContent? {
+                        receivedTypes.add(typeInfo)
+                        return nativeConverter.serialize(contentType, charset, typeInfo, value)
+                    }
+                }
+            val server =
+                embeddedServer(CIO, port = 0) {
+                    install(ContentNegotiation) {
+                        register(ContentType.Application.Json, recordingConverter)
+                    }
+                    routing {
+                        install(Catnap) { this.dialect = dialect }
+                        projectionRoutes()
+                    }
+                }
+            try {
+                server.start(wait = false)
+                val base = "http://localhost:${server.engine.resolvedConnectors().first().port}"
+                val selection =
+                    if (dialect == QueryDialect.LINKEDIN) "payload:(amount)" else "payload(amount)"
+                val responses =
+                    listOf(
+                        "quote" to typeOf<Envelope<ProjectionQuote>>(),
+                        "quote-internal" to typeOf<Envelope<InternalQuote>>(),
+                        "quotes" to typeOf<List<Envelope<ProjectionQuote>>>(),
+                        "async" to typeOf<Envelope<ProjectionQuote>>(),
+                    )
+                for ((path, declaredType) in responses) {
+                    for (suffix in listOf("", query("fields", selection))) {
+                        receivedTypes.clear()
+                        val response = get(base, path + suffix)
+                        assertEquals(200, response.statusCode(), response.body())
+                        assertTrue(response.body().contains("EUR:12.50"), response.body())
+                        if (suffix.isEmpty()) {
+                            assertTrue(response.body().contains("display_name"), response.body())
+                        } else {
+                            val item = """{"payload":{"amount":"EUR:12.50"}}"""
+                            val expected = if (path == "quotes") "[$item,$item]" else item
+                            assertEquals(
+                                Json.parseToJsonElement(expected),
+                                Json.parseToJsonElement(response.body()),
+                            )
+                        }
+                        assertEquals(1, receivedTypes.size, "$dialect $path$suffix")
+                        assertEquals(declaredType, receivedTypes.single().kotlinType)
+                    }
+                }
+            } finally {
+                server.stop(0, 1000)
+            }
+        }
+    }
 
     @Test
     fun malformedDuplicateAndOversizedQueriesFailBeforeWriting() {

@@ -66,7 +66,7 @@ A publisher producing ordinary JSON represents one complete finite document. The
 
 The accumulation stores encoded bytes rather than a list of domain objects. Encoding uses one item at a time with prefetch one. Writers marked blocking run on Micronaut's managed blocking executor. Source failures, downstream cancellation, or the total document limit stop processing and cancel upstream. The limit applies before the server commits the original document; it does not constrain objects the application has already allocated.
 
-An unbounded source belongs on NDJSON or SSE. The `/probe/ndjson` and `/probe/sse` endpoints remain explicitly opted-out feasibility probes; production streaming examples use `/catnap/stream/*`.
+An unbounded source belongs on NDJSON or SSE. Streaming examples use `/catnap/stream/*`.
 
 ## NDJSON and SSE responses
 

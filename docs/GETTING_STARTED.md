@@ -27,7 +27,7 @@ The response is:
 {"payload":{"amount":"EUR:12.50"}}
 ```
 
-The currency string comes from the application's configured serializer. Catnap selects from that serialized JSON, so naming rules, ignored properties, and active views still apply. Use `/catnap/*` for these production integration examples; `/probe/*` endpoints are separate, limited feasibility probes.
+The currency string comes from the application's configured serializer. Catnap selects from that serialized JSON, so naming rules, ignored properties, and active views still apply. Use `/catnap/*` for these integration examples.
 
 ## Choose a query dialect
 

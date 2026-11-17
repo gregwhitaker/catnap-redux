@@ -36,13 +36,12 @@ Helpers live in `com.github.gregwhitaker.catnap.testkit.probe` and use the JDK H
 
 | Helper | Responsibility |
 |---|---|
-| `FiniteResponseContract` | Query variants, serializer visibility, async responses, precision, statuses, and representation headers |
+| `FiniteResponseContract` | Query variants, public/internal serializer visibility, async responses, precision, statuses, and representation headers |
 | `StreamingResponseContract` | NDJSON record content/count and SSE data/metadata on the wire |
 | `StreamingLifecycleContract` | Early delivery, slow consumers, connection isolation, cancellation, and failure timing |
 | `StreamLifecycleProbe` | Controlled publishers and per-connection observations used by lifecycle tests |
-| `HttpProbe` / `ProbeRequest` | Historical serialization feasibility checks for `/probe/*` endpoints |
 
-The contracts expect the endpoint layout and fixtures used by the [example applications](../examples/README.md). Adapt an example's test setup when adding a framework. JSON equality is supplied by the consumer where required; the testkit does not impose a JSON library or JUnit dependency on applications.
+The contracts expect the endpoint layout and fixtures used by the [example applications](../examples/README.md), including `/catnap/quote` and `/catnap/quote-internal` for public and internal serialization views. Adapt an example's test setup when adding a framework. JSON equality is supplied by the consumer where required; the testkit does not impose a JSON library or JUnit dependency on applications.
 
 ## Verify
 

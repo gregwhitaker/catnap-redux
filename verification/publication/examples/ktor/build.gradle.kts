@@ -14,4 +14,4 @@ dependencies {
     testImplementation(libs.ktor.test)
 }
 
-application { mainClass = "com.github.gregwhitaker.catnap.examples.ktor.ProbeApplicationKt" }
+application { mainClass = "com.github.gregwhitaker.catnap.examples.ktor.ExampleApplicationKt" }

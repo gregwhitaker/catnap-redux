@@ -22,4 +22,4 @@ dependencies {
     testImplementation(libs.micronaut.test)
 }
 
-application { mainClass = "com.github.gregwhitaker.catnap.examples.micronaut.ProbeApplication" }
+application { mainClass = "com.github.gregwhitaker.catnap.examples.micronaut.ExampleApplication" }

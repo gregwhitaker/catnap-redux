@@ -170,4 +170,4 @@ curl --no-buffer --get http://localhost:8080/catnap/stream/sse \
 
 Tests exercise the shared finite and streaming HTTP contracts for both dialects, native generic/contextual serializers, text/control events, record/event counts, early delivery, concurrent connection isolation, and errors before and after commitment. A slow real HTTP client stops source production and disconnect cancels that source. Unit tests deterministically verify the two-item adapter bound, producer cleanup, immediate concurrent-send rejection, and closed-session behavior. Encoded-input checks cover split Unicode, CRLF, invalid framing/UTF-8/JSON, and byte/depth limits. A 10,000-item finite producer stops within five items under a 4 KiB total document limit.
 
-The `/probe/*` endpoints remain explicitly opted-out feasibility probes. An unbounded source must use a streaming response mode rather than ordinary finite JSON.
+An unbounded source must use a streaming response mode rather than ordinary finite JSON.

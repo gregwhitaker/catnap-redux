@@ -18,6 +18,8 @@ import kotlinx.serialization.encoding.*
 import kotlinx.serialization.json.*
 import kotlinx.serialization.modules.*
 
+@Serializable data class Envelope<T>(val payload: T)
+
 data class Money(val value: BigDecimal)
 
 @Serializable
@@ -25,6 +27,15 @@ data class ProjectionQuote(
     val displayName: String,
     @Contextual val amount: Money,
     @Transient val internal: String = "internal",
+    @Transient val ignored: String = "never",
+)
+
+/** An explicit internal response model supplies the serializer-visible fields for this endpoint. */
+@Serializable
+data class InternalQuote(
+    val displayName: String,
+    @Contextual val amount: Money,
+    val internal: String,
     @Transient val ignored: String = "never",
 )
 
@@ -72,6 +83,9 @@ private fun quote() = Envelope(ProjectionQuote("ACME", Money(BigDecimal("12.50")
 fun Route.projectionRoutes() {
     route("/catnap") {
         get("/quote") { call.respond(quote()) }
+        get("/quote-internal") {
+            call.respond(Envelope(InternalQuote("ACME", Money(BigDecimal("12.50")), "internal")))
+        }
         get("/quotes") { call.respond(listOf(quote(), quote())) }
         get("/async") {
             delay(1)

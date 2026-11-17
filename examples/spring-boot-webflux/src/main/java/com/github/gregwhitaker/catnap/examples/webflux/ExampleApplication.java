@@ -1,6 +1,5 @@
 package com.github.gregwhitaker.catnap.examples.webflux;
 
-import com.github.gregwhitaker.catnap.examples.jackson3.JacksonProbe;
 import com.github.gregwhitaker.catnap.spring.webflux.CatnapWebFluxStreams;
 import java.util.Map;
 import org.springframework.boot.SpringApplication;
@@ -16,18 +15,23 @@ import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
+import tools.jackson.databind.MapperFeature;
 import tools.jackson.databind.ObjectWriter;
+import tools.jackson.databind.PropertyNamingStrategies;
 import tools.jackson.databind.json.JsonMapper;
 
 @SpringBootApplication
-public class ProbeApplication {
+public class ExampleApplication {
   public static void main(String[] args) {
-    SpringApplication.run(ProbeApplication.class, args);
+    SpringApplication.run(ExampleApplication.class, args);
   }
 
   @Bean
   JsonMapper jsonMapper() {
-    return JacksonProbe.configuredMapper();
+    return JsonMapper.builder()
+        .propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
+        .disable(MapperFeature.DEFAULT_VIEW_INCLUSION)
+        .build();
   }
 
   @Bean
@@ -44,11 +48,6 @@ public class ProbeApplication {
                             Flux.just(Map.of("id", 1, "other", 2)),
                             streams.encoder(
                                 exchange, (value, output) -> mapper.writeValue(output, value)))));
-  }
-
-  @Bean
-  JacksonProbe probe(JsonMapper mapper) {
-    return new JacksonProbe(mapper);
   }
 
   @Bean

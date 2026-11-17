@@ -73,6 +73,10 @@ The selected response contains only the requested amount:
 
 All examples use configured naming and custom serialization. Fields hidden by the serializer remain unavailable to a query. The default dialect is Google; configure the adapter for LinkedIn before using `payload:(amount)`.
 
+`/catnap/quote-internal` demonstrates an internal serialization view: `fields=payload(internal,ignored)` returns `{"payload":{"internal":"internal"}}`, while the same query on `/catnap/quote` returns `{"payload":{}}`. Java frameworks use their native JSON view annotations; Ktor uses an explicit internal response model. These example routes demonstrate serialization visibility, not application authorization.
+
+The shared finite-response tests check both representations in both dialects. Ktor also verifies that its configured JSON converter receives the declared generic types for ordinary, internal, list, and asynchronous responses, with and without projection.
+
 ## Stream responses
 
 These endpoints use the actual streaming adapters. `--no-buffer` makes curl display output as it arrives.
@@ -109,7 +113,3 @@ Additional endpoints exercise async responses, precision, disabled projection, e
 ```
 
 The [testkit](../catnap-testkit/README.md) supplies shared finite-response, wire, and lifecycle assertions. Native-image checks for Quarkus and Micronaut have [separate instructions](../docs/NATIVE_IMAGES.md).
-
-## Historical serialization probes
-
-The `/probe/json`, `/probe/ndjson`, and `/probe/sse` endpoints, plus the `jackson3-probe` application, preserve the original serialization experiments. Those HTTP probes accept only `payload(display_name)`, `payload(amount)`, and `payload(internal)` and do not use the general query engine. Start with `/catnap/*` for current integration examples.

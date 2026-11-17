@@ -49,7 +49,6 @@ val smokeTasks =
                 from("gradle/gradle-daemon-jvm.properties") { into("gradle") }
                 listOf(
                         "standalone",
-                        "jackson3-probe",
                         "spring-boot-mvc",
                         "spring-boot-webflux",
                         "micronaut",

@@ -42,6 +42,15 @@ Development version: `3.0.0-SNAPSHOT`.
 - Legacy value predicates and JSONP callback wrapping are outside the Catnap 3
   API. Streaming endpoints use explicit NDJSON/SSE helpers.
 
+### Removed
+
+- Historical `/probe/*` serialization endpoints, their test suites, and the
+  `examples:jackson3-probe` module. Internal-view visibility and Ktor generic-type
+  checks now run against the current `/catnap/*` integrations.
+- Public `HttpProbe` and `ProbeRequest` helper classes from `catnap-testkit`.
+  Consumers of these snapshot APIs must migrate to the finite and streaming
+  response contracts.
+
 ### Fixed
 
 - Micronaut streaming direct-memory failures from synchronous sources through a

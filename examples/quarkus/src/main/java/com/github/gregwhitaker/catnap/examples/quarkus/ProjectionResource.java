@@ -75,6 +75,14 @@ public class ProjectionResource {
   }
 
   @GET
+  @Path("/quote-internal")
+  @JsonView(Internal.class)
+  @CustomSerialization(CurrencyWriter.class)
+  public Envelope<Quote> internalQuote() {
+    return value();
+  }
+
+  @GET
   @Path("/quotes")
   @JsonView(Public.class)
   @CustomSerialization(CurrencyWriter.class)

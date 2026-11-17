@@ -60,6 +60,12 @@ public class ProjectionController {
     return value();
   }
 
+  @JsonView(Internal.class)
+  @GetMapping("/catnap/quote-internal")
+  Envelope<Quote> internalQuote() {
+    return value();
+  }
+
   @JsonView(Public.class)
   @GetMapping("/catnap/quotes")
   List<Envelope<Quote>> quotes() {

@@ -2,7 +2,7 @@
 
 The current adapters support annotated Spring MVC and WebFlux controllers on Spring Boot 4.1.2 / Spring Framework 7.0.10, with Java 17 bytecode. They use the application's native JSON writer before evaluating the query. Naming, ignored properties, `@JsonView`, declared types, registered serializers, and converter/encoder writer customizations therefore determine the JSON field names available for selection.
 
-Both adapters implement finite responses and explicit NDJSON/SSE helpers. MVC supports bounded emitter sends and publisher subscriptions; WebFlux supports controllers and functional routes. The `/probe/ndjson` and `/probe/sse` endpoints remain isolated feasibility probes. Finite WebFlux functional responses have no automatic query binding; streaming functional routes bind through the explicit helper.
+Both adapters implement finite responses and explicit NDJSON/SSE helpers. MVC supports bounded emitter sends and publisher subscriptions; WebFlux supports controllers and functional routes. Finite WebFlux functional responses have no automatic query binding; streaming functional routes bind through the explicit helper.
 
 ## Choose a starter
 

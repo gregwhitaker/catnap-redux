@@ -29,7 +29,7 @@ dependencies {
     testRuntimeOnly(libs.junit.launcher)
 }
 
-application { mainClass = "com.github.gregwhitaker.catnap.examples.micronaut.ProbeApplication" }
+application { mainClass = "com.github.gregwhitaker.catnap.examples.micronaut.ExampleApplication" }
 
 // Use GRAALVM_HOME for native builds while ordinary compilation keeps its Java 25 toolchain.
 graalvmNative { toolchainDetection.set(false) }

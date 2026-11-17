@@ -71,6 +71,12 @@ public class ProjectionController {
     return value();
   }
 
+  @JsonView(Internal.class)
+  @Get("/quote-internal")
+  Envelope<Quote> internalQuote() {
+    return value();
+  }
+
   @JsonView(Public.class)
   @Get("/quotes")
   List<Envelope<Quote>> quotes() {

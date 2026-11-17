@@ -28,6 +28,18 @@ public final class FiniteResponseContract {
     result.add(new Case("quote", 200, full));
     result.add(new Case("quote" + query(parameter, " \t"), 200, full));
     result.add(new Case("quote" + query(parameter, nested), 200, projected));
+    String internal = linkedIn ? "payload:(internal)" : "payload(internal)";
+    result.add(new Case("quote" + query(parameter, internal), 200, "{\"payload\":{}}"));
+    result.add(
+        new Case(
+            "quote-internal",
+            200,
+            "{\"payload\":{\"display_name\":\"ACME\",\"amount\":\"EUR:12.50\",\"internal\":\"internal\"}}"));
+    result.add(
+        new Case(
+            "quote-internal" + query(parameter, nested),
+            200,
+            "{\"payload\":{\"amount\":\"EUR:12.50\",\"internal\":\"internal\"}}"));
     result.add(new Case("quote" + query(parameter, "missing"), 200, "{}"));
     result.add(
         new Case(

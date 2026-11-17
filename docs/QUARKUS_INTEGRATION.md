@@ -140,7 +140,7 @@ Set headers or a successful body-bearing status through `CatnapStream.header`/`s
 
 Invalid queries produce HTTP 400 before source subscription. First-payload errors use a generic HTTP 500; after commitment, default behavior cancels upstream and resets the response so a truncated transfer remains detectable. No failure emits the original unprojected payload. If an application's SSE protocol defines an error event, the optional final `sse` argument maps a committed-stream failure to one native `OutboundSseEvent` containing text data, for example `failure -> sse.newEventBuilder().name("application-error").data("temporary failure").build()`. That event is separately bounded, unprojected, and followed by completion. First-item failures, cancellation, and native transport errors are not converted into events. NDJSON has no invented error-record format.
 
-Production examples are `/catnap/stream/ndjson`, `/catnap/stream/sse`, `/catnap/stream/encoded`, and `/catnap/stream/lifecycle/{protocol}`. The `/probe/*` routes remain opted-out feasibility probes. Raw `Multi<T>`/`Multi<OutboundSseEvent>` methods do not automatically acquire Catnap projection; use the explicit response helper.
+Production examples are `/catnap/stream/ndjson`, `/catnap/stream/sse`, `/catnap/stream/encoded`, and `/catnap/stream/lifecycle/{protocol}`. Raw `Multi<T>`/`Multi<OutboundSseEvent>` methods do not automatically acquire Catnap projection; use the explicit response helper.
 
 ## Verification
 

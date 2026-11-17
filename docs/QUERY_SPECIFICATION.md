@@ -1,6 +1,6 @@
 # Catnap query and projection contract, version 1
 
-This is the normative query and projection contract implemented by Catnap's core, native JSON bindings, and framework adapters. The [examples](../examples/README.md) exercise it through the `/catnap/*` endpoints; the historical `/probe/*` endpoints remain isolated serialization experiments.
+This is the normative query and projection contract implemented by Catnap's core, native JSON bindings, and framework adapters. The [examples](../examples/README.md) exercise it through the `/catnap/*` endpoints.
 
 ## Dialects and compatibility
 

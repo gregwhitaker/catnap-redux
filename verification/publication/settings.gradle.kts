@@ -56,7 +56,6 @@ include(
     "core",
     "bindings",
     "examples:standalone",
-    "examples:jackson3-probe",
     "examples:spring-boot-mvc",
     "examples:spring-boot-webflux",
     "examples:micronaut",

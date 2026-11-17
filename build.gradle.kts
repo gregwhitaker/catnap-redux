@@ -66,11 +66,7 @@ tasks.named("assemble") {
     dependsOn(":catnap-bom:assemble")
     dependsOn(libraryProjects.map { ":$it:assemble" })
     dependsOn(":examples:standalone:assemble")
-    dependsOn(
-        ":catnap-core:assemble",
-        ":catnap-testkit:assemble",
-        ":examples:jackson3-probe:assemble",
-    )
+    dependsOn(":catnap-core:assemble", ":catnap-testkit:assemble")
     dependsOn(exampleProjects.map { ":examples:$it:assemble" })
 }
 
@@ -82,7 +78,7 @@ tasks.named("check") {
     dependsOn(gradle.includedBuild("build-logic").task(":check"))
     dependsOn(libraryProjects.map { ":$it:check" })
     dependsOn(":examples:standalone:check")
-    dependsOn(":catnap-core:check", ":catnap-testkit:check", ":examples:jackson3-probe:check")
+    dependsOn(":catnap-core:check", ":catnap-testkit:check")
     dependsOn(exampleProjects.map { ":examples:$it:check" })
 }
 
@@ -106,11 +102,7 @@ tasks.register("lockDependencies") {
     dependsOn(":examples:standalone:resolveDependencies")
     group = "build setup"
     description = "Resolves all project configurations; run with --write-locks."
-    dependsOn(
-        ":catnap-core:resolveDependencies",
-        ":catnap-testkit:resolveDependencies",
-        ":examples:jackson3-probe:resolveDependencies",
-    )
+    dependsOn(":catnap-core:resolveDependencies", ":catnap-testkit:resolveDependencies")
     dependsOn(exampleProjects.map { ":examples:$it:resolveDependencies" })
 }
 
