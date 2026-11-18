@@ -7,127 +7,125 @@
 
 [![Build](https://github.com/gregwhitaker/catnap-redux/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gregwhitaker/catnap-redux/actions/workflows/ci.yml)
 
-**JSON partial responses for Java and Kotlin.**
+**Let clients choose which JSON fields your API returns.**
 
-Catnap lets API clients request the JSON fields they need. Add a `fields` query parameter to select nested properties, filter array items with the default Catnap dialect, and project individual NDJSON records or JSON payloads in server-sent events. Google and LinkedIn field-selection dialects remain available as options. Use it directly with a JSON tree or through an adapter for Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor.
+Catnap is a Java and Kotlin library for selecting fields from JSON. Add a framework integration, and clients can use a `fields` query parameter to select nested fields and filter array items. Your controllers keep returning their normal objects, and your application's serializer still controls field names and values.
 
-For a response like this:
-
-```json
-{"name":"ACME","price":{"amount":12.50,"currency":"USD"},"inStock":true}
-```
-
-A selection of `name,price(amount)` in the default Catnap dialect returns:
+For example, an endpoint that normally returns:
 
 ```json
-{"name":"ACME","price":{"amount":12.50}}
+{"id":42,"name":"Headphones","price":{"amount":79,"currency":"USD"},"inStock":true}
 ```
 
-Catnap projects the JSON produced by your configured serializer, preserving naming rules, visibility, custom serializers, and numeric precision. Field selection does not fetch data or replace application authorization.
+With `?fields=name,price(amount)`, it returns:
 
-[Quick start](#quick-start) · [Installation](#installation) · [Examples](examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/) · [Changelog](CHANGELOG.md) · [Migrating from Catnap 2](docs/MIGRATION.md) · [Brand assets](brand/README.md)
-
-## Documentation website
-
-The [documentation website](https://gregwhitaker.github.io/catnap-redux/) builds directly from the Markdown guides and includes a [quickstart](docs/GETTING_STARTED.md), local search, query examples, and framework guides. Preview it with Node 22 or newer:
-
-```bash
-cd website
-npm ci
-npm run dev
+```json
+{"name":"Headphones","price":{"amount":79}}
 ```
 
-The [Documentation workflow](.github/workflows/docs.yml) validates pull requests and deploys default-branch documentation changes to GitHub Pages. Set **Settings → Pages → Source** to **GitHub Actions**, then run the workflow. See the [deployment instructions](website/README.md#deploy-with-github-actions).
+Use Catnap with **Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor**, or [directly with a JSON tree](#use-the-library-directly). NDJSON and server-sent events are supported through [streaming helpers](#streaming).
 
-## Project status
+[Quick start](#quick-start) · [Installation](#installation) · [Query syntax](#query-syntax) · [Examples](examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
 
-This is the **3.0.0-SNAPSHOT** development version, available from [GitHub Packages](docs/PUBLICATION.md#consume-packages-from-github). The core, JSON bindings, framework integrations, and streaming helpers pass local and hosted build verification. Use the published snapshot, source examples, or locally built artifacts below to try this version.
-
-The [compatibility matrix](docs/COMPATIBILITY.md) lists tested versions and runtime requirements. The [release audit](docs/RELEASE_AUDIT.md) records verification scope and known limitations, including a historical WebFlux drain timeout whose cause remains unknown. Catnap 3 introduces a new API; see the [migration guide](docs/MIGRATION.md) for differences from Catnap 2.
+> **Development version:** This README describes Catnap 3 (`3.0.0-SNAPSHOT`). For existing Catnap 2 applications, see the [migration guide](docs/MIGRATION.md).
 
 ## Quick start
 
-Run these commands from a checkout with Java 17 or newer. The Gradle wrapper selects a Java 25 build daemon and can download missing toolchains; see [building from source](#building-from-source).
-
-To try projection without an HTTP server:
+Try the Spring MVC example from source. You need Git and Java 17 or newer; the Gradle wrapper downloads the build toolchains it needs on the first run.
 
 ```bash
-./gradlew :examples:standalone:run
-```
-
-The application parses one document and reuses it for two selections:
-
-```json
-{"name":"ACME"}
-{"price":{"amount":12.50}}
-```
-
-To try an API, start the Spring MVC example:
-
-```bash
+git clone https://github.com/gregwhitaker/catnap-redux.git
+cd catnap-redux
 ./gradlew :examples:spring-boot-mvc:bootRun
 ```
 
-Then, from another terminal:
+Once the server starts, run this in another terminal:
 
 ```bash
 curl --get 'http://localhost:8080/catnap/quote' \
   --data-urlencode 'fields=payload(amount)'
 ```
 
+The response contains only the selected amount:
+
 ```json
 {"payload":{"amount":"EUR:12.50"}}
 ```
 
-The currency string comes from the example's custom serializer. Omit `fields` to receive the normal response. The [examples guide](examples/README.md) includes commands for all five frameworks, NDJSON, SSE, and a standalone stdin transformer.
+Omit `fields` to get the full response. The example's custom serializer produces the currency string; Catnap selects from that JSON.
+
+The default dialect also supports array filtering. Try selecting only ACME quotes from the catalog:
+
+```bash
+curl --get 'http://localhost:8080/catnap/catalog' \
+  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+```
+
+```json
+{"payload":[{"amount":"EUR:12.50"}]}
+```
+
+The [examples guide](examples/README.md) has launch commands for every supported framework. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
 
 ## Installation
 
-All artifacts use the `com.github.gregwhitaker` group. Import `catnap-bom` to align Catnap versions, then choose the module for your application.
+Catnap 3 is currently a development snapshot. To use the code in this checkout in your own application, follow the [local artifact setup](docs/PUBLICATION.md#use-locally-built-artifacts). Published snapshots are also available through [GitHub Packages](docs/PUBLICATION.md#consume-packages-from-github), which requires authentication.
 
-To consume the published snapshot, configure the authenticated [GitHub Packages repository](docs/PUBLICATION.md#consume-packages-from-github), then import the BOM and select a module as shown below.
-
-To use locally built artifacts instead, first build a local Maven repository:
-
-```bash
-./gradlew publishVerificationArtifacts
-```
-
-This writes artifacts to `build/repository` inside the checkout. In a separate Gradle application's `build.gradle.kts`, replace the absolute path below with that directory:
+Once your repository is configured, import the Catnap BOM to keep module versions aligned and add the integration for your application. For an existing Spring Boot 4 MVC application, add this to `build.gradle.kts`:
 
 ```kotlin
-repositories {
-    mavenCentral()
-    maven {
-        url = uri("/absolute/path/to/catnap/build/repository")
-        content { includeGroup("com.github.gregwhitaker") }
-    }
-}
-
 dependencies {
     implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
-    implementation("com.github.gregwhitaker:catnap-jackson3")
+    implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
 }
 ```
 
-If your application centralizes repositories, put the repository declarations in `settings.gradle.kts` under `dependencyResolutionManagement`. The BOM aligns Catnap libraries without importing a framework BOM. The [publication guide](docs/PUBLICATION.md) covers Maven, independent consumer verification, and authenticated GitHub Packages consumption when the requested version has been published.
+The Spring Boot starters automatically enable `fields` on annotated JSON controllers. For example, requesting `/your-endpoint?fields=id,name` selects those fields from its normal response. Other frameworks use the setup described in their guides:
 
-| Application | Module | Guide |
+| Your application | Module | Setup guide |
 |---|---|---|
 | Spring Boot MVC | `catnap-spring-boot-starter` | [MVC starter](catnap-spring-boot-starter/README.md) |
 | Spring Boot WebFlux | `catnap-spring-boot-starter-webflux` | [WebFlux starter](catnap-spring-boot-starter-webflux/README.md) |
-| Micronaut | `catnap-micronaut` | [Micronaut integration](docs/MICRONAUT_INTEGRATION.md) |
-| Quarkus | `catnap-quarkus` | [Quarkus integration](docs/QUARKUS_INTEGRATION.md) |
-| Ktor | `catnap-ktor` | [Ktor integration](docs/KTOR_INTEGRATION.md) |
+| Micronaut | `catnap-micronaut` | [Micronaut](docs/MICRONAUT_INTEGRATION.md) |
+| Quarkus | `catnap-quarkus` | [Quarkus](docs/QUARKUS_INTEGRATION.md) |
+| Ktor | `catnap-ktor` | [Ktor](docs/KTOR_INTEGRATION.md) |
 | Jackson 2 or Jackson 3 | `catnap-jackson2` or `catnap-jackson3` | [JSON bindings](docs/JSON_INTEGRATIONS.md) |
-| Kotlin serialization | `catnap-kotlinx-json` | [JSON bindings](docs/JSON_INTEGRATIONS.md#kotlin-serialization) |
-| Custom JSON tree | `catnap-core` | [Core API](docs/CORE_API.md) |
+| Kotlin serialization | `catnap-kotlinx-json` | [Kotlin serialization](docs/JSON_INTEGRATIONS.md#kotlin-serialization) |
 
-The Spring starters target Boot 4 and Jackson 3. Micronaut requires Java 25; the core and other libraries target Java 17. See the [tested matrix](docs/COMPATIBILITY.md#implemented-framework-and-serializer-combinations) before choosing a framework version.
+The core and general-purpose libraries require **Java 17+**. The Spring starters use **Spring Boot 4 and Jackson 3**; Micronaut requires **Java 25**. See the [compatibility matrix](docs/COMPATIBILITY.md) for supported versions.
+
+## Query syntax
+
+HTTP integrations use the **`CATNAP` dialect** and the **`fields` parameter** by default.
+
+| What you want | Query |
+|---|---|
+| Two fields | `id,name` |
+| Nested fields | `price(amount,currency)` |
+| One nested field | `price/amount` |
+| Fields from every array item | `items(id,name)` |
+| URLs for medium images only | `images(url)[size==medium]` |
+| Medium or large images | `images(url)[size=in=(medium,large)]` |
+| Medium images at least 640 pixels wide | `images(url)[size==medium;width>=640]` |
+| A field from every value in a map | `byId/*/name` |
+| The entire document | `*` |
+
+In `images(url)[size==medium]`, the condition reads each image's original `size`, then returns only `url` for matching images. Put the condition **after** the selected field's child list. Use `==` for equality, `;` for AND, and `,` inside brackets for OR. Use `curl --get --data-urlencode` as above to encode query punctuation correctly.
+
+A few rules to know:
+
+- Field names match the serialized JSON, including any custom naming rules. Fields hidden by the serializer stay hidden.
+- Missing fields are omitted. Arrays keep their order and item count unless an explicit predicate filters them; an array with no matches remains `[]`.
+- Omitting `fields` returns the normal response. Invalid queries and repeated `fields` parameters return HTTP 400.
+- Catnap works on the response JSON. Apply database filtering and access controls in your application.
+
+Google and LinkedIn dialects remain available: set `catnap.dialect=GOOGLE` for Google-style field selection, or `catnap.dialect=LINKEDIN` for queries such as `price:(amount)`. These dialects do not support array predicates. Ktor also exposes the dialect in its installation DSL.
+
+See the [query reference](docs/QUERY_SPECIFICATION.md) for quoted field names, the complete RSQL predicate subset, comparison rules, and configurable limits.
 
 ## Use the library directly
 
-With `catnap-jackson3` on the classpath:
+For use without a web framework, add `com.github.gregwhitaker:catnap-jackson3` with the BOM shown above. This complete example parses JSON, compiles a query, and writes the selected result:
 
 ```java
 import com.github.gregwhitaker.catnap.core.Catnap;
@@ -139,91 +137,40 @@ public class ProjectionExample {
     public static void main(String[] args) {
         var json = new Jackson3Json(JsonMapper.builder().build());
         var document = json.parse("""
-            {"name":"ACME","price":{"amount":12.50,"currency":"USD"}}
+            {"name":"Headphones","price":{"amount":79,"currency":"USD"}}
             """);
         var query = Catnap.compile("name,price(amount)", QueryDialect.CATNAP);
+        var result = query.evaluate(document, json.adapter());
 
-        var selected = query.evaluate(document, json.adapter());
-        System.out.println(json.write(selected));
+        System.out.println(json.write(result));
+        // {"name":"Headphones","price":{"amount":79}}
     }
 }
 ```
 
-A compiled query is immutable and reusable across documents and threads. Evaluation preserves the input tree and creates independent mutable result containers. `QueryCompiler` adds an optional bounded cache. The core has no third-party runtime dependencies; JSON libraries and frameworks live in separate modules.
-
-## Query syntax
-
-HTTP adapters default to the `CATNAP` dialect and the `fields` parameter. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to choose either field-selection profile. The core API always takes an explicit `QueryDialect` argument.
-
-| Selection | Catnap / Google | LinkedIn |
-|---|---|---|
-| Two fields | `id,name` | `id,name` |
-| Nested fields | `price(amount,currency)` | `price:(amount,currency)` |
-| Nested path | `price/amount` | `price:(amount)` |
-| Fields in every array item | `items(id,name)` | `items:(id,name)` |
-| ID in every map value | `byId/*/id` | `byId:($*:(id))` |
-| Entire document | `*` | `$*` |
-| Literal name containing a slash | `"a/b"` | `"a/b"` |
-
-Missing fields are omitted. Google and LinkedIn selections retain array order and item count; scalar values and nulls are preserved. Their existing grammar and behavior are unchanged.
-
-The default Catnap dialect extends Google-style field selection with a bounded RSQL predicate subset:
-
-```java
-var query = Catnap.compile("images(url)[size==medium]", QueryDialect.CATNAP);
-```
-
-This keeps only matching image objects and returns their `url`. Predicates inspect the original serialized fields before selection. Equality (`==`, `!=`), numeric comparisons, membership (`=in=`, `=out=`), AND (`;`), OR (`,`), and grouping are supported. Strings compare exactly; numbers retain their precision; missing fields never match. Predicate-free arrays keep their item count, and predicates never drop NDJSON records or SSE events. See the [query contract](docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for types, limits, and the supported RSQL subset. Aliases, array slicing, and recursive descent remain unsupported.
-
-For HTTP requests, an absent or ASCII-blank parameter bypasses projection. Repeated parameters and invalid queries return HTTP 400. Query length, depth, selector count, evaluation work, and payload sizes have configurable limits.
+Compile once and reuse the query across documents or threads. Evaluation preserves the input tree. The core API requires an explicit dialect; the HTTP integrations supply their configured default. See [JSON bindings](docs/JSON_INTEGRATIONS.md) for Jackson 2 and Kotlin serialization, or the [core API](docs/CORE_API.md) for custom tree adapters, caching, and limits.
 
 ## Streaming
 
-Each framework integration provides explicit helpers for NDJSON and JSON-bearing SSE. They compile the query once per connection and project one bounded payload at a time. SSE IDs, event names, retry values, comments, and text/control events stay outside JSON projection. The adapters propagate cancellation and terminate failed streams without returning an unprojected fallback.
+Use the same queries to select fields within each NDJSON record or JSON payload in a server-sent event. Array predicates filter within a payload; they never drop the enclosing record or event. SSE IDs, event names, and other metadata are preserved.
 
-Use the documented helpers for streaming endpoints; installing a finite-response adapter does not automatically project arbitrary stream writes. See [Spring](docs/SPRING_INTEGRATION.md), [Micronaut](docs/MICRONAUT_INTEGRATION.md), [Quarkus](docs/QUARKUS_INTEGRATION.md), or [Ktor](docs/KTOR_INTEGRATION.md) for serialization context, backpressure, and error handling. For blocking standalone processing, `catnap-streams` supplies bounded NDJSON readers and writers.
+Streaming endpoints need an explicit framework helper. Start with the [streaming guide](docs/STREAMING.md) and [runnable examples](examples/README.md#stream-responses). The standalone example can also [transform NDJSON from stdin](docs/JSON_INTEGRATIONS.md#standalone-tree-and-ndjson-examples).
 
 ## Building from source
 
-Use the checked-in Gradle wrapper, or `gradlew.bat` on Windows. Java 17+ can launch it; the [daemon configuration](gradle/gradle-daemon-jvm.properties) selects Java 25 because the Micronaut build plugin requires it. Compilation and test toolchains are separate: the core targets Java 17 and compatibility tests use Java 17, 21, and 25.
+Run from the repository root using Java 17+ and the Gradle wrapper (`gradlew.bat` on Windows):
 
 ```bash
 ./gradlew build compatibilityTest
 ```
 
-Gradle can provision missing JDKs on the first run. For offline builds, install the required JDKs and make them discoverable through `org.gradle.java.installations.paths` in your private Gradle user properties. If the Micronaut plugin reports a Java version mismatch, check `./gradlew --version` and ensure you are using the wrapper and checked-in daemon criteria.
-
-| Command | Purpose |
-|---|---|
-| `./gradlew check` | Formatting, unit/HTTP tests, bytecode and dependency checks |
-| `./gradlew compatibilityTest` | Core tests on Java 17, 21, and 25 |
-| `./gradlew streamingTest` | Framework HTTP suites, including NDJSON/SSE and lifecycle contracts |
-| `./gradlew publicationSmokeTest` | Publish locally and test independent Gradle metadata and Maven POM consumers |
-| `./gradlew :benchmarks:streaming-runner:smoke` | Exercise the five HTTP measurement servers and their runner |
-| `./gradlew spotlessApply` | Apply Java, Kotlin, and Gradle script formatting |
-
-Timed benchmarks and native-image builds are separate jobs. See [benchmarks](benchmarks/README.md), [measured performance and operating bounds](docs/PERFORMANCE.md), and [native-image verification](docs/NATIVE_IMAGES.md).
-
-## Repository layout
-
-| Location | Contents |
-|---|---|
-| `catnap-core` | Query parser, compiler, evaluator, tree interface, and bounded query cache |
-| `catnap-jackson2`, `catnap-jackson3`, `catnap-kotlinx-json` | Native JSON tree bindings |
-| `catnap-http`, `catnap-streams` | Shared HTTP projection services and NDJSON utilities |
-| Framework modules | Spring adapters/starters, Micronaut adapter, Quarkus runtime/deployment, and Ktor plugin |
-| `catnap-bom`, [testkit](catnap-testkit/README.md) | Dependency alignment and reusable conformance/HTTP contracts |
-| [examples](examples/README.md) | Runnable applications and integration tests |
-| [build-logic](build-logic/README.md) | Shared Gradle convention plugins |
-| [docs](docs/README.md), [benchmarks](benchmarks/README.md) | Guides, verification records, and measurement tools |
+The build itself uses a Java 25 daemon; Gradle can provision missing toolchains. This is separate from the library's Java 17 runtime baseline. See [compatibility and toolchain setup](docs/COMPATIBILITY.md) for offline configuration.
 
 ## Contributing
 
-Include a reproducible query, input JSON, expected result, and actual result when reporting an issue. For integration issues, include the framework, serializer, JDK version, and whether the response is finite JSON, NDJSON, or SSE.
+When reporting an issue, include the query, input JSON, expected and actual results, and your framework, serializer, and Java versions. For code changes, start with the [contributor guide](AGENTS.md), run the affected module's checks, then run `./gradlew build compatibilityTest` before submitting.
 
-Run the affected module's checks while developing, then `./gradlew build compatibilityTest` before submitting a change. Changes to publication metadata or dependency boundaries should also pass `publicationSmokeTest`. Add shared cases to the [conformance corpus](catnap-testkit/src/main/resources/com/github/gregwhitaker/catnap/conformance/v1/README.md) when changing query behavior. See [extending Catnap](docs/EXTENDING.md) for new JSON bindings or framework adapters.
-
-Dependency versions live in [the version catalog](gradle/libs.versions.toml); resolved dependencies are locked per project. After an intentional dependency update, run `./gradlew lockDependencies --write-locks` and review the lockfile changes. Build tooling has its own [lockfile workflow](build-logic/README.md#updating-build-tooling).
+See [extending Catnap](docs/EXTENDING.md) for new integrations, [publication verification](docs/PUBLICATION.md) for consumer checks, and the [changelog](CHANGELOG.md) for recent changes.
 
 ## License
 

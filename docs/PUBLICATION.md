@@ -17,6 +17,35 @@ For Maven, import `catnap-bom` in `dependencyManagement` with `type=pom` and `sc
 
 `catnap-testkit` is published for implementors of additional integrations. It packages the conformance fixtures and shared HTTP/streaming contract helpers. Examples and benchmarks are not published as production dependencies. The Quarkus runtime descriptor points to the separately published `catnap-quarkus-deployment` augmentation artifact; applications declare only `catnap-quarkus`.
 
+## Use locally built artifacts
+
+To use the current checkout in another application without GitHub Packages credentials, run this from the Catnap repository root:
+
+```bash
+./gradlew publishVerificationArtifacts
+```
+
+This writes the libraries and BOM to `build/repository`. In your application's `build.gradle.kts`, add that directory as a Maven repository, replacing the absolute path below with the location in your checkout:
+
+```kotlin
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("/absolute/path/to/catnap/build/repository")
+        content { includeGroup("com.github.gregwhitaker") }
+    }
+}
+
+dependencies {
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
+}
+```
+
+Choose the [module for your application](../README.md#installation) in place of the MVC starter. If your application centralizes repositories, put the repository declaration in `settings.gradle.kts` under `dependencyResolutionManagement`. The framework's own dependencies still resolve from its normal repositories.
+
+For Maven, add a `<repository>` whose `<url>` is `file:///absolute/path/to/catnap/build/repository`, import `catnap-bom` in `dependencyManagement`, and declare the desired module without a version. The [MVC starter installation guide](../catnap-spring-boot-starter/README.md#install) includes a complete Maven dependency example.
+
 ## Local release verification
 
 Use the checked-in wrapper; its daemon configuration selects Java 25, with separate Java 17/21/25 compilation and test toolchains:
