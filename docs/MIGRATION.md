@@ -24,7 +24,7 @@ dependencies {
 }
 ```
 
-Core/general-purpose libraries require Java 17. The verified framework baselines are Boot 4.1.2 / Spring 7.0.10, Micronaut platform 5.2.6, Quarkus 3.40.1.2, and Ktor 3.6.1. Micronaut 5 requires Java 25. Existing Boot 1/2/3, Spring 4/5/6, and legacy JAX-RS applications need the corresponding framework migration before using these adapters. This project does not provide a compatibility layer for those versions. See [publication](PUBLICATION.md) for local artifact verification and [the adapter guides](../README.md#current-implementation) for supported serialization paths.
+Core/general-purpose libraries require Java 17. The verified framework baselines are Boot 4.1.2 / Spring 7.0.10, Micronaut platform 5.2.6, Quarkus 3.40.1.2, and Ktor 3.6.1. Micronaut 5 requires Java 25. Existing Boot 1/2/3, Spring 4/5/6, and legacy JAX-RS applications need the corresponding framework migration before using these adapters. This project does not provide a compatibility layer for those versions. See [publication](PUBLICATION.md) for local artifact verification and [the adapter guides](../README.md#installation) for supported serialization paths.
 
 ## Spring configuration and annotations
 

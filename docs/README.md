@@ -45,7 +45,3 @@ The current version is `3.0.0-SNAPSHOT`, available from [GitHub Packages](PUBLIC
 | [Native execution records](native/2026-11-16/README.md) | Compiler details, test reports, executable hashes, and source identity |
 
 The [WebFlux drain investigation](benchmarks/2026-11-16/http/webflux-drain-audit/README.md) preserves a historical timeout whose cause remains unknown. The [Micronaut streaming investigation](benchmarks/2026-11-16/http/micronaut-reentrancy/README.md) records the bounded handoff fix and its measured cost.
-
-## Verification history
-
-The [requirement audit](RELEASE_AUDIT.md) maps completed requirements to verification evidence. For current APIs and supported behavior, use the guides above. Dated benchmark and verification directories preserve the context of their original runs.
