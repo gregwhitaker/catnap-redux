@@ -9,7 +9,7 @@ import java.util.Map;
 /** Fixed inputs shared by setup validation and measurements; no input generation is timed. */
 public record Workload(Object value, String google, String linkedIn, Object expected) {
   public String query(QueryDialect dialect) {
-    return dialect == QueryDialect.GOOGLE ? google : linkedIn;
+    return dialect == QueryDialect.LINKEDIN ? linkedIn : google;
   }
 
   public static Workload named(String name) {

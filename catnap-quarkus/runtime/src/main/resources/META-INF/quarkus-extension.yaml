@@ -1,5 +1,5 @@
 name: Catnap JSON Projection
-description: Google and LinkedIn style partial responses for Quarkus REST JSON endpoints.
+description: Catnap partial responses with array predicates and optional Google and LinkedIn dialects for Quarkus REST JSON endpoints.
 metadata:
   keywords:
     - json

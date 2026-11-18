@@ -2,6 +2,8 @@
 
 Catnap projects finite JSON, newline-delimited JSON (NDJSON), and JSON-bearing server-sent events (SSE). A streaming query is compiled once per connection and applied independently to each logical payload.
 
+Streaming helpers use their integration's configured dialect, which defaults to `CATNAP`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile. In Ktor's installation DSL, set `dialect` to the corresponding `QueryDialect` value. There is no syntax auto-detection.
+
 ## One query, one payload at a time
 
 For this query:
@@ -25,6 +27,24 @@ The projected records are:
 ```
 
 Every successful input record produces one output record. Order and count remain unchanged, including records that project to `{}`. A stream is not implicitly wrapped in a JSON array. Evaluation limits start fresh for each payload.
+
+## Filter arrays within a payload
+
+With the default `CATNAP` dialect, `images(url)[size==medium]` retains matching image objects inside each record. For example:
+
+```json
+{"images":[{"url":"m.jpg","size":"medium"},{"url":"s.jpg","size":"small"}]}
+{"images":[{"url":"thumb.jpg","size":"thumbnail"}]}
+```
+
+The projected records are:
+
+```json
+{"images":[{"url":"m.jpg"}]}
+{"images":[]}
+```
+
+The second record remains even though no image matches. Predicates inspect the original serialized fields before projection, so `size` need not appear in the output. The same rule applies to arrays inside JSON-designated SSE data: events and their metadata remain present. Google and LinkedIn do not support predicates. See the [RSQL subset](QUERY_SPECIFICATION.md#catnap-array-predicates) for operators, types, and limits.
 
 ## NDJSON framing
 

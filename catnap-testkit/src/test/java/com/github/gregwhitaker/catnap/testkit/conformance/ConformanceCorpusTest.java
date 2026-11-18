@@ -19,7 +19,7 @@ import tools.jackson.databind.json.JsonMapper;
 /** Checks the specification corpus, independently of the future compiler and evaluator. */
 class ConformanceCorpusTest {
   private static final String ROOT = "/com/github/gregwhitaker/catnap/conformance/v1/";
-  private static final Set<String> DIALECTS = Set.of("GOOGLE", "LINKEDIN");
+  private static final Set<String> DIALECTS = Set.of("GOOGLE", "LINKEDIN", "CATNAP");
   private static final Set<String> ERRORS =
       Set.of(
           "EMPTY_QUERY",
@@ -29,7 +29,13 @@ class ConformanceCorpusTest {
           "UNEXPECTED_TOKEN",
           "UNTERMINATED_NAME",
           "INVALID_ESCAPE",
-          "INVALID_NAME");
+          "INVALID_NAME",
+          "EXPECTED_PREDICATE",
+          "EXPECTED_OPERATOR",
+          "EXPECTED_VALUE",
+          "EXPECTED_CLOSE_BRACKET",
+          "UNTERMINATED_VALUE",
+          "INVALID_VALUE");
   private static final JsonMapper JSON =
       JsonMapper.builder()
           .enable(StreamReadFeature.STRICT_DUPLICATE_DETECTION)
@@ -96,8 +102,8 @@ class ConformanceCorpusTest {
   private static void projection(JsonNode fixture) {
     fields(fixture, "id", "reason", "queries", "input", "expected");
     assertFalse(string(fixture, "reason").isBlank());
-    variants(fixture.path("queries"));
-    preservesValuesAndShape(fixture.path("input"), fixture.path("expected"));
+    boolean filtering = variants(fixture.path("queries"));
+    assertTrue(preservesValuesAndShape(fixture.path("input"), fixture.path("expected"), filtering));
   }
 
   private static void diagnostic(JsonNode fixture) {
@@ -172,7 +178,7 @@ class ConformanceCorpusTest {
   private static void stream(JsonNode fixture) {
     fields(fixture, "id", "reason", "format", "queries", "input", "expected");
     assertFalse(string(fixture, "reason").isBlank());
-    variants(fixture.path("queries"));
+    boolean filtering = variants(fixture.path("queries"));
     JsonNode input = fixture.path("input");
     JsonNode expected = fixture.path("expected");
     assertTrue(input.isArray() && expected.isArray());
@@ -181,7 +187,7 @@ class ConformanceCorpusTest {
     assertTrue(Set.of("NDJSON", "SSE").contains(format));
     for (int i = 0; i < input.size(); i++) {
       if (format.equals("NDJSON")) {
-        preservesValuesAndShape(input.get(i), expected.get(i));
+        assertTrue(preservesValuesAndShape(input.get(i), expected.get(i), filtering));
       } else {
         JsonNode before = input.get(i);
         JsonNode after = expected.get(i);
@@ -196,7 +202,7 @@ class ConformanceCorpusTest {
                     assertEquals(before.get(name), after.get(name), "SSE " + name);
                 });
         if (before.path("kind").asText().equals("json")) {
-          preservesValuesAndShape(before.get("data"), after.get("data"));
+          assertTrue(preservesValuesAndShape(before.get("data"), after.get("data"), filtering));
         } else {
           assertEquals(before, after, "Text and control frames must pass unchanged");
         }
@@ -224,28 +230,32 @@ class ConformanceCorpusTest {
   }
 
   // Structural invariant only: this does not interpret a query or derive an expected projection.
-  private static void preservesValuesAndShape(JsonNode input, JsonNode output) {
-    assertNotNull(input);
-    assertNotNull(output);
+  private static boolean preservesValuesAndShape(
+      JsonNode input, JsonNode output, boolean filtering) {
+    if (input == null || output == null) return false;
     if (input.isObject()) {
-      assertTrue(output.isObject());
-      output
-          .propertyNames()
-          .forEach(
-              name -> {
-                assertTrue(input.has(name), "Projection cannot invent field " + name);
-                preservesValuesAndShape(input.get(name), output.get(name));
-              });
-    } else if (input.isArray()) {
-      assertTrue(output.isArray());
-      assertEquals(input.size(), output.size(), "Projection cannot drop array elements");
-      for (int i = 0; i < input.size(); i++) preservesValuesAndShape(input.get(i), output.get(i));
-    } else {
-      assertEquals(input, output, "Projection cannot rewrite a scalar or null");
+      if (!output.isObject()) return false;
+      for (String name : output.propertyNames()) {
+        if (!preservesValuesAndShape(input.get(name), output.get(name), filtering)) return false;
+      }
+      return true;
     }
+    if (input.isArray()) {
+      if (!output.isArray() || (!filtering && input.size() != output.size())) return false;
+      int next = 0;
+      for (JsonNode item : output) {
+        while (next < input.size() && !preservesValuesAndShape(input.get(next), item, filtering)) {
+          if (!filtering) return false;
+          next++;
+        }
+        if (next++ >= input.size()) return false;
+      }
+      return true;
+    }
+    return input.equals(output);
   }
 
-  private static void variants(JsonNode variants) {
+  private static boolean variants(JsonNode variants) {
     assertTrue(variants.isArray());
     var dialects = new HashSet<String>();
     var unique = new HashSet<JsonNode>();
@@ -256,7 +266,11 @@ class ConformanceCorpusTest {
           assertTrue(unique.add(value), "Duplicate query variant");
           dialects.add(value.path("dialect").asText());
         });
-    assertEquals(DIALECTS, dialects, "Successful cases require both dialects");
+    boolean filtering = dialects.equals(Set.of("CATNAP"));
+    assertTrue(
+        filtering || dialects.equals(DIALECTS),
+        "Field selections cover all dialects; filters cover CATNAP");
+    return filtering;
   }
 
   private static void query(JsonNode value) {

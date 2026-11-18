@@ -17,6 +17,10 @@ test('documentation, assets, anchors, and search work at root and project Pages 
       assert.equal(result.base, base);
       assert.equal(result.pages, pages.length + 1);
       assert.ok(result.links > 700);
+      const home = await readFile(path.join(output, 'index.html'), 'utf8');
+      assert.ok(home.includes('data-dialect="catnap" aria-pressed="true"'));
+      assert.ok(home.includes('data-dialect="google" aria-pressed="false"'));
+      assert.ok(home.includes('data-dialect="linkedin" aria-pressed="false"'));
       const quickstart = await readFile(path.join(output, 'quickstart/index.html'), 'utf8');
       assert.ok(quickstart.includes(`href="${base}spring/"`));
       assert.ok(quickstart.includes(`href="${base}spring/#webflux-ndjson-and-sse"`));

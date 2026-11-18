@@ -35,9 +35,13 @@ The task:
 
 The copied examples intentionally reuse the shared contract tests. Their Catnap implementation, bindings, testkit, auto-configuration, and extension deployment code all come from published artifacts. Java 17 consumers establish the ordinary library/runtime baseline; Micronaut 5 consumers run on Java 25. JVM tests do not prove native-image compatibility.
 
+Consumers compile all three dialects, evaluate CATNAP predicates through a consumer-owned tree adapter and all three published JSON bindings, and read the predicate corpus from the published testkit JAR. They also verify that the published HTTP defaults enable CATNAP predicates and that the example applications accept predicates without a dialect override. Google and LinkedIn remain explicit options.
+
 The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
 
 Local verification on November 16, 2026 passed `build compatibilityTest publicationSmokeTest`: 275 consumer test executions in each metadata mode (550 total), with no failures or skips, plus the main build's test matrix. The modes have separate test inputs so a Gradle-mode result cannot satisfy a POM-mode test from cache.
+
+Verification on November 18, 2026 for the CATNAP dialect and default change passed `build compatibilityTest streamingTest publicationSmokeTest`: 733 consumer test executions in each metadata mode (1,466 total), with no failures, errors, or skips. This is JVM and local-publication evidence; it does not update the earlier timed benchmark or native-image results.
 
 ## Source and documentation artifacts
 

@@ -23,12 +23,14 @@ The JAR packages UTF-8 JSON resources under `/com/github/gregwhitaker/catnap/con
 
 | Resource | Coverage |
 |---|---|
-| `projection.json` | Expected projections and equivalent Google/LinkedIn expressions |
+| `projection.json` | Expected projections across all dialects and CATNAP-only predicate cases |
 | `syntax-errors.json` | Error codes and exact UTF-16 source positions |
 | `http-binding.json` | Absent, blank, repeated, and decoded query parameters |
 | `streams.json` | Logical NDJSON records and SSE payload/metadata preservation |
 
 The [corpus guide](src/main/resources/com/github/gregwhitaker/catnap/conformance/v1/README.md) defines schemas and comparison rules. The [query specification](../docs/QUERY_SPECIFICATION.md) is the language contract. Expected results are independent fixtures; do not regenerate them using the evaluator under test.
+
+Run every query variant in each fixture. Field-selection cases cover `CATNAP`, `GOOGLE`, and `LINKEDIN`; predicate cases use `CATNAP` only. Array filtering may reduce payload arrays, while logical NDJSON record and SSE event counts must remain unchanged.
 
 ## HTTP and streaming helpers
 
@@ -42,6 +44,8 @@ Helpers live in `com.github.gregwhitaker.catnap.testkit.probe` and use the JDK H
 | `StreamLifecycleProbe` | Controlled publishers and per-connection observations used by lifecycle tests |
 
 The contracts expect the endpoint layout and fixtures used by the [example applications](../examples/README.md), including `/catnap/quote` and `/catnap/quote-internal` for public and internal serialization views. Adapt an example's test setup when adding a framework. JSON equality is supplied by the consumer where required; the testkit does not impose a JSON library or JUnit dependency on applications.
+
+Use `FiniteResponseContract.catnapCases(parameter)` against the default configuration. It includes field-selection cases and `/catnap/catalog` predicates covering serialized names, custom scalar values, hidden fields, and empty matches. Exercise explicit `GOOGLE` and `LINKEDIN` configurations with `cases(parameter, false)` and `cases(parameter, true)` respectively, and verify that both reject predicates.
 
 ## Verify
 

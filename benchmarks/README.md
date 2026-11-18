@@ -37,7 +37,7 @@ Results are written to `build/results/jmh.json` and environment/workload/source-
 
 | Benchmark | Operation measured |
 |---|---|
-| `QueryBenchmark.compile` | Uncached compilation for both dialects |
+| `QueryBenchmark.compile` | Uncached compilation for the GOOGLE and LINKEDIN dialects |
 | `QueryBenchmark.cachedCompile` | A hot key in the default-capacity bounded cache |
 | `PipelineBenchmark.parseTree` | Parse encoded UTF-8 JSON into a precise native Jackson 3 tree |
 | `PipelineBenchmark.domainToTree` | Convert the configured writer's domain value through native tokens into a tree |
@@ -48,6 +48,8 @@ Results are written to `build/results/jmh.json` and environment/workload/source-
 | `StreamItemBenchmark.nativeRecordEncoding` | Ordinary JSON serialization of one stream record |
 | `StreamItemBenchmark.bypassRecordEncoding` | Bounded record preparation with projection inactive |
 | `StreamItemBenchmark.projectedRecordEncoding` | Bounded serialization, full-field projection, and compact record preparation |
+
+These JMH workloads measure field selection with explicit GOOGLE/LINKEDIN queries. They do not measure CATNAP predicate parsing or array filtering. The archived November 16 results predate the CATNAP dialect and default change.
 
 Full response processing excludes HTTP transport, request binding, and query compilation. Stream-item preparation excludes the framework's final NDJSON delimiter or SSE envelope. Real HTTP latency, throughput, and retained-memory jobs are separate; these microbenchmarks cannot establish those properties.
 

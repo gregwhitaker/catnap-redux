@@ -9,6 +9,8 @@ The JSON modules connect the core engine to native materialized trees. They do n
 | `catnap-kotlinx-json` | `kotlinx.serialization.json.JsonElement` | kotlinx serialization 1.11.0 |
 | `catnap-streams` | Bounded NDJSON text records | Java 17 only |
 
+All bindings support `CATNAP`, `GOOGLE`, and `LINKEDIN`. Core compilation requires an explicit dialect; `CATNAP` supports the [RSQL predicate subset](QUERY_SPECIFICATION.md#catnap-array-predicates). Predicates inspect the serialized JSON before projection, preserving scalar types and exact numeric comparisons.
+
 All modules target Java 17. Framework BOMs may select a compatible newer JSON version; Catnap does not force framework BOM versions into consumers.
 
 ## Jackson 2 and 3
@@ -17,7 +19,7 @@ Use the application's configured mapper and its selected writer. Writer type, vi
 
 ```java
 var json = new Jackson3Json(applicationMapper);
-var query = Catnap.compile("payload(display_name,amount)", QueryDialect.GOOGLE);
+var query = Catnap.compile("payload(display_name,amount)", QueryDialect.CATNAP);
 var writer = applicationMapper.writerFor(new TypeReference<Envelope<Quote>>() {})
     .withView(PublicView.class)
     .withAttribute("currency", "EUR");
@@ -45,7 +47,7 @@ Supply the configured `Json` instance and the complete serializer, including gen
 
 ```kotlin
 val binding = KotlinxJson(applicationJson)
-val query = Catnap.compile("payload:(display_name,amount)", QueryDialect.LINKEDIN)
+val query = Catnap.compile("payload(display_name,amount)", QueryDialect.CATNAP)
 val result = binding.project(value, Envelope.serializer(Quote.serializer()), query)
 val response = binding.write(result)
 ```
@@ -59,10 +61,12 @@ Use `binding.write` or `PreciseJsonElementSerializer` to encode projected trees.
 ```bash
 ./gradlew :examples:standalone:run
 ./gradlew :examples:standalone:installDist
-examples/standalone/build/install/standalone/bin/standalone ndjson 'id' GOOGLE < input.ndjson
+examples/standalone/build/install/standalone/bin/standalone ndjson 'id' < input.ndjson
 ```
 
-The first command queries one materialized tree twice. The distribution command transforms stdin one record at a time, compiling the query once and writing compact UTF-8 JSON plus LF. It does not collect the input stream. Each record is capped at 1 MiB; successful empty projections still emit `{}`. The example stops on malformed JSON or framing and never writes an unprojected fallback. A test verifies that the first output is flushed while the source remains open.
+The first command queries one materialized tree twice. The distribution command defaults to `CATNAP`; append `GOOGLE` or `LINKEDIN` to select another dialect. For records containing an `images` array, use `ndjson 'images(url)[size==medium]'` to select only matching image URLs.
+
+The launcher transforms stdin one record at a time, compiling the query once and writing compact UTF-8 JSON plus LF. It does not collect the input stream. Each record is capped at 1 MiB; successful empty projections still emit `{}`, and empty filtered arrays remain `[]` within their records. The example stops on malformed JSON or framing and never writes an unprojected fallback. Tests verify the default and explicit dialects and that the first output is flushed while the source remains open.
 
 `catnap-streams` provides `NdjsonReader` and `NdjsonWriter` independently of any JSON library. The reader accepts LF/CRLF across arbitrary byte boundaries, validates UTF-8, and rejects blank/unterminated records. The writer accepts one already serialized compact JSON value, validates framing and encoded size, and flushes after its LF. JSON syntax validation remains the caller's parser/serializer responsibility. Neither helper continues after an I/O or record-validation failure. Closing a helper closes its underlying stream; the standalone transform leaves caller-owned streams open.
 
@@ -70,7 +74,7 @@ Tree construction and serialization are distinct from the core evaluator's bound
 
 ## Verification
 
-Each JSON integration runs all 94 successful projection variants and 16 logical stream variants from the shared corpus. Additional tests cover custom serializers, declared generic types, naming, ignored fields, Jackson views/attributes, Kotlin data classes/contextual serializers, precision, nulls, and mutable ownership. NDJSON tests exercise every chunk split of a multi-byte UTF-8 sample, CRLF, escaped newlines, malformed framing/encoding, size boundaries, and early output.
+Each JSON integration runs all 178 successful projection variants and 26 logical stream variants from the shared corpus. Additional tests cover custom serializers, declared generic types, naming, ignored fields, Jackson views/attributes, Kotlin data classes/contextual serializers, precision, nulls, and mutable ownership. NDJSON tests exercise every chunk split of a multi-byte UTF-8 sample, CRLF, escaped newlines, malformed framing/encoding, size boundaries, and early output.
 
 ```bash
 ./gradlew :catnap-jackson2:test :catnap-jackson3:test :catnap-kotlinx-json:test

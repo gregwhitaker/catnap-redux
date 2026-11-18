@@ -19,6 +19,41 @@ public final class FiniteResponseContract {
 
   public record Case(String path, int status, String json) {}
 
+  /** CATNAP predicates inspect native serialized names, custom scalars, and visibility. */
+  public static List<Case> catnapCases(String parameter) {
+    var result = new ArrayList<>(cases(parameter, false));
+    String full =
+        "{\"payload\":[{\"display_name\":\"ACME\",\"amount\":\"EUR:12.50\"},"
+            + "{\"display_name\":\"OTHER\",\"amount\":\"EUR:20.00\"}]}";
+    result.add(new Case("catalog", 200, full));
+    result.add(new Case("catalog" + query(parameter, " \t"), 200, full));
+    result.add(
+        new Case(
+            "catalog" + query(parameter, "payload(amount)[display_name==ACME]"),
+            200,
+            "{\"payload\":[{\"amount\":\"EUR:12.50\"}]}"));
+    result.add(
+        new Case(
+            "catalog" + query(parameter, "payload(display_name)[amount=='EUR:12.50']"),
+            200,
+            "{\"payload\":[{\"display_name\":\"ACME\"}]}"));
+    result.add(
+        new Case(
+            "catalog" + query(parameter, "payload(amount)[display_name=in=(ACME,OTHER)]"),
+            200,
+            "{\"payload\":[{\"amount\":\"EUR:12.50\"},{\"amount\":\"EUR:20.00\"}]}"));
+    for (String hidden :
+        List.of(
+            "displayName==ACME", "internal==internal", "ignored==never", "display_name==missing")) {
+      result.add(
+          new Case(
+              "catalog" + query(parameter, "payload(amount)[" + hidden + "]"),
+              200,
+              "{\"payload\":[]}"));
+    }
+    return List.copyOf(result);
+  }
+
   public static List<Case> cases(String parameter, boolean linkedIn) {
     String nested =
         linkedIn ? "payload:(amount,internal,ignored)" : "payload(amount,internal,ignored)";

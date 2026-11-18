@@ -31,13 +31,22 @@ The currency string comes from the application's configured serializer. Catnap s
 
 ## Choose a query dialect
 
-The default Spring configuration uses the `fields` parameter and Google-style queries:
+All HTTP integrations default to the `CATNAP` dialect and the `fields` parameter. Catnap supports Google-style field selection:
 
 ```text
 payload(display_name,amount)
 ```
 
-To use LinkedIn-style queries, configure the application explicitly:
+It also supports array filtering without any dialect configuration. Request the catalog example:
+
+```bash
+curl --get 'http://localhost:8080/catnap/catalog' \
+  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+```
+
+This returns `{"payload":[{"amount":"EUR:12.50"}]}`. The condition sees the serialized `display_name`, and only matching array items are retained.
+
+Google and LinkedIn remain available as explicit options. Set `catnap.dialect=GOOGLE` for Google field selection without predicates, or configure LinkedIn:
 
 ```properties
 catnap.dialect=LINKEDIN
@@ -50,7 +59,7 @@ curl --get 'http://localhost:8080/catnap/quote' \
   --data-urlencode 'fields=payload:(display_name,amount)'
 ```
 
-There is no automatic dialect detection. An omitted or ASCII-blank query uses the framework's normal response path. Invalid syntax and duplicate query parameters produce a client error. The [query specification](QUERY_SPECIFICATION.md) defines the complete behavior.
+Remove the dialect override or set `catnap.dialect=CATNAP` to return to the default. There is no automatic dialect detection. An omitted or ASCII-blank query uses the framework's normal response path. Invalid syntax and duplicate query parameters produce a client error. The [query specification](QUERY_SPECIFICATION.md) defines the complete behavior.
 
 ## Use the core directly
 
@@ -66,7 +75,7 @@ var json = new Jackson3Json(JsonMapper.builder().build());
 var document = json.parse("""
     {"name":"ACME","price":{"amount":12.50,"currency":"USD"}}
     """);
-var query = Catnap.compile("name,price(amount)", QueryDialect.GOOGLE);
+var query = Catnap.compile("name,price(amount)", QueryDialect.CATNAP);
 var result = query.evaluate(document, json.adapter());
 
 System.out.println(json.write(result));

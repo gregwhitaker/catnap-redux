@@ -15,7 +15,7 @@ class CatnapConfiguration(private val config: ApplicationConfig = MapApplication
     var enabled = value("enabled")?.toBooleanStrict() ?: true
     var parameter = value("parameter") ?: "fields"
     var dialect =
-        value("dialect")?.let { QueryDialect.valueOf(it.uppercase()) } ?: QueryDialect.GOOGLE
+        value("dialect")?.let { QueryDialect.valueOf(it.uppercase()) } ?: QueryDialect.CATNAP
     var maxQueryLength = value("max-query-length")?.toInt() ?: 16384
     var maxQueryDepth = value("max-query-depth")?.toInt() ?: 64
     var maxSelectors = value("max-selectors")?.toInt() ?: 4096

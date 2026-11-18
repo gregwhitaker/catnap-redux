@@ -37,4 +37,13 @@ public interface JsonTreeAdapter<N> {
    * Preserve scalar type/value/precision. Copy mutable scalars; immutable scalars may be shared.
    */
   N copyScalar(N scalar);
+
+  /**
+   * Read a scalar for CATNAP predicates, preserving its JSON type and numeric precision. Existing
+   * adapters need only implement this when enabling predicates; field-only queries never call it.
+   */
+  default JsonScalar scalarValue(N scalar) {
+    throw new UnsupportedOperationException(
+        "This adapter does not support predicate scalar access");
+  }
 }

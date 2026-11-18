@@ -46,12 +46,12 @@ async function copy(text, button) {
 }
 $$('.copy-button').forEach(button => button.addEventListener('click', () => copy(button.closest('.code-block').querySelector('code').textContent, button)));
 
-// Predefined examples keep both dialects in sync without approximating the JVM engine.
+// Predefined examples keep all three dialects in sync without approximating the JVM engine.
 const exampleData = $('#query-examples');
 if (exampleData) {
   const examples = JSON.parse(exampleData.textContent);
   let active = examples[0];
-  let dialect = 'google';
+  let dialect = 'catnap';
   const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const highlightJSON = value => escape(JSON.stringify(value, null, 2)).replace(/("(?:\\.|[^"\\])*"\s*:)|("(?:\\.|[^"\\])*")|\b(true|false|null)\b|(-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b)/g, (match, key, string, literal) => `<span class="hljs-${key ? 'attr' : string ? 'string' : literal ? 'literal' : 'number'}">${match}</span>`);
   function updateExample() {

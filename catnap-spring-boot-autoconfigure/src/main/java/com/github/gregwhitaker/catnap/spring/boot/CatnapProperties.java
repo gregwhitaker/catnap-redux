@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 public record CatnapProperties(
     @DefaultValue("true") boolean enabled,
     @DefaultValue("fields") String parameter,
-    @DefaultValue("GOOGLE") QueryDialect dialect,
+    @DefaultValue("CATNAP") QueryDialect dialect,
     @DefaultValue("16384") int maxQueryLength,
     @DefaultValue("64") int maxQueryDepth,
     @DefaultValue("4096") int maxSelectors,

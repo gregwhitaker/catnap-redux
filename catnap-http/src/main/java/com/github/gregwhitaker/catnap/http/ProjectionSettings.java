@@ -18,7 +18,7 @@ public record ProjectionSettings(
       new ProjectionSettings(
           true,
           "fields",
-          QueryDialect.GOOGLE,
+          QueryDialect.CATNAP,
           CompileOptions.DEFAULT,
           EvaluationOptions.DEFAULT,
           256,

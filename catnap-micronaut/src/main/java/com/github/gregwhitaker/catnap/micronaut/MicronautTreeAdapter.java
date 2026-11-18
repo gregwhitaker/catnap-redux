@@ -1,5 +1,6 @@
 package com.github.gregwhitaker.catnap.micronaut;
 
+import com.github.gregwhitaker.catnap.core.JsonScalar;
 import com.github.gregwhitaker.catnap.core.JsonTreeAdapter;
 import io.micronaut.json.tree.JsonNode;
 import java.math.BigDecimal;
@@ -40,6 +41,15 @@ public final class MicronautTreeAdapter implements JsonTreeAdapter<JsonNode> {
   @Override
   public JsonNode array(List<JsonNode> elements) {
     return JsonNode.createArrayNode(new ArrayList<>(elements));
+  }
+
+  @Override
+  public JsonScalar scalarValue(JsonNode node) {
+    if (node.isNull()) return JsonScalar.NULL;
+    if (node.isNumber()) return new JsonScalar(new BigDecimal(node.getNumberValue().toString()));
+    if (node.isBoolean()) return new JsonScalar(node.getBooleanValue());
+    if (node.isString()) return new JsonScalar(node.getStringValue());
+    throw new IllegalArgumentException("Expected a materialized JSON scalar");
   }
 
   @Override

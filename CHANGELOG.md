@@ -12,6 +12,11 @@ Development version: `3.0.0-SNAPSHOT`.
 - Dependency-free query core with Google and LinkedIn field-selection dialects,
   immutable compiled queries, configurable compilation and evaluation limits, and
   an optional bounded query cache.
+- `CATNAP` dialect with typed RSQL-subset array predicates: equality, inequality,
+  numeric ordering, membership, AND/OR, and grouping. Google and LinkedIn behavior
+  remains unchanged. Predicate compilation/evaluation is bounded.
+- Typed scalar access for predicates across all native JSON bindings, shared
+  conformance cases, and configured-serializer HTTP tests across five frameworks.
 - Native JSON bindings for Jackson 2, Jackson 3, and Kotlin serialization.
 - HTTP integrations for Spring MVC, Spring WebFlux, Micronaut, Quarkus, and Ktor,
   including separate Spring Boot starters for MVC and WebFlux.
@@ -29,6 +34,9 @@ Development version: `3.0.0-SNAPSHOT`.
 
 ### Changed
 
+- Made `CATNAP` the default dialect for HTTP integrations and the standalone NDJSON
+  launcher. `GOOGLE` and `LINKEDIN` remain explicit options; core compilation still
+  requires a dialect argument.
 - Replaced the Catnap 2 API with a modular API that projects the application's
   configured serialized JSON. Legacy jars, configuration classes, and annotations
   are not binary-compatible with Catnap 3.
@@ -37,10 +45,11 @@ Development version: `3.0.0-SNAPSHOT`.
 - Updated Spring integrations to Spring Boot 4 and Spring Framework 7 with Jackson
   3. Legacy Spring versions and generic JAX-RS adapters have no compatibility layer.
 - Defined explicit query and HTTP contracts: missing fields are omitted, arrays
-  retain their order and cardinality, absent or ASCII-blank query parameters bypass
-  projection, and repeated parameters or invalid queries return HTTP 400.
-- Legacy value predicates and JSONP callback wrapping are outside the Catnap 3
-  API. Streaming endpoints use explicit NDJSON/SSE helpers.
+  retain their order and cardinality unless explicitly filtered by CATNAP, absent
+  or ASCII-blank query parameters bypass projection, and repeated parameters or
+  invalid queries return HTTP 400.
+- Legacy single-`=` predicates migrate to `==` in the CATNAP dialect. JSONP
+  callback wrapping remains unsupported. Streaming uses explicit NDJSON/SSE helpers.
 
 ### Removed
 

@@ -67,11 +67,15 @@ archived evidence under `docs/` is not verification of the current changes.
   Reactor through Catnap, Quarkus augmentation stays out of runtime dependencies,
   and the Catnap BOM must not import framework BOMs.
 - Treat `docs/QUERY_SPECIFICATION.md` and the versioned conformance corpus as the
-  query contract. Both dialects share selection semantics. Preserve diagnostic
-  codes and UTF-16 source positions when changing parsing.
+  query contract. Google and LinkedIn retain shared field-selection semantics;
+  CATNAP adds explicit array predicates and is the HTTP default; Google and LinkedIn
+  remain configurable. Preserve diagnostic codes and UTF-16 source positions when
+  changing parsing.
 - Keep compiled queries immutable and reusable across threads. Evaluation must
   preserve source trees, isolate mutable result containers/scalars, retain numeric
-  precision and array order/cardinality, and omit missing fields.
+  precision and array order, and omit missing fields. Preserve array cardinality
+  unless an explicit CATNAP predicate filters elements; preserve logical stream
+  record/event cardinality even when a payload's arrays are filtered.
 - Project the JSON produced by the application's configured serializer. Preserve
   naming, visibility, custom serializers, generic type, and view context; avoid
   introducing an unconfigured mapper or reflective POJO field-selection path.
@@ -97,8 +101,8 @@ compatibility documentation.
   `src/test/kotlin` layout. Add regression coverage at the layer owning the behavior.
 - Shared query cases belong in
   `catnap-testkit/src/main/resources/com/github/gregwhitaker/catnap/conformance/v1/`.
-  Follow its README, cover both dialects, and write expected results independently
-  of the evaluator under test.
+  Follow its README, cover all applicable dialects, and write expected results
+  independently of the evaluator under test.
 - Framework changes should exercise the example application's real HTTP contracts.
   Logical stream fixtures alone do not verify framing, backpressure, disconnects,
   or pre/post-commit errors. Add focused demand/queue tests for handoff changes.

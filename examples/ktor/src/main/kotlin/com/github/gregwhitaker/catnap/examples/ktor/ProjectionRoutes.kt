@@ -86,6 +86,13 @@ fun Route.projectionRoutes() {
         get("/quote-internal") {
             call.respond(Envelope(InternalQuote("ACME", Money(BigDecimal("12.50")), "internal")))
         }
+        get("/catalog") {
+            call.respond(
+                Envelope(
+                    listOf(quote().payload, ProjectionQuote("OTHER", Money(BigDecimal("20.00"))))
+                )
+            )
+        }
         get("/quotes") { call.respond(listOf(quote(), quote())) }
         get("/async") {
             delay(1)

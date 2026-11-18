@@ -13,7 +13,7 @@ import io.micronaut.core.bind.annotation.Bindable;
 public record CatnapConfiguration(
     @Bindable(defaultValue = "true") boolean enabled,
     @Bindable(defaultValue = "fields") String parameter,
-    @Bindable(defaultValue = "GOOGLE") QueryDialect dialect,
+    @Bindable(defaultValue = "CATNAP") QueryDialect dialect,
     @Bindable(defaultValue = "16384") int maxQueryLength,
     @Bindable(defaultValue = "64") int maxQueryDepth,
     @Bindable(defaultValue = "4096") int maxSelectors,

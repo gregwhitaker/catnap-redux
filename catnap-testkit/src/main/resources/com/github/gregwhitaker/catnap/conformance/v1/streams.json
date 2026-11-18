@@ -11,6 +11,10 @@
           "expression": "id"
         },
         {
+          "dialect": "CATNAP",
+          "expression": "id"
+        },
+        {
           "dialect": "LINKEDIN",
           "expression": "id"
         }
@@ -44,6 +48,10 @@
       "queries": [
         {
           "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "CATNAP",
           "expression": "id"
         },
         {
@@ -91,6 +99,10 @@
           "expression": "data/id"
         },
         {
+          "dialect": "CATNAP",
+          "expression": "data/id"
+        },
+        {
           "dialect": "LINKEDIN",
           "expression": "data:(id)"
         }
@@ -125,6 +137,10 @@
           "expression": "id"
         },
         {
+          "dialect": "CATNAP",
+          "expression": "id"
+        },
+        {
           "dialect": "LINKEDIN",
           "expression": "id"
         }
@@ -139,6 +155,10 @@
       "queries": [
         {
           "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "CATNAP",
           "expression": "id"
         },
         {
@@ -232,6 +252,10 @@
           "expression": "data/id"
         },
         {
+          "dialect": "CATNAP",
+          "expression": "data/id"
+        },
+        {
           "dialect": "LINKEDIN",
           "expression": "data:(id)"
         }
@@ -275,6 +299,10 @@
       "queries": [
         {
           "dialect": "GOOGLE",
+          "expression": "id"
+        },
+        {
+          "dialect": "CATNAP",
           "expression": "id"
         },
         {
@@ -322,12 +350,190 @@
           "expression": "id"
         },
         {
+          "dialect": "CATNAP",
+          "expression": "id"
+        },
+        {
           "dialect": "LINKEDIN",
           "expression": "id"
         }
       ],
       "input": [],
       "expected": []
+    },
+    {
+      "id": "catnap-filter-ndjson",
+      "reason": "Filter inside each payload, preserving record/event count, nulls, and SSE metadata.",
+      "queries": [
+        {
+          "dialect": "CATNAP",
+          "expression": "images(url)[size==medium]"
+        }
+      ],
+      "input": [
+        {
+          "images": [
+            {
+              "url": "small.png",
+              "size": "small"
+            },
+            {
+              "url": "medium.png",
+              "size": "medium"
+            },
+            {
+              "url": "medium.webp",
+              "size": "medium"
+            }
+          ]
+        },
+        {
+          "images": [
+            {
+              "url": "small",
+              "size": "small"
+            }
+          ]
+        },
+        null
+      ],
+      "expected": [
+        {
+          "images": [
+            {
+              "url": "medium.png"
+            },
+            {
+              "url": "medium.webp"
+            }
+          ]
+        },
+        {
+          "images": []
+        },
+        null
+      ],
+      "format": "NDJSON"
+    },
+    {
+      "id": "catnap-filter-sse",
+      "reason": "Filter inside each payload, preserving record/event count, nulls, and SSE metadata.",
+      "queries": [
+        {
+          "dialect": "CATNAP",
+          "expression": "images(url)[size==medium]"
+        }
+      ],
+      "input": [
+        {
+          "kind": "json",
+          "data": {
+            "images": [
+              {
+                "url": "small.png",
+                "size": "small"
+              },
+              {
+                "url": "medium.png",
+                "size": "medium"
+              },
+              {
+                "url": "medium.webp",
+                "size": "medium"
+              }
+            ]
+          },
+          "id": "0",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "json",
+          "data": {
+            "images": [
+              {
+                "url": "small",
+                "size": "small"
+              }
+            ]
+          },
+          "id": "1",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "json",
+          "data": null,
+          "id": "2",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "text",
+          "data": "[size==medium]"
+        },
+        {
+          "kind": "control",
+          "id": "",
+          "retry": 0
+        }
+      ],
+      "expected": [
+        {
+          "kind": "json",
+          "data": {
+            "images": [
+              {
+                "url": "medium.png"
+              },
+              {
+                "url": "medium.webp"
+              }
+            ]
+          },
+          "id": "0",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "json",
+          "data": {
+            "images": []
+          },
+          "id": "1",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "json",
+          "data": null,
+          "id": "2",
+          "event": "images",
+          "comments": [
+            "kept"
+          ]
+        },
+        {
+          "kind": "text",
+          "data": "[size==medium]"
+        },
+        {
+          "kind": "control",
+          "id": "",
+          "retry": 0
+        }
+      ],
+      "format": "SSE"
     }
   ]
 }

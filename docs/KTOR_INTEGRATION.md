@@ -38,7 +38,7 @@ The native `catnap` configuration section and the installation DSL expose the sa
 |---|---|---|
 | `catnap.enabled` | `enabled` | `true` |
 | `catnap.parameter` | `parameter` | `fields` |
-| `catnap.dialect` | `dialect` | `GOOGLE` |
+| `catnap.dialect` | `dialect` | `CATNAP` |
 | `catnap.max-query-length` | `maxQueryLength` | `16384` UTF-16 units |
 | `catnap.max-query-depth` | `maxQueryDepth` | `64` |
 | `catnap.max-selectors` | `maxSelectors` | `4096` |
@@ -46,6 +46,8 @@ The native `catnap` configuration section and the installation DSL expose the sa
 | `catnap.max-work` | `maxWork` | `1000000` |
 | `catnap.cache-capacity` | `cacheCapacity` | `256`; zero disables caching |
 | `catnap.max-payload-bytes` | `maxPayloadBytes` | `1048576` |
+
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. Programmatic configuration can likewise set `dialect = QueryDialect.GOOGLE` or `dialect = QueryDialect.LINKEDIN`.
 
 For example:
 
@@ -168,6 +170,6 @@ curl --no-buffer --get http://localhost:8080/catnap/stream/sse \
   --data-urlencode 'fields=payload(amount)'
 ```
 
-Tests exercise the shared finite and streaming HTTP contracts for both dialects, native generic/contextual serializers, text/control events, record/event counts, early delivery, concurrent connection isolation, and errors before and after commitment. A slow real HTTP client stops source production and disconnect cancels that source. Unit tests deterministically verify the two-item adapter bound, producer cleanup, immediate concurrent-send rejection, and closed-session behavior. Encoded-input checks cover split Unicode, CRLF, invalid framing/UTF-8/JSON, and byte/depth limits. A 10,000-item finite producer stops within five items under a 4 KiB total document limit.
+Tests exercise the shared finite and streaming HTTP contracts for the configured dialects, native generic/contextual serializers, text/control events, record/event counts, early delivery, concurrent connection isolation, and errors before and after commitment. A slow real HTTP client stops source production and disconnect cancels that source. Unit tests deterministically verify the two-item adapter bound, producer cleanup, immediate concurrent-send rejection, and closed-session behavior. Encoded-input checks cover split Unicode, CRLF, invalid framing/UTF-8/JSON, and byte/depth limits. A 10,000-item finite producer stops within five items under a 4 KiB total document limit.
 
 An unbounded source must use a streaming response mode rather than ordinary finite JSON.

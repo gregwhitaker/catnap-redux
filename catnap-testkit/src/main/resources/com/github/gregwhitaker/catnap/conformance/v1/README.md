@@ -8,14 +8,14 @@ The four data files are UTF-8 JSON with `schemaVersion: 1` and a `cases` array. 
 |---|---|---|
 | `projection.json` | `id`, `reason`, `queries`, `input`, `expected` | Core compiler/evaluator and native JSON tree bindings |
 | `syntax-errors.json` | `id`, `query`, `input`, `error` | Core compiler; `input` is present but must not be evaluated |
-| `http-binding.json` | `id`, `parameters`, `expected` | HTTP parameter adapters; applies to both dialects |
+| `http-binding.json` | `id`, `parameters`, `expected` | HTTP parameter adapters; applies to all dialects |
 | `streams.json` | `id`, `reason`, `format`, `queries`, `input`, `expected` | Core and JSON binding tests for logical stream payloads |
 
-`queries` is an array of `{ "dialect": "GOOGLE" | "LINKEDIN", "expression": string }`. All variants in a case must produce the same expected value. Every success/stream case includes both dialects; additional variants exercise equivalent spellings and ordering. Do not validate only the first query.
+`queries` is an array of `{ "dialect": "GOOGLE" | "LINKEDIN" | "CATNAP", "expression": string }`. All variants in a case must produce the same expected value. Field-only success/stream cases include all three dialects; predicate cases contain only CATNAP variants; additional variants exercise equivalent spellings and ordering. Do not validate only the first query.
 
 Syntax failures use a single `query` and an `error` object containing `code`, `offset`, `line`, `column`, and `at`. Locations follow the specification's UTF-16 convention; `at` is the offending code point or `<EOF>`, except that quote/escape errors point to the opener specified by the diagnostic contract. Message wording is intentionally absent. A conformance runner must assert the code and all three coordinates against the actual compiler exception.
 
-HTTP `parameters` contains the already decoded values for occurrences of the configured query parameter, in request order. An empty array means absent. `expected.action` is `BYPASS`, `COMPILE`, or `REJECT`. `COMPILE` includes the exact, untrimmed `expression`; a syntax error may occur in the next stage. `REJECT` includes `code: "MULTIPLE_QUERY_PARAMETERS"`. A conformance runner must exercise these cases for both dialects without constructing a JSON tree on bypass.
+HTTP `parameters` contains the already decoded values for occurrences of the configured query parameter, in request order. An empty array means absent. `expected.action` is `BYPASS`, `COMPILE`, or `REJECT`. `COMPILE` includes the exact, untrimmed `expression`; a syntax error may occur in the next stage. `REJECT` includes `code: "MULTIPLE_QUERY_PARAMETERS"`. A conformance runner must exercise these cases for all dialects without constructing a JSON tree on bypass.
 
 Stream `format` is `NDJSON` or `SSE`. NDJSON `input` and `expected` contain logical JSON records, not arbitrary byte chunks. SSE entries are logical frames:
 
@@ -28,7 +28,7 @@ For each stream query, a conformance runner must compile once and emit the corre
 
 ## Verification
 
-`ConformanceCorpusTest` validates resource structure, unique IDs, paired dialect coverage, position/marker consistency, preserved scalar/container shape, and streaming metadata/cardinality. It also checks precision and diagnostic coverage without calculating expected projections. The core executes all projection, syntax-error, and logical-stream query variants; the native JSON bindings reuse the successful projection and stream cases. Shared HTTP services and framework suites verify request binding and actual transport behavior.
+`ConformanceCorpusTest` validates resource structure, unique IDs, dialect coverage, position/marker consistency, preserved scalar/container shape (ordered array subsequences for CATNAP-only cases), and streaming metadata/cardinality. It also checks precision and diagnostic coverage without calculating expected projections. The core executes all projection, syntax-error, and logical-stream query variants; the native JSON bindings reuse the successful projection and stream cases. Shared HTTP services and framework suites verify request binding and actual transport behavior.
 
 Run from the repository root:
 

@@ -97,6 +97,28 @@ public class StreamingController {
     return emitter.response();
   }
 
+  @GetMapping("/catnap/stream/images")
+  ResponseBodyEmitter images(HttpServletRequest request, HttpServletResponse response) {
+    var emitter =
+        streams.ndjson(
+            request,
+            response,
+            streams.<JsonNode>encoder(
+                request, (value, output) -> mapper.writeValue(output, value)));
+    emitter.send(
+        mapper.readTree(
+            """
+        {"images":[{"url":"small.png","size":"small"},{"url":"medium.png","size":"medium"}]}
+        """));
+    emitter.send(
+        mapper.readTree(
+            """
+        {"images":[{"url":"small.png","size":"small"}]}
+        """));
+    emitter.complete();
+    return emitter.response();
+  }
+
   @GetMapping("/catnap/stream/sse")
   ResponseBodyEmitter sse(HttpServletRequest request, HttpServletResponse response) {
     var emitter =

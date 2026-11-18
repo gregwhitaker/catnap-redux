@@ -1,5 +1,6 @@
 package com.github.gregwhitaker.catnap.core;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,11 @@ class PlainTreeAdapter implements JsonTreeAdapter<Object> {
   @Override
   public Object array(List<Object> elements) {
     return elements;
+  }
+
+  @Override
+  public JsonScalar scalarValue(Object value) {
+    return new JsonScalar(value instanceof Number ? new BigDecimal(value.toString()) : value);
   }
 
   @Override

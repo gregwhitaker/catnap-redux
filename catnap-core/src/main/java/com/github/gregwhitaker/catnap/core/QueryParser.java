@@ -2,6 +2,7 @@ package com.github.gregwhitaker.catnap.core;
 
 import static com.github.gregwhitaker.catnap.core.QuerySyntaxException.Code.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ final class QueryParser {
   private Builder list(int depth, boolean child) {
     Builder result = new Builder();
     while (true) {
-      Builder next = dialect == QueryDialect.GOOGLE ? google(depth) : linkedin(depth);
+      Builder next = dialect == QueryDialect.LINKEDIN ? linkedin(depth) : google(depth);
       result.merge(next);
       whitespace();
       if (take(',')) continue;
@@ -68,6 +69,13 @@ final class QueryParser {
     Builder value;
     if (take('(')) value = list(depth + path.size(), true);
     else value = Builder.whole();
+    whitespace();
+    if (dialect == QueryDialect.CATNAP && take('[')) {
+      QueryPredicate predicate = predicateOr(depth + path.size());
+      whitespace();
+      if (!take(']')) throw error(EXPECTED_CLOSE_BRACKET, cursor);
+      value = Builder.filtered(predicate, value);
+    }
     for (int i = path.size() - 1; i >= 0; i--) value = Builder.branch(path.get(i), value);
     return value;
   }
@@ -94,7 +102,7 @@ final class QueryParser {
     if (++selectors > options.maxSelectors()) {
       throw limit(LimitExceededException.Limit.SELECTORS, options.maxSelectors(), selectors, start);
     }
-    if (dialect == QueryDialect.GOOGLE && take('*')) return null;
+    if (dialect != QueryDialect.LINKEDIN && take('*')) return null;
     if (dialect == QueryDialect.LINKEDIN && source.startsWith("$*", cursor)) {
       cursor += 2;
       return null;
@@ -162,6 +170,154 @@ final class QueryParser {
     throw error(UNTERMINATED_NAME, opening);
   }
 
+  private QueryPredicate predicateOr(int depth) {
+    List<QueryPredicate> terms = new ArrayList<>();
+    terms.add(predicateAnd(depth));
+    whitespace();
+    while (take(',')) {
+      terms.add(predicateAnd(depth));
+      whitespace();
+    }
+    return terms.size() == 1 ? terms.get(0) : new QueryPredicate.Junction(false, terms);
+  }
+
+  private QueryPredicate predicateAnd(int depth) {
+    List<QueryPredicate> terms = new ArrayList<>();
+    terms.add(predicateTerm(depth));
+    whitespace();
+    while (take(';')) {
+      terms.add(predicateTerm(depth));
+      whitespace();
+    }
+    return terms.size() == 1 ? terms.get(0) : new QueryPredicate.Junction(true, terms);
+  }
+
+  private QueryPredicate predicateTerm(int depth) {
+    whitespace();
+    predicateBudget(depth + 1);
+    if (take('(')) {
+      QueryPredicate nested = predicateOr(depth + 1);
+      whitespace();
+      if (!take(')')) throw error(EXPECTED_CLOSE_PAREN, cursor);
+      return nested;
+    }
+    int start = cursor;
+    String field;
+    if (take('"')) field = quoted(start);
+    else {
+      scanPredicateToken();
+      if (cursor == start) throw error(EXPECTED_PREDICATE, cursor);
+      field = source.substring(start, cursor);
+    }
+    whitespace();
+    QueryPredicate.Operator operator = predicateOperator();
+    whitespace();
+    List<JsonScalar> arguments = new ArrayList<>();
+    if (operator == QueryPredicate.Operator.IN || operator == QueryPredicate.Operator.OUT) {
+      if (!take('(')) throw error(EXPECTED_OPEN_PAREN, cursor);
+      do {
+        arguments.add(predicateValue(depth + 1));
+        whitespace();
+      } while (take(','));
+      if (!take(')')) throw error(EXPECTED_CLOSE_PAREN, cursor);
+    } else {
+      int valueStart = cursor;
+      JsonScalar value = predicateValue(depth + 1);
+      if (operator != QueryPredicate.Operator.EQ
+          && operator != QueryPredicate.Operator.NE
+          && !(value.value() instanceof BigDecimal)) throw error(INVALID_VALUE, valueStart);
+      arguments.add(value);
+    }
+    return new QueryPredicate.Comparison(field, operator, arguments);
+  }
+
+  private QueryPredicate.Operator predicateOperator() {
+    String[] tokens = {
+      "==", "!=", "=lt=", "=le=", "=gt=", "=ge=", "=in=", "=out=", "<=", ">=", "<", ">"
+    };
+    QueryPredicate.Operator[] operators = {
+      QueryPredicate.Operator.EQ, QueryPredicate.Operator.NE,
+      QueryPredicate.Operator.LT, QueryPredicate.Operator.LE,
+      QueryPredicate.Operator.GT, QueryPredicate.Operator.GE,
+      QueryPredicate.Operator.IN, QueryPredicate.Operator.OUT,
+      QueryPredicate.Operator.LE, QueryPredicate.Operator.GE,
+      QueryPredicate.Operator.LT, QueryPredicate.Operator.GT
+    };
+    for (int i = 0; i < tokens.length; i++) {
+      if (source.startsWith(tokens[i], cursor)) {
+        cursor += tokens[i].length();
+        return operators[i];
+      }
+    }
+    throw error(EXPECTED_OPERATOR, cursor);
+  }
+
+  private JsonScalar predicateValue(int depth) {
+    whitespace();
+    predicateBudget(depth);
+    int start = cursor;
+    if (!end() && (source.charAt(cursor) == '"' || source.charAt(cursor) == '\'')) {
+      char quote = source.charAt(cursor++);
+      StringBuilder value = new StringBuilder();
+      while (!end()) {
+        if (take(quote)) return new JsonScalar(value.toString());
+        if (take('\\') && end()) throw error(INVALID_ESCAPE, cursor - 1);
+        int cp = predicateCodePoint();
+        if (cp < 0x20) throw error(INVALID_VALUE, cursor);
+        value.appendCodePoint(cp);
+        cursor += Character.charCount(cp);
+      }
+      throw error(UNTERMINATED_VALUE, start);
+    }
+    scanPredicateToken();
+    if (cursor == start) throw error(EXPECTED_VALUE, cursor);
+    String value = source.substring(start, cursor);
+    if (value.equals("null")) return JsonScalar.NULL;
+    if (value.equals("true") || value.equals("false"))
+      return new JsonScalar(Boolean.valueOf(value));
+    if (value.matches("-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?")) {
+      try {
+        return new JsonScalar(new BigDecimal(value));
+      } catch (NumberFormatException e) {
+        throw error(INVALID_VALUE, start);
+      }
+    }
+    return new JsonScalar(value);
+  }
+
+  private void scanPredicateToken() {
+    while (!end()) {
+      int cp = predicateCodePoint();
+      if (cp <= 0x20
+          || cp == 0x7f
+          || Character.isWhitespace(cp)
+          || Character.isSpaceChar(cp)
+          || "\"'();,=!~<>[]".indexOf(cp) >= 0) return;
+      cursor += Character.charCount(cp);
+    }
+  }
+
+  private int predicateCodePoint() {
+    char c = source.charAt(cursor);
+    if (Character.isSurrogate(c)
+        && (!Character.isHighSurrogate(c)
+            || cursor + 1 == source.length()
+            || !Character.isLowSurrogate(source.charAt(cursor + 1)))) {
+      throw error(INVALID_NAME, cursor);
+    }
+    return source.codePointAt(cursor);
+  }
+
+  private void predicateBudget(int depth) {
+    if (depth > options.maxDepth()) {
+      throw limit(LimitExceededException.Limit.QUERY_DEPTH, options.maxDepth(), depth, cursor);
+    }
+    if (++selectors > options.maxSelectors()) {
+      throw limit(
+          LimitExceededException.Limit.SELECTORS, options.maxSelectors(), selectors, cursor);
+    }
+  }
+
   private char unicodeEscape(int origin) {
     int value = 0;
     for (int i = 0; i < 4; i++) {
@@ -216,6 +372,15 @@ final class QueryParser {
     boolean whole;
     final Map<String, Builder> fields = new TreeMap<>();
     Builder wildcard;
+    final List<BuilderFilter> filters = new ArrayList<>();
+
+    record BuilderFilter(QueryPredicate predicate, Builder selection) {}
+
+    static Builder filtered(QueryPredicate predicate, Builder selection) {
+      Builder b = new Builder();
+      b.filters.add(new BuilderFilter(predicate, selection));
+      return b;
+    }
 
     static Builder whole() {
       Builder b = new Builder();
@@ -236,6 +401,7 @@ final class QueryParser {
         whole = true;
         fields.clear();
         wildcard = null;
+        filters.clear();
         return;
       }
       other.fields.forEach(
@@ -249,13 +415,20 @@ final class QueryParser {
                   }));
       if (wildcard == null) wildcard = other.wildcard;
       else if (other.wildcard != null) wildcard.merge(other.wildcard);
+      filters.addAll(other.filters);
     }
 
     Selection freeze() {
       if (whole) return Selection.WHOLE;
       Map<String, Selection> frozen = new TreeMap<>();
       fields.forEach((name, value) -> frozen.put(name, value.freeze()));
-      return new Selection(false, frozen, wildcard == null ? null : wildcard.freeze());
+      return new Selection(
+          false,
+          frozen,
+          wildcard == null ? null : wildcard.freeze(),
+          filters.stream()
+              .map(f -> new Selection.Filtered(f.predicate(), f.selection().freeze()))
+              .toList());
     }
   }
 }

@@ -9,7 +9,7 @@
 
 **JSON partial responses for Java and Kotlin.**
 
-Catnap lets API clients request the JSON fields they need. Add a `fields` query parameter to select nested properties, apply selections to arrays, and project individual NDJSON records or JSON payloads in server-sent events. Use it directly with a JSON tree or through an adapter for Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor.
+Catnap lets API clients request the JSON fields they need. Add a `fields` query parameter to select nested properties, filter array items with the default Catnap dialect, and project individual NDJSON records or JSON payloads in server-sent events. Google and LinkedIn field-selection dialects remain available as options. Use it directly with a JSON tree or through an adapter for Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor.
 
 For a response like this:
 
@@ -17,7 +17,7 @@ For a response like this:
 {"name":"ACME","price":{"amount":12.50,"currency":"USD"},"inStock":true}
 ```
 
-A Google-style selection of `name,price(amount)` returns:
+A selection of `name,price(amount)` in the default Catnap dialect returns:
 
 ```json
 {"name":"ACME","price":{"amount":12.50}}
@@ -141,7 +141,7 @@ public class ProjectionExample {
         var document = json.parse("""
             {"name":"ACME","price":{"amount":12.50,"currency":"USD"}}
             """);
-        var query = Catnap.compile("name,price(amount)", QueryDialect.GOOGLE);
+        var query = Catnap.compile("name,price(amount)", QueryDialect.CATNAP);
 
         var selected = query.evaluate(document, json.adapter());
         System.out.println(json.write(selected));
@@ -153,9 +153,9 @@ A compiled query is immutable and reusable across documents and threads. Evaluat
 
 ## Query syntax
 
-Choose a dialect explicitly in the core API or framework configuration. HTTP adapters default to Google syntax and the `fields` parameter.
+HTTP adapters default to the `CATNAP` dialect and the `fields` parameter. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to choose either field-selection profile. The core API always takes an explicit `QueryDialect` argument.
 
-| Selection | Google | LinkedIn |
+| Selection | Catnap / Google | LinkedIn |
 |---|---|---|
 | Two fields | `id,name` | `id,name` |
 | Nested fields | `price(amount,currency)` | `price:(amount,currency)` |
@@ -165,7 +165,15 @@ Choose a dialect explicitly in the core API or framework configuration. HTTP ada
 | Entire document | `*` | `$*` |
 | Literal name containing a slash | `"a/b"` | `"a/b"` |
 
-Missing fields are omitted. Arrays retain their order and item count; scalar values and nulls are preserved. These dialects are Catnap field-selection profiles with a [specified grammar and behavior](docs/QUERY_SPECIFICATION.md); predicates, aliases, array slicing, and recursive descent are outside that grammar.
+Missing fields are omitted. Google and LinkedIn selections retain array order and item count; scalar values and nulls are preserved. Their existing grammar and behavior are unchanged.
+
+The default Catnap dialect extends Google-style field selection with a bounded RSQL predicate subset:
+
+```java
+var query = Catnap.compile("images(url)[size==medium]", QueryDialect.CATNAP);
+```
+
+This keeps only matching image objects and returns their `url`. Predicates inspect the original serialized fields before selection. Equality (`==`, `!=`), numeric comparisons, membership (`=in=`, `=out=`), AND (`;`), OR (`,`), and grouping are supported. Strings compare exactly; numbers retain their precision; missing fields never match. Predicate-free arrays keep their item count, and predicates never drop NDJSON records or SSE events. See the [query contract](docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for types, limits, and the supported RSQL subset. Aliases, array slicing, and recursive descent remain unsupported.
 
 For HTTP requests, an absent or ASCII-blank parameter bypasses projection. Repeated parameters and invalid queries return HTTP 400. Query length, depth, selector count, evaluation work, and payload sizes have configurable limits.
 

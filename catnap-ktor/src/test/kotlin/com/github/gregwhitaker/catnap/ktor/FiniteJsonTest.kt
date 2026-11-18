@@ -1,7 +1,9 @@
 package com.github.gregwhitaker.catnap.ktor
 
+import com.github.gregwhitaker.catnap.core.QueryDialect
 import com.github.gregwhitaker.catnap.http.ProjectionService
 import com.github.gregwhitaker.catnap.http.ProjectionSettings
+import com.github.gregwhitaker.catnap.http.QueryRequestException
 import io.ktor.http.content.OutgoingContent
 import io.ktor.server.config.MapApplicationConfig
 import io.ktor.utils.io.*
@@ -16,6 +18,30 @@ class FiniteJsonTest {
         assertEquals(ProjectionSettings.DEFAULT, CatnapConfiguration().createService().settings())
         assertThrows(IllegalArgumentException::class.java) {
             CatnapConfiguration(MapApplicationConfig("max-payload-bytes" to "0")).createService()
+        }
+    }
+
+    @Test
+    fun explicitDialectsOverrideTheDefault() {
+        for (dialect in QueryDialect.values()) {
+            val services =
+                listOf(
+                    CatnapConfiguration(MapApplicationConfig("dialect" to dialect.name))
+                        .createService(),
+                    CatnapConfiguration().apply { this.dialect = dialect }.createService(),
+                )
+            for (service in services) {
+                assertEquals(dialect, service.settings().dialect())
+                val fields = if (dialect == QueryDialect.LINKEDIN) "images:(url)" else "images(url)"
+                assertTrue(service.bind(listOf(fields)).active())
+                if (dialect == QueryDialect.CATNAP) {
+                    assertTrue(service.bind(listOf("images(url)[size==medium]")).active())
+                } else {
+                    assertThrows(QueryRequestException::class.java) {
+                        service.bind(listOf("images[size==medium]"))
+                    }
+                }
+            }
         }
     }
 

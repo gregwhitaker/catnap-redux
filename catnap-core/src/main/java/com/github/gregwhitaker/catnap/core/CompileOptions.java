@@ -1,6 +1,9 @@
 package com.github.gregwhitaker.catnap.core;
 
-/** Compilation bounds, counting UTF-16 units, selector depth, and parsed selector segments. */
+/**
+ * Compilation bounds, counting UTF-16 units, selector/predicate depth, and parsed selectors plus
+ * predicate terms and arguments. Bounds include syntax later dominated by whole-value selections.
+ */
 public record CompileOptions(int maxQueryLength, int maxDepth, int maxSelectors) {
   /** Conservative starting bounds; not latency guarantees. */
   public static final CompileOptions DEFAULT = new CompileOptions(16_384, 64, 4_096);

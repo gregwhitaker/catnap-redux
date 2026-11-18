@@ -2,11 +2,13 @@
 
 Guides for using, configuring, extending, and verifying Catnap. New to the project? Start with the [project overview and quick start](../README.md) or the [runnable examples](../examples/README.md).
 
+HTTP integrations and the standalone NDJSON launcher default to `CATNAP`, which adds RSQL-subset array predicates to Google-style field selection. `GOOGLE` and `LINKEDIN` remain explicit options. The core compile API requires a dialect argument; see the [query specification](QUERY_SPECIFICATION.md) for syntax and filtering rules.
+
 ## Use Catnap
 
 | Guide | What it covers |
 |---|---|
-| [Query specification](QUERY_SPECIFICATION.md) | Google and LinkedIn syntax, field-selection semantics, HTTP binding, and diagnostics |
+| [Query specification](QUERY_SPECIFICATION.md) | Catnap RSQL predicates, Google/LinkedIn syntax, HTTP binding, and diagnostics |
 | [Core API](CORE_API.md) | Compile and evaluate queries, implement a tree adapter, set limits, and reuse cached plans |
 | [JSON integrations](JSON_INTEGRATIONS.md) | Jackson 2, Jackson 3, Kotlin serialization, and standalone NDJSON |
 | [Spring integration](SPRING_INTEGRATION.md) | MVC/WebFlux starters, configuration, finite responses, NDJSON, and SSE |

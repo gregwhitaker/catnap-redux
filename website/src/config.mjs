@@ -10,7 +10,7 @@ export const groups = [
   {
     title: 'Core concepts',
     pages: [
-      { slug: 'query-syntax', title: 'Query syntax', source: 'docs/QUERY_SPECIFICATION.md', description: 'Google-style and LinkedIn-style queries, paths, arrays, and wildcards.' },
+      { slug: 'query-syntax', title: 'Query syntax', source: 'docs/QUERY_SPECIFICATION.md', description: 'Catnap RSQL predicates, Google/LinkedIn queries, paths, arrays, and wildcards.' },
       { slug: 'core-api', title: 'Core API', source: 'docs/CORE_API.md', description: 'Compile immutable queries and evaluate native JSON trees.' },
       { slug: 'json-bindings', title: 'JSON bindings', source: 'docs/JSON_INTEGRATIONS.md', description: 'Use Jackson 2, Jackson 3, or Kotlin serialization with your existing configuration.' },
       { slug: 'streaming', title: 'Streaming', source: 'docs/STREAMING.md', description: 'Project NDJSON records and JSON-bearing server-sent events.' },
@@ -46,21 +46,21 @@ export const pages = groups.flatMap(group => group.pages.map(page => ({ ...page,
 export const examples = [
   {
     id: 'nested', title: 'Nested fields',
-    google: 'name,price(amount)', linkedin: 'name,price:(amount)',
+    catnap: 'name,price(amount)', google: 'name,price(amount)', linkedin: 'name,price:(amount)',
     input: { id: 'p_042', name: 'Everyday headphones', price: { amount: 79, currency: 'USD' }, inStock: true },
     output: { name: 'Everyday headphones', price: { amount: 79 } },
     note: 'Keep the fields you ask for. Preserve the shape you expect.',
   },
   {
     id: 'arrays', title: 'Arrays',
-    google: 'items(id,name)', linkedin: 'items:(id,name)',
+    catnap: 'items(id,name)', google: 'items(id,name)', linkedin: 'items:(id,name)',
     input: { items: [{ id: 1, name: 'Headphones', stock: 24 }, { id: 2, name: 'Speaker', stock: 12 }], total: 2 },
     output: { items: [{ id: 1, name: 'Headphones' }, { id: 2, name: 'Speaker' }] },
     note: 'Select fields in every array item. Keep item order and count.',
   },
   {
     id: 'wildcards', title: 'Wildcards',
-    google: 'byId/*/name', linkedin: 'byId:($*:(name))',
+    catnap: 'byId/*/name', google: 'byId/*/name', linkedin: 'byId:($*:(name))',
     input: { byId: { p_042: { name: 'Headphones', stock: 24 }, p_043: { name: 'Speaker', stock: 12 } } },
     output: { byId: { p_042: { name: 'Headphones' }, p_043: { name: 'Speaker' } } },
     note: 'Project the same fields across every value in a map.',

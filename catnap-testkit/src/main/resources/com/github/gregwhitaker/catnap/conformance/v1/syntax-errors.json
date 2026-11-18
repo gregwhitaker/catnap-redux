@@ -945,6 +945,246 @@
         "column": 4,
         "at": "x"
       }
+    },
+    {
+      "id": "catnap-single-equals",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "images(url)[size=medium]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPERATOR",
+        "offset": 16,
+        "line": 1,
+        "column": 17,
+        "at": "="
+      }
+    },
+    {
+      "id": "catnap-empty-predicate",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "images(url)[]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_PREDICATE",
+        "offset": 12,
+        "line": 1,
+        "column": 13,
+        "at": "]"
+      }
+    },
+    {
+      "id": "catnap-missing-value",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_VALUE",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": "]"
+      }
+    },
+    {
+      "id": "catnap-missing-bracket",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==1"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_CLOSE_BRACKET",
+        "offset": 6,
+        "line": 1,
+        "column": 7,
+        "at": "<EOF>"
+      }
+    },
+    {
+      "id": "catnap-unterminated-value",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==\"abc]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNTERMINATED_VALUE",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": "\""
+      }
+    },
+    {
+      "id": "catnap-numeric-only",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x>\"one\"]"
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_VALUE",
+        "offset": 4,
+        "line": 1,
+        "column": 5,
+        "at": "\""
+      }
+    },
+    {
+      "id": "catnap-empty-membership",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x=in=()]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_VALUE",
+        "offset": 8,
+        "line": 1,
+        "column": 9,
+        "at": ")"
+      }
+    },
+    {
+      "id": "catnap-membership-needs-list",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x=in=one]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPEN_PAREN",
+        "offset": 7,
+        "line": 1,
+        "column": 8,
+        "at": "o"
+      }
+    },
+    {
+      "id": "catnap-unknown-operator",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x=like=a]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPERATOR",
+        "offset": 3,
+        "line": 1,
+        "column": 4,
+        "at": "="
+      }
+    },
+    {
+      "id": "catnap-word-and",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==1 and y==2]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_CLOSE_BRACKET",
+        "offset": 7,
+        "line": 1,
+        "column": 8,
+        "at": "a"
+      }
+    },
+    {
+      "id": "catnap-missing-group-end",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[(x==1]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_CLOSE_PAREN",
+        "offset": 7,
+        "line": 1,
+        "column": 8,
+        "at": "]"
+      }
+    },
+    {
+      "id": "catnap-trailing-or",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==1,]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_PREDICATE",
+        "offset": 7,
+        "line": 1,
+        "column": 8,
+        "at": "]"
+      }
+    },
+    {
+      "id": "catnap-extra-predicate",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[x==1][y==2]"
+      },
+      "input": {},
+      "error": {
+        "code": "UNEXPECTED_TOKEN",
+        "offset": 7,
+        "line": 1,
+        "column": 8,
+        "at": "["
+      }
+    },
+    {
+      "id": "catnap-utf16-position",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": " 😀(url)[size==]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_VALUE",
+        "offset": 15,
+        "line": 1,
+        "column": 16,
+        "at": "]"
+      }
+    },
+    {
+      "id": "catnap-multiline",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "\r\na[\nsize=medium]"
+      },
+      "input": {},
+      "error": {
+        "code": "EXPECTED_OPERATOR",
+        "offset": 9,
+        "line": 3,
+        "column": 5,
+        "at": "="
+      }
+    },
+    {
+      "id": "catnap-numeric-overflow",
+      "query": {
+        "dialect": "CATNAP",
+        "expression": "a[n==1e999999999999]"
+      },
+      "input": {},
+      "error": {
+        "code": "INVALID_VALUE",
+        "offset": 5,
+        "line": 1,
+        "column": 6,
+        "at": "1"
+      }
     }
   ]
 }

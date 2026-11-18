@@ -10,7 +10,8 @@ import java.io.OutputStream;
 import tools.jackson.databind.json.JsonMapper;
 
 /**
- * Run without arguments for tree reuse, or with `ndjson QUERY [GOOGLE|LINKEDIN]` to stream stdin.
+ * Run without arguments for tree reuse, or with `ndjson QUERY [CATNAP|GOOGLE|LINKEDIN]` to stream
+ * stdin. The default dialect is CATNAP.
  */
 public final class Standalone {
   private Standalone() {}
@@ -21,7 +22,7 @@ public final class Standalone {
           System.in,
           System.out,
           args[1],
-          args.length > 2 ? QueryDialect.valueOf(args[2]) : QueryDialect.GOOGLE);
+          args.length > 2 ? QueryDialect.valueOf(args[2]) : QueryDialect.CATNAP);
       return;
     }
     var json = new Jackson3Json(JsonMapper.builder().build());
@@ -30,7 +31,7 @@ public final class Standalone {
     for (String fields : new String[] {"name", "price(amount)"}) {
       System.out.println(
           json.write(
-              Catnap.compile(fields, QueryDialect.GOOGLE).evaluate(document, json.adapter())));
+              Catnap.compile(fields, QueryDialect.CATNAP).evaluate(document, json.adapter())));
     }
   }
 

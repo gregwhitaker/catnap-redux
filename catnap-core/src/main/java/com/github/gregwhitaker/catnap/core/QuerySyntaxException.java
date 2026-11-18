@@ -11,7 +11,13 @@ public final class QuerySyntaxException extends IllegalArgumentException {
     UNEXPECTED_TOKEN,
     UNTERMINATED_NAME,
     INVALID_ESCAPE,
-    INVALID_NAME
+    INVALID_NAME,
+    EXPECTED_PREDICATE,
+    EXPECTED_OPERATOR,
+    EXPECTED_VALUE,
+    EXPECTED_CLOSE_BRACKET,
+    UNTERMINATED_VALUE,
+    INVALID_VALUE
   }
 
   private final Code code;

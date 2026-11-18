@@ -2,7 +2,7 @@
 
 A static documentation site built from the repository's Markdown guides. Node renders every page ahead of time; GitHub Pages serves ordinary HTML, CSS, JavaScript, and images. No server, database, external search service, or JVM build is required.
 
-Features include local full-text search with keyboard navigation, syntax highlighting, copyable code, light/dark themes, mobile navigation, linked section contents, and predefined query examples in both dialects. Core content and navigation work without JavaScript.
+Features include local full-text search with keyboard navigation, syntax highlighting, copyable code, light/dark themes, mobile navigation, linked section contents, and predefined query examples with Catnap selected by default and Google/LinkedIn options. Core content and navigation work without JavaScript.
 
 ## Develop locally
 

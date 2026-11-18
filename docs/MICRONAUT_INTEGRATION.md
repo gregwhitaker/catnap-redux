@@ -32,7 +32,7 @@ The immutable `CatnapConfiguration` bean maps the same property names and defaul
 |---|---|
 | `catnap.enabled` | `true` |
 | `catnap.parameter` | `fields` |
-| `catnap.dialect` | `GOOGLE` |
+| `catnap.dialect` | `CATNAP` |
 | `catnap.max-query-length` | `16384` UTF-16 units |
 | `catnap.max-query-depth` | `64` |
 | `catnap.max-selectors` | `4096` |
@@ -40,6 +40,8 @@ The immutable `CatnapConfiguration` bean maps the same property names and defaul
 | `catnap.max-work` | `1000000` |
 | `catnap.cache-capacity` | `256` entries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` |
+
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
 
 For LinkedIn syntax and a different parameter:
 
@@ -119,7 +121,7 @@ The helper uses Micronaut's [native event API](https://docs.micronaut.io/5.2.x/h
 
 ```java
 JsonNode tree = mapper.writeValueToTree(declaredArgument, value);
-JsonNode selected = Catnap.compile("name,price(amount)", QueryDialect.GOOGLE)
+JsonNode selected = Catnap.compile("name,price(amount)", QueryDialect.CATNAP)
     .evaluate(tree, MicronautTreeAdapter.INSTANCE);
 ```
 
@@ -131,6 +133,6 @@ JsonNode selected = Catnap.compile("name,price(amount)", QueryDialect.GOOGLE)
 ./gradlew :catnap-micronaut:check :examples:micronaut:test
 ```
 
-Tests run all 110 successful shared projection and logical-stream query variants against the native tree adapter. Additional checks cover precision, ownership, malformed/deep JSON, configuration, both HTTP dialects, custom serialization, JSON views, ignored fields, missing-query bypass, disablement, headers, and limits. A finite-publisher test verifies that a 4 KiB cap cancels a 10,000-item source after at most five items and returns a server error without exposing the original payload.
+Tests run all 204 successful shared projection and logical-stream query variants against the native tree adapter. Additional checks cover precision, ownership, malformed/deep JSON, the default CATNAP dialect and explicit dialect overrides, custom serialization, JSON views, ignored fields, missing-query bypass, disablement, headers, and limits. A finite-publisher test verifies that a 4 KiB cap cancels a 10,000-item source after at most five items and returns a server error without exposing the original payload.
 
-Production streaming tests run the shared wire contract for both dialects and the real Netty lifecycle contract: early output, per-connection queries, slow consumers, disconnects, failures before/after commitment, and optional protocol error events. Tests also cover configured generic/view serialization, raw NDJSON boundaries and UTF-8, metadata/control/text events, header invalidation, malformed declared JSON, payload/metadata bounds, one-item prefetch, nonblocking demand handoff, cancellation, Reactor context, single-subscription ownership, and push-overflow cleanup.
+Production streaming tests run the shared wire contract for the configured dialects and the real Netty lifecycle contract: early output, per-connection queries, slow consumers, disconnects, failures before/after commitment, and optional protocol error events. Tests also cover configured generic/view serialization, raw NDJSON boundaries and UTF-8, metadata/control/text events, header invalidation, malformed declared JSON, payload/metadata bounds, one-item prefetch, nonblocking demand handoff, cancellation, Reactor context, single-subscription ownership, and push-overflow cleanup.

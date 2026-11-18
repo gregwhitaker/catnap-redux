@@ -37,7 +37,7 @@ class FiniteResponseTest {
 
   @TestFactory
   List<DynamicTest> finiteResponses() {
-    return cases("fields", false).stream()
+    return catnapCases("fields").stream()
         .map(
             test ->
                 DynamicTest.dynamicTest(

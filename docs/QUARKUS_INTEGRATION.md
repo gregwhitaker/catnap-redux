@@ -30,7 +30,7 @@ Quarkus maps the following runtime properties through `CatnapConfig`:
 |---|---|
 | `catnap.enabled` | `true` |
 | `catnap.parameter` | `fields` |
-| `catnap.dialect` | `GOOGLE` |
+| `catnap.dialect` | `CATNAP` |
 | `catnap.max-query-length` | `16384` UTF-16 units |
 | `catnap.max-query-depth` | `64` |
 | `catnap.max-selectors` | `4096` |
@@ -38,6 +38,8 @@ Quarkus maps the following runtime properties through `CatnapConfig`:
 | `catnap.max-work` | `1000000` |
 | `catnap.cache-capacity` | `256` entries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` |
+
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
 
 For LinkedIn syntax and a different parameter:
 
@@ -148,8 +150,8 @@ Production examples are `/catnap/stream/ndjson`, `/catnap/stream/sse`, `/catnap/
 ./gradlew :catnap-quarkus:check :catnap-quarkus-deployment:check :examples:quarkus:test
 ```
 
-The shared finite HTTP contract exercises both dialects, parameter renaming, cache disablement, native serializer context, async results, precision, errors, metadata, limits, and endpoint/global disablement. Additional checks exercise application message-body writers and name-bound interceptors, direct byte-array output, vendor JSON media types, and runtime configuration defaults. A dependency guard keeps augmentation libraries and other framework adapters out of the runtime artifact.
+The shared finite HTTP contract exercises configured dialects, parameter renaming, cache disablement, native serializer context, async results, precision, errors, metadata, limits, and endpoint/global disablement. Additional checks exercise application message-body writers and name-bound interceptors, direct byte-array output, vendor JSON media types, and runtime configuration defaults. A dependency guard keeps augmentation libraries and other framework adapters out of the runtime artifact.
 
-The finite-publisher tests additionally cover both dialects, explicit writer context, empty arrays/selections, metadata, source and serialization failures, total document bounds, and real HTTP disconnect cleanup. Collector unit tests cover one-item demand, stack safety, delimiter accounting, and cancellation before/during serialization. Full-repository verification includes `./gradlew build compatibilityTest` and core execution on Java 17, 21, and 25.
+The finite-publisher tests additionally cover configured dialects, explicit writer context, empty arrays/selections, metadata, source and serialization failures, total document bounds, and real HTTP disconnect cleanup. Collector unit tests cover one-item demand, stack safety, delimiter accounting, and cancellation before/during serialization. Full-repository verification includes `./gradlew build compatibilityTest` and core execution on Java 17, 21, and 25.
 
-The production streaming tests run the shared wire and lifecycle contracts for both dialects over the real Quarkus server, covering early delivery, query isolation, slow consumers, disconnect cleanup, pre/post-commit failures, and bounded application error events. Additional tests cover split UTF-8, declared raw JSON, metadata and line endings, disabled-projection bounds, endpoint header/status customizers, one outstanding native write, delayed termination, push-overflow rejection, and constant-stack synchronous acknowledgments.
+The production streaming tests run the shared wire and lifecycle contracts for the configured dialects over the real Quarkus server, covering early delivery, query isolation, slow consumers, disconnect cleanup, pre/post-commit failures, and bounded application error events. Additional tests cover split UTF-8, declared raw JSON, metadata and line endings, disabled-projection bounds, endpoint header/status customizers, one outstanding native write, delayed termination, push-overflow rejection, and constant-stack synchronous acknowledgments.

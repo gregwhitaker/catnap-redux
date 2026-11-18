@@ -30,7 +30,13 @@ import org.junit.jupiter.api.Timeout
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @Timeout(20)
 class StreamingResponseTest {
-    private val google = embeddedServer(CIO, port = 0) { exampleModule { maxPayloadBytes = 4096 } }
+    private val google =
+        embeddedServer(CIO, port = 0) {
+            exampleModule {
+                dialect = QueryDialect.GOOGLE
+                maxPayloadBytes = 4096
+            }
+        }
     private val linkedIn =
         embeddedServer(CIO, port = 0) {
             exampleModule {

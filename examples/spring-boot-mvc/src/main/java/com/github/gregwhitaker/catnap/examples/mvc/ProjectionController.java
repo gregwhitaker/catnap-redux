@@ -49,6 +49,15 @@ public class ProjectionController {
     }
   }
 
+  @JsonView(Public.class)
+  @GetMapping("/catnap/catalog")
+  public Envelope<List<Quote>> catalog() {
+    return new Envelope<>(
+        List.of(
+            value().payload(),
+            new Quote("OTHER", new Money(new BigDecimal("20.00")), "internal", "never")));
+  }
+
   private Envelope<Quote> value() {
     return new Envelope<>(
         new Quote("ACME", new Money(new BigDecimal("12.50")), "internal", "never"));

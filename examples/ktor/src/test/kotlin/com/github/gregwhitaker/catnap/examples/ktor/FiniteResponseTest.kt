@@ -27,6 +27,7 @@ class FiniteResponseTest {
     private val google =
         embeddedServer(CIO, port = 0) {
             exampleModule {
+                dialect = QueryDialect.GOOGLE
                 maxPayloadBytes = 4096
                 maxQueryLength = 64
             }

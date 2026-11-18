@@ -62,6 +62,19 @@ curl --get 'http://localhost:8080/catnap/quote' \
 
 Selection uses the JSON field names produced by the application's configured converter, including naming rules, views, ignored properties, and custom serializers. An omitted or ASCII-blank `fields` value preserves the normal response. Invalid queries and repeated query parameters produce HTTP 400 before the controller runs.
 
+The default `CATNAP` dialect also filters array items. With the same example running:
+
+```bash
+curl --get 'http://localhost:8080/catnap/catalog' \
+  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+```
+
+```json
+{"payload":[{"amount":"EUR:12.50"}]}
+```
+
+The predicate reads the original serialized `display_name` before selecting `amount`. See the [RSQL subset](../docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for equality, numeric comparisons, membership, and AND/OR conditions.
+
 ## Configure
 
 These `application.properties` entries show common defaults:
@@ -69,12 +82,13 @@ These `application.properties` entries show common defaults:
 ```properties
 catnap.enabled=true
 catnap.parameter=fields
-catnap.dialect=GOOGLE
+# CATNAP is the default; GOOGLE and LINKEDIN are also available.
+catnap.dialect=CATNAP
 catnap.max-payload-bytes=1048576
 catnap.cache-capacity=256
 ```
 
-Set `catnap.dialect=LINKEDIN` to accept selections such as `payload:(amount)`. Use `@CatnapProjection(enabled = false)` from `com.github.gregwhitaker.catnap.http` on a controller or method to opt out. See the [full property reference](../docs/SPRING_INTEGRATION.md#configuration) for query, depth, selector, and evaluation limits.
+Set `catnap.dialect=GOOGLE` for Google-style field selection such as `payload(amount)`, or `catnap.dialect=LINKEDIN` for `payload:(amount)`. These two dialects reject array predicates. Remove the override or set `catnap.dialect=CATNAP` to use the default. Use `@CatnapProjection(enabled = false)` from `com.github.gregwhitaker.catnap.http` on a controller or method to opt out. See the [full property reference](../docs/SPRING_INTEGRATION.md#configuration) for query, depth, selector, and evaluation limits.
 
 ## NDJSON and SSE
 

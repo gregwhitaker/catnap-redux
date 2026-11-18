@@ -1,6 +1,8 @@
 # Native-image verification
 
-Native tests are separate from ordinary `check`. They exercise the example applications' finite JSON, NDJSON, and JSON-bearing SSE contracts, including configured serializers, both query dialects, limits, early delivery, event metadata, slow consumers, and cancellation. The native executable is the server under test; JVM augmentation or successful compilation alone does not satisfy this check.
+Native tests are separate from ordinary `check`. They exercise the example applications' finite JSON, NDJSON, and JSON-bearing SSE contracts, including configured serializers and dialects, limits, early delivery, event metadata, slow consumers, and cancellation. The native executable is the server under test; JVM augmentation or successful compilation alone does not satisfy this check.
+
+The archived November 16 native-image results predate the CATNAP dialect and its new default. They cover the Google/LinkedIn field-selection baseline and do not establish native-image compatibility for CATNAP predicates. Run the current native suites before making that claim.
 
 ## Toolchain and commands
 

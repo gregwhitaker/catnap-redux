@@ -38,7 +38,7 @@ Boot configuration metadata is generated for these properties:
 |---|---|---|
 | `catnap.enabled` | `true` | Enable projection and automatic finite adapter registration |
 | `catnap.parameter` | `fields` | Decoded query parameter name |
-| `catnap.dialect` | `GOOGLE` | `GOOGLE` or `LINKEDIN` |
+| `catnap.dialect` | `CATNAP` | `CATNAP`, `GOOGLE`, or `LINKEDIN` |
 | `catnap.max-query-length` | `16384` | Query UTF-16 units |
 | `catnap.max-query-depth` | `64` | Selector nesting |
 | `catnap.max-selectors` | `4096` | Parsed selector segments |
@@ -47,7 +47,7 @@ Boot configuration metadata is generated for these properties:
 | `catnap.cache-capacity` | `256` | Maximum compiled queries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` | Maximum finite document or individual stream payload, and projected output |
 
-For example:
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on `/catnap/catalog`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. For example:
 
 ```properties
 catnap.parameter=select
@@ -189,8 +189,10 @@ Active projection removes stale representation validators, digests, ranges, and 
 ./gradlew :examples:spring-boot-mvc:test :examples:spring-boot-webflux:test
 ```
 
-Both examples run the same `FiniteResponseContract` over real HTTP servers for both dialects. Additional tests cover disabled adapters, renamed parameters, failure timing, limits, missing-query bypass, async results, header invalidation, exact numeric precision, and native custom serialization. Buffer tests exercise native JSON charsets, flush behavior, cancellation, and pooled-buffer ownership.
+Both examples add CATNAP predicate tests against serialized names, custom money strings, and view-hidden fields at `/catnap/catalog`. MVC also checks filtered arrays and empty matches over `/catnap/stream/images`.
 
-WebFlux additionally runs the shared streaming wire and lifecycle contracts over Reactor Netty: both dialects, native writer context, empty projections, JSON null/text/control events, split NDJSON, early output, concurrent connection isolation, slow-consumer backpressure, disconnect cleanup, and errors before/after commitment. Unit tests verify a single outstanding group even when the consumer requests unlimited groups, explicit push-overflow rejection, Reactor context, and functional-route binding. Example endpoints are `/catnap/stream/ndjson`, `/catnap/stream/sse`, `/catnap/stream/encoded`, and `/catnap/stream/functional`.
+Both examples run the same `FiniteResponseContract` over real HTTP servers for the configured dialects. Additional tests cover disabled adapters, renamed parameters, failure timing, limits, missing-query bypass, async results, header invalidation, exact numeric precision, and native custom serialization. Buffer tests exercise native JSON charsets, flush behavior, cancellation, and pooled-buffer ownership.
 
-MVC runs the same streaming contracts over Tomcat, including early output, metadata, both dialects, slow consumers, disconnects, failures, and optional application error events. Additional tests verify native async timeout cancellation, Callable emitter initialization, bounded pending/executor queues, one-item publisher demand, and owned-input cleanup before startup and during blocked reads.
+WebFlux additionally runs the shared streaming wire and lifecycle contracts over Reactor Netty: configured dialects, native writer context, empty projections, JSON null/text/control events, split NDJSON, early output, concurrent connection isolation, slow-consumer backpressure, disconnect cleanup, and errors before/after commitment. Unit tests verify a single outstanding group even when the consumer requests unlimited groups, explicit push-overflow rejection, Reactor context, and functional-route binding. Example endpoints are `/catnap/stream/ndjson`, `/catnap/stream/sse`, `/catnap/stream/encoded`, and `/catnap/stream/functional`.
+
+MVC runs the same streaming contracts over Tomcat, including early output, metadata, configured dialects, slow consumers, disconnects, failures, and optional application error events. Additional tests verify native async timeout cancellation, Callable emitter initialization, bounded pending/executor queues, one-item publisher demand, and owned-input cleanup before startup and during blocked reads.

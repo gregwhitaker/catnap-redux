@@ -21,7 +21,7 @@ To project NDJSON from stdin, build the application distribution and run its lau
 
 ```bash
 ./gradlew :examples:standalone:installDist
-examples/standalone/build/install/standalone/bin/standalone ndjson 'id' GOOGLE <<'NDJSON'
+examples/standalone/build/install/standalone/bin/standalone ndjson 'id' <<'NDJSON'
 {"id":1,"name":"ACME"}
 {"id":2,"name":"Example"}
 NDJSON
@@ -71,11 +71,28 @@ The selected response contains only the requested amount:
 {"payload":{"amount":"EUR:12.50"}}
 ```
 
-All examples use configured naming and custom serialization. Fields hidden by the serializer remain unavailable to a query. The default dialect is Google; configure the adapter for LinkedIn before using `payload:(amount)`.
+All examples use configured naming and custom serialization. Fields hidden by the serializer remain unavailable to a query. The default dialect is Catnap. Configure `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile; LinkedIn uses `payload:(amount)`.
 
 `/catnap/quote-internal` demonstrates an internal serialization view: `fields=payload(internal,ignored)` returns `{"payload":{"internal":"internal"}}`, while the same query on `/catnap/quote` returns `{"payload":{}}`. Java frameworks use their native JSON view annotations; Ktor uses an explicit internal response model. These example routes demonstrate serialization visibility, not application authorization.
 
-The shared finite-response tests check both representations in both dialects. Ktor also verifies that its configured JSON converter receives the declared generic types for ordinary, internal, list, and asynchronous responses, with and without projection.
+The shared finite-response tests check both representations in all three dialects. Ktor also verifies that its configured JSON converter receives the declared generic types for ordinary, internal, list, and asynchronous responses, with and without projection.
+
+## Filter array items
+
+Array predicates work with the default `CATNAP` configuration. Start the application and request:
+
+```bash
+curl --get 'http://localhost:8080/catnap/catalog' \
+  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+```
+
+```json
+{"payload":[{"amount":"EUR:12.50"}]}
+```
+
+The catalog contains ACME and OTHER quotes. Predicates see serialized names and custom money strings, so `payload(display_name)[amount=="EUR:12.50"]` also selects ACME. Hidden fields remain unavailable. See the [RSQL subset](../docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for supported operators and type rules.
+
+The standalone NDJSON launcher also defaults to `CATNAP`; its optional final argument accepts `CATNAP`, `GOOGLE`, or `LINKEDIN`. In the MVC example, `/catnap/stream/images?fields=images(url)[size==medium]` demonstrates filtering inside two records, including an empty match; use `curl --get --data-urlencode` to encode the query brackets.
 
 ## Stream responses
 

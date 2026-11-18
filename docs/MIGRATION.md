@@ -44,19 +44,19 @@ Controller-level settings are supported, with a method annotation taking precede
 
 ## Queries and response shape
 
-The default parameter remains `fields`; the default dialect is `GOOGLE`. Configure `catnap.parameter` to rename it and `catnap.dialect=LINKEDIN` to use the other grammar. There is no automatic dialect detection.
+The default parameter remains `fields`; the default dialect is now `CATNAP`. Configure `catnap.parameter` to rename it and `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to choose another grammar. Existing Google-style field selections work unchanged with the Catnap default. Applications that need to retain the predicate-free Google grammar can set `catnap.dialect=GOOGLE` explicitly. There is no automatic dialect detection.
 
-| Selection | Google | LinkedIn |
+| Selection | Catnap / Google | LinkedIn |
 |---|---|---|
 | Name and list price | `name,prices(list)` | `name,prices:(list)` |
 | URLs in every image | `images(url)` | `images:(url)` |
 | A nested amount | `price/amount` or `price(amount)` | `price:(amount)` |
 
-The legacy README's `images(url)[size=thumbnail]` predicate is not supported. Removing the predicate changes the result: `images(url)` returns URLs for **all** image elements. Move thumbnail filtering into the application's resource/query layer or expose a filtered resource before applying field selection. Do not silently rewrite predicate queries to field-only queries. Legacy JSONP callback wrapping is also outside the first-release scope; endpoints return JSON, NDJSON, or SSE.
+To migrate the legacy README's `images(url)[size=thumbnail]`, use `images(url)[size==thumbnail]` with the default `CATNAP` dialect. The native dialect supports a [bounded RSQL predicate subset](QUERY_SPECIFICATION.md#catnap-array-predicates); Google and LinkedIn still reject predicates. The legacy single `=` is not accepted. Review type-sensitive equality, missing/null handling, numeric-only ordering, and direct object-element scope before migrating other predicates. Removing the predicate changes the result: `images(url)` returns URLs for **all** image elements. Legacy JSONP callback wrapping is also outside the first-release scope; endpoints return JSON, NDJSON, or SSE.
 
 Field names refer to the actual JSON representation, after naming policies, ignored properties, views, and custom serializers. Test renamed and custom-serialized fields against the configured mapper rather than Java property names. Projection cannot restore properties excluded by the native serializer.
 
-Arrays preserve element order and count; missing fields are omitted; selected JSON nulls and primitive values remain present. An empty selected object stays `{}`, and selecting nothing from each array element yields `[{}, ...]`. Scalar and null root documents pass unchanged. A successful empty projection keeps its status rather than becoming HTTP 204. Review client assumptions about these shapes against the [query specification](QUERY_SPECIFICATION.md).
+Without an explicit CATNAP predicate, arrays preserve element order and count; missing fields are omitted; selected JSON nulls and primitive values remain present. An empty selected object stays `{}`, and selecting nothing from each array element yields `[{}, ...]`. Scalar and null root documents pass unchanged. A successful empty projection keeps its status rather than becoming HTTP 204. Review client assumptions about these shapes against the [query specification](QUERY_SPECIFICATION.md).
 
 ## Errors, limits, and streams
 

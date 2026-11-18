@@ -1,5 +1,6 @@
 package com.github.gregwhitaker.catnap.jackson3;
 
+import com.github.gregwhitaker.catnap.core.JsonScalar;
 import com.github.gregwhitaker.catnap.core.JsonTreeAdapter;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +45,15 @@ public final class Jackson3TreeAdapter implements JsonTreeAdapter<JsonNode> {
   @Override
   public JsonNode array(List<JsonNode> elements) {
     return factory.arrayNode(elements.size()).addAll(elements);
+  }
+
+  @Override
+  public JsonScalar scalarValue(JsonNode node) {
+    if (node.isNull()) return JsonScalar.NULL;
+    if (node.isNumber()) return new JsonScalar(node.decimalValue());
+    if (node.isBoolean()) return new JsonScalar(node.booleanValue());
+    if (node.isString() || node.isBinary()) return new JsonScalar(node.asText());
+    throw new IllegalArgumentException("Expected a materialized JSON scalar");
   }
 
   @Override

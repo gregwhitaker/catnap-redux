@@ -47,11 +47,11 @@ Independent consumer builds verify both Gradle module metadata and Maven POM con
 
 ## Query and wire compatibility
 
-Both query dialects implement the documented [version 1 field-selection profiles](QUERY_SPECIFICATION.md). They provide equivalent selection semantics through one immutable AST; they do not implement every vendor-specific Google or LinkedIn API feature. Dialect and HTTP parameter selection are explicit configuration choices. Legacy value predicates and JSONP are outside this release; see [migration from Catnap 2](MIGRATION.md).
+Google and LinkedIn implement the documented [version 1 field-selection profiles](QUERY_SPECIFICATION.md). CATNAP adds a bounded RSQL predicate subset with typed JSON comparisons and ordered array filtering. Without predicates, all three provide equivalent selection semantics through one immutable AST; they do not implement every vendor-specific Google or LinkedIn API feature. HTTP integrations default to `CATNAP` and the `fields` parameter; `GOOGLE`, `LINKEDIN`, and a different parameter name remain configurable. Core compilation always requires an explicit dialect. Legacy single-`=` predicates require migration to CATNAP `==` syntax; JSONP remains unsupported. See [migration from Catnap 2](MIGRATION.md).
 
 Finite responses materialize one document. NDJSON and SSE materialize one logical record or JSON payload at a time, preserve record/event count, and retain the framework's transport lifecycle. Source trees are preserved; mutable result containers are isolated. SSE replay storage and reconnection policy belong to the application.
 
-The shared wire/lifecycle suites cover early delivery, both query dialects, configured serialization, metadata, slow consumers, disconnects, and failures before/after commitment. Sustained HTTP evidence and the recorded stress investigations are tracked separately in [the performance guide](PERFORMANCE.md).
+The shared wire/lifecycle suites cover early delivery, configured dialects and serialization, metadata, slow consumers, disconnects, and failures before/after commitment. Default CATNAP predicates and explicit dialect overrides are tested across all five frameworks, with configured-serializer finite HTTP tests and array-filtering NDJSON tests in MVC. Sustained HTTP evidence and the recorded stress investigations are tracked separately in [the performance guide](PERFORMANCE.md).
 
 ## Native images and hosted CI
 

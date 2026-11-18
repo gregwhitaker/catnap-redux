@@ -292,7 +292,7 @@ class EngineTest {
         Duration.ofSeconds(10),
         () -> {
           for (QueryDialect dialect : QueryDialect.values()) {
-            String open = dialect == GOOGLE ? "a(" : "a:(";
+            String open = dialect == LINKEDIN ? "a:(" : "a(";
             assertThrows(
                 LimitExceededException.class,
                 () -> Catnap.compile(open.repeat(1000) + "x", dialect));

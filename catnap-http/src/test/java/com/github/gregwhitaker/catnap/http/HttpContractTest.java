@@ -12,6 +12,13 @@ import org.junit.jupiter.api.TestFactory;
 import tools.jackson.databind.json.JsonMapper;
 
 class HttpContractTest {
+  @Test
+  void defaultDialectAcceptsCatnapPredicates() {
+    assertEquals(QueryDialect.CATNAP, ProjectionSettings.DEFAULT.dialect());
+    var service = new ProjectionService(ProjectionSettings.DEFAULT);
+    assertTrue(service.bind(List.of("images(url)[size==medium]")).active());
+  }
+
   @TestFactory
   List<DynamicTest> parameterBindingCorpus() throws Exception {
     var tests = new ArrayList<DynamicTest>();

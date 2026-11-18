@@ -2,6 +2,8 @@
 
 The first recorded [JMH baseline](benchmarks/2026-11-16/README.md) covers 56 cases on Java 25, with raw samples, allocation profiling, exact workload sizes, and a source identity. It separates compilation, native-tree construction, existing-tree evaluation, serialization, and complete response processing. [Benchmark commands and methodology](../benchmarks/README.md) are maintained alongside the code.
 
+The recorded benchmarks predate the CATNAP dialect and default change. Their field-selection measurements do not establish the cost of RSQL-subset predicate compilation or array filtering. Predicates use the same configurable compilation and evaluation bounds; include their comparisons, membership lists, and array sizes when measuring an application's workload.
+
 On the recorded development machine, the 156-byte small-document projection pipeline averaged 2.035 µs; the 654,251-byte, 4,096-element array averaged 4.612 ms. Evaluating the already constructed trees averaged 0.323 µs and 1.394 ms respectively. These are local CPU measurements without HTTP transport or request binding, not response latency promises.
 
 A 1,045-byte stream record with full-field selection averaged 4.443 µs to prepare, allocating about 24.27 KiB per record. The 65,557-byte record averaged 217.299 µs and about 1,011.48 KiB allocated. The full-field cases preserve wire size, so their costs cannot be attributed to removing fields. See the baseline for native/bypass comparisons and confidence intervals. Allocated bytes are total temporary allocations during an operation; they are not peak or retained heap.
@@ -16,7 +18,7 @@ These measurements support keeping limits and query reuse explicit. They do not 
 | JSON payload byte bound | 1 MiB input and selected output for explicit bounded paths | The 639 KiB array allocated about 15.49 MiB across the complete operation. A byte cap is not a heap-size cap. Budget for trees, temporary encoding buffers, concurrent responses, and framework transport buffers. |
 | Query bounds | 16,384 UTF-16 units, depth 64, 4,096 selectors | These bound compilation input and AST complexity. Benchmarking a short query is not a reason to remove the limits. |
 | Evaluation bounds | Depth 128 and 1,000,000 work units per document/item | Work is a structural counter, not elapsed time. Large arrays and wide objects have meaningful traversal/allocation cost even with a reusable plan. |
-| Sparse selection | Removes object fields while retaining array shape | A 512-member input projected to 23 bytes, but parsing/serializing the native input still cost work. Tiny output does not imply a cheap response. |
+| Sparse field selection | Removes object fields while retaining array shape unless a CATNAP predicate explicitly filters items | A 512-member input projected to 23 bytes, but parsing/serializing the native input still cost work. Tiny output does not imply a cheap response. |
 | Streaming execution | Per-item projection with adapter-specific send/demand and scheduling boundaries | Larger records occupy the executing thread longer. Measure the actual endpoint before choosing bounded source scheduling/offloading; do not add an unbounded queue to hide CPU cost. |
 
 Keep application serialization authoritative. Native token/tree conversion can avoid an encoded-JSON round trip in standalone bindings, but an HTTP adapter may need bounded writer capture to retain the selected converter's generic type, view, and custom writer behavior. The isolated-stage results are not additive and do not justify bypassing those semantics.

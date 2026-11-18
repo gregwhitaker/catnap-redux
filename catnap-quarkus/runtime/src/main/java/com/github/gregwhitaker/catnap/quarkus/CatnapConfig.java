@@ -19,7 +19,7 @@ public interface CatnapConfig {
   String parameter();
 
   /** Explicit query dialect; syntax is never auto-detected. */
-  @WithDefault("GOOGLE")
+  @WithDefault("CATNAP")
   QueryDialect dialect();
 
   /** Maximum UTF-16 units in a query. */
