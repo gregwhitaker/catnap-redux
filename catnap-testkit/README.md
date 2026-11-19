@@ -39,6 +39,7 @@ Helpers live in `com.github.gregwhitaker.catnap.testkit.probe` and use the JDK H
 | Helper | Responsibility |
 |---|---|
 | `FiniteResponseContract` | Query variants, public/internal serializer visibility, async responses, precision, statuses, and representation headers |
+| `CatalogResponseContract` | Product detail, paginated search, image/variant predicates, empty collections, errors, and unchanged source data across requests |
 | `StreamingResponseContract` | NDJSON record content/count and SSE data/metadata on the wire |
 | `StreamingLifecycleContract` | Early delivery, slow consumers, connection isolation, cancellation, and failure timing |
 | `StreamLifecycleProbe` | Controlled publishers and per-connection observations used by lifecycle tests |
@@ -46,6 +47,10 @@ Helpers live in `com.github.gregwhitaker.catnap.testkit.probe` and use the JDK H
 The contracts expect the endpoint layout and fixtures used by the [example applications](../examples/README.md), including `/catnap/quote` and `/catnap/quote-internal` for public and internal serialization views. Adapt an example's test setup when adding a framework. JSON equality is supplied by the consumer where required; the testkit does not impose a JSON library or JUnit dependency on applications.
 
 Use `FiniteResponseContract.catnapCases(parameter)` against the default configuration. It includes field-selection cases and `/catnap/catalog` predicates covering serialized names, custom scalar values, hidden fields, and empty matches. Exercise explicit `GOOGLE` and `LINKEDIN` configurations with `cases(parameter, false)` and `cases(parameter, true)` respectively, and verify that both reject predicates.
+
+`CatalogResponseContract.cases()` targets `/api/products` and `/api/products/{id}` with the default Catnap dialect and `fields` parameter. The examples also call `verifySourceUnchanged` after filtering. These tests run against each framework's listening server and in both independent publication-consumer modes.
+
+The JAR includes a shared [catalog seed](src/main/resources/com/github/gregwhitaker/catnap/testkit/catalog/products.json) at `/com/github/gregwhitaker/catnap/testkit/catalog/products.json`. Each example loads it with its own configured serializer into framework-local models. This sample data is separate from the versioned query conformance corpus; the catalog contract's expected responses are written independently of the seed loader and evaluator.
 
 ## Verify
 

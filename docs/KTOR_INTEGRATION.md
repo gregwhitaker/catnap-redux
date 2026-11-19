@@ -1,5 +1,7 @@
 # Ktor integration
 
+The [Ktor catalog walkthrough](../examples/ktor/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, Kotlin serialization, and real HTTP tests.
+
 `catnap-ktor` provides the `Catnap` plugin for Ktor 3.6.1 on Java 17. It runs after the application's selected `ContentNegotiation` converter has rendered a response, and before content encoding and transport commitment. JSON conversion retains the application's serializers, naming rules, contextual serializers, and declared generic type.
 
 ## Installation

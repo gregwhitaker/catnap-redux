@@ -1,5 +1,7 @@
 # Quarkus integration
 
+The [Quarkus catalog walkthrough](../examples/quarkus/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, CDI services, Mutiny responses, and real HTTP tests.
+
 `catnap-quarkus` is a Quarkus REST extension for JSON projection. Its runtime and augmentation code are separate Gradle projects in `catnap-quarkus/runtime` and `catnap-quarkus/deployment`. The verified framework baseline is Quarkus 3.40.1.2 with Jackson 2.21.8 and Java 17.
 
 ## Installation and endpoints

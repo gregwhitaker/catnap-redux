@@ -26,6 +26,16 @@ export const groups = [
     ],
   },
   {
+    title: 'Catalog examples',
+    pages: [
+      { slug: 'examples/spring-mvc', title: 'Spring Boot MVC', source: 'examples/spring-boot-mvc/README.md', description: 'Product detail, paginated search, and image/variant filters with MVC and Jackson 3.' },
+      { slug: 'examples/spring-webflux', title: 'Spring Boot WebFlux', source: 'examples/spring-boot-webflux/README.md', description: 'A reactive catalog API with Mono responses and Jackson 3.' },
+      { slug: 'examples/micronaut', title: 'Micronaut', source: 'examples/micronaut/README.md', description: 'A seeded catalog with generated Serde models and native HTTP projection.' },
+      { slug: 'examples/quarkus', title: 'Quarkus', source: 'examples/quarkus/README.md', description: 'A seeded catalog with CDI, Mutiny, and Jackson 2.' },
+      { slug: 'examples/ktor', title: 'Ktor', source: 'examples/ktor/README.md', description: 'A Kotlin catalog with suspending routes, typed responses, and exact decimal prices.' },
+    ],
+  },
+  {
     title: 'Reference',
     pages: [
       { slug: 'compatibility', title: 'Compatibility', source: 'docs/COMPATIBILITY.md', description: 'Tested Java runtimes, frameworks, JSON libraries, and support boundaries.' },

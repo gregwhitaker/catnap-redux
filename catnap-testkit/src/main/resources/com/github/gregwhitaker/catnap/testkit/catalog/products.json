@@ -1,0 +1,682 @@
+[
+    {
+        "id": "trail-pack-28",
+        "name": "Trail Pack 28L",
+        "description": "A weather-resistant daypack with a padded laptop sleeve and room for a full day on the trail.",
+        "category": "packs",
+        "brand": "Northline",
+        "price": {
+            "amount": 119.95,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/trail-pack-28/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of trail pack 28"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/trail-pack-28/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of trail pack 28"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/trail-pack-28/front-large.webp",
+                "size": "large",
+                "format": "webp",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of trail pack 28"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/trail-pack-28/side-medium.jpeg",
+                "size": "medium",
+                "format": "jpeg",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Side view of trail pack 28"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "TR28-FOR",
+                "color": "forest",
+                "size": "one_size",
+                "price": {
+                    "amount": 119.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 18
+            },
+            {
+                "sku": "TR28-INK",
+                "color": "ink",
+                "size": "one_size",
+                "price": {
+                    "amount": 119.95,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            },
+            {
+                "sku": "TR28-CLY",
+                "color": "clay",
+                "size": "one_size",
+                "price": {
+                    "amount": 129.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 4
+            }
+        ],
+        "tags": [
+            "hiking",
+            "commute",
+            "recycled"
+        ],
+        "attributes": {
+            "material": "recycled nylon",
+            "capacity": "28 L",
+            "warranty": "2 years"
+        }
+    },
+    {
+        "id": "alpine-shell",
+        "name": "Alpine Rain Shell",
+        "description": "A three-layer waterproof jacket with pit zips for exposed ridgelines.",
+        "category": "apparel",
+        "brand": "Northline",
+        "price": {
+            "amount": 189.95,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/alpine-shell/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of alpine shell"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/alpine-shell/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of alpine shell"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/alpine-shell/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of alpine shell"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "AS-MOS-S",
+                "color": "moss",
+                "size": "s",
+                "price": {
+                    "amount": 189.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 6
+            },
+            {
+                "sku": "AS-MOS-M",
+                "color": "moss",
+                "size": "m",
+                "price": {
+                    "amount": 189.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 12
+            },
+            {
+                "sku": "AS-MOS-L",
+                "color": "moss",
+                "size": "l",
+                "price": {
+                    "amount": 189.95,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            },
+            {
+                "sku": "AS-SLT-M",
+                "color": "slate",
+                "size": "m",
+                "price": {
+                    "amount": 199.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 3
+            }
+        ],
+        "tags": [
+            "rain",
+            "hiking"
+        ],
+        "attributes": {
+            "material": "recycled polyester",
+            "waterproof_rating": "20000 mm"
+        }
+    },
+    {
+        "id": "camp-lantern",
+        "name": "Camp Lantern",
+        "description": "A rechargeable lantern with warm light and a USB-C power bank.",
+        "category": "camp",
+        "brand": "Ember",
+        "price": {
+            "amount": 49.5,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/camp-lantern/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of camp lantern"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/camp-lantern/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of camp lantern"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/camp-lantern/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of camp lantern"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "CL-SND",
+                "color": "sand",
+                "size": "one_size",
+                "price": {
+                    "amount": 49.5,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 9
+            },
+            {
+                "sku": "CL-OLV",
+                "color": "olive",
+                "size": "one_size",
+                "price": {
+                    "amount": 49.5,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 2
+            }
+        ],
+        "tags": [
+            "lighting",
+            "camping"
+        ],
+        "attributes": {
+            "battery_life": "40 hours",
+            "brightness": "400 lumens"
+        }
+    },
+    {
+        "id": "camp-mug",
+        "name": "Enamel Camp Mug",
+        "description": "A lightweight enamel mug for camp coffee, with a rolled stainless rim.",
+        "category": "camp",
+        "brand": "Ember",
+        "price": {
+            "amount": 18,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/camp-mug/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of camp mug"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/camp-mug/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of camp mug"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/camp-mug/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of camp mug"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "CM-CRM",
+                "color": "cream",
+                "size": "one_size",
+                "price": {
+                    "amount": 18,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 24
+            },
+            {
+                "sku": "CM-NVY",
+                "color": "navy",
+                "size": "one_size",
+                "price": {
+                    "amount": 18,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 7
+            }
+        ],
+        "tags": [
+            "coffee",
+            "camping"
+        ],
+        "attributes": {
+            "capacity": "350 ml",
+            "care": "hand wash"
+        }
+    },
+    {
+        "id": "field-notebook",
+        "name": "Field Notebook Set",
+        "description": "Three pocket notebooks with water-resistant covers and dot-grid pages.",
+        "category": "accessories",
+        "brand": "Fieldwork",
+        "price": {
+            "amount": 12.5,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/field-notebook/front-small.jpeg",
+                "size": "small",
+                "format": "jpeg",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of field notebook"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "FN-KFT",
+                "color": "kraft",
+                "size": "one_size",
+                "price": {
+                    "amount": 12.5,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            }
+        ],
+        "tags": [
+            "stationery",
+            "travel"
+        ],
+        "attributes": {
+            "pages": "48 per notebook",
+            "pack_size": "3"
+        }
+    },
+    {
+        "id": "gift-card",
+        "name": "Digital Gift Card",
+        "description": "A fixed-value digital gift card delivered by email.",
+        "category": "digital",
+        "brand": "Northline",
+        "price": {
+            "amount": 25,
+            "currency": "USD"
+        },
+        "images": [],
+        "variants": [],
+        "tags": [
+            "gift",
+            "digital"
+        ],
+        "attributes": {
+            "delivery": "email",
+            "value": "25 USD"
+        }
+    },
+    {
+        "id": "merino-tee",
+        "name": "Merino Trail Tee",
+        "description": "A breathable merino blend shirt for multi-day hiking and everyday wear.",
+        "category": "apparel",
+        "brand": "Northline",
+        "price": {
+            "amount": 59.9,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/merino-tee/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of merino tee"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/merino-tee/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of merino tee"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/merino-tee/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of merino tee"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "MT-INK-S",
+                "color": "ink",
+                "size": "s",
+                "price": {
+                    "amount": 59.9,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 8
+            },
+            {
+                "sku": "MT-INK-M",
+                "color": "ink",
+                "size": "m",
+                "price": {
+                    "amount": 59.9,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            },
+            {
+                "sku": "MT-RST-M",
+                "color": "rust",
+                "size": "m",
+                "price": {
+                    "amount": 59.9,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 11
+            }
+        ],
+        "tags": [
+            "hiking",
+            "merino"
+        ],
+        "attributes": {
+            "material": "85% merino wool, 15% nylon",
+            "care": "cold wash"
+        }
+    },
+    {
+        "id": "ridge-boots",
+        "name": "Ridge Hiking Boots",
+        "description": "Waterproof hiking boots with a grippy sole for rocky approaches.",
+        "category": "footwear",
+        "brand": "Cairn",
+        "price": {
+            "amount": 159,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/ridge-boots/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of ridge boots"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/ridge-boots/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of ridge boots"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/ridge-boots/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of ridge boots"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "RB-BRN-40",
+                "color": "brown",
+                "size": "40",
+                "price": {
+                    "amount": 159,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 5
+            },
+            {
+                "sku": "RB-BRN-41",
+                "color": "brown",
+                "size": "41",
+                "price": {
+                    "amount": 159,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            },
+            {
+                "sku": "RB-BRN-42",
+                "color": "brown",
+                "size": "42",
+                "price": {
+                    "amount": 159,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 2
+            }
+        ],
+        "tags": [
+            "hiking",
+            "waterproof"
+        ],
+        "attributes": {
+            "upper": "nubuck leather",
+            "sole": "rubber"
+        }
+    },
+    {
+        "id": "summit-bottle",
+        "name": "Summit Bottle 750ml",
+        "description": "An insulated steel bottle that keeps drinks cold through a long hike.",
+        "category": "accessories",
+        "brand": "Cairn",
+        "price": {
+            "amount": 29.95,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/summit-bottle/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of summit bottle"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/summit-bottle/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of summit bottle"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/summit-bottle/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of summit bottle"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "SB-GLC",
+                "color": "glacier",
+                "size": "one_size",
+                "price": {
+                    "amount": 29.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 14
+            },
+            {
+                "sku": "SB-CHR",
+                "color": "charcoal",
+                "size": "one_size",
+                "price": {
+                    "amount": 29.95,
+                    "currency": "USD"
+                },
+                "in_stock": true,
+                "stock": 3
+            }
+        ],
+        "tags": [
+            "hydration",
+            "travel"
+        ],
+        "attributes": {
+            "capacity": "750 ml",
+            "material": "stainless steel"
+        }
+    },
+    {
+        "id": "trail-cap",
+        "name": "Five-Panel Trail Cap",
+        "description": "A quick-drying cap with a soft brim and adjustable strap.",
+        "category": "apparel",
+        "brand": "Fieldwork",
+        "price": {
+            "amount": 24.5,
+            "currency": "USD"
+        },
+        "images": [
+            {
+                "url": "https://cdn.example.com/catalog/trail-cap/front-small.webp",
+                "size": "small",
+                "format": "webp",
+                "width": 320,
+                "height": 240,
+                "alt_text": "Front view of trail cap"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/trail-cap/front-medium.webp",
+                "size": "medium",
+                "format": "webp",
+                "width": 800,
+                "height": 600,
+                "alt_text": "Front view of trail cap"
+            },
+            {
+                "url": "https://cdn.example.com/catalog/trail-cap/front-large.jpeg",
+                "size": "large",
+                "format": "jpeg",
+                "width": 1600,
+                "height": 1200,
+                "alt_text": "Front view of trail cap"
+            }
+        ],
+        "variants": [
+            {
+                "sku": "TC-OLV",
+                "color": "olive",
+                "size": "one_size",
+                "price": {
+                    "amount": 24.5,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            },
+            {
+                "sku": "TC-STN",
+                "color": "stone",
+                "size": "one_size",
+                "price": {
+                    "amount": 24.5,
+                    "currency": "USD"
+                },
+                "in_stock": false,
+                "stock": 0
+            }
+        ],
+        "tags": [
+            "hiking",
+            "sun"
+        ],
+        "attributes": {
+            "material": "nylon",
+            "fit": "adjustable"
+        }
+    }
+]

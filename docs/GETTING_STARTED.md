@@ -14,37 +14,37 @@ From the Catnap repository, launch the Spring MVC example:
 
 Use Java 17 or newer to launch the wrapper. Its checked-in daemon configuration selects Java 25 for the build; compilation and runtime requirements remain separate. Gradle can download missing toolchains. See [compatibility](COMPATIBILITY.md) for offline setup and the full matrix.
 
-In another terminal, request only the serialized amount:
+In another terminal, request the fields needed for a product card:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/quote' \
-  --data-urlencode 'fields=payload(amount)'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,name,price'
 ```
 
 The response is:
 
 ```json
-{"payload":{"amount":"EUR:12.50"}}
+{"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
 ```
 
-The currency string comes from the application's configured serializer. Catnap selects from that serialized JSON, so naming rules, ignored properties, and active views still apply. Use `/catnap/*` for these integration examples.
+Omit `fields` to see the full product, including images, variants, and attributes. Catnap selects from the application's serialized JSON, so naming rules, ignored properties, and active views still apply. All five framework applications expose the same catalog API; their [walkthroughs](../examples/README.md#catalog-workflows) also cover paginated search and variant availability.
 
 ## Choose a query dialect
 
 All HTTP integrations default to the `CATNAP` dialect and the `fields` parameter. Catnap supports Google-style field selection:
 
 ```text
-payload(display_name,amount)
+id,name,price(amount)
 ```
 
 It also supports array filtering without any dialect configuration. Request the catalog example:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/catalog' \
-  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=images(url)[size==medium;format==webp]'
 ```
 
-This returns `{"payload":[{"amount":"EUR:12.50"}]}`. The condition sees the serialized `display_name`, and only matching array items are retained.
+This returns `{"images":[{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}]}`. The conditions inspect each original image's `size` and `format`, then return only the matching URL. The sample URL is illustrative; no image service is required.
 
 Google and LinkedIn remain available as explicit options. Set `catnap.dialect=GOOGLE` for Google field selection without predicates, or configure LinkedIn:
 
@@ -55,8 +55,8 @@ catnap.dialect=LINKEDIN
 Then request:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/quote' \
-  --data-urlencode 'fields=payload:(display_name,amount)'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,name,price:(amount)'
 ```
 
 Remove the dialect override or set `catnap.dialect=CATNAP` to return to the default. There is no automatic dialect detection. An omitted or ASCII-blank query uses the framework's normal response path. Invalid syntax and duplicate query parameters produce a client error. The [query specification](QUERY_SPECIFICATION.md) defines the complete behavior.

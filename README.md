@@ -27,8 +27,6 @@ Use Catnap with **Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor**, or 
 
 [Quick start](#quick-start) · [Installation](#installation) · [Query syntax](#query-syntax) · [Examples](examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
 
-> **Development version:** This README describes Catnap 3 (`3.0.0-SNAPSHOT`). For existing Catnap 2 applications, see the [migration guide](docs/MIGRATION.md).
-
 ## Quick start
 
 Try the Spring MVC example from source. You need Git and Java 17 or newer; the Gradle wrapper downloads the build toolchains it needs on the first run.
@@ -42,30 +40,30 @@ cd catnap-redux
 Once the server starts, run this in another terminal:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/quote' \
-  --data-urlencode 'fields=payload(amount)'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,name,price'
 ```
 
-The response contains only the selected amount:
+The response contains just the fields needed for a product card:
 
 ```json
-{"payload":{"amount":"EUR:12.50"}}
+{"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
 ```
 
-Omit `fields` to get the full response. The example's custom serializer produces the currency string; Catnap selects from that JSON.
+Omit `fields` to get the full product, including its description, images, variants, tags, and attributes. Catnap selects from the JSON produced by the application's configured serializer.
 
-The default dialect also supports array filtering. Try selecting only ACME quotes from the catalog:
+The default dialect also supports array filtering. Request only the URLs of medium WebP images:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/catalog' \
-  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=images(url)[size==medium;format==webp]'
 ```
 
 ```json
-{"payload":[{"amount":"EUR:12.50"}]}
+{"images":[{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}]}
 ```
 
-The [examples guide](examples/README.md) has launch commands for every supported framework. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
+The [examples guide](examples/README.md#catalog-workflows) covers product detail, paginated search, and image/variant filtering in every supported framework, with a walkthrough for each app. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
 
 ## Installation
 

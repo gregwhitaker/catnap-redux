@@ -6,6 +6,8 @@ Both adapters implement finite responses and explicit NDJSON/SSE helpers. MVC su
 
 ## Choose a starter
 
+For complete product-detail, paginated-search, and image/variant filtering workflows, start with the [MVC catalog walkthrough](../examples/spring-boot-mvc/README.md) or [WebFlux catalog walkthrough](../examples/spring-boot-webflux/README.md). Both use the same seed data and real HTTP catalog contract, with framework-native controllers and models.
+
 Inside this repository, use one of these project dependencies:
 
 ```kotlin

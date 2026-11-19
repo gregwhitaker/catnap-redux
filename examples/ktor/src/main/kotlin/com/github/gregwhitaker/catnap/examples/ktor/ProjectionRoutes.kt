@@ -60,7 +60,14 @@ private object DecimalSerializer : KSerializer<BigDecimal> {
     override fun serialize(encoder: Encoder, value: BigDecimal) =
         (encoder as JsonEncoder).encodeJsonElement(JsonUnquotedLiteral(value.toPlainString()))
 
-    override fun deserialize(decoder: Decoder): BigDecimal = error("Write-only example")
+    override fun deserialize(decoder: Decoder): BigDecimal {
+        val value = (decoder as JsonDecoder).decodeJsonElement()
+        if (value !is JsonPrimitive || value.isString) {
+            throw SerializationException("Expected a JSON number")
+        }
+        return value.content.toBigDecimalOrNull()
+            ?: throw SerializationException("Expected a JSON number")
+    }
 }
 
 @OptIn(ExperimentalSerializationApi::class)

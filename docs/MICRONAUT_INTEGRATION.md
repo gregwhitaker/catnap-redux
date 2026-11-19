@@ -1,5 +1,7 @@
 # Micronaut integration
 
+The [Micronaut catalog walkthrough](../examples/micronaut/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, generated Serde models, and real HTTP tests.
+
 `catnap-micronaut` integrates with Micronaut's configured response writers and `io.micronaut.json.tree.JsonNode`. The verified baseline is Micronaut platform 5.2.6, core 5.2.23, and Micronaut Serialization 3.2.6 with its Jackson-core backend. This module requires Java 25, as Micronaut 5 does. The framework-independent core still targets Java 17.
 
 ## Installation and endpoints

@@ -28,6 +28,9 @@ Development version: `3.0.0-SNAPSHOT`.
 - Runnable examples, Java 17/21/25 core compatibility checks, independent Gradle
   metadata and Maven POM consumer verification, JMH benchmarks, and HTTP streaming
   measurement tools.
+- Catalog detail, paginated search, and image/variant filtering examples across
+  all five web frameworks, with shared realistic seed data, real HTTP contracts,
+  and a walkthrough for each application.
 - Documentation website with local search, query examples, themes, and framework
   guides, plus GitHub Actions workflows for documentation deployment, verification,
   and GitHub Packages publication and consumption checks.

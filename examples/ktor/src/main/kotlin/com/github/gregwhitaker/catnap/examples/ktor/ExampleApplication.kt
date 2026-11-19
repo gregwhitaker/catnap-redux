@@ -12,10 +12,12 @@ import io.ktor.server.routing.routing
 import io.ktor.server.sse.SSE
 
 fun Application.exampleModule(configureCatnap: CatnapConfiguration.() -> Unit = {}) {
+    val catalog = CatalogService(CatalogRepository(projectionJson))
     install(ContentNegotiation) { json(projectionJson) }
     install(SSE)
     routing {
         install(Catnap, configureCatnap)
+        catalogRoutes(catalog)
         projectionRoutes()
         streamingRoutes()
     }

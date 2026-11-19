@@ -1,6 +1,6 @@
 # Catnap examples
 
-Runnable applications showing field selection with native serializers, finite JSON responses, NDJSON, and server-sent events. These applications use the Catnap modules in this checkout; you do not need published packages to run them.
+Runnable applications showing catalog detail, paginated search, and image/variant filtering with native serializers, plus finite-response, NDJSON, and server-sent event contracts. These applications use the Catnap modules in this checkout; you do not need published packages to run them.
 
 Run commands from the repository root with the checked-in Gradle wrapper. Java 17+ can launch the build; Gradle selects a Java 25 daemon and provisions compilation/test toolchains as needed. See [build prerequisites](../README.md#building-from-source).
 
@@ -38,17 +38,78 @@ The transformer compiles once, reads and flushes one record at a time, and bound
 
 All five servers use port **8080** by default. Start one at a time and stop it with Ctrl+C before starting another.
 
-| Framework | Start command | Source | Integration guide |
+| Framework | Start command | Catalog walkthrough | Integration guide |
 |---|---|---|---|
-| Spring Boot MVC | `./gradlew :examples:spring-boot-mvc:bootRun` | [MVC](spring-boot-mvc/src/main/java/com/github/gregwhitaker/catnap/examples/mvc) | [Spring](../docs/SPRING_INTEGRATION.md) |
-| Spring Boot WebFlux | `./gradlew :examples:spring-boot-webflux:bootRun` | [WebFlux](spring-boot-webflux/src/main/java/com/github/gregwhitaker/catnap/examples/webflux) | [Spring](../docs/SPRING_INTEGRATION.md) |
-| Micronaut | `./gradlew :examples:micronaut:run` | [Micronaut](micronaut/src/main/java/com/github/gregwhitaker/catnap/examples/micronaut) | [Micronaut](../docs/MICRONAUT_INTEGRATION.md) |
-| Quarkus | `./gradlew :examples:quarkus:quarkusDev` | [Quarkus](quarkus/src/main/java/com/github/gregwhitaker/catnap/examples/quarkus) | [Quarkus](../docs/QUARKUS_INTEGRATION.md) |
-| Ktor | `./gradlew :examples:ktor:run` | [Ktor](ktor/src/main/kotlin/com/github/gregwhitaker/catnap/examples/ktor) | [Ktor](../docs/KTOR_INTEGRATION.md) |
+| Spring Boot MVC | `./gradlew :examples:spring-boot-mvc:bootRun` | [MVC](spring-boot-mvc/README.md) | [Spring](../docs/SPRING_INTEGRATION.md) |
+| Spring Boot WebFlux | `./gradlew :examples:spring-boot-webflux:bootRun` | [WebFlux](spring-boot-webflux/README.md) | [Spring](../docs/SPRING_INTEGRATION.md) |
+| Micronaut | `./gradlew :examples:micronaut:run` | [Micronaut](micronaut/README.md) | [Micronaut](../docs/MICRONAUT_INTEGRATION.md) |
+| Quarkus | `./gradlew :examples:quarkus:quarkusDev` | [Quarkus](quarkus/README.md) | [Quarkus](../docs/QUARKUS_INTEGRATION.md) |
+| Ktor | `./gradlew :examples:ktor:run` | [Ktor](ktor/README.md) | [Ktor](../docs/KTOR_INTEGRATION.md) |
 
 Micronaut runs on Java 25. The other framework examples target Java 17. Dependency versions are pinned in the [version catalog](../gradle/libs.versions.toml) and project lockfiles; the [compatibility matrix](../docs/COMPATIBILITY.md) describes the tested combinations.
 
-## Make a request
+## Catalog workflows
+
+Every framework exposes the same storefront API with ten outdoor-store products:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/products/{id}` | Full product detail or a client-selected view |
+| `GET /api/products` | Search by `q` and `category`, with zero-based `page` and bounded `size` |
+
+Try a detail card:
+
+```bash
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,name,price'
+```
+
+```json
+{"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
+```
+
+Search apparel, two products per page:
+
+```bash
+curl --get 'http://localhost:8080/api/products' \
+  --data-urlencode 'category=apparel' \
+  --data-urlencode 'page=0' \
+  --data-urlencode 'size=2' \
+  --data-urlencode 'fields=items(id,name),page'
+```
+
+```json
+{
+  "items": [
+    {"id":"alpine-shell","name":"Alpine Rain Shell"},
+    {"id":"merino-tee","name":"Merino Trail Tee"}
+  ],
+  "page": {"number":0,"size":2,"total_items":3,"total_pages":2,"has_next":true}
+}
+```
+
+Results sort by ID. `page` defaults to `0`; `size` defaults to `3` and accepts `1`–`20`. Increment `page` while `has_next` is true. `q` searches name, description, brand, and tags without case sensitivity; `category` matches a category slug. Both trim surrounding whitespace. Search and pagination happen before Catnap selects fields.
+
+Select medium WebP images and variants with at least five units available:
+
+```bash
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,images(url)[size==medium;format==webp],variants(sku,price)[in_stock==true;stock>=5]'
+```
+
+```json
+{
+  "id": "trail-pack-28",
+  "images": [{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}],
+  "variants": [{"sku":"TR28-FOR","price":{"amount":119.95,"currency":"USD"}}]
+}
+```
+
+Use the same selections inside `items(...)` on search responses. Filtering nested images or variants retains the enclosing products and the original pagination metadata, including when a nested array becomes empty.
+
+The [shared seed](../catnap-testkit/src/main/resources/com/github/gregwhitaker/catnap/testkit/catalog/products.json) includes multiple sizes and image formats, exact decimal prices, sold-out variants, a thumbnail-only notebook, and a digital gift card with empty image/variant arrays. Image URLs are illustrative. Each app owns its models, serializer setup, repository, service, and HTTP handlers. Its walkthrough above includes complete requests, responses, errors, and source links.
+
+## Serializer examples
 
 With any framework example running, use a second terminal to compare the full response with a selection:
 

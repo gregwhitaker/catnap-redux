@@ -1,0 +1,51 @@
+package com.github.gregwhitaker.catnap.examples.quarkus;
+
+import io.quarkus.runtime.annotations.RegisterForReflection;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Map;
+
+/** The public catalog representation; Catnap sees its serialized snake_case field names. */
+public final class CatalogModels {
+  private CatalogModels() {}
+
+  @RegisterForReflection
+  public record Product(
+      String id,
+      String name,
+      String description,
+      String category,
+      String brand,
+      Price price,
+      List<Image> images,
+      List<Variant> variants,
+      List<String> tags,
+      Map<String, String> attributes) {
+    public Product {
+      images = List.copyOf(images);
+      variants = List.copyOf(variants);
+      tags = List.copyOf(tags);
+      attributes = Map.copyOf(attributes);
+    }
+  }
+
+  @RegisterForReflection
+  public record Price(BigDecimal amount, String currency) {}
+
+  @RegisterForReflection
+  public record Image(
+      String url, String size, String format, int width, int height, String altText) {}
+
+  @RegisterForReflection
+  public record Variant(
+      String sku, String color, String size, Price price, boolean inStock, int stock) {}
+
+  @RegisterForReflection
+  public record SearchResult(List<Product> items, Page page) {}
+
+  @RegisterForReflection
+  public record Page(int number, int size, int totalItems, int totalPages, boolean hasNext) {}
+
+  @RegisterForReflection
+  public record ApiError(String code, String message) {}
+}
