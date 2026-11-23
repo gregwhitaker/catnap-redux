@@ -121,7 +121,7 @@ curl --get 'http://localhost:8080/api/products/gift-card' \
 {"id":"gift-card","images":[],"variants":[]}
 ```
 
-Array predicates are part of the default `CATNAP` dialect. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` in Micronaut configuration to opt into the other dialects. Google and LinkedIn support field selection, without array predicates. See the [query specification](../../docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for the supported RSQL subset.
+Array predicates are part of the default `CATNAP` dialect. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` in Micronaut configuration to opt into the other dialects. Google and LinkedIn support field selection, without array predicates. See the [query specification](../../website/content/QUERY_SPECIFICATION.md#catnap-array-predicates) for the supported RSQL subset.
 
 ## Seed data and errors
 
@@ -167,6 +167,6 @@ The sample repository is an in-memory snapshot. In an application backed by a da
 
 The shared [catalog contract](../../catnap-testkit/src/main/java/com/github/gregwhitaker/catnap/testkit/probe/CatalogResponseContract.java) checks detail responses, stable pagination, search combinations, native serialized names, array predicates, empty matches, invalid requests, and reuse of the original data after projection. Independent Gradle-metadata and Maven-POM consumers run these same tests through `./gradlew publicationSmokeTest`.
 
-The seed resource is registered for native-image packaging. Catalog models use generated Serde metadata, and the catalog tests participate in Micronaut's native test suite. See the [native-image guide](../../docs/NATIVE_IMAGES.md) for separate native verification commands.
+The seed resource is registered for native-image packaging. Catalog models use generated Serde metadata, and the catalog tests participate in Micronaut's native test suite. See the [native-image guide](../../website/content/NATIVE_IMAGES.md) for separate native verification commands.
 
-The existing `/catnap/*` routes remain available for serializer, query-dialect, and streaming examples. See [all examples](../README.md) and the [Micronaut integration guide](../../docs/MICRONAUT_INTEGRATION.md) for those contracts and integration configuration.
+The existing `/catnap/*` routes remain available for serializer, query-dialect, and streaming examples. See [all examples](../../website/content/examples/README.md) and the [Micronaut integration guide](../../website/content/MICRONAUT_INTEGRATION.md) for those contracts and integration configuration.

@@ -1,12 +1,50 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { buildSite, normalizeBasePath } from '../scripts/build.mjs';
+import { buildSite, normalizeBasePath, websiteRoot } from '../scripts/build.mjs';
 import { checkSite } from '../scripts/check.mjs';
 import { searchDocs } from '../src/search.mjs';
-import { pages } from '../src/config.mjs';
+import { pages, version } from '../src/config.mjs';
+
+const run = promisify(execFile);
+
+test('the website builds independently of the parent repository', async () => {
+  const temporary = await mkdtemp(path.join(tmpdir(), 'catnap-standalone-site-'));
+  const isolated = path.join(temporary, 'website');
+  try {
+    await cp(websiteRoot, isolated, {
+      recursive: true,
+      filter: source => path.relative(websiteRoot, source).split(path.sep)[0] !== 'dist',
+    });
+    const options = {
+      cwd: isolated,
+      env: { ...process.env, BASE_PATH: '/standalone/', SITE_URL: 'https://example.github.io', GITHUB_REPOSITORY: 'gregwhitaker/catnap-redux', DOCS_REF: 'main' },
+    };
+    await run(process.execPath, ['scripts/build.mjs'], options);
+    await run(process.execPath, ['scripts/check.mjs'], options);
+    const output = path.join(isolated, 'dist');
+    const info = JSON.parse(await readFile(path.join(output, 'build-info.json'), 'utf8'));
+    assert.equal(info.version, version);
+    assert.equal(info.base, '/standalone/');
+    assert.equal(info.pages.length, pages.length);
+    const quickstart = await readFile(path.join(output, 'quickstart/index.html'), 'utf8');
+    assert.ok(quickstart.includes('href="/standalone/spring/"'));
+    assert.ok(quickstart.includes('https://github.com/gregwhitaker/catnap-redux/edit/main/website/content/GETTING_STARTED.md'));
+    assert.deepEqual(await readFile(path.join(output, 'assets/logo.png')), await readFile(path.join(isolated, 'assets/logo.png')));
+
+    // Repository references must be explicit URLs, never filesystem dependencies.
+    const source = path.join(isolated, 'content/GETTING_STARTED.md');
+    await writeFile(source, `${await readFile(source, 'utf8')}\n[External file](../../gradle.properties)\n`);
+    await assert.rejects(run(process.execPath, ['scripts/build.mjs'], options), error => {
+      assert.match(error.stderr, /Link outside website/);
+      return true;
+    });
+  } finally { await rm(temporary, { recursive: true, force: true }); }
+});
 
 test('documentation, assets, anchors, and search work at root and project Pages paths', async () => {
   for (const base of ['/', '/catnap/', '/a/nested-site/']) {

@@ -1,50 +1,59 @@
+export const version = '3.0.0-SNAPSHOT';
+
 export const groups = [
   {
     title: 'Get started',
     pages: [
       { slug: '', title: 'Introduction', icon: 'book', description: 'Select just the JSON fields you need, with your existing JVM stack.' },
-      { slug: 'quickstart', title: 'Quickstart', source: 'docs/GETTING_STARTED.md', icon: 'terminal', description: 'Run your first JSON projection with Catnap.' },
-      { slug: 'examples', title: 'Runnable examples', source: 'examples/README.md', description: 'Try standalone projection or run any of the five framework applications.' },
+      { slug: 'quickstart', title: 'Quickstart', source: 'content/GETTING_STARTED.md', icon: 'terminal', description: 'Run your first JSON projection with Catnap.' },
+      { slug: 'installation', title: 'Installation', source: 'content/INSTALLATION.md', description: 'Configure Gradle or Maven and choose the Catnap module for your application.' },
+      { slug: 'examples', title: 'Runnable examples', source: 'content/examples/README.md', description: 'Try standalone projection or run any of the five framework applications.' },
     ],
   },
   {
     title: 'Core concepts',
     pages: [
-      { slug: 'query-syntax', title: 'Query syntax', source: 'docs/QUERY_SPECIFICATION.md', description: 'Catnap RSQL predicates, Google/LinkedIn queries, paths, arrays, and wildcards.' },
-      { slug: 'core-api', title: 'Core API', source: 'docs/CORE_API.md', description: 'Compile immutable queries and evaluate native JSON trees.' },
-      { slug: 'json-bindings', title: 'JSON bindings', source: 'docs/JSON_INTEGRATIONS.md', description: 'Use Jackson 2, Jackson 3, or Kotlin serialization with your existing configuration.' },
-      { slug: 'streaming', title: 'Streaming', source: 'docs/STREAMING.md', description: 'Project NDJSON records and JSON-bearing server-sent events.' },
+      { slug: 'query-syntax', title: 'Query syntax', source: 'content/QUERY_SPECIFICATION.md', description: 'Catnap RSQL predicates, Google/LinkedIn queries, paths, arrays, and wildcards.' },
+      { slug: 'core-api', title: 'Core API', source: 'content/CORE_API.md', description: 'Compile immutable queries and evaluate native JSON trees.' },
+      { slug: 'json-bindings', title: 'JSON bindings', source: 'content/JSON_INTEGRATIONS.md', description: 'Use Jackson 2, Jackson 3, or Kotlin serialization with your existing configuration.' },
+      { slug: 'streaming', title: 'Streaming', source: 'content/STREAMING.md', description: 'Project NDJSON records and JSON-bearing server-sent events.' },
     ],
   },
   {
     title: 'Integrations',
     pages: [
-      { slug: 'spring', title: 'Spring MVC & WebFlux', source: 'docs/SPRING_INTEGRATION.md', description: 'Separate Spring Boot starters for servlet and reactive applications.' },
-      { slug: 'micronaut', title: 'Micronaut', source: 'docs/MICRONAUT_INTEGRATION.md', description: 'Native JSON serialization, finite responses, and bounded streaming.' },
-      { slug: 'quarkus', title: 'Quarkus', source: 'docs/QUARKUS_INTEGRATION.md', description: 'REST responses, explicit streams, and bounded JSON-array publishers.' },
-      { slug: 'ktor', title: 'Ktor', source: 'docs/KTOR_INTEGRATION.md', description: 'Kotlin serialization, coroutines, Flow, and imperative SSE sends.' },
+      { slug: 'spring', title: 'Spring MVC & WebFlux', source: 'content/SPRING_INTEGRATION.md', description: 'Separate Spring Boot starters for servlet and reactive applications.' },
+      { slug: 'micronaut', title: 'Micronaut', source: 'content/MICRONAUT_INTEGRATION.md', description: 'Native JSON serialization, finite responses, and bounded streaming.' },
+      { slug: 'quarkus', title: 'Quarkus', source: 'content/QUARKUS_INTEGRATION.md', description: 'REST responses, explicit streams, and bounded JSON-array publishers.' },
+      { slug: 'ktor', title: 'Ktor', source: 'content/KTOR_INTEGRATION.md', description: 'Kotlin serialization, coroutines, Flow, and imperative SSE sends.' },
     ],
   },
   {
     title: 'Catalog examples',
     pages: [
-      { slug: 'examples/spring-mvc', title: 'Spring Boot MVC', source: 'examples/spring-boot-mvc/README.md', description: 'Product detail, paginated search, and image/variant filters with MVC and Jackson 3.' },
-      { slug: 'examples/spring-webflux', title: 'Spring Boot WebFlux', source: 'examples/spring-boot-webflux/README.md', description: 'A reactive catalog API with Mono responses and Jackson 3.' },
-      { slug: 'examples/micronaut', title: 'Micronaut', source: 'examples/micronaut/README.md', description: 'A seeded catalog with generated Serde models and native HTTP projection.' },
-      { slug: 'examples/quarkus', title: 'Quarkus', source: 'examples/quarkus/README.md', description: 'A seeded catalog with CDI, Mutiny, and Jackson 2.' },
-      { slug: 'examples/ktor', title: 'Ktor', source: 'examples/ktor/README.md', description: 'A Kotlin catalog with suspending routes, typed responses, and exact decimal prices.' },
+      { slug: 'examples/spring-mvc', title: 'Spring Boot MVC', source: 'content/examples/spring-boot-mvc/README.md', description: 'Product detail, paginated search, and image/variant filters with MVC and Jackson 3.' },
+      { slug: 'examples/spring-webflux', title: 'Spring Boot WebFlux', source: 'content/examples/spring-boot-webflux/README.md', description: 'A reactive catalog API with Mono responses and Jackson 3.' },
+      { slug: 'examples/micronaut', title: 'Micronaut', source: 'content/examples/micronaut/README.md', description: 'A seeded catalog with generated Serde models and native HTTP projection.' },
+      { slug: 'examples/quarkus', title: 'Quarkus', source: 'content/examples/quarkus/README.md', description: 'A seeded catalog with CDI, Mutiny, and Jackson 2.' },
+      { slug: 'examples/ktor', title: 'Ktor', source: 'content/examples/ktor/README.md', description: 'A Kotlin catalog with suspending routes, typed responses, and exact decimal prices.' },
     ],
   },
   {
     title: 'Reference',
     pages: [
-      { slug: 'compatibility', title: 'Compatibility', source: 'docs/COMPATIBILITY.md', description: 'Tested Java runtimes, frameworks, JSON libraries, and support boundaries.' },
-      { slug: 'migration', title: 'Migrating from v2', source: 'docs/MIGRATION.md', description: 'Move from Catnap 2 to the new JVM API and query contract.' },
-      { slug: 'performance', title: 'Performance', source: 'docs/PERFORMANCE.md', description: 'Operating limits, JMH baselines, and framework streaming measurements.' },
-      { slug: 'native-images', title: 'Native images', source: 'docs/NATIVE_IMAGES.md', description: 'GraalVM verification for the Quarkus and Micronaut examples.' },
-      { slug: 'publication', title: 'Artifacts & publishing', source: 'docs/PUBLICATION.md', description: 'The Catnap BOM, local verification, and GitHub Packages publication.' },
-      { slug: 'extending', title: 'Extending Catnap', source: 'docs/EXTENDING.md', description: 'Implement and verify your own JSON binding or framework adapter.' },
-      { slug: 'release-audit', title: 'Release verification', source: 'docs/RELEASE_AUDIT.md', description: 'Requirement coverage, local evidence, and known verification limits.' },
+      { slug: 'compatibility', title: 'Compatibility', source: 'content/COMPATIBILITY.md', description: 'Tested Java runtimes, frameworks, JSON libraries, and support boundaries.' },
+      { slug: 'migration', title: 'Migrating from v2', source: 'content/MIGRATION.md', description: 'Move from Catnap 2 to the new JVM API and query contract.' },
+      { slug: 'performance', title: 'Performance', source: 'content/PERFORMANCE.md', description: 'Operating limits, JMH baselines, and framework streaming measurements.' },
+      { slug: 'native-images', title: 'Native images', source: 'content/NATIVE_IMAGES.md', description: 'GraalVM verification for the Quarkus and Micronaut examples.' },
+    ],
+  },
+  {
+    title: 'Maintainers',
+    pages: [
+      { slug: 'extending', title: 'Extending Catnap', source: 'content/EXTENDING.md', description: 'Implement and verify your own JSON binding or framework adapter.' },
+      { slug: 'publication', title: 'Publishing artifacts', source: 'content/PUBLICATION.md', description: 'Verify and publish libraries, the BOM, and API documentation.' },
+      { slug: 'releasing', title: 'Release checklist', source: 'content/RELEASING.md', description: 'Current verification status and the steps to prepare, publish, and verify a release.' },
+      { slug: 'release-audit', title: 'Historical audit', source: 'content/RELEASE_AUDIT.md', description: 'The November 16 requirement audit, preserved with its original source scope.' },
     ],
   },
 ];

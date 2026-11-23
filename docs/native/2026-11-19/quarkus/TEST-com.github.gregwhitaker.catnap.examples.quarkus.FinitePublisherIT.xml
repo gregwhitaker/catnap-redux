@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherIT" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-20T02:16:00.842Z" hostname="anubis-3.local" time="0.954">
+  <properties/>
+  <testcase name="aTotalDocumentLimitCancelsBeforeTheOriginalBytesAreCommitted()" classname="com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherIT" time="0.015"/>
+  <testcase name="aDisconnectedClientCancelsAnIncompleteFiniteDocument()" classname="com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherIT" time="0.021"/>
+  <testcase name="invalidQueriesAndServerFailuresUseTheCorrectStatus()" classname="com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherIT" time="0.005"/>
+  <testcase name="serializesConfiguredGenericValuesThenProjectsOneCompleteArray()" classname="com.github.gregwhitaker.catnap.examples.quarkus.FinitePublisherIT" time="0.007"/>
+  <system-out><![CDATA[Executing "/Users/gwhitake/workspace/catnap/examples/quarkus/build/quarkus-3.0.0-SNAPSHOT-runner -Dquarkus.http.port=0 -Dquarkus.http.ssl-port=8444 -Dtest.url=http://localhost:${quarkus.http.test-port:8081} -Dquarkus.log.file.path=/Users/gwhitake/workspace/catnap/examples/quarkus/build/quarkus.log -Dquarkus.log.file.enabled=true -Dquarkus.log.category."io.quarkus".level=INFO -Dquarkus.profile=prod -Dquarkus.native.additional-build-args=--parallelism=4,-Ob -Dquarkus.package.jar.enabled=false -Dcatnap.max-payload-bytes=4096 -Dquarkus.config.build-time-mismatch-at-runtime=fail -Dquarkus.native.enabled=true -Dquarkus.application.version=3.0.0-SNAPSHOT -Dcatnap.max-query-length=64 -Dquarkus.application.name=quarkus -Dquarkus.native.native-image-xmx=6g"
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-11-19 20:16:01,666 INFO  [io.quarkus] (main) quarkus 3.0.0-SNAPSHOT native (powered by Quarkus 3.40.1.2) started in 0.019s. Listening on: http://0.0.0.0:50943
+2026-11-19 20:16:01,666 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-11-19 20:16:01,666 INFO  [io.quarkus] (main) Installed features: [catnap, cdi, rest, rest-jackson, smallrye-context-propagation, vertx]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

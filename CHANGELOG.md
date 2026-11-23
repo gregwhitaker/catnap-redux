@@ -72,6 +72,6 @@ Development version: `3.0.0-SNAPSHOT`.
 - Documentation navigation at desktop breakpoints.
 - Publication and documentation source URLs to target `gregwhitaker/catnap-redux`.
 
-See the [migration guide](docs/MIGRATION.md) for upgrade steps, the
-[compatibility matrix](docs/COMPATIBILITY.md) for tested combinations, and the
-[release audit](docs/RELEASE_AUDIT.md) for verification scope and known limitations.
+See the [migration guide](website/content/MIGRATION.md) for upgrade steps, the
+[compatibility matrix](website/content/COMPATIBILITY.md) for tested combinations, and the
+[release audit](website/content/RELEASE_AUDIT.md) for verification scope and known limitations.

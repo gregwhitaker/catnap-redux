@@ -3,7 +3,7 @@
 This guide applies to the entire repository. Catnap is a Java/Kotlin library for
 JSON field selection, with standalone JSON bindings, HTTP framework integrations,
 and bounded NDJSON/SSE helpers. Start with `README.md` and the relevant guide in
-`docs/` before changing behavior.
+`website/content/` before changing behavior.
 
 ## Repository map
 
@@ -17,7 +17,8 @@ and bounded NDJSON/SSE helpers. Start with `README.md` and the relevant guide in
 | `catnap-testkit/`, `examples/` | Shared conformance/HTTP contracts and runnable applications with real HTTP tests |
 | `build-logic/`, `gradle/`, `catnap-bom/`, `verification/` | Convention plugins, dependency catalog, publication metadata, and independent consumer fixtures |
 | `benchmarks/` | JMH workloads, HTTP measurement servers, and streaming runner |
-| `docs/`, `website/`, `brand/` | Markdown guides/evidence, static documentation site, and brand assets |
+| `website/` | Self-contained documentation site: Markdown guides in `content/`, assets, configuration, and build scripts |
+| `docs/`, `brand/` | Historical verification records and original brand assets |
 
 ## Build and verification
 
@@ -52,7 +53,7 @@ The main CI verification combines `build compatibilityTest publicationSmokeTest
 `build/repository` and exercise independent Gradle metadata and Maven POM consumers;
 they do not require remote package credentials. Timed benchmarks and native-image
 builds are separate workflows; consult `benchmarks/README.md` and
-`docs/NATIVE_IMAGES.md` when those are relevant.
+`website/content/NATIVE_IMAGES.md` when those are relevant.
 
 For documentation-only changes, run the relevant documentation checks instead of
 the JVM suite. Report commands actually run and any failures or checks not run;
@@ -66,7 +67,7 @@ archived evidence under `docs/` is not verification of the current changes.
 - Preserve Java baselines and dependency isolation: the MVC starter must not acquire
   Reactor through Catnap, Quarkus augmentation stays out of runtime dependencies,
   and the Catnap BOM must not import framework BOMs.
-- Treat `docs/QUERY_SPECIFICATION.md` and the versioned conformance corpus as the
+- Treat `website/content/QUERY_SPECIFICATION.md` and the versioned conformance corpus as the
   query contract. Google and LinkedIn retain shared field-selection semantics;
   CATNAP adds explicit array predicates and is the HTTP default; Google and LinkedIn
   remain configurable. Preserve diagnostic codes and UTF-16 source positions when
@@ -90,7 +91,7 @@ archived evidence under `docs/` is not verification of the current changes.
   Preserve SSE metadata/text/control events, propagate cancellation, release owned
   resources, and terminate failed streams without an unprojected fallback.
 
-Read `docs/EXTENDING.md` before adding a binding or framework adapter. Register new
+Read `website/content/EXTENDING.md` before adding a binding or framework adapter. Register new
 modules in `settings.gradle.kts` and the explicit root task aggregates; published
 modules also need `gradle/published-modules.txt`, consumer verification, and updated
 compatibility documentation.
@@ -118,10 +119,14 @@ compatibility documentation.
 
 ## Documentation and website
 
-The site builds directly from `docs/` and `examples/README.md`. Edit those sources;
-page registration/navigation lives in `website/src/config.mjs`, client behavior in
-`website/src/`, and generation/checking in `website/scripts/`. Keep source links
-relative and preserve both root hosting and project paths such as `/catnap/`.
+The website is self-contained. Edit guides in `website/content/`, including the
+catalog walkthroughs in `website/content/examples/`. Page registration, navigation,
+and the displayed version live in `website/src/config.mjs`; client behavior lives
+in `website/src/`, assets in `website/assets/`, and generation/checking in
+`website/scripts/`. Keep links between site pages relative. Use explicit repository
+URLs for source code and archived evidence; the build must not read outside
+`website/`. Preserve root hosting and project paths such as `/catnap/`. Repository
+and example READMEs are separate entry points, not website build inputs.
 
 Use Node 22+ (CI uses Node 24), then run from `website/`:
 
@@ -134,7 +139,8 @@ npm run check
 
 Use `npm run dev` for local preview. After client/layout changes, inspect search,
 code copying, themes, query examples, and navigation at mobile and desktop widths.
-Reuse the assets and guidance in `brand/README.md`; preserve font license notices.
+Use the local website assets and the guidance in `brand/README.md`; preserve font
+license notices when adding fonts.
 Keep generated `website/dist/`, dependency caches, and Gradle build output out of
 commits. Preserve historical benchmark/native/verification records and distinguish
 new measurements from earlier evidence. Update API, query, compatibility, and

@@ -2,11 +2,11 @@
 
 Add client-selected JSON fields to annotated Spring WebFlux controllers. This starter installs the reactive adapter and Boot auto-configuration, preserving the application's configured JSON encoding and reactive request lifecycle.
 
-The starter targets **Spring Boot 4 / Jackson 3 on Java 17+**. See the [compatibility matrix](../docs/COMPATIBILITY.md) for tested versions. Servlet applications should use the [MVC starter](../catnap-spring-boot-starter/README.md).
+The starter targets **Spring Boot 4 / Jackson 3 on Java 17+**. See the [compatibility matrix](../website/content/COMPATIBILITY.md) for tested versions. Servlet applications should use the [MVC starter](../catnap-spring-boot-starter/README.md).
 
 ## Install
 
-The development version is `3.0.0-SNAPSHOT`. Configure a repository containing that version using the [local installation instructions](../README.md#installation) or the [GitHub Packages guide](../docs/PUBLICATION.md#consume-packages-from-github).
+Configure a repository using the [installation guide](../website/content/INSTALLATION.md). It explains local artifacts for the current source and the scope of the published development snapshot.
 
 Gradle Kotlin DSL:
 
@@ -52,12 +52,12 @@ From the repository root:
 In another terminal:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/quote' \
-  --data-urlencode 'fields=payload(amount)'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=id,name,price'
 ```
 
 ```json
-{"payload":{"amount":"EUR:12.50"}}
+{"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
 ```
 
 Selection uses the JSON field names produced by the application's configured encoder, including naming rules, views, ignored properties, and custom serializers. An omitted or ASCII-blank `fields` value preserves the normal response. Invalid queries and repeated query parameters produce HTTP 400 before the controller runs. Automatic finite-response binding applies to annotated controllers; functional streaming routes use the helpers below.
@@ -65,15 +65,15 @@ Selection uses the JSON field names produced by the application's configured enc
 The default `CATNAP` dialect also filters array items. With the same example running:
 
 ```bash
-curl --get 'http://localhost:8080/catnap/catalog' \
-  --data-urlencode 'fields=payload(amount)[display_name==ACME]'
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'fields=images(url)[size==medium;format==webp]'
 ```
 
 ```json
-{"payload":[{"amount":"EUR:12.50"}]}
+{"images":[{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}]}
 ```
 
-The predicate reads the original serialized `display_name` before selecting `amount`. See the [RSQL subset](../docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for equality, numeric comparisons, membership, and AND/OR conditions.
+The predicate reads the original serialized `display_name` before selecting `amount`. See the [RSQL subset](../website/content/QUERY_SPECIFICATION.md#catnap-array-predicates) for equality, numeric comparisons, membership, and AND/OR conditions.
 
 ## Configure
 
@@ -88,13 +88,13 @@ catnap.max-payload-bytes=1048576
 catnap.cache-capacity=256
 ```
 
-Set `catnap.dialect=GOOGLE` for Google-style field selection such as `payload(amount)`, or `catnap.dialect=LINKEDIN` for `payload:(amount)`. These two dialects reject array predicates. Remove the override or set `catnap.dialect=CATNAP` to use the default. Use `@CatnapProjection(enabled = false)` from `com.github.gregwhitaker.catnap.http` on a controller or method to opt out. See the [full property reference](../docs/SPRING_INTEGRATION.md#configuration) for query, depth, selector, and evaluation limits.
+Set `catnap.dialect=GOOGLE` for Google-style field selection such as `payload(amount)`, or `catnap.dialect=LINKEDIN` for `payload:(amount)`. These two dialects reject array predicates. Remove the override or set `catnap.dialect=CATNAP` to use the default. Use `@CatnapProjection(enabled = false)` from `com.github.gregwhitaker.catnap.http` on a controller or method to opt out. See the [full property reference](../website/content/SPRING_INTEGRATION.md#configuration) for query, depth, selector, and evaluation limits.
 
 ## NDJSON and SSE
 
 Inject `CatnapWebFluxStreams`, create an encoder per request, and return the `Mono<Void>` from `writeNdjson`, `writeEncodedNdjson`, or `writeSse` to Spring. Supply the application's configured serializer and full writer context to the encoder callback. Functional routes can use the same helpers through a `ServerResponse` body writer.
 
-The helpers propagate demand and cancellation, bound each payload, and preserve native SSE metadata and flushing. Use a demand-aware source; application queues and native transport buffers have their own bounds. Arbitrary publisher or native stream writes are not automatically projected. See the [WebFlux streaming guide](../docs/SPRING_INTEGRATION.md#webflux-ndjson-and-sse) for examples and lifecycle behavior.
+The helpers propagate demand and cancellation, bound each payload, and preserve native SSE metadata and flushing. Use a demand-aware source; application queues and native transport buffers have their own bounds. Arbitrary publisher or native stream writes are not automatically projected. See the [WebFlux streaming guide](../website/content/SPRING_INTEGRATION.md#webflux-ndjson-and-sse) for examples and lifecycle behavior.
 
 ## Verify and explore
 
@@ -103,4 +103,4 @@ The helpers propagate demand and cancellation, bound each payload, and preserve 
 ./gradlew :examples:spring-boot-webflux:test
 ```
 
-Continue with the [WebFlux example source](../examples/spring-boot-webflux/src/main/java/com/github/gregwhitaker/catnap/examples/webflux), [runnable examples](../examples/README.md), or [full Spring integration guide](../docs/SPRING_INTEGRATION.md).
+Continue with the [WebFlux example source](../examples/spring-boot-webflux/src/main/java/com/github/gregwhitaker/catnap/examples/webflux), [runnable examples](../website/content/examples/README.md), or [full Spring integration guide](../website/content/SPRING_INTEGRATION.md).

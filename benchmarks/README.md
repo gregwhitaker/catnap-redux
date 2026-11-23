@@ -16,7 +16,7 @@ Run commands from the repository root with the wrapper and [documented JDK setup
 
 Smoke runs validate the machinery; use full runs for performance evidence. Results are replaced on subsequent invocations, so preserve a baseline before starting a follow-up measurement.
 
-The [November 16, 2026 baseline](../docs/benchmarks/2026-11-16/README.md) records the first full JMH run. The [performance guide](../docs/PERFORMANCE.md) explains operating bounds and links the separate HTTP and retained-memory evidence. The [CI workflow](../.github/workflows/ci.yml) is configured to run the HTTP smoke suite during verification; its manual `benchmarks` and `streaming_benchmarks` inputs enable full measurements.
+The [November 16, 2026 baseline](../docs/benchmarks/2026-11-16/README.md) records the first full JMH run. The [performance guide](../website/content/PERFORMANCE.md) explains operating bounds and links the separate HTTP and retained-memory evidence. The [CI workflow](../.github/workflows/ci.yml) is configured to run the HTTP smoke suite during verification; its manual `benchmarks` and `streaming_benchmarks` inputs enable full measurements.
 
 ## JMH
 
@@ -57,7 +57,7 @@ The pipeline cases cover a small object, a 4,096-element root array, 48 nested c
 
 `gc.alloc.rate.norm` measures allocated bytes per operation, not retained memory. JMH reports latency means and 99.9% confidence intervals from fork/iteration samples. Keep error bars and raw results when reporting numbers. A hot-cache benchmark does not model contention or a cache full of unique queries. A single local machine does not establish production latency guarantees or rank different frameworks.
 
-Run timed measurements with other builds idle. Record the JVM, collector/heap flags, host resources, payload size, concurrency, and source identity. Re-run a focused case when uncertainty or a changed implementation warrants it. See the [release audit](../docs/RELEASE_AUDIT.md) and [native-image guide](../docs/NATIVE_IMAGES.md) for the broader verification scope.
+Run timed measurements with other builds idle. Record the JVM, collector/heap flags, host resources, payload size, concurrency, and source identity. Re-run a focused case when uncertainty or a changed implementation warrants it. See the [release audit](../website/content/RELEASE_AUDIT.md) and [native-image guide](../website/content/NATIVE_IMAGES.md) for the broader verification scope.
 
 ## HTTP streaming measurements
 

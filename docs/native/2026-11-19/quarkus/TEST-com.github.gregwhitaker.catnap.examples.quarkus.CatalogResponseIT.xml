@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" tests="52" skipped="0" failures="0" errors="0" timestamp="2026-11-20T02:15:56.599Z" hostname="anubis-3.local" time="2.066">
+  <properties/>
+  <testcase name="full product through the configured serializer" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.067"/>
+  <testcase name="blank fields bypass projection" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.003"/>
+  <testcase name="product detail card" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="medium images, with predicate fields omitted" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="image format, dimensions, and native field names" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="image membership preserves source order" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="variant boolean and numeric predicates" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="grouped variant alternatives" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="variant membership" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="sold-out variants" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="predicates use serialized names, not Java or Kotlin property names" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="no matching images or variants" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="an existing thumbnail does not become a medium image" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="sold-out product retains an empty projected variant array" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="digital product with no images or variants" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="default first page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="second page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="last partial page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="page beyond the end" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="large page does not overflow" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="maximum page size" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="category filter before pagination" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="second category page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="search and category combine" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="search includes brand" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="search includes tags" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.0"/>
+  <testcase name="empty search result" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.0"/>
+  <testcase name="unknown category" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="blank business filters" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="nested filters retain products and pagination metadata" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="missing product keeps its error response" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid page -1" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="invalid page one" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid page 1.5" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid page " classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid page 2147483648" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid size 0" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid size 21" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.0"/>
+  <testcase name="invalid size lots" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="invalid size " classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="repeated page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="repeated size" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="repeated q" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="repeated category" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="legacy predicate operator rejected" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="incomplete predicate rejected" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="repeated fields rejected" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.0"/>
+  <testcase name="documented combined detail filters" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="documented catalog grid" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="third page" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.002"/>
+  <testcase name="search includes description" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.001"/>
+  <testcase name="filteringDoesNotMutateTheCatalog()" classname="com.github.gregwhitaker.catnap.examples.quarkus.CatalogResponseIT" time="0.005"/>
+  <system-out><![CDATA[Executing "/Users/gwhitake/workspace/catnap/examples/quarkus/build/quarkus-3.0.0-SNAPSHOT-runner -Dquarkus.http.port=0 -Dquarkus.http.ssl-port=8444 -Dtest.url=http://localhost:${quarkus.http.test-port:8081} -Dquarkus.log.file.path=/Users/gwhitake/workspace/catnap/examples/quarkus/build/quarkus.log -Dquarkus.log.file.enabled=true -Dquarkus.log.category."io.quarkus".level=INFO -Dquarkus.profile=prod -Dquarkus.native.additional-build-args=--parallelism=4,-Ob -Dquarkus.package.jar.enabled=false -Dquarkus.native.enabled=true -Dquarkus.application.version=3.0.0-SNAPSHOT -Dquarkus.application.name=quarkus -Dquarkus.native.native-image-xmx=6g"
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-11-19 20:15:58,214 INFO  [io.quarkus] (main) quarkus 3.0.0-SNAPSHOT native (powered by Quarkus 3.40.1.2) started in 0.038s. Listening on: http://0.0.0.0:50897
+2026-11-19 20:15:58,214 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-11-19 20:15:58,214 INFO  [io.quarkus] (main) Installed features: [catnap, cdi, rest, rest-jackson, smallrye-context-propagation, vertx]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

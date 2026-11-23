@@ -2,7 +2,9 @@
 
 The JSON modules connect the core engine to native materialized trees. They do not install HTTP filters or own request lifecycle state. Each depends on `catnap-core` and its own JSON library; the core itself remains dependency-free.
 
-| Module | Native node type | Initial dependency |
+Use the [installation guide](INSTALLATION.md) to configure the repository and add the binding with the Catnap BOM.
+
+| Module | Native node type | Tested dependency |
 |---|---|---|
 | `catnap-jackson2` | `com.fasterxml.jackson.databind.JsonNode` | Jackson 2.21.8 |
 | `catnap-jackson3` | `tools.jackson.databind.JsonNode` | Jackson 3.1.7 |
@@ -74,7 +76,7 @@ Tree construction and serialization are distinct from the core evaluator's bound
 
 ## Verification
 
-Each JSON integration runs all 178 successful projection variants and 26 logical stream variants from the shared corpus. Additional tests cover custom serializers, declared generic types, naming, ignored fields, Jackson views/attributes, Kotlin data classes/contextual serializers, precision, nulls, and mutable ownership. NDJSON tests exercise every chunk split of a multi-byte UTF-8 sample, CRLF, escaped newlines, malformed framing/encoding, size boundaries, and early output.
+Each JSON integration runs the shared projection and logical-stream conformance cases for every applicable dialect. Additional tests cover custom serializers, declared generic types, naming, ignored fields, Jackson views/attributes, Kotlin data classes/contextual serializers, precision, nulls, and mutable ownership. NDJSON tests exercise every chunk split of a multi-byte UTF-8 sample, CRLF, escaped newlines, malformed framing/encoding, size boundaries, and early output.
 
 ```bash
 ./gradlew :catnap-jackson2:test :catnap-jackson3:test :catnap-kotlinx-json:test

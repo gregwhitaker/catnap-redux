@@ -1,6 +1,6 @@
 # Compatibility and verification scope
 
-The current development version is `3.0.0-SNAPSHOT`. It is a new major JVM API, with a version 1 query contract. The [requirement audit](RELEASE_AUDIT.md) records completed local implementation verification, measured operating bounds, and the unexplained historical WebFlux drain timeout. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github), and hosted build verification has passed.
+This matrix describes the framework, serializer, and Java combinations used by the Catnap 3 source checkout. For dependency setup and artifact availability, see [installation](INSTALLATION.md). The [release checklist](RELEASING.md#verification-status) identifies the source covered by each verification record.
 
 ## Java and build tooling
 
@@ -16,7 +16,7 @@ The local core compatibility reports explicitly recorded Java `17.0.9+8-LTS`, `2
 
 The main framework test suites use their module toolchains: Java 17 for MVC, WebFlux, Quarkus, and Ktor, and Java 25 for Micronaut. The separate Java 25 streaming jobs exercise the stated streaming workload; they do not substitute for running each framework's entire test suite on every supported JDK.
 
-The [daemon JVM criteria](../gradle/gradle-daemon-jvm.properties) select Java 25 before Gradle loads framework plugins. Project compilation toolchains alone cannot satisfy a plugin's build-JVM requirement. The generated criteria include JDK download URLs; the pinned Foojay settings plugin also resolves missing compilation/test toolchains. Independent publication consumers receive the same daemon criteria. Offline users must provide discoverable installations. The shell's `JAVA_HOME` does not need to change.
+The [daemon JVM criteria](https://github.com/gregwhitaker/catnap-redux/blob/main/gradle/gradle-daemon-jvm.properties) select Java 25 before Gradle loads framework plugins. Project compilation toolchains alone cannot satisfy a plugin's build-JVM requirement. The generated criteria include JDK download URLs; the pinned Foojay settings plugin also resolves missing compilation/test toolchains. Independent publication consumers receive the same daemon criteria. Offline users must provide discoverable installations. The shell's `JAVA_HOME` does not need to change.
 
 ## Implemented framework and serializer combinations
 
@@ -55,6 +55,6 @@ The shared wire/lifecycle suites cover early delivery, configured dialects and s
 
 ## Native images and hosted CI
 
-The [native-image checks](NATIVE_IMAGES.md) pass for Quarkus and Micronaut on macOS 15.7.4/aarch64 with Oracle GraalVM 25.0.4+7.1: 62 Quarkus HTTP tests against an external native server and 55 Micronaut tests compiled with the application into a native executable. [Reports, compiler details, executable hashes, and source identity](native/2026-11-16/README.md) accompany the results. Application DTOs and custom serializers still need their framework's reachability metadata. These checks do not establish native-image execution for Spring MVC, WebFlux, Ktor, or untested operating systems.
+The November 19 [native-image checks](NATIVE_IMAGES.md) pass for Quarkus and Micronaut on macOS 15.7.4/aarch64 with Oracle GraalVM 25.0.4+7.1: 160 Quarkus HTTP tests against an external native server and 152 Micronaut tests compiled with the application into a native executable. Both suites verify the CATNAP default, array predicates, and all 52 catalog cases. [Reports, compiler details, executable hashes, and source identity](https://github.com/gregwhitaker/catnap-redux/blob/main/docs/native/2026-11-19/README.md) accompany the results. Application DTOs and custom serializers still need their framework's reachability metadata. These checks do not establish native-image execution for Spring MVC, WebFlux, Ktor, or untested operating systems.
 
-The [hosted Build run](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980077837) passed on Ubuntu 24.04 at commit `853ef009e0389585eaa5303ed854094c6b1ca66d`, including the full build, core compatibility matrix, independent publication consumers, and five-framework streaming smoke suite. The [hosted snapshot verification](PUBLICATION.md#hosted-snapshot-verification) additionally records successful GitHub Packages upload and 275 passing remote-consumer tests in each metadata mode. Timed benchmarks and native-image execution remain separate evidence with the scope described above.
+The [November 19 hosted Build](https://github.com/gregwhitaker/catnap-redux/actions/runs/44620469016) passed on Ubuntu 24.04 at commit `62eaeb0f7e262e3a4a9f34de55617dae4c80a6eb`, including the full build, core compatibility matrix, independent local publication consumers, and five-framework streaming smoke suite. The [remote snapshot verification](PUBLICATION.md#hosted-snapshot-verification) covers an older November 16 upload that predates CATNAP. Hosted JVM checks do not establish native Linux execution; timed benchmarks also retain their separately recorded scope.

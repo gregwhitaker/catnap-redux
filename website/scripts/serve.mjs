@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { watch } from 'node:fs';
 import path from 'node:path';
-import { buildSite, websiteRoot, repositoryRoot } from './build.mjs';
+import { buildSite, websiteRoot } from './build.mjs';
 
 const development = process.argv.includes('--watch');
 const directory = path.join(websiteRoot, 'dist');
@@ -64,9 +64,9 @@ if (development) {
     } catch (error) { console.error(error.message); }
     finally { building = false; if (dirty) { dirty = false; rebuild(); } }
   }
-  for (const watched of [path.join(websiteRoot, 'src'), path.join(repositoryRoot, 'docs'), path.join(repositoryRoot, 'brand/logos'), path.join(repositoryRoot, 'gradle.properties')]) {
+  for (const watched of ['src', 'content', 'assets'].map(directory => path.join(websiteRoot, directory))) {
     watchers.push(watch(watched, { recursive: true }, (_event, filename) => {
-      if (filename && !/\.(md|mjs|js|css|png|properties)$/.test(filename)) return;
+      if (filename && !/\.(md|mjs|js|css|png)$/.test(filename)) return;
       clearTimeout(timer); timer = setTimeout(rebuild, 150);
     }));
   }

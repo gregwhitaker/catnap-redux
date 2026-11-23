@@ -1,6 +1,6 @@
 # Version 1 conformance corpus
 
-These resources are normative examples of the Catnap query contract in `docs/QUERY_SPECIFICATION.md`. They are packaged in the `catnap-testkit` JAR under `/com/github/gregwhitaker/catnap/conformance/v1/`, so core, JSON integrations, and framework test suites can consume the same cases. No production parser or evaluator is included here.
+These resources are normative examples of the Catnap query contract in `website/content/QUERY_SPECIFICATION.md`. They are packaged in the `catnap-testkit` JAR under `/com/github/gregwhitaker/catnap/conformance/v1/`, so core, JSON integrations, and framework test suites can consume the same cases. No production parser or evaluator is included here.
 
 The four data files are UTF-8 JSON with `schemaVersion: 1` and a `cases` array. `manifest.json` lists them via `resource` entries. IDs are unique within each resource. JSON object order is not significant; array order, JSON types, exact strings, and numerical precision are significant. Readers must retain arbitrary-precision numbers. Expected results are explicit fixtures, independent of the evaluator under test.
 

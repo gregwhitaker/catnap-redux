@@ -1,18 +1,21 @@
 # Micronaut integration
 
-The [Micronaut catalog walkthrough](../examples/micronaut/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, generated Serde models, and real HTTP tests.
+The [Micronaut catalog walkthrough](examples/micronaut/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, generated Serde models, and real HTTP tests.
 
 `catnap-micronaut` integrates with Micronaut's configured response writers and `io.micronaut.json.tree.JsonNode`. The verified baseline is Micronaut platform 5.2.6, core 5.2.23, and Micronaut Serialization 3.2.6 with its Jackson-core backend. This module requires Java 25, as Micronaut 5 does. The framework-independent core still targets Java 17.
 
 ## Installation and endpoints
 
-Inside this repository:
+Configure a repository using the [installation guide](INSTALLATION.md), then add the adapter:
 
 ```kotlin
-implementation(project(":catnap-micronaut"))
+dependencies {
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation("com.github.gregwhitaker:catnap-micronaut")
+}
 ```
 
-Its publication coordinate is `com.github.gregwhitaker:catnap-micronaut:3.0.0-SNAPSHOT`. The snapshot is available from [GitHub Packages](PUBLICATION.md#consume-packages-from-github). [Publication verification](PUBLICATION.md) builds independent consumers through Gradle metadata and Maven POMs.
+Keep the application's normal Micronaut and serialization configuration. Catnap uses those serializers when constructing the JSON available for selection.
 
 Micronaut discovers the adapter's compiled bean and filter metadata. Finite responses need no controller wrapper or manual evaluator call. Streaming responses use the explicit helpers below. Start the example:
 
@@ -43,7 +46,7 @@ The immutable `CatnapConfiguration` bean maps the same property names and defaul
 | `catnap.cache-capacity` | `256` entries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` |
 
-The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `images(url)[size==medium]` on `/api/products/trail-pack-28`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
 
 For LinkedIn syntax and a different parameter:
 
@@ -135,6 +138,6 @@ JsonNode selected = Catnap.compile("name,price(amount)", QueryDialect.CATNAP)
 ./gradlew :catnap-micronaut:check :examples:micronaut:test
 ```
 
-Tests run all 204 successful shared projection and logical-stream query variants against the native tree adapter. Additional checks cover precision, ownership, malformed/deep JSON, the default CATNAP dialect and explicit dialect overrides, custom serialization, JSON views, ignored fields, missing-query bypass, disablement, headers, and limits. A finite-publisher test verifies that a 4 KiB cap cancels a 10,000-item source after at most five items and returns a server error without exposing the original payload.
+Tests run the shared projection and logical-stream conformance cases against the native tree adapter. Additional checks cover precision, ownership, malformed/deep JSON, the default CATNAP dialect and explicit dialect overrides, custom serialization, JSON views, ignored fields, missing-query bypass, disablement, headers, and limits. A finite-publisher test verifies that a 4 KiB cap cancels a 10,000-item source after at most five items and returns a server error without exposing the original payload.
 
 Production streaming tests run the shared wire contract for the configured dialects and the real Netty lifecycle contract: early output, per-connection queries, slow consumers, disconnects, failures before/after commitment, and optional protocol error events. Tests also cover configured generic/view serialization, raw NDJSON boundaries and UTF-8, metadata/control/text events, header invalidation, malformed declared JSON, payload/metadata bounds, one-item prefetch, nonblocking demand handoff, cancellation, Reactor context, single-subscription ownership, and push-overflow cleanup.

@@ -1,0 +1,523 @@
+> Task :build-logic:jvm-conventions:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:jvm-conventions:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:jvm-conventions:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:jvm-conventions:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:jvm-conventions:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileKotlin UP-TO-DATE
+> Task :build-logic:jvm-conventions:compileJava NO-SOURCE
+> Task :build-logic:testing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:testing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:jvm-conventions:pluginDescriptors UP-TO-DATE
+> Task :build-logic:jvm-conventions:processResources UP-TO-DATE
+> Task :build-logic:jvm-conventions:classes UP-TO-DATE
+> Task :build-logic:jvm-conventions:jar UP-TO-DATE
+> Task :build-logic:testing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:testing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:testing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:testing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:testing:compileKotlin UP-TO-DATE
+> Task :build-logic:testing:compileJava NO-SOURCE
+> Task :build-logic:testing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:testing:processResources UP-TO-DATE
+> Task :build-logic:testing:classes UP-TO-DATE
+> Task :build-logic:testing:jar UP-TO-DATE
+> Task :build-logic:java-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:java-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:java-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:java-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:java-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:java-library:compileKotlin UP-TO-DATE
+> Task :build-logic:java-library:compileJava NO-SOURCE
+> Task :build-logic:publishing:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:publishing:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:java-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:java-library:processResources UP-TO-DATE
+> Task :build-logic:java-library:classes UP-TO-DATE
+> Task :build-logic:java-library:jar UP-TO-DATE
+> Task :build-logic:publishing:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:publishing:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:publishing:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:publishing:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:publishing:compileKotlin UP-TO-DATE
+> Task :build-logic:publishing:compileJava NO-SOURCE
+> Task :build-logic:publishing:pluginDescriptors UP-TO-DATE
+> Task :build-logic:publishing:processResources UP-TO-DATE
+> Task :build-logic:publishing:classes UP-TO-DATE
+> Task :build-logic:publishing:jar UP-TO-DATE
+> Task :build-logic:kotlin-library:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:kotlin-library:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:kotlin-library:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:kotlin-library:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:kotlin-library:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:kotlin-library:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:kotlin-library:compileKotlin UP-TO-DATE
+> Task :build-logic:kotlin-library:compileJava NO-SOURCE
+> Task :build-logic:kotlin-library:pluginDescriptors UP-TO-DATE
+> Task :build-logic:kotlin-library:processResources UP-TO-DATE
+> Task :build-logic:kotlin-library:classes UP-TO-DATE
+> Task :build-logic:kotlin-library:jar UP-TO-DATE
+> Task :build-logic:benchmark-server:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :build-logic:benchmark-server:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :build-logic:benchmark-server:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :build-logic:benchmark-server:compilePluginsBlocks UP-TO-DATE
+> Task :build-logic:benchmark-server:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :build-logic:benchmark-server:generateScriptPluginAdapters UP-TO-DATE
+> Task :build-logic:benchmark-server:compileKotlin UP-TO-DATE
+> Task :build-logic:benchmark-server:compileJava NO-SOURCE
+> Task :build-logic:benchmark-server:pluginDescriptors UP-TO-DATE
+> Task :build-logic:benchmark-server:processResources UP-TO-DATE
+> Task :build-logic:benchmark-server:classes UP-TO-DATE
+> Task :build-logic:benchmark-server:jar UP-TO-DATE
+> Task :catnap-core:compileJava UP-TO-DATE
+> Task :catnap-core:processResources NO-SOURCE
+> Task :catnap-core:classes UP-TO-DATE
+> Task :catnap-core:jar UP-TO-DATE
+> Task :catnap-http:compileJava UP-TO-DATE
+> Task :catnap-http:processResources NO-SOURCE
+> Task :catnap-http:classes UP-TO-DATE
+> Task :catnap-http:jar UP-TO-DATE
+> Task :catnap-streams:compileJava UP-TO-DATE
+> Task :catnap-micronaut:compileJava UP-TO-DATE
+> Task :catnap-micronaut:processResources NO-SOURCE
+> Task :catnap-micronaut:classes UP-TO-DATE
+> Task :catnap-micronaut:jar UP-TO-DATE
+> Task :catnap-streams:processResources NO-SOURCE
+> Task :catnap-streams:classes UP-TO-DATE
+> Task :catnap-streams:jar UP-TO-DATE
+> Task :catnap-testkit:compileJava UP-TO-DATE
+> Task :catnap-testkit:processResources UP-TO-DATE
+> Task :catnap-testkit:classes UP-TO-DATE
+> Task :catnap-testkit:jar UP-TO-DATE
+> Task :examples:micronaut:compileJava UP-TO-DATE
+> Task :examples:micronaut:processResources UP-TO-DATE
+> Task :examples:micronaut:classes UP-TO-DATE
+> Task :examples:micronaut:compileTestJava UP-TO-DATE
+> Task :examples:micronaut:jar UP-TO-DATE
+> Task :examples:micronaut:inspectRuntimeClasspath UP-TO-DATE
+> Task :examples:micronaut:processTestResources NO-SOURCE
+> Task :examples:micronaut:testClasses UP-TO-DATE
+> Task :examples:micronaut:test UP-TO-DATE
+
+> Task :examples:micronaut:generateTestResourcesConfigFile
+[native-image-plugin] Resources configuration written into /Users/gwhitake/workspace/catnap/examples/micronaut/build/native/generated/generateTestResourcesConfigFile/resource-config.json
+
+> Task :examples:micronaut:nativeTestCompile
+[native-image-plugin] GraalVM Toolchain detection is disabled
+[native-image-plugin] GraalVM location read from environment variable: GRAALVM_HOME
+[native-image-plugin] Native Image executable path: /Users/gwhitake/workspace/catnap/.local/graalvm25/graalvm-jdk-25.0.4+7.1/Contents/Home/lib/svm/bin/native-image
+Warning: The option '-H:+SharedArenaSupport' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: Please re-evaluate whether any experimental option is required, and either remove or unlock it. The build output lists all active experimental options, including where they come from and possible alternatives. If you think an experimental option should be considered as stable, please file an issue.
+========================================================================================================================
+GraalVM Native Image: Generating 'micronaut-tests' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                    (5.4s @ 0.30GB)
+ Java version: 25.0.4+7-LTS, vendor version: Oracle GraalVM 25.0.4+7.1
+ Graal compiler: optimization level: b, target machine: armv8.1-a, PGO: off
+ C compiler: cc (apple, arm64, 17.0.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 3 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+ - io.micronaut.core.io.service.ServiceLoaderFeature
+ - org.graalvm.junit.platform.JUnitPlatformFeature
+------------------------------------------------------------------------------------------------------------------------
+ 1 experimental option(s) unlocked:
+ - '-H:+SharedArenaSupport' (origin(s): command line)
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 5.73GB of memory (8.3% of system memory, set via '-Xmx6g')
+ - 4 thread(s) (40.0% of 10 available processor(s), set via '--parallelism=4')
+[junit-platform-native] Running in 'test listener' mode using files matching pattern [junit-platform-unique-ids*] found in folder [/Users/gwhitake/workspace/catnap/examples/micronaut/build/test-results/test/testlist] and its subfolders.
+[2/8] Performing analysis...  [*****]                                                                   (25.9s @ 1.81GB)
+   18,673 types,  25,254 fields, and  93,933 methods found reachable
+    6,222 types,   1,966 fields, and   9,811 methods registered for reflection
+       65 types,      70 fields, and      57 methods registered for JNI access
+        0 downcalls and 0 upcalls registered for foreign access
+        5 native libraries: -framework CoreServices, -framework Foundation, dl, pthread, z
+[3/8] Building universe...                                                                               (4.6s @ 1.89GB)
+[4/8] Parsing methods...      [**]                                                                       (2.5s @ 2.01GB)
+[5/8] Inlining methods...     [****]                                                                     (1.5s @ 2.16GB)
+[6/8] Compiling methods...    [****]                                                                    (15.7s @ 1.86GB)
+[7/8] Laying out methods...   [***]                                                                      (5.9s @ 2.33GB)
+[8/8] Creating image...       [***]                                                                      (5.3s @ 2.66GB)
+  28.13MB (47.28%) for code area:    63,899 compilation units
+  30.54MB (51.33%) for image heap:  435,157 objects and 528 resources
+ 827.70kB ( 1.39%) for other data
+  59.50MB in total image size, 59.50MB in total file size
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  10.48MB java.base                                            8.24MB byte[] for code metadata
+   4.61MB svm.jar (Native Image)                               5.48MB byte[] for java.lang.String
+   1.01MB micronaut-inject-5.2.23.jar                          2.93MB java.lang.Class
+ 942.69kB java.net.http                                        2.70MB java.lang.String
+ 696.43kB reactor-core-3.8.7.jar                               1.94MB com.oracle.svm.core.hub.DynamicHubCompanion
+ 626.03kB micronaut-serde-support-3.2.6.jar                  891.58kB byte[] for reflection metadata
+ 603.66kB netty-buffer-4.2.20.Final.jar                      867.62kB byte[] for general heap data
+ 576.05kB micronaut-http-5.2.23.jar                          612.15kB byte[] for embedded resources
+ 537.20kB netty-common-4.2.20.Final.jar                      603.11kB java.lang.Object[]
+ 508.35kB java.xml                                           543.23kB c.o.svm.core.hub.DynamicHub$ReflectionMetadata
+   7.16MB for 72 more packages                                 5.73MB for 4007 more object types
+                            Use '--emit build-report' to create a report with more details.
+------------------------------------------------------------------------------------------------------------------------
+Security report:
+ - Binary includes Java deserialization.
+ - CycloneDX SBOM with 60 component(s) is embedded in binary (2.64kB). 21 type(s) could not be associated to a component.
+ - Advanced obfuscation not enabled; enable with '-H:AdvancedObfuscation=""' (experimental support).
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ PGO:  Use Profile-Guided Optimizations ('--pgo') for improved throughput.
+ FUTR: Use '--future-defaults=all' to prepare for future releases.
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+------------------------------------------------------------------------------------------------------------------------
+                        5.1s (7.3% of total time) in 960 GCs | Peak RSS: 3.57GB | CPU load: 4.50
+------------------------------------------------------------------------------------------------------------------------
+Build artifacts:
+ /Users/gwhitake/workspace/catnap/examples/micronaut/build/native/nativeTestCompile/micronaut-tests (executable)
+========================================================================================================================
+Finished generating 'micronaut-tests' in 1m 8s.
+[native-image-plugin] Native Image written to: /Users/gwhitake/workspace/catnap/examples/micronaut/build/native/nativeTestCompile
+
+> Task :examples:micronaut:nativeTest
+[junit-platform-native] Running in 'test listener' mode using files matching pattern [junit-platform-unique-ids*] found in folder [/Users/gwhitake/workspace/catnap/examples/micronaut/build/test-results/test/testlist] and its subfolders.
+JUnit Platform on Native Image - report
+----------------------------------------
+
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > full product through the configured serializer SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > blank fields bypass projection SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > product detail card SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > medium images, with predicate fields omitted SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > image format, dimensions, and native field names SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > image membership preserves source order SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > variant boolean and numeric predicates SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > grouped variant alternatives SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > variant membership SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > sold-out variants SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > predicates use serialized names, not Java or Kotlin property names SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > no matching images or variants SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > an existing thumbnail does not become a medium image SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > sold-out product retains an empty projected variant array SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > digital product with no images or variants SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > default first page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > second page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > last partial page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > page beyond the end SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > large page does not overflow SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > maximum page size SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > category filter before pagination SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > second category page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > search and category combine SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > search includes brand SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > search includes tags SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > empty search result SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > unknown category SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > blank business filters SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > nested filters retain products and pagination metadata SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > missing product keeps its error response SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid page -1 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid page one SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid page 1.5 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid page  SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid page 2147483648 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid size 0 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid size 21 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid size lots SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > invalid size  SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > repeated page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > repeated size SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > repeated q SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > repeated category SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > legacy predicate operator rejected SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > incomplete predicate rejected SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > repeated fields rejected SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > documented combined detail filters SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > documented catalog grid SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > third page SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > search includes description SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatalogResponseTest > filteringDoesNotMutateTheCatalog() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > defaultParameterIsIgnoredAfterRenaming() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > malformedPredicatesFailBeforeWriting() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > sseUsesTheConfiguredDialect() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote?select=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote?select=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote?select=payload%28internal%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote-internal SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote-internal?select=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quote?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > quotes?select=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > async?select=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > precise?select=amount SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > status?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > error?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > disabled?select=%28 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5Bdisplay_name%3D%3DACME%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28display_name%29%5Bamount%3D%3D%27EUR%3A12.50%27%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5Bdisplay_name%3Din%3D%28ACME%2COTHER%29%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5BdisplayName%3D%3DACME%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5Binternal%3D%3Dinternal%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5Bignored%3D%3Dnever%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > catalog?select=payload%28amount%29%5Bdisplay_name%3D%3Dmissing%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/ndjson SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/ndjson?select=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/ndjson?select=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/ndjson?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/shapes?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.CatnapResponseTest > stream/empty?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.DisabledProjectionTest > disabledAdapterUsesNativeSerializationEvenWithAnInvalidQuery() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.DisabledProjectionTest > explicitStreamsRemainAvailableAndBoundedWhenProjectionIsDisabled() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FinitePublisherTest > totalDocumentLimitCancelsThePublisherWithoutCommittingOriginalBytes() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FinitePublisherTest > projectsTheCompleteArrayIncludingEmptyArrays() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote?fields=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote?fields=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote?fields=payload%28internal%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote-internal SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote-internal?fields=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quote?fields=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > quotes?fields=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > async?fields=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > precise?fields=amount SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > status?fields=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > error?fields=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > disabled?fields=%28 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5Bdisplay_name%3D%3DACME%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28display_name%29%5Bamount%3D%3D%27EUR%3A12.50%27%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5Bdisplay_name%3Din%3D%28ACME%2COTHER%29%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5BdisplayName%3D%3DACME%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5Binternal%3D%3Dinternal%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5Bignored%3D%3Dnever%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > catalog?fields=payload%28amount%29%5Bdisplay_name%3D%3Dmissing%5D SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > nonJsonAndControlResponsesKeepTheirNativePath() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > malformedJsonAndOversizeResponsesNeverFallBackToOriginalPayload() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.FiniteResponseTest > malformedAndDuplicateQueriesFailBeforeWriting() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > defaultParameterIsIgnoredAfterRenaming() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > sseUsesTheConfiguredDialect() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote?select=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote?select=payload%3A%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote?select=payload%3A%28internal%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote-internal SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote-internal?select=payload%3A%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quote?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > quotes?select=payload%3A%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > async?select=payload%3A%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > precise?select=amount SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > status?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > error?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > disabled?select=%28 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/ndjson SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/ndjson?select=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/ndjson?select=payload%3A%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/ndjson?select=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/shapes?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.LinkedInResponseTest > stream/empty?select=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > invalidEncodedPayloadsNeverEmitOriginalDataWithOrWithoutAQuery() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/ndjson SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/ndjson?fields=+%09 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/ndjson?fields=payload%28amount%2Cinternal%2Cignored%29 SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/ndjson?fields=missing SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/shapes?fields=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > stream/empty?fields=id SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > explicitApplicationErrorEventTerminatesSse() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > responseMetadataTracksTheProjectedRepresentation() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > sseMetadataControlsAndExplicitText() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > controllerOptOutIsRetained() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > ndjson early output and isolation SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > ndjson failures SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > ndjson slow consumer and disconnect SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > sse early output and isolation SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > sse failures SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > sse slow consumer and disconnect SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > splitEncodedRecordsRetainUtf8AndBoundaries() SUCCESSFUL
+
+com.github.gregwhitaker.catnap.examples.micronaut.StreamingResponseTest > invalidQueriesFailBeforeCommitment() SUCCESSFUL
+
+
+Test run finished after 1307 ms
+[        16 containers found      ]
+[         0 containers skipped    ]
+[        16 containers started    ]
+[         0 containers aborted    ]
+[        16 containers successful ]
+[         0 containers failed     ]
+[       152 tests found           ]
+[         0 tests skipped         ]
+[       152 tests started         ]
+[         0 tests aborted         ]
+[       152 tests successful      ]
+[         0 tests failed          ]
+
+
+[Incubating] Problems report is available at: file:///Users/gwhitake/workspace/catnap/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.7.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 13s
+74 actionable tasks: 3 executed, 71 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.7.0/userguide/configuration_cache_enabling.html

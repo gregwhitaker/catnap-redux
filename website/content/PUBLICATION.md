@@ -1,50 +1,12 @@
-# Artifact publication and verification
+# Publishing artifacts
 
-Catnap publishes ordinary JVM libraries under `com.github.gregwhitaker`. The current development version is `3.0.0-SNAPSHOT`. Local verification does not publish a release to a public repository.
+This guide is for maintainers verifying and publishing Catnap artifacts. To add Catnap to an application, use [installation](INSTALLATION.md). Follow the [release checklist](RELEASING.md) to prepare a candidate and track what has actually been verified.
 
-Import the BOM and choose the integration needed by the application:
+## Publication contents
 
-```kotlin
-dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
-    implementation("com.github.gregwhitaker:catnap-jackson3")
-    // Or catnap-spring-boot-starter, catnap-spring-boot-starter-webflux,
-    // catnap-micronaut, catnap-quarkus, or catnap-ktor.
-}
-```
+Catnap publishes under `com.github.gregwhitaker`. The [publication manifest](https://github.com/gregwhitaker/catnap-redux/blob/main/gradle/published-modules.txt) lists 16 libraries and the BOM. The BOM aligns Catnap versions and imports no framework BOM. Examples, benchmarks, and build conventions are not production publications.
 
-For Maven, import `catnap-bom` in `dependencyManagement` with `type=pom` and `scope=import`, then omit versions on individual Catnap dependencies. The BOM constrains exactly the libraries listed in [the publication manifest](../gradle/published-modules.txt). It imports no framework BOM and imposes no unrelated framework versions. Individual adapters declare their own required framework dependencies; an application can use its framework's supported version-management mechanism.
-
-`catnap-testkit` is published for implementors of additional integrations. It packages the conformance fixtures and shared HTTP/streaming contract helpers. Examples and benchmarks are not published as production dependencies. The Quarkus runtime descriptor points to the separately published `catnap-quarkus-deployment` augmentation artifact; applications declare only `catnap-quarkus`.
-
-## Use locally built artifacts
-
-To use the current checkout in another application without GitHub Packages credentials, run this from the Catnap repository root:
-
-```bash
-./gradlew publishVerificationArtifacts
-```
-
-This writes the libraries and BOM to `build/repository`. In your application's `build.gradle.kts`, add that directory as a Maven repository, replacing the absolute path below with the location in your checkout:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven {
-        url = uri("/absolute/path/to/catnap/build/repository")
-        content { includeGroup("com.github.gregwhitaker") }
-    }
-}
-
-dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
-    implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
-}
-```
-
-Choose the [module for your application](../README.md#installation) in place of the MVC starter. If your application centralizes repositories, put the repository declaration in `settings.gradle.kts` under `dependencyResolutionManagement`. The framework's own dependencies still resolve from its normal repositories.
-
-For Maven, add a `<repository>` whose `<url>` is `file:///absolute/path/to/catnap/build/repository`, import `catnap-bom` in `dependencyManagement`, and declare the desired module without a version. The [MVC starter installation guide](../catnap-spring-boot-starter/README.md#install) includes a complete Maven dependency example.
+`catnap-testkit` packages conformance fixtures and shared HTTP/streaming contracts for integration authors. The Quarkus runtime descriptor identifies the separate `catnap-quarkus-deployment` artifact; applications declare only `catnap-quarkus`.
 
 ## Local release verification
 
@@ -68,9 +30,7 @@ Consumers compile all three dialects, evaluate CATNAP predicates through a consu
 
 The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
 
-Local verification on November 16, 2026 passed `build compatibilityTest publicationSmokeTest`: 275 consumer test executions in each metadata mode (550 total), with no failures or skips, plus the main build's test matrix. The modes have separate test inputs so a Gradle-mode result cannot satisfy a POM-mode test from cache.
-
-Verification on November 18, 2026 for the CATNAP dialect and default change passed `build compatibilityTest streamingTest publicationSmokeTest`: 733 consumer test executions in each metadata mode (1,466 total), with no failures, errors, or skips. This is JVM and local-publication evidence; it does not update the earlier timed benchmark or native-image results.
+See the [release checklist](RELEASING.md#verification-status) for the source covered by the latest checks.
 
 ## Source and documentation artifacts
 
@@ -92,7 +52,7 @@ GitHub Packages publication is configured alongside the temporary local reposito
 
 The shared publishing convention registers `GitHubPackages` at `https://maven.pkg.github.com/gregwhitaker/catnap-redux`. The root `publishGitHubPackages` task publishes the same 16 libraries and BOM listed in the manifest, with Maven POMs, Gradle module metadata, binary jars, sources, and API documentation as applicable. Examples, benchmark projects, and build conventions are excluded.
 
-The [Publish GitHub Packages workflow](../.github/workflows/publish.yml) supports two triggers:
+The [Publish GitHub Packages workflow](https://github.com/gregwhitaker/catnap-redux/blob/main/.github/workflows/publish.yml) supports two triggers:
 
 - **GitHub Release:** publish a release with a tag such as `v3.0.0` or `v3.0.0-rc.1`. The workflow removes the optional `v` and supplies that Maven version to both verification and publication. It does not change the development version in `gradle.properties`. Release events reject `-SNAPSHOT` versions.
 - **Manual run:** choose **Actions → Publish GitHub Packages → Run workflow**, select the branch/tag to build, and enter a Maven version such as `3.0.0-SNAPSHOT`. The workflow file must be present on the repository's default branch for manual dispatch to appear.
@@ -101,7 +61,7 @@ Both paths run `build`, `compatibilityTest`, independent Gradle/POM consumers, a
 
 After uploading, separate fresh runners build and test the independent consumers against GitHub Packages in both Gradle-metadata and POM-only modes. These jobs have `packages: read`, disable Gradle cache restoration and test-output caching, and resolve Catnap exclusively from the remote registry. They verify all libraries, BOM alignment, framework applications, and core compatibility on Java 17/21/25. A successful publish step alone is insufficient: both remote-consumption jobs must also pass.
 
-Commit and push the build configuration and workflow to the intended GitHub repository to activate them. This workspace's local checks do not deploy a workflow or publish packages. Existing packages must grant the workflow repository write access. See [GitHub's Gradle registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) and [GitHub Actions publication guidance](https://docs.github.com/en/actions/tutorials/publish-packages/publish-java-packages-with-gradle).
+Existing packages must grant the workflow repository write access. Local verification does not upload packages; publication runs only through the explicit task or workflow described here. See [GitHub's Gradle registry documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry) and [GitHub Actions publication guidance](https://docs.github.com/en/actions/tutorials/publish-packages/publish-java-packages-with-gradle).
 
 For local publication, supply a classic PAT with `write:packages` and access to the destination repository through private Gradle user properties or environment variables:
 
@@ -123,6 +83,12 @@ Keep credentials in your private `~/.gradle/gradle.properties` or a secret-manag
 
 Use a new non-SNAPSHOT version for each release. Maven uploads happen per artifact, so a failed run can leave a partially published set; inspect the failed step and package versions before retrying. Snapshots can be published repeatedly. Timed benchmarks and native-image checks remain separately recorded release evidence rather than work repeated by every snapshot deployment.
 
+## Recorded local verification
+
+Local verification on November 16, 2026 passed `build compatibilityTest publicationSmokeTest`: 275 consumer test executions in each metadata mode (550 total), with no failures or skips, plus the main build's test matrix. The modes have separate test inputs so a Gradle-mode result cannot satisfy a POM-mode test from cache.
+
+Verification on November 18, 2026 for the CATNAP dialect and default change passed `build compatibilityTest streamingTest publicationSmokeTest`: 733 consumer test executions in each metadata mode (1,466 total), with no failures, errors, or skips. This is JVM and local-publication evidence; it does not update the earlier timed benchmark or native-image results.
+
 ## Hosted snapshot verification
 
 On November 16, 2026, [publication run 43980107514](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514) published `3.0.0-SNAPSHOT` from commit `853ef009e0389585eaa5303ed854094c6b1ca66d` to `https://maven.pkg.github.com/gregwhitaker/catnap-redux`. All 16 library publications and the BOM uploaded successfully after the full build, compatibility matrix, local publication consumers, and streaming smoke suite passed.
@@ -134,29 +100,12 @@ Fresh Ubuntu 24.04 runners then consumed the snapshot exclusively from GitHub Pa
 | [Gradle module metadata](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514/job/133700781345) | 275 | 0 / 0 / 0 |
 | [Maven POM only](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514/job/133700781362) | 275 | 0 / 0 / 0 |
 
-The workflow's `github-packages-consumers-gradle` and `github-packages-consumers-pom` artifacts contain the JUnit XML and HTML reports for these 550 remote-consumer test executions. This evidence covers the published development snapshot; signing and native-image verification retain their separately documented scope.
+The workflow's `github-packages-consumers-gradle` and `github-packages-consumers-pom` artifacts contain the JUnit XML and HTML reports for these 550 remote-consumer test executions. This upload predates the CATNAP dialect and catalog examples. It verifies that older snapshot, not the current checkout; a new candidate needs both remote-consumer jobs to pass. Signing and native-image verification retain their separately documented scope.
+
+## Use locally built artifacts
+
+The [local installation instructions](INSTALLATION.md#use-locally-built-artifacts) explain how to publish the checkout to `build/repository` and configure an independent application. They include complete [Gradle](INSTALLATION.md#gradle) and [Maven](INSTALLATION.md#maven) examples.
 
 ## Consume packages from GitHub
 
-GitHub's Maven registry requires authentication even for public packages. Consumers outside the publishing workflow normally use a classic PAT with `read:packages` and access to the repository. Add the registry to the consuming application's repositories, alongside Maven Central:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/gregwhitaker/catnap-redux")
-        credentials {
-            username = providers.gradleProperty("gpr.user")
-                .orElse(providers.environmentVariable("GITHUB_ACTOR")).orNull
-            password = providers.gradleProperty("gpr.key")
-                .orElse(providers.environmentVariable("GITHUB_TOKEN")).orNull
-        }
-        content { includeGroup("com.github.gregwhitaker") }
-    }
-}
-```
-
-For builds that centralize repositories, put the block under `dependencyResolutionManagement` in `settings.gradle.kts`. Then use the BOM and dependencies shown above, substituting a version that has actually been published.
-
-Maven consumers use the same URL in a repository with an ID such as `github`, enable snapshots when using `-SNAPSHOT`, and configure the matching `server` credentials in their private `~/.m2/settings.xml`. Package authentication is separate from the BOM's `dependencyManagement` import.
+See [GitHub Packages installation](INSTALLATION.md#consume-packages-from-github) for the repository declaration and consumer credentials. Choose a published version whose source includes the features needed by the application; the recorded snapshot above predates CATNAP predicates.

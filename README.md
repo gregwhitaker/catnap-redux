@@ -25,7 +25,7 @@ With `?fields=name,price(amount)`, it returns:
 
 Use Catnap with **Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor**, or [directly with a JSON tree](#use-the-library-directly). NDJSON and server-sent events are supported through [streaming helpers](#streaming).
 
-[Quick start](#quick-start) · [Installation](#installation) · [Query syntax](#query-syntax) · [Examples](examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
+[Quick start](#quick-start) · [Installation](#installation) · [Query syntax](#query-syntax) · [Examples](website/content/examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
 
 ## Quick start
 
@@ -63,11 +63,11 @@ curl --get 'http://localhost:8080/api/products/trail-pack-28' \
 {"images":[{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}]}
 ```
 
-The [examples guide](examples/README.md#catalog-workflows) covers product detail, paginated search, and image/variant filtering in every supported framework, with a walkthrough for each app. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
+The [examples guide](website/content/examples/README.md#catalog-workflows) covers product detail, paginated search, and image/variant filtering in every supported framework, with a walkthrough for each app. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
 
 ## Installation
 
-Catnap 3 is currently a development snapshot. To use the code in this checkout in your own application, follow the [local artifact setup](docs/PUBLICATION.md#use-locally-built-artifacts). Published snapshots are also available through [GitHub Packages](docs/PUBLICATION.md#consume-packages-from-github), which requires authentication.
+Catnap 3 is currently a development snapshot. Use the [installation guide](website/content/INSTALLATION.md) to build the current checkout into local artifacts and configure Gradle or Maven. It also explains GitHub Packages authentication and which published snapshot has been verified.
 
 Once your repository is configured, import the Catnap BOM to keep module versions aligned and add the integration for your application. For an existing Spring Boot 4 MVC application, add this to `build.gradle.kts`:
 
@@ -84,13 +84,13 @@ The Spring Boot starters automatically enable `fields` on annotated JSON control
 |---|---|---|
 | Spring Boot MVC | `catnap-spring-boot-starter` | [MVC starter](catnap-spring-boot-starter/README.md) |
 | Spring Boot WebFlux | `catnap-spring-boot-starter-webflux` | [WebFlux starter](catnap-spring-boot-starter-webflux/README.md) |
-| Micronaut | `catnap-micronaut` | [Micronaut](docs/MICRONAUT_INTEGRATION.md) |
-| Quarkus | `catnap-quarkus` | [Quarkus](docs/QUARKUS_INTEGRATION.md) |
-| Ktor | `catnap-ktor` | [Ktor](docs/KTOR_INTEGRATION.md) |
-| Jackson 2 or Jackson 3 | `catnap-jackson2` or `catnap-jackson3` | [JSON bindings](docs/JSON_INTEGRATIONS.md) |
-| Kotlin serialization | `catnap-kotlinx-json` | [Kotlin serialization](docs/JSON_INTEGRATIONS.md#kotlin-serialization) |
+| Micronaut | `catnap-micronaut` | [Micronaut](website/content/MICRONAUT_INTEGRATION.md) |
+| Quarkus | `catnap-quarkus` | [Quarkus](website/content/QUARKUS_INTEGRATION.md) |
+| Ktor | `catnap-ktor` | [Ktor](website/content/KTOR_INTEGRATION.md) |
+| Jackson 2 or Jackson 3 | `catnap-jackson2` or `catnap-jackson3` | [JSON bindings](website/content/JSON_INTEGRATIONS.md) |
+| Kotlin serialization | `catnap-kotlinx-json` | [Kotlin serialization](website/content/JSON_INTEGRATIONS.md#kotlin-serialization) |
 
-The core and general-purpose libraries require **Java 17+**. The Spring starters use **Spring Boot 4 and Jackson 3**; Micronaut requires **Java 25**. See the [compatibility matrix](docs/COMPATIBILITY.md) for supported versions.
+The core and general-purpose libraries require **Java 17+**. The Spring starters use **Spring Boot 4 and Jackson 3**; Micronaut requires **Java 25**. See the [compatibility matrix](website/content/COMPATIBILITY.md) for supported versions.
 
 ## Query syntax
 
@@ -119,7 +119,7 @@ A few rules to know:
 
 Google and LinkedIn dialects remain available: set `catnap.dialect=GOOGLE` for Google-style field selection, or `catnap.dialect=LINKEDIN` for queries such as `price:(amount)`. These dialects do not support array predicates. Ktor also exposes the dialect in its installation DSL.
 
-See the [query reference](docs/QUERY_SPECIFICATION.md) for quoted field names, the complete RSQL predicate subset, comparison rules, and configurable limits.
+See the [query reference](website/content/QUERY_SPECIFICATION.md) for quoted field names, the complete RSQL predicate subset, comparison rules, and configurable limits.
 
 ## Use the library directly
 
@@ -146,13 +146,13 @@ public class ProjectionExample {
 }
 ```
 
-Compile once and reuse the query across documents or threads. Evaluation preserves the input tree. The core API requires an explicit dialect; the HTTP integrations supply their configured default. See [JSON bindings](docs/JSON_INTEGRATIONS.md) for Jackson 2 and Kotlin serialization, or the [core API](docs/CORE_API.md) for custom tree adapters, caching, and limits.
+Compile once and reuse the query across documents or threads. Evaluation preserves the input tree. The core API requires an explicit dialect; the HTTP integrations supply their configured default. See [JSON bindings](website/content/JSON_INTEGRATIONS.md) for Jackson 2 and Kotlin serialization, or the [core API](website/content/CORE_API.md) for custom tree adapters, caching, and limits.
 
 ## Streaming
 
 Use the same queries to select fields within each NDJSON record or JSON payload in a server-sent event. Array predicates filter within a payload; they never drop the enclosing record or event. SSE IDs, event names, and other metadata are preserved.
 
-Streaming endpoints need an explicit framework helper. Start with the [streaming guide](docs/STREAMING.md) and [runnable examples](examples/README.md#stream-responses). The standalone example can also [transform NDJSON from stdin](docs/JSON_INTEGRATIONS.md#standalone-tree-and-ndjson-examples).
+Streaming endpoints need an explicit framework helper. Start with the [streaming guide](website/content/STREAMING.md) and [runnable examples](website/content/examples/README.md#stream-responses). The standalone example can also [transform NDJSON from stdin](website/content/JSON_INTEGRATIONS.md#standalone-tree-and-ndjson-examples).
 
 ## Building from source
 
@@ -162,13 +162,13 @@ Run from the repository root using Java 17+ and the Gradle wrapper (`gradlew.bat
 ./gradlew build compatibilityTest
 ```
 
-The build itself uses a Java 25 daemon; Gradle can provision missing toolchains. This is separate from the library's Java 17 runtime baseline. See [compatibility and toolchain setup](docs/COMPATIBILITY.md) for offline configuration.
+The build itself uses a Java 25 daemon; Gradle can provision missing toolchains. This is separate from the library's Java 17 runtime baseline. See [compatibility and toolchain setup](website/content/COMPATIBILITY.md) for offline configuration.
 
 ## Contributing
 
 When reporting an issue, include the query, input JSON, expected and actual results, and your framework, serializer, and Java versions. For code changes, start with the [contributor guide](AGENTS.md), run the affected module's checks, then run `./gradlew build compatibilityTest` before submitting.
 
-See [extending Catnap](docs/EXTENDING.md) for new integrations, [publication verification](docs/PUBLICATION.md) for consumer checks, and the [changelog](CHANGELOG.md) for recent changes.
+See [extending Catnap](website/content/EXTENDING.md) for new integrations, [publication verification](website/content/PUBLICATION.md) for consumer checks, and the [changelog](CHANGELOG.md) for recent changes.
 
 ## License
 

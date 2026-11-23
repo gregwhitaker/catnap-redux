@@ -91,7 +91,7 @@ Both connections remained open across observed-GC samples after 5, 20, and 60 ac
 | ktor | sse | native | 58,426 | 247,440 | 0 | 0 |
 | ktor | sse | all | 58,289 | 41,896 | 0 | 0 |
 
-All listed retention ranges passed the configured maximum of the larger of 16 MiB or 10% of the minimum sample. The five-framework measurement matrix is complete for this workload. The [requirement audit](../../../RELEASE_AUDIT.md) records the current passing verification alongside the unexplained historical timeout; a passing retention result does not explain that timeout.
+All listed retention ranges passed the configured maximum of the larger of 16 MiB or 10% of the minimum sample. The five-framework measurement matrix is complete for this workload. The [requirement audit](../../../../website/content/RELEASE_AUDIT.md) records the current passing verification alongside the unexplained historical timeout; a passing retention result does not explain that timeout.
 
 The later [Micronaut reentrancy investigation](micronaut-reentrancy/README.md) reproduces the synchronous-source/cleanup interaction and verifies the bounded adapter handoff across all six Catnap stream modes. Micronaut rows above use the refreshed full-duration run. WebFlux [tracing validation](stress-trace-webflux/summary.json) passes all eight protocol/path combinations across 80 boundaries, with per-connection source and native-writer byte counters independently matched to the client. This additional passing run does not explain the original timeout.
 

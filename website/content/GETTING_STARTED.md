@@ -2,13 +2,15 @@
 
 Catnap selects fields from the JSON your application already produces. Start with a working example, then choose a JSON binding or framework adapter for your application.
 
-> **Development version:** This documentation describes `3.0.0-SNAPSHOT`, available from [GitHub Packages with authentication](PUBLICATION.md#consume-packages-from-github). The commands below run directly from a source checkout. The published snapshot is a development build.
+This walkthrough runs from the source checkout. To add Catnap to an existing application, use the [installation guide](INSTALLATION.md).
 
 ## Run your first projection
 
-From the Catnap repository, launch the Spring MVC example:
+Clone the repository and launch the Spring MVC example:
 
 ```bash
+git clone https://github.com/gregwhitaker/catnap-redux.git
+cd catnap-redux
 ./gradlew :examples:spring-boot-mvc:bootRun
 ```
 
@@ -27,7 +29,7 @@ The response is:
 {"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
 ```
 
-Omit `fields` to see the full product, including images, variants, and attributes. Catnap selects from the application's serialized JSON, so naming rules, ignored properties, and active views still apply. All five framework applications expose the same catalog API; their [walkthroughs](../examples/README.md#catalog-workflows) also cover paginated search and variant availability.
+Omit `fields` to see the full product, including images, variants, and attributes. Catnap selects from the application's serialized JSON, so naming rules, ignored properties, and active views still apply. All five framework applications expose the same catalog API; their [walkthroughs](examples/README.md#catalog-workflows) also cover paginated search and variant availability.
 
 ## Choose a query dialect
 
@@ -92,7 +94,7 @@ The repository includes a runnable standalone example:
 
 ## Add an integration
 
-Use the [publication guide](PUBLICATION.md) to build and verify local artifacts or consume a version that has actually been published. The Catnap BOM aligns the library versions:
+Configure the repository using the [installation guide](INSTALLATION.md), then add the binding or framework module your application needs. The Catnap BOM aligns the library versions:
 
 ```kotlin
 dependencies {

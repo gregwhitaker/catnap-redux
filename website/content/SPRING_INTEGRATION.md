@@ -6,17 +6,19 @@ Both adapters implement finite responses and explicit NDJSON/SSE helpers. MVC su
 
 ## Choose a starter
 
-For complete product-detail, paginated-search, and image/variant filtering workflows, start with the [MVC catalog walkthrough](../examples/spring-boot-mvc/README.md) or [WebFlux catalog walkthrough](../examples/spring-boot-webflux/README.md). Both use the same seed data and real HTTP catalog contract, with framework-native controllers and models.
+For complete product-detail, paginated-search, and image/variant filtering workflows, start with the [MVC catalog walkthrough](examples/spring-boot-mvc/README.md) or [WebFlux catalog walkthrough](examples/spring-boot-webflux/README.md). Both use the same seed data and real HTTP catalog contract, with framework-native controllers and models.
 
-Inside this repository, use one of these project dependencies:
+Configure a repository using the [installation guide](INSTALLATION.md), then choose the starter for your application:
 
 ```kotlin
-implementation(project(":catnap-spring-boot-starter")) // MVC
-// or
-implementation(project(":catnap-spring-boot-starter-webflux"))
+dependencies {
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation("com.github.gregwhitaker:catnap-spring-boot-starter") // MVC
+    // For WebFlux, use catnap-spring-boot-starter-webflux instead.
+}
 ```
 
-The corresponding publication coordinates are `com.github.gregwhitaker:catnap-spring-boot-starter:3.0.0-SNAPSHOT` and `com.github.gregwhitaker:catnap-spring-boot-starter-webflux:3.0.0-SNAPSHOT`. Both are verified through independent Gradle metadata and Maven POM consumers. Follow the [installation instructions](../README.md#installation) to build local artifacts, or the [publication guide](PUBLICATION.md) to consume a version available in GitHub Packages.
+The [MVC starter](https://github.com/gregwhitaker/catnap-redux/blob/main/catnap-spring-boot-starter/README.md#install) and [WebFlux starter](https://github.com/gregwhitaker/catnap-redux/blob/main/catnap-spring-boot-starter-webflux/README.md#install) READMEs include Maven examples. The starters register the matching adapter automatically in a Boot application.
 
 MVC does not acquire WebFlux or Reactor through Catnap. WebFlux does not acquire MVC or the Servlet API. Auto-configuration references adapter modules optionally and activates the matching web application type. Dependency-boundary checks run as part of `check`.
 
@@ -49,7 +51,7 @@ Boot configuration metadata is generated for these properties:
 | `catnap.cache-capacity` | `256` | Maximum compiled queries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` | Maximum finite document or individual stream payload, and projected output |
 
-The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on `/catnap/catalog`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. For example:
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `images(url)[size==medium]` on `/api/products/trail-pack-28`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. For example:
 
 ```properties
 catnap.parameter=select

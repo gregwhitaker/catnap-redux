@@ -83,7 +83,7 @@ Cache access is synchronized; compilation happens outside the lock. Concurrent m
 
 ## Verification
 
-The core executes all 178 projection query variants, 79 syntax-error cases, and 26 logical stream variants from the shared corpus. Tests also cover immutable ASTs, two-way source/result mutation isolation, precision, field/array ordering, concurrent query/cache reuse, eviction and cache keys, adapter failures, limit boundaries, maximum supported nesting, and deterministic malformed-input generation.
+The core executes the shared corpus's projection, syntax-error, and logical-stream cases for each applicable dialect. Tests also cover immutable ASTs, two-way source/result mutation isolation, precision, field/array ordering, concurrent query/cache reuse, eviction and cache keys, adapter failures, limit boundaries, maximum supported nesting, and deterministic malformed-input generation.
 
 ```bash
 ./gradlew :catnap-core:test

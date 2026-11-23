@@ -1,6 +1,6 @@
 # Catnap query and projection contract, version 1
 
-This is the normative query and projection contract implemented by Catnap's core, native JSON bindings, and framework adapters. The [examples](../examples/README.md) exercise it through the `/catnap/*` endpoints.
+This is the normative query and projection contract implemented by Catnap's core, native JSON bindings, and framework adapters. The [catalog walkthroughs](examples/README.md#catalog-workflows) demonstrate field selection and predicates through `/api/products`; the `/catnap/*` endpoints cover serializer and streaming contracts.
 
 ## Dialects and compatibility
 
@@ -183,4 +183,4 @@ Before headers, query errors fail the request. After commitment, parsing/seriali
 
 ## Conformance resources
 
-The [version 1 corpus](../catnap-testkit/src/main/resources/com/github/gregwhitaker/catnap/conformance/v1/README.md) supplies independent expected results for all three profiles, exact syntax diagnostics, HTTP bypass cases, and logical NDJSON/SSE cases. Testkit checks corpus integrity; the core executes every projection, syntax-error, and logical-stream query variant. Native JSON bindings reuse the successful projection and logical-stream cases. Shared HTTP services and framework suites verify request binding and real transport behavior, including the [testkit's wire and lifecycle contracts](../catnap-testkit/README.md).
+The [version 1 corpus](https://github.com/gregwhitaker/catnap-redux/blob/main/catnap-testkit/src/main/resources/com/github/gregwhitaker/catnap/conformance/v1/README.md) supplies independent expected results for all three profiles, exact syntax diagnostics, HTTP bypass cases, and logical NDJSON/SSE cases. Testkit checks corpus integrity; the core executes every projection, syntax-error, and logical-stream query variant. Native JSON bindings reuse the successful projection and logical-stream cases. Shared HTTP services and framework suites verify request binding and real transport behavior, including the [testkit's wire and lifecycle contracts](https://github.com/gregwhitaker/catnap-redux/blob/main/catnap-testkit/README.md).

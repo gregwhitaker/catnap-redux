@@ -25,7 +25,7 @@ Primary source artifacts: [Micronaut HTTP server Netty 5.2.23](https://repo.mave
 
 `CatnapMicronautStreams` now hands off prepared records/events through `publishOn(Schedulers.parallel(), true, 1)`. Demand returns to Micronaut before the next native write callback. The helper can hold one prepared item in addition to the current delivery, preserves ordered terminal signals, and propagates cancellation. It does not create an unbounded item queue or make blocking serializers safe. Reactor context and the explicitly captured serializer/type/view remain attached. The shared scheduler is framework infrastructure, not a per-response executor.
 
-Unit tests cover bounded preparation, cancellation during a pending downstream callback, context, overflow cleanup, signal order, and response ownership. The example HTTP suite also passes. See the [integration guide](../../../../MICRONAUT_INTEGRATION.md) for the updated execution contract.
+Unit tests cover bounded preparation, cancellation during a pending downstream callback, context, overflow cleanup, signal order, and response ownership. The example HTTP suite also passes. See the [integration guide](../../../../../website/content/MICRONAUT_INTEGRATION.md) for the updated execution contract.
 
 ## Post-change stress results
 

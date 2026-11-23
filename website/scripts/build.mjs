@@ -1,13 +1,12 @@
-import { readFile, writeFile, mkdir, rm, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm, copyFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
-import { groups, pages, examples } from '../src/config.mjs';
+import { groups, pages, examples, version } from '../src/config.mjs';
 import { icon } from '../src/icons.mjs';
 
 export const websiteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-export const repositoryRoot = path.resolve(websiteRoot, '..');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
 export function normalizeBasePath(value = '/') {
@@ -37,9 +36,12 @@ export async function buildSite(options = {}) {
   const sourceUrl = (source, mode = 'blob') => `${github}/${mode}/${encodeURIComponent(ref)}/${source.split('/').map(encodeURIComponent).join('/')}`;
   const url = slug => `${base}${slug ? `${slug}/` : ''}`;
   const asset = name => `${base}assets/${name}`;
-  const properties = await readFile(path.join(repositoryRoot, 'gradle.properties'), 'utf8');
-  const version = properties.match(/^version=(.+)$/m)?.[1]?.trim();
-  if (!version) throw new Error('Missing Catnap version in gradle.properties.');
+  if (!version) throw new Error('Missing Catnap version in src/config.mjs.');
+  for (const page of pages) {
+    if (page.source && (!page.source.startsWith('content/') || path.posix.normalize(page.source) !== page.source)) {
+      throw new Error(`Page source must be inside website/content/: ${page.source}`);
+    }
+  }
   const sourcePages = new Map(pages.filter(page => page.source).map(page => [page.source, page]));
   const search = [];
   const markdown = new MarkdownIt({ html: false, linkify: true, typographer: true });
@@ -48,14 +50,13 @@ export async function buildSite(options = {}) {
     if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(href)) return href;
     const match = href.match(/^([^?#]*)(\?[^#]*)?(#.*)?$/);
     const target = path.posix.normalize(path.posix.join(path.posix.dirname(source), decodeURIComponent(match[1])));
-    if (target.startsWith('../') || path.isAbsolute(target)) throw new Error(`Link outside repository in ${source}: ${href}`);
+    if (target === '..' || target.startsWith('../') || path.isAbsolute(target)) throw new Error(`Link outside website in ${source}: ${href}; use an explicit repository URL.`);
     const page = sourcePages.get(target);
     if (page) return `${url(page.slug)}${match[2] || ''}${match[3] || ''}`;
-    // Keep the repository's reports, source files, and archives at their canonical source.
-    const { stat } = await import('node:fs/promises');
-    const entry = await stat(path.join(repositoryRoot, target)).catch(() => null);
+    // Unregistered website files remain browsable on GitHub without reading the parent repository.
+    const entry = await stat(path.join(websiteRoot, target)).catch(() => null);
     if (!entry) throw new Error(`Broken source link in ${source}: ${href}`);
-    return `${sourceUrl(target, entry.isDirectory() ? 'tree' : 'blob')}${match[2] || ''}${match[3] || ''}`;
+    return `${sourceUrl(`website/${target}`, entry.isDirectory() ? 'tree' : 'blob')}${match[2] || ''}${match[3] || ''}`;
   }
 
   markdown.renderer.rules.fence = (tokens, index) => {
@@ -70,7 +71,7 @@ export async function buildSite(options = {}) {
   markdown.renderer.rules.table_close = () => '</table></div>';
 
   async function renderDocument(page) {
-    const content = await readFile(path.join(repositoryRoot, page.source), 'utf8');
+    const content = await readFile(path.join(websiteRoot, page.source), 'utf8');
     const tokens = markdown.parse(content, {});
     const toc = [];
     const usedIds = new Map();
@@ -156,11 +157,11 @@ export async function buildSite(options = {}) {
       <button class="icon-button menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-navigation" aria-expanded="false">${icon('menu')}</button>
     </div>
   </header>
-  <aside class="sidebar"><a class="version" href="${url('release-audit')}"><span class="status-dot"></span>${escape(version)}<span class="version-caption">Development</span></a>${navigation(page.slug)}<div class="sidebar-footer">Small responses. Rest easy.</div></aside>
+  <aside class="sidebar"><a class="version" href="${url('releasing')}"><span class="status-dot"></span>${escape(version)}<span class="version-caption">Development</span></a>${navigation(page.slug)}<div class="sidebar-footer">Small responses. Rest easy.</div></aside>
   <dialog id="mobile-navigation" class="mobile-navigation" aria-label="Documentation navigation"><div class="mobile-nav-heading"><strong>Documentation</strong><button class="icon-button close-menu" type="button" aria-label="Close navigation">${icon('close')}</button></div>${navigation(page.slug)}</dialog>
   <div class="page-layout ${page.slug === '' ? 'home-layout' : ''}">
     <main id="main" tabindex="-1">${content}<footer class="page-footer"><span>Catnap · Apache 2.0</span><a href="${sourceUrl('LICENSE.txt')}">License ${icon('external')}</a><a href="${github}">Source ${icon('external')}</a></footer></main>
-    ${toc.length ? `<aside class="toc"><nav aria-label="On this page"><h2>On this page</h2>${toc.map(item => `<a href="#${escape(item.id)}">${escape(item.title)}</a>`).join('')}</nav><div class="toc-help"><span>Improve these docs</span><a href="${sourceUrl(page.source, 'edit')}">Edit on GitHub ${icon('external')}</a></div></aside>` : ''}
+    ${toc.length ? `<aside class="toc"><nav aria-label="On this page"><h2>On this page</h2>${toc.map(item => `<a href="#${escape(item.id)}">${escape(item.title)}</a>`).join('')}</nav><div class="toc-help"><span>Improve these docs</span><a href="${sourceUrl(`website/${page.source}`, 'edit')}">Edit on GitHub ${icon('external')}</a></div></aside>` : ''}
   </div>
   <dialog class="search-dialog" aria-labelledby="search-title"><div class="search-bar">${icon('search')}<label id="search-title" class="sr-only" for="search-input">Search documentation</label><input id="search-input" type="search" placeholder="Search documentation..." autocomplete="off" spellcheck="false" aria-controls="search-results"><button class="close-search" type="button" aria-label="Close search"><kbd>Esc</kbd></button></div><div id="search-results" class="search-results"></div><div class="search-footer"><span id="search-status" role="status" aria-live="polite">Search guides, concepts, and reference.</span><span><kbd>↑</kbd><kbd>↓</kbd> navigate <kbd>↵</kbd> open</span></div></dialog>
   <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
@@ -194,7 +195,7 @@ export async function buildSite(options = {}) {
     copyFile(path.join(websiteRoot, 'src/styles.css'), path.join(output, 'assets/styles.css')),
     copyFile(path.join(websiteRoot, 'src/app.js'), path.join(output, 'assets/app.js')),
     copyFile(path.join(websiteRoot, 'src/search.mjs'), path.join(output, 'assets/search.mjs')),
-    copyFile(path.join(repositoryRoot, 'brand/logos/colorways/catnap-slate-graphite.png'), path.join(output, 'assets/logo.png')),
+    copyFile(path.join(websiteRoot, 'assets/logo.png'), path.join(output, 'assets/logo.png')),
     writeFile(path.join(output, '.nojekyll'), ''),
   ]);
   for (const [index, page] of pages.entries()) {
@@ -208,7 +209,7 @@ export async function buildSite(options = {}) {
       toc = rendered.toc;
       const previous = pages[index - 1];
       const next = pages[index + 1];
-      content = `<article class="doc-content"><div class="breadcrumb"><a href="${url('')}">Docs</a><span>/</span>${escape(page.group)}</div><header class="doc-heading"><h1>${escape(page.title)}</h1><p>${escape(page.description)}</p></header><div class="prose">${rendered.html}</div><div class="edit-link"><a href="${sourceUrl(page.source, 'edit')}">Edit this page on GitHub ${icon('external')}</a></div><nav class="page-pagination" aria-label="Previous and next pages">${previous ? `<a class="previous" href="${url(previous.slug)}"><small>Previous</small><span>← ${escape(previous.title)}</span></a>` : '<span></span>'}${next ? `<a class="next" href="${url(next.slug)}"><small>Next</small><span>${escape(next.title)} →</span></a>` : ''}</nav></article>`;
+      content = `<article class="doc-content"><div class="breadcrumb"><a href="${url('')}">Docs</a><span>/</span>${escape(page.group)}</div><header class="doc-heading"><h1>${escape(page.title)}</h1><p>${escape(page.description)}</p></header><div class="prose">${rendered.html}</div><div class="edit-link"><a href="${sourceUrl(`website/${page.source}`, 'edit')}">Edit this page on GitHub ${icon('external')}</a></div><nav class="page-pagination" aria-label="Previous and next pages">${previous ? `<a class="previous" href="${url(previous.slug)}"><small>Previous</small><span>← ${escape(previous.title)}</span></a>` : '<span></span>'}${next ? `<a class="next" href="${url(next.slug)}"><small>Next</small><span>${escape(next.title)} →</span></a>` : ''}</nav></article>`;
     }
     const directory = path.join(output, page.slug);
     await mkdir(directory, { recursive: true });

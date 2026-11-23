@@ -1,18 +1,21 @@
 # Ktor integration
 
-The [Ktor catalog walkthrough](../examples/ktor/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, Kotlin serialization, and real HTTP tests.
+The [Ktor catalog walkthrough](examples/ktor/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, Kotlin serialization, and real HTTP tests.
 
 `catnap-ktor` provides the `Catnap` plugin for Ktor 3.6.1 on Java 17. It runs after the application's selected `ContentNegotiation` converter has rendered a response, and before content encoding and transport commitment. JSON conversion retains the application's serializers, naming rules, contextual serializers, and declared generic type.
 
 ## Installation
 
-Inside this repository:
+Configure a repository using the [installation guide](INSTALLATION.md), then add the plugin:
 
 ```kotlin
-implementation(project(":catnap-ktor"))
+dependencies {
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation("com.github.gregwhitaker:catnap-ktor")
+}
 ```
 
-The publication coordinate is `com.github.gregwhitaker:catnap-ktor:3.0.0-SNAPSHOT`. Independent Gradle metadata and Maven POM consumers verify the published artifact locally. Follow the [installation instructions](../README.md#installation) to build local artifacts, or the [publication guide](PUBLICATION.md) to consume a version available in GitHub Packages.
+Keep the application's normal Ktor and Kotlin serialization dependencies and configuration.
 
 Install the application's serializer normally, then install Catnap on the routing root:
 
@@ -49,7 +52,7 @@ The native `catnap` configuration section and the installation DSL expose the sa
 | `catnap.cache-capacity` | `cacheCapacity` | `256`; zero disables caching |
 | `catnap.max-payload-bytes` | `maxPayloadBytes` | `1048576` |
 
-The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. Programmatic configuration can likewise set `dialect = QueryDialect.GOOGLE` or `dialect = QueryDialect.LINKEDIN`.
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `images(url)[size==medium]` on `/api/products/trail-pack-28`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates. Programmatic configuration can likewise set `dialect = QueryDialect.GOOGLE` or `dialect = QueryDialect.LINKEDIN`.
 
 For example:
 

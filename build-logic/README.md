@@ -32,7 +32,7 @@ The JVM convention sets Java 17 as the default compilation baseline, checks prod
 
 ## Publication and benchmarks
 
-The publishing convention supports both Java libraries and a `java-platform` applied before it. Kotlin libraries use Dokka HTML in their `javadoc` classifier; Java libraries use standard Javadoc. See [publication verification](../docs/PUBLICATION.md).
+The publishing convention supports both Java libraries and a `java-platform` applied before it. Kotlin libraries use Dokka HTML in their `javadoc` classifier; Java libraries use standard Javadoc. See [publication verification](../website/content/PUBLICATION.md).
 
 The Kotlin convention retains Java's `sourcesJar`, which includes Kotlin sources, and disables the pinned Kotlin plugin's competing writer. Its sources variant publishes one artifact; publication verification checks documentation artifact counts, sizes, and SHA-256 hashes.
 

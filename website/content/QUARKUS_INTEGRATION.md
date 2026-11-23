@@ -1,18 +1,21 @@
 # Quarkus integration
 
-The [Quarkus catalog walkthrough](../examples/quarkus/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, CDI services, Mutiny responses, and real HTTP tests.
+The [Quarkus catalog walkthrough](examples/quarkus/README.md) covers product detail, paginated search, and image/variant filtering with seeded data, CDI services, Mutiny responses, and real HTTP tests.
 
 `catnap-quarkus` is a Quarkus REST extension for JSON projection. Its runtime and augmentation code are separate Gradle projects in `catnap-quarkus/runtime` and `catnap-quarkus/deployment`. The verified framework baseline is Quarkus 3.40.1.2 with Jackson 2.21.8 and Java 17.
 
 ## Installation and endpoints
 
-Inside this repository:
+Configure a repository using the [installation guide](INSTALLATION.md), then add the runtime extension:
 
 ```kotlin
-implementation(project(":catnap-quarkus"))
+dependencies {
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation("com.github.gregwhitaker:catnap-quarkus")
+}
 ```
 
-The publication coordinates are `com.github.gregwhitaker:catnap-quarkus:3.0.0-SNAPSHOT` and `com.github.gregwhitaker:catnap-quarkus-deployment:3.0.0-SNAPSHOT`. Applications depend on the runtime artifact; its extension descriptor identifies the augmentation artifact. Independent Gradle metadata and Maven POM consumers verify both artifacts and their registration metadata. Follow the [installation instructions](../README.md#installation) to build local artifacts, or the [publication guide](PUBLICATION.md) to consume a version available in GitHub Packages.
+Its extension descriptor identifies `catnap-quarkus-deployment` for augmentation. Applications declare only the runtime artifact; augmentation code stays outside runtime dependencies.
 
 The extension registers request and response filters during augmentation. Resource methods return ordinary objects, lists, `Response` values, or asynchronous single results such as `Uni<T>`. Start the example:
 
@@ -41,7 +44,7 @@ Quarkus maps the following runtime properties through `CatnapConfig`:
 | `catnap.cache-capacity` | `256` entries; zero disables caching |
 | `catnap.max-payload-bytes` | `1048576` |
 
-The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `payload(amount)[display_name==ACME]` on the `/catnap/catalog` example. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
+The default `CATNAP` dialect supports [RSQL-subset array predicates](QUERY_SPECIFICATION.md#catnap-array-predicates), such as `images(url)[size==medium]` on `/api/products/trail-pack-28`. Set `catnap.dialect=GOOGLE` or `catnap.dialect=LINKEDIN` to use either field-selection profile without predicates.
 
 For LinkedIn syntax and a different parameter:
 

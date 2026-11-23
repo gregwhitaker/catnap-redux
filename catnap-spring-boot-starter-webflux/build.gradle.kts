@@ -4,7 +4,7 @@ tasks.named<Jar>("sourcesJar") { from("README.md") }
 
 tasks.named<Jar>("javadocJar") {
     from("publication-docs")
-    from(rootProject.file("docs/SPRING_INTEGRATION.md"))
+    from(rootProject.file("website/content/SPRING_INTEGRATION.md"))
 }
 
 dependencies {

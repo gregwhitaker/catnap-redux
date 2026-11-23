@@ -121,7 +121,7 @@ curl --get 'http://localhost:8080/api/products/gift-card' \
 {"id":"gift-card","images":[],"variants":[]}
 ```
 
-Array predicates are part of the default `CATNAP` dialect. Set `dialect = QueryDialect.GOOGLE` or `dialect = QueryDialect.LINKEDIN` in `exampleModule { ... }` (the Catnap configuration lambda) to opt into the other dialects. Import `com.github.gregwhitaker.catnap.core.QueryDialect`. Google and LinkedIn support field selection, without array predicates. See the [query specification](../../docs/QUERY_SPECIFICATION.md#catnap-array-predicates) for the supported RSQL subset.
+Array predicates are part of the default `CATNAP` dialect. Set `dialect = QueryDialect.GOOGLE` or `dialect = QueryDialect.LINKEDIN` in `exampleModule { ... }` (the Catnap configuration lambda) to opt into the other dialects. Import `com.github.gregwhitaker.catnap.core.QueryDialect`. Google and LinkedIn support field selection, without array predicates. See the [query specification](../../website/content/QUERY_SPECIFICATION.md#catnap-array-predicates) for the supported RSQL subset.
 
 ## Seed data and errors
 
@@ -167,4 +167,4 @@ The sample repository is an in-memory snapshot. In an application backed by a da
 
 The shared [catalog contract](../../catnap-testkit/src/main/java/com/github/gregwhitaker/catnap/testkit/probe/CatalogResponseContract.java) checks detail responses, stable pagination, search combinations, native serialized names, array predicates, empty matches, invalid requests, and reuse of the original data after projection. Independent Gradle-metadata and Maven-POM consumers run these same tests through `./gradlew publicationSmokeTest`.
 
-The existing `/catnap/*` routes remain available for serializer, query-dialect, and streaming examples. See [all examples](../README.md) and the [Ktor integration guide](../../docs/KTOR_INTEGRATION.md) for those contracts and integration configuration.
+The existing `/catnap/*` routes remain available for serializer, query-dialect, and streaming examples. See [all examples](../../website/content/examples/README.md) and the [Ktor integration guide](../../website/content/KTOR_INTEGRATION.md) for those contracts and integration configuration.
