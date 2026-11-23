@@ -2,7 +2,7 @@
 
 Add the Catnap integration for your framework, or a JSON binding for standalone use. Import the Catnap BOM to keep its modules on the same version. The [compatibility matrix](COMPATIBILITY.md) lists the tested framework and serializer versions; general-purpose libraries require Java 17+, and Micronaut requires Java 25.
 
-These guides describe the `3.0.0-SNAPSHOT` source checkout. **Build local artifacts to use the current CATNAP dialect and catalog examples.** The recorded GitHub Packages snapshot was published on November 16, before those changes. A shared snapshot version does not mean that a published artifact matches this checkout. See the [release status](RELEASING.md#verification-status) for the verified source versions.
+These guides describe the `3.0.0-SNAPSHOT` source checkout. **Build local artifacts to use the current CATNAP dialect and catalog examples.** The recorded GitHub Packages snapshot was published on November 16, before those changes. A shared snapshot version does not mean that a published artifact matches this checkout. See the [hosted snapshot verification](PUBLICATION.md#hosted-snapshot-verification) for that publication's source revision and CI results.
 
 To try Catnap before adding a dependency, follow the [quickstart](GETTING_STARTED.md); it runs directly from source.
 

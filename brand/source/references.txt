@@ -4,9 +4,9 @@ Prepared November 15, 2026
 PROJECT FACTS
 README.md
   Project category, scope and current implementation status.
-docs/QUERY_SPECIFICATION.md
+website/content/QUERY_SPECIFICATION.md
   Google-style name,price(amount) selection and projection behavior.
-docs/CORE_API.md
+website/content/CORE_API.md
   Reusable compiled selections, materialized JSON and adapter boundaries.
 Paths above are relative to the Catnap project repository.
 

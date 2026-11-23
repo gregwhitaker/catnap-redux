@@ -1,1 +1,0 @@
-2026-11-16T12:25:13.221-06:00  WARN 99741 --- [ctor-http-nio-2] reactor.netty.channel.FluxReceive        : [d8fc503d-3, L:/127.0.0.1:65495 - R:/127.0.0.1:65522] An exception has been observed post termination, use DEBUG level to see the full stack: java.net.SocketException: Connection reset

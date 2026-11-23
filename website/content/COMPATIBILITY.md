@@ -1,6 +1,6 @@
 # Compatibility and verification scope
 
-This matrix describes the framework, serializer, and Java combinations used by the Catnap 3 source checkout. For dependency setup and artifact availability, see [installation](INSTALLATION.md). The [release checklist](RELEASING.md#verification-status) identifies the source covered by each verification record.
+This matrix describes the framework, serializer, and Java combinations used by the Catnap 3 source checkout. For dependency setup and artifact availability, see [installation](INSTALLATION.md). The [release checklist](RELEASING.md) explains how to verify a candidate and retain its results in CI artifacts.
 
 ## Java and build tooling
 
@@ -12,7 +12,7 @@ This matrix describes the framework, serializer, and Java combinations used by t
 | Kotlin integration code | JVM target 17 | Kotlin toolchain/target checks, binding tests, Ktor HTTP tests |
 | Streaming measurement processes | Java 25 | Separate client/server JVMs; this measurement choice does not raise the other libraries' minimum runtime |
 
-The local core compatibility reports explicitly recorded Java `17.0.9+8-LTS`, `21.0.13+11-LTS`, and `25.0.5+10-LTS`. Those are the runtimes used for verification, not a requirement to use those particular patch versions. The Gradle 9.7.0 build still reports deprecations from its pinned tooling; Gradle 10 compatibility is not claimed.
+The core compatibility tasks exercise Java 17, 21, and 25. Consult the results for a particular run to identify its exact JDK patch versions. The Gradle 9.7.0 build still reports deprecations from its pinned tooling; Gradle 10 compatibility is not claimed.
 
 The main framework test suites use their module toolchains: Java 17 for MVC, WebFlux, Quarkus, and Ktor, and Java 25 for Micronaut. The separate Java 25 streaming jobs exercise the stated streaming workload; they do not substitute for running each framework's entire test suite on every supported JDK.
 
@@ -51,10 +51,10 @@ Google and LinkedIn implement the documented [version 1 field-selection profiles
 
 Finite responses materialize one document. NDJSON and SSE materialize one logical record or JSON payload at a time, preserve record/event count, and retain the framework's transport lifecycle. Source trees are preserved; mutable result containers are isolated. SSE replay storage and reconnection policy belong to the application.
 
-The shared wire/lifecycle suites cover early delivery, configured dialects and serialization, metadata, slow consumers, disconnects, and failures before/after commitment. Default CATNAP predicates and explicit dialect overrides are tested across all five frameworks, with configured-serializer finite HTTP tests and array-filtering NDJSON tests in MVC. Sustained HTTP evidence and the recorded stress investigations are tracked separately in [the performance guide](PERFORMANCE.md).
+The shared wire/lifecycle suites cover early delivery, configured dialects and serialization, metadata, slow consumers, disconnects, and failures before/after commitment. Default CATNAP predicates and explicit dialect overrides are tested across all five frameworks, with configured-serializer finite HTTP tests and array-filtering NDJSON tests in MVC. See [the performance guide](PERFORMANCE.md) for sustained HTTP measurement guidance.
 
 ## Native images and hosted CI
 
-The November 19 [native-image checks](NATIVE_IMAGES.md) pass for Quarkus and Micronaut on macOS 15.7.4/aarch64 with Oracle GraalVM 25.0.4+7.1: 160 Quarkus HTTP tests against an external native server and 152 Micronaut tests compiled with the application into a native executable. Both suites verify the CATNAP default, array predicates, and all 52 catalog cases. [Reports, compiler details, executable hashes, and source identity](https://github.com/gregwhitaker/catnap-redux/blob/main/docs/native/2026-11-19/README.md) accompany the results. Application DTOs and custom serializers still need their framework's reachability metadata. These checks do not establish native-image execution for Spring MVC, WebFlux, Ktor, or untested operating systems.
+The [native-image suites](NATIVE_IMAGES.md) exercise Quarkus HTTP contracts against an external native server and compile Micronaut's tests with its application into a native executable. Both include the CATNAP default, array predicates, and catalog cases. Application DTOs and custom serializers still need their framework's reachability metadata. Check the source revision and environment in the corresponding run before making a native-support claim. These suites do not establish native-image execution for Spring MVC, WebFlux, Ktor, or untested operating systems.
 
-The [November 19 hosted Build](https://github.com/gregwhitaker/catnap-redux/actions/runs/44620469016) passed on Ubuntu 24.04 at commit `62eaeb0f7e262e3a4a9f34de55617dae4c80a6eb`, including the full build, core compatibility matrix, independent local publication consumers, and five-framework streaming smoke suite. The [remote snapshot verification](PUBLICATION.md#hosted-snapshot-verification) covers an older November 16 upload that predates CATNAP. Hosted JVM checks do not establish native Linux execution; timed benchmarks also retain their separately recorded scope.
+The [Build workflow](https://github.com/gregwhitaker/catnap-redux/blob/main/.github/workflows/ci.yml) runs the full build, core compatibility matrix, independent local publication consumers, and five-framework streaming smoke suite on Ubuntu 24.04. Native execution and timed benchmarks are separate manual jobs. Reports and measurements are uploaded as CI artifacts; a passing JVM job does not establish native execution or performance. [Remote publication checks](PUBLICATION.md#publish-to-github-packages) additionally verify consumption from GitHub Packages.

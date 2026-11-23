@@ -74,4 +74,4 @@ Development version: `3.0.0-SNAPSHOT`.
 
 See the [migration guide](website/content/MIGRATION.md) for upgrade steps, the
 [compatibility matrix](website/content/COMPATIBILITY.md) for tested combinations, and the
-[release audit](website/content/RELEASE_AUDIT.md) for verification scope and known limitations.
+[release checklist](website/content/RELEASING.md) for verification and publication steps.

@@ -24,7 +24,12 @@ out/
 !.env.example
 !.env.template
 
-# Runtime diagnostics (archived reports under docs/ remain trackable)
+# Generated verification archives belong in build/ or CI artifacts
+/docs/native/
+/docs/benchmarks/
+/docs/verification/
+
+# Runtime diagnostics
 /*.log
 *.hprof
 hs_err_pid*

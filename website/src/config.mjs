@@ -43,7 +43,7 @@ export const groups = [
     pages: [
       { slug: 'compatibility', title: 'Compatibility', source: 'content/COMPATIBILITY.md', description: 'Tested Java runtimes, frameworks, JSON libraries, and support boundaries.' },
       { slug: 'migration', title: 'Migrating from v2', source: 'content/MIGRATION.md', description: 'Move from Catnap 2 to the new JVM API and query contract.' },
-      { slug: 'performance', title: 'Performance', source: 'content/PERFORMANCE.md', description: 'Operating limits, JMH baselines, and framework streaming measurements.' },
+      { slug: 'performance', title: 'Performance', source: 'content/PERFORMANCE.md', description: 'Operating limits and how to measure projection and streaming workloads.' },
       { slug: 'native-images', title: 'Native images', source: 'content/NATIVE_IMAGES.md', description: 'GraalVM verification for the Quarkus and Micronaut examples.' },
     ],
   },
@@ -52,8 +52,7 @@ export const groups = [
     pages: [
       { slug: 'extending', title: 'Extending Catnap', source: 'content/EXTENDING.md', description: 'Implement and verify your own JSON binding or framework adapter.' },
       { slug: 'publication', title: 'Publishing artifacts', source: 'content/PUBLICATION.md', description: 'Verify and publish libraries, the BOM, and API documentation.' },
-      { slug: 'releasing', title: 'Release checklist', source: 'content/RELEASING.md', description: 'Current verification status and the steps to prepare, publish, and verify a release.' },
-      { slug: 'release-audit', title: 'Historical audit', source: 'content/RELEASE_AUDIT.md', description: 'The November 16 requirement audit, preserved with its original source scope.' },
+      { slug: 'releasing', title: 'Release checklist', source: 'content/RELEASING.md', description: 'Prepare a candidate, run verification, and publish a release.' },
     ],
   },
 ];

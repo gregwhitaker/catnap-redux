@@ -28,9 +28,9 @@ The copied examples intentionally reuse the shared contract tests. Their Catnap 
 
 Consumers compile all three dialects, evaluate CATNAP predicates through a consumer-owned tree adapter and all three published JSON bindings, and read the predicate corpus from the published testkit JAR. They also verify that the published HTTP defaults enable CATNAP predicates and that the example applications accept predicates without a dialect override. Google and LinkedIn remain explicit options.
 
-The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
+The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Their separate test inputs prevent a Gradle-mode result from satisfying a POM-mode test from cache. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
 
-See the [release checklist](RELEASING.md#verification-status) for the source covered by the latest checks.
+Keep generated reports in build output or CI artifacts. See the [release checklist](RELEASING.md) for the candidate verification steps.
 
 ## Source and documentation artifacts
 
@@ -82,12 +82,6 @@ Once credentials are available:
 Keep credentials in your private `~/.gradle/gradle.properties` or a secret-managed environment, never project files or command-line token arguments. A destination override uses the same GitHub Maven host and normalizes the repository name to lowercase. Ordinary `build` and `publicationSmokeTest` need no package credentials. `publishVerificationArtifacts` still writes only to `build/repository`; `publishGitHubPackages` targets only the remote registry. Plain `publish` targets every configured publication repository.
 
 Use a new non-SNAPSHOT version for each release. Maven uploads happen per artifact, so a failed run can leave a partially published set; inspect the failed step and package versions before retrying. Snapshots can be published repeatedly. Timed benchmarks and native-image checks remain separately recorded release evidence rather than work repeated by every snapshot deployment.
-
-## Recorded local verification
-
-Local verification on November 16, 2026 passed `build compatibilityTest publicationSmokeTest`: 275 consumer test executions in each metadata mode (550 total), with no failures or skips, plus the main build's test matrix. The modes have separate test inputs so a Gradle-mode result cannot satisfy a POM-mode test from cache.
-
-Verification on November 18, 2026 for the CATNAP dialect and default change passed `build compatibilityTest streamingTest publicationSmokeTest`: 733 consumer test executions in each metadata mode (1,466 total), with no failures, errors, or skips. This is JVM and local-publication evidence; it does not update the earlier timed benchmark or native-image results.
 
 ## Hosted snapshot verification
 

@@ -18,7 +18,7 @@ and bounded NDJSON/SSE helpers. Start with `README.md` and the relevant guide in
 | `build-logic/`, `gradle/`, `catnap-bom/`, `verification/` | Convention plugins, dependency catalog, publication metadata, and independent consumer fixtures |
 | `benchmarks/` | JMH workloads, HTTP measurement servers, and streaming runner |
 | `website/` | Self-contained documentation site: Markdown guides in `content/`, assets, configuration, and build scripts |
-| `docs/`, `brand/` | Historical verification records and original brand assets |
+| `brand/` | Original brand assets and usage guidance |
 
 ## Build and verification
 
@@ -56,8 +56,9 @@ builds are separate workflows; consult `benchmarks/README.md` and
 `website/content/NATIVE_IMAGES.md` when those are relevant.
 
 For documentation-only changes, run the relevant documentation checks instead of
-the JVM suite. Report commands actually run and any failures or checks not run;
-archived evidence under `docs/` is not verification of the current changes.
+the JVM suite. Report commands actually run and any failures or checks not run.
+Keep generated reports, logs, measurements, and source snapshots in ignored build
+directories or CI artifacts; do not commit verification archives to the repository.
 
 ## Architecture and behavior contracts
 
@@ -124,7 +125,7 @@ catalog walkthroughs in `website/content/examples/`. Page registration, navigati
 and the displayed version live in `website/src/config.mjs`; client behavior lives
 in `website/src/`, assets in `website/assets/`, and generation/checking in
 `website/scripts/`. Keep links between site pages relative. Use explicit repository
-URLs for source code and archived evidence; the build must not read outside
+URLs for source code and CI runs; the build must not read outside
 `website/`. Preserve root hosting and project paths such as `/catnap/`. Repository
 and example READMEs are separate entry points, not website build inputs.
 
@@ -142,6 +143,6 @@ code copying, themes, query examples, and navigation at mobile and desktop width
 Use the local website assets and the guidance in `brand/README.md`; preserve font
 license notices when adding fonts.
 Keep generated `website/dist/`, dependency caches, and Gradle build output out of
-commits. Preserve historical benchmark/native/verification records and distinguish
-new measurements from earlier evidence. Update API, query, compatibility, and
-framework guides alongside changes to their documented behavior.
+commits. Link verification claims to the relevant CI run and its artifacts instead
+of adding dated reports or source archives to the documentation. Update API, query,
+compatibility, and framework guides alongside changes to their documented behavior.

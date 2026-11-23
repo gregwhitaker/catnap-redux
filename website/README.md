@@ -48,10 +48,10 @@ For details on the deployment contract, see [GitHub's custom workflow guide](htt
 
 ## Maintain content
 
-- Edit Markdown pages in `content/`. The catalog walkthroughs live in `content/examples/`. Repository READMEs and archived evidence are not build inputs.
+- Edit Markdown pages in `content/`. The catalog walkthroughs live in `content/examples/`. Repository READMEs are separate entry points, not build inputs.
 - Add or reorder pages in `src/config.mjs`; each page has a stable URL, title, summary, and source file.
-- Keep application setup in Installation and the framework guides. Put publishing, release checks, and historical audits in the Maintainers navigation group. Preserve existing page URLs and section anchors when reorganizing content.
-- Keep links between site pages relative; the builder converts them into site URLs and preserves anchors. Use explicit GitHub URLs for repository source and archived evidence. Relative links that leave `website/` are rejected.
+- Keep application setup in Installation and the framework guides. Put publishing and release checks in the Maintainers navigation group. Keep generated verification reports, logs, measurements, and source archives in ignored build output or CI artifacts.
+- Keep links between site pages relative; the builder converts them into site URLs and preserves anchors. Use explicit GitHub URLs for repository source and CI runs. Relative links that leave `website/` are rejected.
 - Change layout in `src/styles.css` and site assets in `assets/`. The logo is `assets/logo.png`; its provenance is recorded in [assets/README.md](assets/README.md). No assets are copied from the parent repository during a build.
 - The version label comes from the `version` export in `src/config.mjs`. Update it and the release availability statements when a release actually ships; the website does not read `gradle.properties`.
 - `GITHUB_REPOSITORY` sets the GitHub source repository (default `gregwhitaker/catnap-redux`). `DOCS_REF` sets the source branch (default `main`); Actions supplies the repository's default branch.

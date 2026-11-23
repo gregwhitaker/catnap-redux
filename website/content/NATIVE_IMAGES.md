@@ -2,7 +2,7 @@
 
 Native tests are separate from ordinary `check`. They exercise the example applications' finite JSON, NDJSON, and JSON-bearing SSE contracts, including configured serializers and dialects, limits, early delivery, event metadata, slow consumers, and cancellation. The native executable is the server under test; JVM augmentation or successful compilation alone does not satisfy this check.
 
-The [November 19 native-image results](https://github.com/gregwhitaker/catnap-redux/blob/main/docs/native/2026-11-19/README.md) verify the CATNAP default and its array predicates, configured CATNAP/LinkedIn dialects, and the catalog examples on macOS AArch64. The [November 16 baseline](https://github.com/gregwhitaker/catnap-redux/blob/main/docs/native/2026-11-16/README.md) remains archived separately; it predates CATNAP predicates.
+Both suites cover the CATNAP default and its array predicates, configured dialects, and the catalog examples. Run them for the source revision and platforms you intend to support.
 
 ## Toolchain and commands
 
@@ -21,7 +21,7 @@ Install GraalVM for JDK 25 with `native-image` and a supported C toolchain. Set 
   :examples:micronaut:nativeTest
 ```
 
-The resource limits above suit a small CI worker; the recorded local run used a 6 GiB compiler heap and four compiler threads. Quick-build mode reduces compiler optimization and is appropriate for correctness verification. These native tests are not native-performance measurements. Quarkus must disable JAR packaging for this native invocation; ordinary JVM builds retain their normal packaging.
+The resource limits above suit a small CI worker; adjust heap and compiler threads to the available resources. Quick-build mode reduces compiler optimization and is appropriate for correctness verification. These native tests are not native-performance measurements. Quarkus must disable JAR packaging for this native invocation; ordinary JVM builds retain their normal packaging.
 
 These commands use [Quarkus's native integration-test task](https://quarkus.io/guides/gradle-tooling/#running-native-tests) and [Micronaut's native JUnit support](https://guides.micronaut.io/latest/micronaut-graalvm-reflection-gradle-java.html). The [Native Build Tools documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin) describes compiler discovery and configuration.
 
@@ -39,10 +39,10 @@ Native-image applications must make their own serialization types reachable usin
 
 Micronaut's examples use generated serialization metadata for their domain models. Catnap's core does not add reflection requirements to its query AST or generic tree evaluator. Native support for one application model does not make arbitrary application serializers or libraries native-compatible.
 
-## Evidence and CI
+## Reports and CI
 
-Local verification uses Oracle GraalVM `25.0.4+7.1` (`25.0.4+7-LTS-jvmci-b01`) on macOS 15.7.4/aarch64 with Apple Clang 17.0.0. The downloaded macOS AArch64 archive has SHA-256 `0b79e23c133facbad2f7aa55a3b76d17bd59d2fa15e2735bb63391ace223fd13`; the installed version is recorded rather than inferred from the moving download URL.
+Local test reports are written under each example's `build/test-results/` and `build/reports/tests/` directories. Keep reports, compiler logs, executable hashes, and any source snapshots in ignored build output or CI artifacts. When sharing results, identify the source commit, actual GraalVM version, C toolchain, operating system, and architecture.
 
-The [November 19 native report](https://github.com/gregwhitaker/catnap-redux/blob/main/docs/native/2026-11-19/README.md) contains 160 passing Quarkus tests and 152 passing Micronaut tests, with no failures, errors, or skipped tests, plus logs, compiler details, executable hashes, and a source snapshot. Each framework passes all 52 catalog cases, including product detail, paginated search, and image/variant predicates. Those dated results describe commit `62eaeb0` plus the recorded Quarkus native-test entrypoint; rerun the commands above after source changes. No native execution claim is made for Spring MVC, WebFlux, or Ktor by these two jobs; their JVM matrix remains separately verified.
+The [Build workflow](https://github.com/gregwhitaker/catnap-redux/blob/main/.github/workflows/ci.yml) has a manual `native_images` input that enables independent Quarkus and Micronaut jobs after ordinary verification. It installs GraalVM 25, prints the actual compiler version, and uploads test reports as `native-quarkus-reports` and `native-micronaut-reports` artifacts. An ordinary push skips these native jobs.
 
-The manual `native_images` workflow input enables independent Quarkus and Micronaut jobs after ordinary verification. It installs GraalVM 25, prints the actual compiler version, and preserves test reports. That workflow has been validated locally as YAML; a hosted Linux run has not been executed from this workspace.
+A passing run covers its tested application models and environment. These two jobs do not establish native execution for Spring MVC, WebFlux, Ktor, or other operating systems.
