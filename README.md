@@ -25,7 +25,7 @@ With `?fields=name,price(amount)`, it returns:
 
 Use Catnap with **Spring MVC, Spring WebFlux, Micronaut, Quarkus, or Ktor**, or [directly with a JSON tree](#use-the-library-directly). NDJSON and server-sent events are supported through [streaming helpers](#streaming).
 
-[Quick start](#quick-start) · [Installation](#installation) · [Query syntax](#query-syntax) · [Examples](website/content/examples/README.md) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
+[Quick start](#quick-start) · [Examples](#examples) · [Installation](#installation) · [Query syntax](#query-syntax) · [Documentation](https://gregwhitaker.github.io/catnap-redux/)
 
 ## Quick start
 
@@ -63,28 +63,20 @@ curl --get 'http://localhost:8080/api/products/trail-pack-28' \
 {"images":[{"url":"https://cdn.example.com/catalog/trail-pack-28/front-medium.webp"}]}
 ```
 
-The [examples guide](website/content/examples/README.md#catalog-workflows) covers product detail, paginated search, and image/variant filtering in every supported framework, with a walkthrough for each app. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
+## Examples
 
-### Rename the fields parameter
+The five HTTP examples serve the same product catalog on port `8080`. Choose a framework to try paginated search, filter product images by size, or stream selected fields over NDJSON and server-sent events. The standalone example projects JSON documents and reads NDJSON from standard input.
 
-To use `select` as the query parameter, restart the Spring MVC example with this setting.
+| Example | Run from the repository root |
+|---|---|
+| [Spring Boot MVC](examples/spring-boot-mvc/README.md) | `./gradlew :examples:spring-boot-mvc:bootRun` |
+| [Spring Boot WebFlux](examples/spring-boot-webflux/README.md) | `./gradlew :examples:spring-boot-webflux:bootRun` |
+| [Micronaut](examples/micronaut/README.md) | `./gradlew :examples:micronaut:run` |
+| [Quarkus](examples/quarkus/README.md) | `./gradlew :examples:quarkus:quarkusDev` |
+| [Ktor](examples/ktor/README.md) | `./gradlew :examples:ktor:run` |
+| [Standalone JSON and NDJSON](examples/README.md#standalone-json) | `./gradlew :examples:standalone:run` |
 
-```bash
-./gradlew :examples:spring-boot-mvc:bootRun --args='--catnap.parameter=select'
-```
-
-In another terminal, request just the product ID and name.
-
-```bash
-curl --get 'http://localhost:8080/api/products/trail-pack-28' \
-  --data-urlencode 'select=id,name'
-```
-
-```json
-{"id":"trail-pack-28","name":"Trail Pack 28L"}
-```
-
-To use `select` on every run, add `catnap.parameter=select` to your Spring Boot application's `application.properties`.
+For sample requests and responses, see the [examples guide](examples/README.md).
 
 ## Installation
 
@@ -135,7 +127,7 @@ A few rules to know:
 
 - Field names match the serialized JSON, including any custom naming rules. Fields hidden by the serializer stay hidden.
 - Missing fields are omitted. Arrays keep their order and item count unless an explicit predicate filters them; an array with no matches remains `[]`.
-- Omitting the configured parameter returns the normal response. Invalid queries and repeated occurrences of that parameter return HTTP 400.
+- Omitting `fields` returns the normal response. Invalid queries and repeated `fields` parameters return HTTP 400.
 - Catnap works on the response JSON. Apply database filtering and access controls in your application.
 
 Google and LinkedIn dialects remain available: set `catnap.dialect=GOOGLE` for Google-style field selection, or `catnap.dialect=LINKEDIN` for queries such as `price:(amount)`. These dialects do not support array predicates. Ktor also exposes the dialect in its installation DSL.

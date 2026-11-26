@@ -68,6 +68,8 @@ curl --get 'http://localhost:8080/api/products/trail-pack-28' \
 {"id":"trail-pack-28","name":"Trail Pack 28L","price":{"amount":119.95,"currency":"USD"}}
 ```
 
+To run the catalog with `select` as its query parameter, see [Rename the fields parameter](../GETTING_STARTED.md#rename-the-fields-parameter).
+
 Search apparel, two products per page:
 
 ```bash

@@ -128,13 +128,13 @@ The query applies independently to each record. Integrations also support JSON-b
 
 ## Rename the fields parameter
 
-All HTTP integrations support `catnap.parameter`. To use `select` in the Spring MVC example, add this setting to `examples/spring-boot-mvc/src/main/resources/application.properties` and restart the app.
+The `catnap.parameter` setting defaults to `fields` in every HTTP integration. To try `select` for one run, restart the Spring MVC example from the repository root.
 
-```properties
-catnap.parameter=select
+```bash
+./gradlew :examples:spring-boot-mvc:bootRun --args='--catnap.parameter=select'
 ```
 
-Use the new name to request just the product ID and name from the catalog example.
+In another terminal, use `select` to request just the product ID and name.
 
 ```bash
 curl --get 'http://localhost:8080/api/products/trail-pack-28' \
@@ -143,6 +143,12 @@ curl --get 'http://localhost:8080/api/products/trail-pack-28' \
 
 ```json
 {"id":"trail-pack-28","name":"Trail Pack 28L"}
+```
+
+To use `select` on every run, add this line to `examples/spring-boot-mvc/src/main/resources/application.properties`.
+
+```properties
+catnap.parameter=select
 ```
 
 In Ktor, the equivalent plugin configuration is `install(Catnap) { parameter = "select" }`. [Ktor configuration](KTOR_INTEGRATION.md#configuration)
