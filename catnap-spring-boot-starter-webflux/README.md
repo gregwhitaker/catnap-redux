@@ -6,13 +6,13 @@ The starter targets **Spring Boot 4 / Jackson 3 on Java 17+**. See the [compatib
 
 ## Install
 
-Configure a repository using the [installation guide](../website/content/INSTALLATION.md). It explains local artifacts for the current source and the scope of the published development snapshot.
+Configure GitHub Packages for Gradle or Maven and choose a published BOM version. For a candidate ahead of publication, use artifacts built from the checkout. [Installation guide](https://gregwhitaker.github.io/catnap-redux/installation/)
 
 Gradle Kotlin DSL:
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
     implementation("com.github.gregwhitaker:catnap-spring-boot-starter-webflux")
 }
 ```
@@ -20,12 +20,16 @@ dependencies {
 Maven, with the repository configured separately:
 
 ```xml
+<properties>
+    <catnap.version>3.0.0-rc.1</catnap.version>
+</properties>
+
 <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.github.gregwhitaker</groupId>
             <artifactId>catnap-bom</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
+            <version>${catnap.version}</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>

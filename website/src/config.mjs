@@ -1,4 +1,4 @@
-export const version = '3.0.0-SNAPSHOT';
+export const version = '3.0.0-rc.1';
 
 export const groups = [
   {

@@ -2,7 +2,7 @@
 
 Catnap 3 is a new major API. It keeps partial response field selection but evaluates the application's serialized JSON tree. Compiled selections are immutable and reusable; HTTP and streaming integrations live in separate modules. Existing Catnap 2 jars, configuration classes, and annotations are not binary-compatible with this implementation.
 
-The legacy baseline is the original repository's [2.3.0 version declaration](https://github.com/gregwhitaker/catnap/blob/master/gradle.properties), [README](https://github.com/gregwhitaker/catnap/blob/master/README.md), and [Spring Boot example](https://github.com/gregwhitaker/catnap/blob/master/catnap-examples/catnap-examples-springboot/src/main/java/catnap/examples/springboot/WidgetApplication.java). The new development version is `3.0.0-SNAPSHOT`; no public release is implied by the examples below.
+The legacy baseline is the original repository's [2.3.0 version declaration](https://github.com/gregwhitaker/catnap/blob/master/gradle.properties), [README](https://github.com/gregwhitaker/catnap/blob/master/README.md), and [Spring Boot example](https://github.com/gregwhitaker/catnap/blob/master/catnap-examples/catnap-examples-springboot/src/main/java/catnap/examples/springboot/WidgetApplication.java). The examples below use the first Catnap 3 release candidate. See [installation](INSTALLATION.md) for GitHub Packages availability and local builds.
 
 ## Dependencies and runtime
 
@@ -19,7 +19,7 @@ Micronaut and Ktor use `catnap-micronaut` and `catnap-ktor`. Keep only the adapt
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
     implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
 }
 ```

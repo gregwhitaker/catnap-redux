@@ -67,13 +67,13 @@ The [examples guide](website/content/examples/README.md#catalog-workflows) cover
 
 ## Installation
 
-Catnap 3 is currently a development snapshot. Use the [installation guide](website/content/INSTALLATION.md) to build the current checkout into local artifacts and configure Gradle or Maven. It also explains GitHub Packages authentication and which published snapshot has been verified.
+Catnap uses **GitHub Packages** for snapshots, release candidates, and stable releases. This checkout prepares `3.0.0-rc.1`. Check the published BOM versions before selecting a dependency. You can also build this checkout locally to try the candidate ahead of publication. [Published BOM](https://github.com/gregwhitaker/catnap-redux/packages/3396941) · [Gradle and Maven installation](website/content/INSTALLATION.md)
 
 Once your repository is configured, import the Catnap BOM to keep module versions aligned and add the integration for your application. For an existing Spring Boot 4 MVC application, add this to `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
     implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
 }
 ```

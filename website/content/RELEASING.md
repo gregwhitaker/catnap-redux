@@ -4,10 +4,10 @@ This is the maintainer checklist for shipping Catnap 3. For application setup, u
 
 ## Prepare the candidate
 
-- [ ] Choose the version and destination. The existing workflow publishes to GitHub Packages. A different destination, such as Maven Central, needs its own publishing configuration and verification.
+- [ ] Choose a version. Publish all 16 libraries and the BOM to `https://maven.pkg.github.com/gregwhitaker/catnap-redux` for snapshots, release candidates, and stable releases.
 - [ ] Include the intended code, tests, and documentation in one candidate commit. Record its full SHA.
 - [ ] Review the [changelog](https://github.com/gregwhitaker/catnap-redux/blob/main/CHANGELOG.md) and [migration guide](MIGRATION.md), including the CATNAP default, predicate syntax, Java baselines, and framework requirements.
-- [ ] Ensure installation snippets and the website's version label describe the intended version. The website's version is set in `website/src/config.mjs`. The publish workflow's `-Pversion` override does not update that value, `gradle.properties`, or Markdown examples.
+- [ ] Set the checkout version in `gradle.properties` and the website version in `website/src/config.mjs`. Update the README and guide examples to match. Both Spring starters stamp their bundled install examples with the actual publication version, including a workflow override.
 - [ ] Scope native and performance claims to the candidate's verified platforms and workloads. Run fresh checks when source, dependencies, or the environment change.
 
 ## Verify the candidate
@@ -36,7 +36,7 @@ npm run check
 
 ## Publish and verify consumption
 
-- [ ] Publish the candidate through [Publish GitHub Packages](PUBLICATION.md#publish-to-github-packages), using a unique non-SNAPSHOT version such as `3.0.0-rc.1`.
+- [ ] Publish the candidate once, using a unique non-SNAPSHOT version such as `3.0.0-rc.1`. Use either a manual run of [Publish GitHub Packages](PUBLICATION.md#publish-to-github-packages) or a published GitHub pre-release tagged `v3.0.0-rc.1`.
 - [ ] Require both fresh remote-consumer jobs to pass: Gradle module metadata and Maven POM only. Confirm the run's source SHA, version, and all expected library/BOM artifacts.
 - [ ] For the final release, use a new version and matching tag, update the changelog and installation availability, and publish through the same verified workflow. Publishing a GitHub Release triggers package upload; creating only a tag does not.
 - [ ] Check the documentation deployment and include links to the release, publication run, and relevant CI artifacts in the release notes.

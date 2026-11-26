@@ -6,11 +6,11 @@ The artifact targets Java 17 and has no third-party runtime dependencies. JSON f
 
 ## Add the test dependency
 
-Configure a repository containing the development artifacts as described in [installation](../README.md#installation), then add:
+Configure GitHub Packages for the published version, or build the checkout locally. See the [installation guide](../website/content/INSTALLATION.md).
 
 ```kotlin
 dependencies {
-    testImplementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    testImplementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
     testImplementation("com.github.gregwhitaker:catnap-testkit")
 }
 ```

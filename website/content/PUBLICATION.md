@@ -4,7 +4,7 @@ This guide is for maintainers verifying and publishing Catnap artifacts. To add 
 
 ## Publication contents
 
-Catnap publishes under `com.github.gregwhitaker`. The [publication manifest](https://github.com/gregwhitaker/catnap-redux/blob/main/gradle/published-modules.txt) lists 16 libraries and the BOM. The BOM aligns Catnap versions and imports no framework BOM. Examples, benchmarks, and build conventions are not production publications.
+GitHub Packages is the release registry for all Catnap snapshots, release candidates, and stable versions under `com.github.gregwhitaker`. The [publication manifest](https://github.com/gregwhitaker/catnap-redux/blob/main/gradle/published-modules.txt) lists 16 libraries and the BOM. The BOM aligns Catnap versions and imports no framework BOM. Examples, benchmarks, and build conventions are not production publications.
 
 `catnap-testkit` packages conformance fixtures and shared HTTP/streaming contracts for integration authors. The Quarkus runtime descriptor identifies the separate `catnap-quarkus-deployment` artifact; applications declare only `catnap-quarkus`.
 
@@ -54,7 +54,7 @@ The shared publishing convention registers `GitHubPackages` at `https://maven.pk
 
 The [Publish GitHub Packages workflow](https://github.com/gregwhitaker/catnap-redux/blob/main/.github/workflows/publish.yml) supports two triggers:
 
-- **GitHub Release:** publish a release with a tag such as `v3.0.0` or `v3.0.0-rc.1`. The workflow removes the optional `v` and supplies that Maven version to both verification and publication. It does not change the development version in `gradle.properties`. Release events reject `-SNAPSHOT` versions.
+- Publishing a **GitHub Release** triggers publication for tags such as `v3.0.0` or `v3.0.0-rc.1`. The workflow removes the optional `v` and uses the tag version for verification and publication. Use a manual run for a `-SNAPSHOT` version.
 - **Manual run:** choose **Actions → Publish GitHub Packages → Run workflow**, select the branch/tag to build, and enter a Maven version such as `3.0.0-SNAPSHOT`. The workflow file must be present on the repository's default branch for manual dispatch to appear.
 
 Both paths run `build`, `compatibilityTest`, independent Gradle/POM consumers, and the five-framework streaming smoke suite at the exact publication version before uploading. The workflow serializes publication runs and uses the repository's automatic `GITHUB_TOKEN` with `contents: read` and `packages: write`. No PAT secret is needed to publish to the workflow repository. Checkout does not persist Git credentials. Verification reports and publication metadata are retained as workflow artifacts.
@@ -98,7 +98,7 @@ The workflow's `github-packages-consumers-gradle` and `github-packages-consumers
 
 ## Use locally built artifacts
 
-The [local installation instructions](INSTALLATION.md#use-locally-built-artifacts) explain how to publish the checkout to `build/repository` and configure an independent application. They include complete [Gradle](INSTALLATION.md#gradle) and [Maven](INSTALLATION.md#maven) examples.
+The [local installation instructions](INSTALLATION.md#use-locally-built-artifacts) explain how to publish the checkout to `build/repository` and use that directory in the Gradle or Maven setup.
 
 ## Consume packages from GitHub
 

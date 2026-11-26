@@ -49,7 +49,7 @@ spotless {
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }
     kotlin {
-        target("verification/**/src/**/*.kt")
+        target("build-logic/*/src/**/*.kt", "verification/**/src/**/*.kt")
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }
     java {

@@ -157,7 +157,7 @@ export async function buildSite(options = {}) {
       <button class="icon-button menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-navigation" aria-expanded="false">${icon('menu')}</button>
     </div>
   </header>
-  <aside class="sidebar"><a class="version" href="${url('releasing')}"><span class="status-dot"></span>${escape(version)}<span class="version-caption">Development</span></a>${navigation(page.slug)}<div class="sidebar-footer">Small responses. Rest easy.</div></aside>
+  <aside class="sidebar"><a class="version" href="${url('installation')}"><span class="status-dot"></span>${escape(version)}<span class="version-caption">Installation</span></a>${navigation(page.slug)}<div class="sidebar-footer">Small responses. Rest easy.</div></aside>
   <dialog id="mobile-navigation" class="mobile-navigation" aria-label="Documentation navigation"><div class="mobile-nav-heading"><strong>Documentation</strong><button class="icon-button close-menu" type="button" aria-label="Close navigation">${icon('close')}</button></div>${navigation(page.slug)}</dialog>
   <div class="page-layout ${page.slug === '' ? 'home-layout' : ''}">
     <main id="main" tabindex="-1">${content}<footer class="page-footer"><span>Catnap · Apache 2.0</span><a href="${sourceUrl('LICENSE.txt')}">License ${icon('external')}</a><a href="${github}">Source ${icon('external')}</a></footer></main>
@@ -186,7 +186,7 @@ export async function buildSite(options = {}) {
       <section class="integrations-section" aria-labelledby="integrations-title"><div class="section-heading"><div><span class="section-kicker">FITS RIGHT IN</span><h2 id="integrations-title">Your stack. Your serialization.</h2></div><a class="text-link" href="${url('compatibility')}">Compatibility ${icon('arrow')}</a></div><p class="section-description">Independent adapters work at your framework’s JSON boundary.</p><div class="integration-list">${[
         ['spring', 'S', 'Spring', 'MVC & WebFlux', 'spring'], ['micronaut', 'μ', 'Micronaut', 'Native JsonMapper', 'micronaut'], ['quarkus', 'Q', 'Quarkus', 'REST & Jackson 2', 'quarkus'], ['ktor', 'K', 'Ktor', 'Coroutines & Flow', 'ktor'],
       ].map(([slug, mark, title, description, style]) => `<a class="integration" href="${url(slug)}"><span class="framework-mark ${style}" aria-hidden="true">${mark}</span><span><strong>${title}</strong><small>${description}</small></span>${icon('arrow')}</a>`).join('')}</div><a class="standalone-link" href="${url('json-bindings')}">No framework? Use Jackson 2, Jackson 3, or Kotlin serialization directly. ${icon('arrow')}</a></section>
-      <aside class="snapshot-note">${icon('info')}<div><strong>A fresh start for Catnap.</strong><p>You’re reading the ${escape(version)} docs. This is a new major JVM API, currently in development. <a href="${url('migration')}">Coming from v2? Start here ${icon('arrow')}</a></p></div></aside>
+      <aside class="snapshot-note">${icon('info')}<div><strong>Migrating from Catnap 2?</strong><p>Catnap 3 changes the JVM API, Spring integration, and predicate syntax. <a href="${url('migration')}">Read the migration guide ${icon('arrow')}</a></p></div></aside>
     </div>`;
   }
 

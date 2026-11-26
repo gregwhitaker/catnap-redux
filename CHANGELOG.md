@@ -3,9 +3,10 @@
 Notable changes to Catnap are recorded here, newest first. This history starts with
 the Catnap 3 rewrite.
 
-## Unreleased
+## 3.0.0-rc.1
 
-Development version: `3.0.0-SNAPSHOT`.
+This first release candidate of the Catnap 3 rewrite targets GitHub Packages.
+The [installation guide](website/content/INSTALLATION.md) tracks artifact availability.
 
 ### Added
 

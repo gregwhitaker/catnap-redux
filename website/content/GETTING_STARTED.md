@@ -98,7 +98,7 @@ Configure the repository using the [installation guide](INSTALLATION.md), then a
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-SNAPSHOT"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
     implementation("com.github.gregwhitaker:catnap-jackson3")
 }
 ```

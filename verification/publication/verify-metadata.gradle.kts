@@ -15,6 +15,15 @@ tasks.register("verifyPublicationMetadata") {
                 .newDocumentBuilder()
         fun File.one(suffix: String): File = listFiles()!!.single { it.name.endsWith(suffix) }
         fun Any?.objectMap(): Map<*, *> = this as Map<*, *>
+        fun JarFile.verifyGuide(path: String, vararg required: String) {
+            val entry = getJarEntry(path) ?: error("Missing $path in $name")
+            val text = getInputStream(entry).bufferedReader().use { it.readText() }
+            for (snippet in required) {
+                check(snippet in text) { "$path in $name is missing $snippet" }
+            }
+        }
+        val gradleBom = "com.github.gregwhitaker:catnap-bom:$version\""
+        val mavenBom = "<catnap.version>$version</catnap.version>"
         for (module in modules + "catnap-bom") {
             val directory = repository.resolve("com/github/gregwhitaker/$module/$version")
             check(directory.isDirectory) { "Missing publication $module" }
@@ -90,21 +99,30 @@ tasks.register("verifyPublicationMetadata") {
             val starter =
                 module in listOf("catnap-spring-boot-starter", "catnap-spring-boot-starter-webflux")
             JarFile(directory.one("-sources.jar")).use { jar ->
-                val names = jar.entries().asSequence().map { it.name }.toList()
-                check(
-                    if (starter) "README.md" in names
-                    else names.any { it.endsWith(".java") || it.endsWith(".kt") }
-                ) {
-                    "Empty sources: $module"
+                if (starter) {
+                    jar.verifyGuide("README.md", gradleBom, mavenBom)
+                } else {
+                    check(
+                        jar.entries().asSequence().any {
+                            it.name.endsWith(".java") || it.name.endsWith(".kt")
+                        }
+                    ) {
+                        "Empty sources: $module"
+                    }
                 }
             }
             JarFile(directory.one("-javadoc.jar")).use { jar ->
                 val names = jar.entries().asSequence().map { it.name }.toList()
                 check("index.html" in names) { "Missing documentation index: $module" }
-                if (!starter)
+                if (starter) {
+                    jar.verifyGuide("index.html", gradleBom)
+                    jar.verifyGuide("SPRING_INTEGRATION.md", gradleBom)
+                    jar.verifyGuide("INSTALLATION.md", gradleBom, mavenBom)
+                } else {
                     check(names.count { it.endsWith(".html") } > 3) {
                         "Empty API documentation: $module"
                     }
+                }
                 if (module == "catnap-kotlinx-json")
                     check(names.any { it.endsWith("/-kotlinx-json/index.html") })
                 if (module == "catnap-ktor")

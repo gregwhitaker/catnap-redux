@@ -1,11 +1,8 @@
+import catnap.buildlogic.bundleSpringStarterGuides
+
 plugins { id("catnap.publishing") }
 
-tasks.named<Jar>("sourcesJar") { from("README.md") }
-
-tasks.named<Jar>("javadocJar") {
-    from("publication-docs")
-    from(rootProject.file("website/content/SPRING_INTEGRATION.md"))
-}
+bundleSpringStarterGuides()
 
 dependencies {
     api(project(":catnap-spring-boot-autoconfigure"))
