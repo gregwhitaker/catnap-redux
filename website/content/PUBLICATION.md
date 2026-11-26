@@ -83,6 +83,10 @@ Keep credentials in your private `~/.gradle/gradle.properties` or a secret-manag
 
 Use a new non-SNAPSHOT version for each release. Maven uploads happen per artifact, so a failed run can leave a partially published set; inspect the failed step and package versions before retrying. Snapshots can be published repeatedly. Timed benchmarks and native-image checks remain separately recorded release evidence rather than work repeated by every snapshot deployment.
 
+## Hosted stable release verification
+
+The `v3.0.0` tag identifies commit `27bde8a`. The release workflow publishes all 16 libraries and the BOM at `3.0.0`, then builds and tests independent consumers against GitHub Packages using Gradle module metadata and Maven POMs. The run includes the test reports for both modes. [Stable release](https://github.com/gregwhitaker/catnap-redux/releases/tag/v3.0.0) · [Publication and consumer checks](https://github.com/gregwhitaker/catnap-redux/actions/runs/45866463887)
+
 ## Hosted release candidate verification
 
 GitHub Packages hosts all 16 libraries and the BOM at `3.0.0-rc.1` from commit `a06d0a7`. Fresh Gradle module metadata and Maven POM consumers each passed 995 tests with zero failures, errors, or skips. [Pre-release](https://github.com/gregwhitaker/catnap-redux/releases/tag/v3.0.0-rc.1) · [Publication run](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652) · [Gradle consumer](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652/job/140050454774) · [POM consumer](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652/job/140050454309)
@@ -106,4 +110,4 @@ The [local installation instructions](INSTALLATION.md#use-locally-built-artifact
 
 ## Consume packages from GitHub
 
-The release candidate includes CATNAP predicates and the catalog examples. For the repository declaration, credentials, and available versions, see [GitHub Packages installation](INSTALLATION.md#consume-packages-from-github).
+For the stable BOM coordinates, repository declaration, and credentials, see [GitHub Packages installation](INSTALLATION.md#consume-packages-from-github).

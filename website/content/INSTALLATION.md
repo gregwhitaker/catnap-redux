@@ -2,9 +2,7 @@
 
 Add the Catnap integration for your framework, or a JSON binding for standalone use. Import the Catnap BOM to keep its modules on the same version. The [compatibility matrix](COMPATIBILITY.md) lists the tested framework and serializer versions; general-purpose libraries require Java 17+, and Micronaut requires Java 25.
 
-Catnap distributes snapshots, release candidates, and stable releases through **GitHub Packages**. Choose a BOM version with a successful upload and both remote consumer checks. [Published BOM versions](https://github.com/gregwhitaker/catnap-redux/packages/3396941) · [Publication runs](https://github.com/gregwhitaker/catnap-redux/actions/workflows/publish.yml)
-
-The examples use the checkout version, `3.0.0`. Until the stable release is published, substitute `3.0.0-rc.1` for the BOM version when installing from GitHub Packages. To test `3.0.0` now, build the artifacts locally. [Verified release candidate](PUBLICATION.md#hosted-release-candidate-verification) · [Local artifacts](#use-locally-built-artifacts)
+Catnap distributes snapshots, release candidates, and stable releases through **GitHub Packages**. The Gradle and Maven examples below use the stable `3.0.0` BOM. [Published BOM](https://github.com/gregwhitaker/catnap-redux/packages/3396941?version=3.0.0) · [Stable release verification](PUBLICATION.md#hosted-stable-release-verification) · [Locally built artifacts](#use-locally-built-artifacts)
 
 ## Choose a module
 

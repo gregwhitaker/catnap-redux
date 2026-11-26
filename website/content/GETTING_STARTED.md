@@ -125,3 +125,24 @@ curl --no-buffer --get 'http://localhost:8080/catnap/stream/ndjson' \
 ```
 
 The query applies independently to each record. Integrations also support JSON-bearing server-sent events through their explicit helpers. Read [streaming](STREAMING.md) before connecting an unbounded source.
+
+## Rename the fields parameter
+
+All HTTP integrations support `catnap.parameter`. To use `select` in the Spring MVC example, add this setting to `examples/spring-boot-mvc/src/main/resources/application.properties` and restart the app.
+
+```properties
+catnap.parameter=select
+```
+
+Use the new name to request just the product ID and name from the catalog example.
+
+```bash
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'select=id,name'
+```
+
+```json
+{"id":"trail-pack-28","name":"Trail Pack 28L"}
+```
+
+In Ktor, the equivalent plugin configuration is `install(Catnap) { parameter = "select" }`. [Ktor configuration](KTOR_INTEGRATION.md#configuration)

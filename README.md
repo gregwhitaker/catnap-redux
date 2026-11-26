@@ -65,9 +65,30 @@ curl --get 'http://localhost:8080/api/products/trail-pack-28' \
 
 The [examples guide](website/content/examples/README.md#catalog-workflows) covers product detail, paginated search, and image/variant filtering in every supported framework, with a walkthrough for each app. To try Catnap without an HTTP server, run `./gradlew :examples:standalone:run` from the checkout.
 
+### Rename the fields parameter
+
+To use `select` as the query parameter, restart the Spring MVC example with this setting.
+
+```bash
+./gradlew :examples:spring-boot-mvc:bootRun --args='--catnap.parameter=select'
+```
+
+In another terminal, request just the product ID and name.
+
+```bash
+curl --get 'http://localhost:8080/api/products/trail-pack-28' \
+  --data-urlencode 'select=id,name'
+```
+
+```json
+{"id":"trail-pack-28","name":"Trail Pack 28L"}
+```
+
+To use `select` on every run, add `catnap.parameter=select` to your Spring Boot application's `application.properties`.
+
 ## Installation
 
-Catnap distributes its libraries and BOM through **GitHub Packages**. This checkout and the examples below use `3.0.0`. Until the stable release is published, use `3.0.0-rc.1` for the BOM version when installing from GitHub Packages, or build `3.0.0` locally. [Published BOM versions](https://github.com/gregwhitaker/catnap-redux/packages/3396941) · [Gradle and Maven installation](website/content/INSTALLATION.md)
+Catnap distributes its libraries and BOM through **GitHub Packages**. Use BOM version `3.0.0` for the stable release. [Published BOM](https://github.com/gregwhitaker/catnap-redux/packages/3396941?version=3.0.0) · [Gradle and Maven installation](website/content/INSTALLATION.md)
 
 Once your repository is configured, import the Catnap BOM to keep module versions aligned and add the integration for your application. For an existing Spring Boot 4 MVC application, add this to `build.gradle.kts`:
 
@@ -114,7 +135,7 @@ A few rules to know:
 
 - Field names match the serialized JSON, including any custom naming rules. Fields hidden by the serializer stay hidden.
 - Missing fields are omitted. Arrays keep their order and item count unless an explicit predicate filters them; an array with no matches remains `[]`.
-- Omitting `fields` returns the normal response. Invalid queries and repeated `fields` parameters return HTTP 400.
+- Omitting the configured parameter returns the normal response. Invalid queries and repeated occurrences of that parameter return HTTP 400.
 - Catnap works on the response JSON. Apply database filtering and access controls in your application.
 
 Google and LinkedIn dialects remain available: set `catnap.dialect=GOOGLE` for Google-style field selection, or `catnap.dialect=LINKEDIN` for queries such as `price:(amount)`. These dialects do not support array predicates. Ktor also exposes the dialect in its installation DSL.
@@ -172,4 +193,16 @@ See [extending Catnap](website/content/EXTENDING.md) for new integrations, [publ
 
 ## License
 
-Catnap is licensed under the [Apache License 2.0](LICENSE.txt).
+Copyright 2026 Greg Whitaker
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
