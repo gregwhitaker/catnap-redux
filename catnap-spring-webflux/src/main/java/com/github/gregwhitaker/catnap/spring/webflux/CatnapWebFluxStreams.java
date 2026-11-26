@@ -19,7 +19,6 @@ import org.reactivestreams.Publisher;
 import org.springframework.core.ResolvableType;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferFactory;
-import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,8 +29,8 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.Exceptions;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
-import reactor.core.publisher.Sinks;
 import tools.jackson.core.StreamReadConstraints;
 import tools.jackson.core.json.JsonFactory;
 import tools.jackson.databind.json.JsonMapper;
@@ -276,20 +275,17 @@ public final class CatnapWebFluxStreams {
     }
   }
 
-  /** No source prefetch: request another logical group only after the current group is consumed. */
+  /** Pull one source record for each writable group, after the preceding body has been consumed. */
   static Flux<Publisher<? extends DataBuffer>> paced(
       Publisher<? extends Publisher<? extends DataBuffer>> groups) {
-    return Flux.from(groups)
-        .concatMap(
-            group -> {
-              Sinks.One<Void> consumed = Sinks.one();
-              Publisher<? extends DataBuffer> body =
-                  Flux.from(group)
-                      .doOnDiscard(DataBuffer.class, DataBufferUtils::release)
-                      .doFinally(signal -> consumed.tryEmitEmpty());
-              return Flux.concat(Mono.just(body), consumed.asMono().then(Mono.empty()));
-            },
-            0);
+    return Flux.create(
+        sink -> {
+          var writer = new WriteGroupSubscriber(sink);
+          sink.onCancel(writer);
+          sink.onRequest(writer::grant);
+          Flux.from(groups).subscribe(writer);
+        },
+        FluxSink.OverflowStrategy.ERROR);
   }
 
   private static Throwable publicFailure(Throwable failure) {

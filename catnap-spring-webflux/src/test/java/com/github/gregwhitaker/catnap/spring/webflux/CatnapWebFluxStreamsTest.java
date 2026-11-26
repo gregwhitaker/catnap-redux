@@ -6,23 +6,79 @@ import com.github.gregwhitaker.catnap.http.ProjectionService;
 import com.github.gregwhitaker.catnap.http.ProjectionSettings;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscription;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 import org.springframework.mock.http.server.reactive.MockServerHttpRequest;
 import org.springframework.mock.web.server.MockServerWebExchange;
 import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.BaseSubscriber;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
 
 class CatnapWebFluxStreamsTest {
   @Test
-  void transportPrefetchCannotPrepareAnotherGroupUntilTheCurrentGroupIsConsumed() {
+  void aDrainedWriteWindowLeavesNoUnrequestedRecordAtTheSource() {
+    var prepared = new ArrayList<Integer>();
+    var delivered = new ArrayList<Integer>();
+    var groups = new ArrayList<Publisher<? extends DataBuffer>>();
+    var completed = new AtomicBoolean();
+    var transport =
+        new BaseSubscriber<Publisher<? extends DataBuffer>>() {
+          @Override
+          protected void hookOnSubscribe(Subscription subscription) {}
+
+          @Override
+          protected void hookOnNext(Publisher<? extends DataBuffer> group) {
+            groups.add(group);
+          }
+        };
+    try {
+      CatnapWebFluxStreams.paced(
+              Flux.range(1, 3)
+                  .map(
+                      number -> {
+                        prepared.add(number);
+                        return Mono.fromSupplier(
+                            () ->
+                                DefaultDataBufferFactory.sharedInstance.wrap(
+                                    new byte[] {number.byteValue()}));
+                      }))
+          .doOnComplete(() -> completed.set(true))
+          .subscribe(transport);
+      assertTrue(prepared.isEmpty());
+      for (int number = 1; number <= 3; number++) {
+        transport.request(1);
+        assertEquals(number, groups.size());
+        assertFalse(completed.get());
+        Flux.from(groups.get(number - 1))
+            .doOnNext(
+                buffer -> {
+                  delivered.add((int) buffer.read());
+                  DataBufferUtils.release(buffer);
+                })
+            .blockLast();
+        assertEquals(
+            delivered,
+            prepared,
+            "Draining the granted window must account for every source record");
+      }
+      assertEquals(List.of(1, 2, 3), delivered);
+      assertTrue(completed.get(), "Completion must not need another request");
+    } finally {
+      transport.dispose();
+    }
+  }
+
+  @Test
+  void transportPrefetchOnlyPullsTheNextRecordWhenItsWriteGroupIsRead() {
     var count = new AtomicInteger();
     var cancelled = new AtomicBoolean();
     var received = new ArrayList<Publisher<? extends DataBuffer>>();
@@ -40,6 +96,21 @@ class CatnapWebFluxStreamsTest {
     assertEquals(1, count.get());
     assertEquals(1, received.size());
     Flux.from(received.get(0)).doOnNext(DataBufferUtils::release).blockLast();
+    assertEquals(2, received.size(), "Transport can prefetch the next flush group");
+    assertEquals(1, count.get(), "An unopened write group must not pull a source record");
+    var slowWriter =
+        new BaseSubscriber<DataBuffer>() {
+          @Override
+          protected void hookOnSubscribe(Subscription subscription) {}
+
+          @Override
+          protected void hookOnNext(DataBuffer buffer) {
+            DataBufferUtils.release(buffer);
+          }
+        };
+    Flux.from(received.get(1)).subscribe(slowWriter);
+    assertEquals(1, count.get(), "Opening the group must wait for buffer demand");
+    slowWriter.request(1);
     assertEquals(2, count.get());
     pending.dispose();
     assertTrue(cancelled.get());

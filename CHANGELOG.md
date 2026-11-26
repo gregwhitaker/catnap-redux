@@ -66,6 +66,9 @@ The [installation guide](website/content/INSTALLATION.md) tracks artifact availa
 
 ### Fixed
 
+- WebFlux NDJSON and SSE now pull each record after the first when the HTTP writer
+  requests its data. A prefetched flush group can wait for a slow reader without
+  consuming an extra source record.
 - Micronaut streaming direct-memory failures from synchronous sources through a
   bounded asynchronous handoff.
 - Gradle startup from Java 17 launchers by selecting a Java 25 build daemon,
