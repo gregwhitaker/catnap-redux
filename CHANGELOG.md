@@ -3,10 +3,21 @@
 Notable changes to Catnap are recorded here, newest first. This history starts with
 the Catnap 3 rewrite.
 
+## 3.0.0 (unreleased)
+
+Catnap 3 lets clients select JSON fields and filter array items using the application's
+configured serializer. It includes standalone JSON bindings and HTTP integrations for
+Spring MVC, Spring WebFlux, Micronaut, Quarkus, and Ktor. Import the Catnap BOM to align
+module versions. [Installation](website/content/INSTALLATION.md)
+
+Applications upgrading from Catnap 2 need to update their dependencies and migrate
+legacy predicates. General-purpose libraries require Java 17 or newer. The Micronaut
+integration requires Java 25. [Migration guide](website/content/MIGRATION.md)
+
 ## 3.0.0-rc.1
 
-This first release candidate of the Catnap 3 rewrite targets GitHub Packages.
-The [installation guide](website/content/INSTALLATION.md) tracks artifact availability.
+The first release candidate is available on GitHub Packages.
+[Pre-release and verification results](https://github.com/gregwhitaker/catnap-redux/releases/tag/v3.0.0-rc.1)
 
 ### Added
 

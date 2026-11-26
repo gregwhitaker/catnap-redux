@@ -6,13 +6,13 @@ The starter targets **Spring Boot 4 / Jackson 3 on Java 17+**. See the [compatib
 
 ## Install
 
-Configure GitHub Packages for Gradle or Maven and choose a published BOM version. For a candidate ahead of publication, use artifacts built from the checkout. [Installation guide](https://gregwhitaker.github.io/catnap-redux/installation/)
+Choose a published BOM version for GitHub Packages, or use the checkout version with locally built artifacts. [Installation guide](https://gregwhitaker.github.io/catnap-redux/installation/)
 
 Gradle Kotlin DSL:
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0"))
     implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
 }
 ```
@@ -21,7 +21,7 @@ Maven, with the repository configured separately:
 
 ```xml
 <properties>
-    <catnap.version>3.0.0-rc.1</catnap.version>
+    <catnap.version>3.0.0</catnap.version>
 </properties>
 
 <dependencyManagement>

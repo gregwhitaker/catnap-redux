@@ -16,7 +16,7 @@ From the repository root, substituting the chosen version:
 
 ```bash
 ./gradlew build compatibilityTest publicationSmokeTest \
-  :benchmarks:streaming-runner:smoke -Pversion=3.0.0-rc.1
+  :benchmarks:streaming-runner:smoke -Pversion=3.0.0
 ```
 
 Run the documentation checks from `website/`:

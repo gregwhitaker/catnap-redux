@@ -10,7 +10,7 @@ Configure GitHub Packages for the published version, or build the checkout local
 
 ```kotlin
 dependencies {
-    testImplementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
+    testImplementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0"))
     testImplementation("com.github.gregwhitaker:catnap-testkit")
 }
 ```

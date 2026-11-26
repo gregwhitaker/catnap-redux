@@ -10,7 +10,7 @@ Configure a repository using the [installation guide](INSTALLATION.md), then add
 
 ```kotlin
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0"))
     implementation("com.github.gregwhitaker:catnap-ktor")
 }
 ```

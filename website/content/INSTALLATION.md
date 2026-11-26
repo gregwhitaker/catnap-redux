@@ -4,7 +4,7 @@ Add the Catnap integration for your framework, or a JSON binding for standalone 
 
 Catnap distributes snapshots, release candidates, and stable releases through **GitHub Packages**. Choose a BOM version with a successful upload and both remote consumer checks. [Published BOM versions](https://github.com/gregwhitaker/catnap-redux/packages/3396941) · [Publication runs](https://github.com/gregwhitaker/catnap-redux/actions/workflows/publish.yml)
 
-The November 16 snapshot predates the CATNAP query dialect and catalog examples. To try the candidate ahead of its upload, run the example from source or build the artifacts locally. [Quickstart](GETTING_STARTED.md) · [Local artifacts](#use-locally-built-artifacts) · [Snapshot verification](PUBLICATION.md#hosted-snapshot-verification)
+The examples use the checkout version, `3.0.0`. Until the stable release is published, substitute `3.0.0-rc.1` for the BOM version when installing from GitHub Packages. To test `3.0.0` now, build the artifacts locally. [Verified release candidate](PUBLICATION.md#hosted-release-candidate-verification) · [Local artifacts](#use-locally-built-artifacts)
 
 ## Choose a module
 
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0-rc.1"))
+    implementation(platform("com.github.gregwhitaker:catnap-bom:3.0.0"))
     implementation("com.github.gregwhitaker:catnap-spring-boot-starter")
 }
 ```
@@ -77,7 +77,7 @@ In `pom.xml`, add the repository, import the BOM, and declare the module for you
 
 ```xml
 <properties>
-    <catnap.version>3.0.0-rc.1</catnap.version>
+    <catnap.version>3.0.0</catnap.version>
 </properties>
 
 <repositories>

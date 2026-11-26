@@ -83,6 +83,10 @@ Keep credentials in your private `~/.gradle/gradle.properties` or a secret-manag
 
 Use a new non-SNAPSHOT version for each release. Maven uploads happen per artifact, so a failed run can leave a partially published set; inspect the failed step and package versions before retrying. Snapshots can be published repeatedly. Timed benchmarks and native-image checks remain separately recorded release evidence rather than work repeated by every snapshot deployment.
 
+## Hosted release candidate verification
+
+GitHub Packages hosts all 16 libraries and the BOM at `3.0.0-rc.1` from commit `a06d0a7`. Fresh Gradle module metadata and Maven POM consumers each passed 995 tests with zero failures, errors, or skips. [Pre-release](https://github.com/gregwhitaker/catnap-redux/releases/tag/v3.0.0-rc.1) · [Publication run](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652) · [Gradle consumer](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652/job/140050454774) · [POM consumer](https://github.com/gregwhitaker/catnap-redux/actions/runs/45857742652/job/140050454309)
+
 ## Hosted snapshot verification
 
 On November 16, 2026, [publication run 43980107514](https://github.com/gregwhitaker/catnap-redux/actions/runs/43980107514) published `3.0.0-SNAPSHOT` from commit `853ef009e0389585eaa5303ed854094c6b1ca66d` to `https://maven.pkg.github.com/gregwhitaker/catnap-redux`. All 16 library publications and the BOM uploaded successfully after the full build, compatibility matrix, local publication consumers, and streaming smoke suite passed.
@@ -102,4 +106,4 @@ The [local installation instructions](INSTALLATION.md#use-locally-built-artifact
 
 ## Consume packages from GitHub
 
-See [GitHub Packages installation](INSTALLATION.md#consume-packages-from-github) for the repository declaration and consumer credentials. Choose a published version whose source includes the features needed by the application; the recorded snapshot above predates CATNAP predicates.
+The release candidate includes CATNAP predicates and the catalog examples. For the repository declaration, credentials, and available versions, see [GitHub Packages installation](INSTALLATION.md#consume-packages-from-github).
