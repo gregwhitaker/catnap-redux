@@ -28,7 +28,7 @@ The copied examples intentionally reuse the shared contract tests. Their Catnap 
 
 Consumers compile all three dialects, evaluate CATNAP predicates through a consumer-owned tree adapter and all three published JSON bindings, and read the predicate corpus from the published testkit JAR. They also verify that the published HTTP defaults enable CATNAP predicates and that the example applications accept predicates without a dialect override. Google and LinkedIn remain explicit options.
 
-The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Their separate test inputs prevent a Gradle-mode result from satisfying a POM-mode test from cache. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
+The two builds keep their own test reports under `build/publication-smoke/{gradle,pom}/**/build/reports/tests`. Each test records the Catnap version, metadata mode, and repository as inputs, so switching from a snapshot to a candidate runs the tests for that candidate. Updating a source or publication reruns the affected work. Snapshot dependency caches are refreshed on each resolution. To publish without running consumers, use `./gradlew publishVerificationArtifacts`.
 
 Keep generated reports in build output or CI artifacts. See the [release checklist](RELEASING.md) for the candidate verification steps.
 

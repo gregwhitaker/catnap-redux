@@ -32,6 +32,7 @@ subprojects {
         add("testRuntimeOnly", "org.junit.platform:junit-platform-launcher")
     }
     tasks.withType<Test>().configureEach {
+        inputs.property("publicationVersion", catnapVersion)
         inputs.property("publicationMetadataMode", providers.gradleProperty("metadataMode"))
         inputs.property("publicationRepository", providers.gradleProperty("catnapRepository"))
         useJUnitPlatform()
